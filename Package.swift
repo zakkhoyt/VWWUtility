@@ -13,6 +13,11 @@ let swiftSettings: [SwiftSetting] = [
     .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"])
 ]
 
+#warning("TODO: @zakkhoyt - Update iOS/MacOS")
+#warning("TODO: @zakkhoyt - Add TerminalUtils package")
+#warning("TODO: @zakkhoyt - Import utils from other code")
+#warning("TODO: @zakkhoyt - Add linting/formatting tools/plugins")
+
 let package = Package(
     name: "VWWUtility",
     platforms: [
@@ -33,15 +38,10 @@ let package = Package(
             name: "Nodes",
             targets: ["Nodes"]
         ),
-        // ,
          .library(
              name: "VWWUtility",
              targets: ["VWWUtility"]
          ),
-        // .library(
-        //     name: "WaveSynthesizerUI",
-        //     targets: ["WaveSynthesizerUI"]
-        // )
     ],
     dependencies: [
         .package(
