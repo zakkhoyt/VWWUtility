@@ -1,4 +1,0 @@
-module WaveSynthesizerUI {
-    header "/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/WaveSynthesizerUI.build/WaveSynthesizerUI-Swift.h"
-    requires objc
-}
