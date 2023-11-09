@@ -32,12 +32,12 @@ let package = Package(
         .library(
             name: "Nodes",
             targets: ["Nodes"]
-        )
+        ),
         // ,
-        // .library(
-        //     name: "WaveSynthesizer",
-        //     targets: ["WaveSynthesizer"]
-        // ),
+         .library(
+             name: "VWWUtility",
+             targets: ["VWWUtility"]
+         ),
         // .library(
         //     name: "WaveSynthesizerUI",
         //     targets: ["WaveSynthesizerUI"]

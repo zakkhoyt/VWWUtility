@@ -47,6 +47,30 @@
       "name": "Release NodesTerminalApp",
       "program": "${workspaceFolder:VWWUtility}/.build/release/NodesTerminalApp",
       "preLaunchTask": "swift: Build Release NodesTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Debug VWWUtilityTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/debug/VWWUtilityTerminalApp",
+      "preLaunchTask": "swift: Build Debug VWWUtilityTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Release VWWUtilityTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/release/VWWUtilityTerminalApp",
+      "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp"
     }
   ]
 }
