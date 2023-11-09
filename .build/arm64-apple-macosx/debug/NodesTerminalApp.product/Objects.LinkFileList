@@ -1,0 +1,48 @@
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Completions/BashCompletionsGenerator.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Completions/CompletionsGenerator.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Completions/FishCompletionsGenerator.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Completions/ZshCompletionsGenerator.swift.o
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/Argument.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/ArgumentHelp.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/ArgumentVisibility.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/CompletionKind.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/Errors.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/Flag.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/NameSpecification.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/Option.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Properties/OptionGroup.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/AsyncParsableCommand.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/CommandConfiguration.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/EnumerableFlag.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/ExpressibleByArgument.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/ParsableArguments.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/ParsableArgumentsValidation.swift.o'
+'/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsable Types/ParsableCommand.swift.o'
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/ArgumentDecoder.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/ArgumentDefinition.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/ArgumentSet.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/CommandParser.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/InputKey.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/InputOrigin.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/Name.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/Parsed.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/ParsedValues.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/ParserError.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Parsing/SplitArguments.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Usage/DumpHelpGenerator.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Usage/HelpCommand.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Usage/HelpGenerator.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Usage/MessageInfo.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Usage/UsageGenerator.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Utilities/CollectionExtensions.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Utilities/Platform.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Utilities/SequenceExtensions.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Utilities/StringExtensions.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParser.build/Utilities/Tree.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/ArgumentParserToolInfo.build/ToolInfo.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/Nodes.build/Input/Input.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/Nodes.build/Input/ScalarInput.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/Nodes.build/Node.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/Nodes.build/Output/Output.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/Nodes.build/Output/ScalarOutput.swift.o
+/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/NodesTerminalApp.build/main.swift.o

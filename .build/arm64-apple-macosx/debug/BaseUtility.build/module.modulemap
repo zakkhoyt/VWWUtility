@@ -1,0 +1,4 @@
+module BaseUtility {
+    header "/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/BaseUtility.build/BaseUtility-Swift.h"
+    requires objc
+}

@@ -1,0 +1,4 @@
+module DrawingUI {
+    header "/Users/zakkhoyt/code/repositories/gitlab/VWWUtility/.build/arm64-apple-macosx/debug/DrawingUI.build/DrawingUI-Swift.h"
+    requires objc
+}
