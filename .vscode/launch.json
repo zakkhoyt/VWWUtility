@@ -1,0 +1,52 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Debug WaveSynthesizerTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/debug/WaveSynthesizerTerminalApp",
+      "preLaunchTask": "swift: Build Debug WaveSynthesizerTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Release WaveSynthesizerTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/release/WaveSynthesizerTerminalApp",
+      "preLaunchTask": "swift: Build Release WaveSynthesizerTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Debug NodesTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/debug/NodesTerminalApp",
+      "preLaunchTask": "swift: Build Debug NodesTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Release NodesTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/release/NodesTerminalApp",
+      "preLaunchTask": "swift: Build Release NodesTerminalApp"
+    }
+  ]
+}
