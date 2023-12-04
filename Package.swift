@@ -35,6 +35,10 @@ let package = Package(
             targets: ["DrawingUI"]
         ),
         .library(
+            name: "MPEngine",
+            targets: ["MPEngine"]
+        ),
+        .library(
             name: "Nodes",
             targets: ["Nodes"]
         ),
@@ -47,6 +51,10 @@ let package = Package(
         .package(
             url: "https://github.com/apple/swift-argument-parser.git",
             from: "1.2.0"
+        ),
+        .package(
+            url: "https://github.com/apple/swift-collections.git",
+            from: "1.0.5"
         )
     ],
     targets: [
@@ -63,7 +71,6 @@ let package = Package(
             dependencies: ["BaseUtility"],
             swiftSettings: swiftSettings
         ),
-
         .target(
             name: "DrawingUI",
             dependencies: [
@@ -73,6 +80,35 @@ let package = Package(
             ],
             swiftSettings: swiftSettings,
             plugins: []
+        ),
+        .target(
+            name: "MPEngine",
+            dependencies: [
+                .product(
+                    name: "Collections",
+                    package: "swift-collections"
+                )
+            ],
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .testTarget(
+            name: "MPEngineTests",
+            dependencies: ["MPEngine"],
+            swiftSettings: swiftSettings
+        ),
+        .executableTarget(
+            name: "MPEngineTerminalApp",
+            dependencies: [
+                .target(
+                    name: "MPEngine"
+                ),
+                .product(
+                    name: "ArgumentParser",
+                    package: "swift-argument-parser"
+                )
+            ],
+            swiftSettings: swiftSettings
         ),
         .target(
             name: "Nodes",
@@ -103,7 +139,7 @@ let package = Package(
                 "Nodes"
             ],
             exclude: [
-                ".gitignored/"
+//                ".gitignored/"
             ],
             resources: [
                 // .process("Resources/Strings/Localizable.stringsdict"),
