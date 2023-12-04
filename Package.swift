@@ -89,6 +89,10 @@ let package = Package(
                     package: "swift-collections"
                 )
             ],
+            exclude: [
+               "Docs"
+            ],
+
             swiftSettings: swiftSettings,
             plugins: []
         ),
