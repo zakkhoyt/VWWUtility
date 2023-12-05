@@ -137,8 +137,17 @@ public final class MPEngine: NSObject {
         a.startAdvertising()
         advertiser = a
         
-        a.invitations.sink { _ in
-            #warning("FIXME: zakkhoyt - Combine auto accept if argument is present")
+        a.invitations.sink { [weak self] invitations in
+            guard let self else { return }
+            
+            // Auto accept invitation if configuration supports it.
+            if ProcessInfo.processInfo.arguments.contains("--advertiser-auto-accept-invitataions") {
+                invitations.forEach {
+                    if case .noResponse = $0.response {
+                        self.respond(invitation: $0, accept: true)
+                    }
+                }
+            }
         }
         .store(in: &subscriptions)
         
@@ -238,7 +247,6 @@ extension MPEngine: MCSessionDelegate {
             """
         )
         
-        #warning("FIXME: zakkhoyt - wrap in actor instead of doing this queue casting")
         Task {
             await MainActor.run {
                 let connectedPeer = ConnectedPeer(peerID: peerID)
