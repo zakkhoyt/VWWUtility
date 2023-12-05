@@ -1,5 +1,5 @@
 //
-//  Displayable.swift
+//  Mirror+Reflect_T.swift
 //  WaveSynthesizer-iOS
 //
 //  Created by Zakk Hoyt on 6/22/19.
@@ -51,8 +51,6 @@ extension Mirror {
     }
 }
 
-
-
 //    //
 //    //  Mirror+Properties.swift
 //    //
@@ -81,7 +79,7 @@ extension Mirror {
 //                    return (label, value)
 //                }
 //        }
-//        
+//
 //        /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
 //        /// represented as a dictionary.
 //        /// - Parameters:
@@ -101,7 +99,7 @@ extension Mirror {
 //                $0[$1.name] = $1.value
 //            }
 //        }
-//        
+//
 //        /// Inspects the properties of the instance of `target` to distill a list of all property instances of `matchingType`
 //        /// represented as a array of values.
 //        /// - Parameters:

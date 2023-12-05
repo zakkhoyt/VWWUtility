@@ -6,7 +6,7 @@
 
 #warning("TODO: zakkhoyt - Port select tools from HatchTerminal")
 
-public class Terminal {
+public enum Terminal {
     public static func test() {
         print("hello from Terminal")
     }

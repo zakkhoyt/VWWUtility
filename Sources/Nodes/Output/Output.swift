@@ -1,5 +1,5 @@
 //
-//  OutputValue.swift
+//  Output.swift
 //
 //  Created by Zakk Hoyt on 6/20/23.
 //
@@ -28,6 +28,3 @@ public struct Output<T>: OutputRepresentable {
     public let name: String
     public var value: T
 }
-
-
-

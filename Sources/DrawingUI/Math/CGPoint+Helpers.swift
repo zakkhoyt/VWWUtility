@@ -13,11 +13,11 @@ extension CGFloat {
     // Compile errors
     public func clip(to size: CGSize) -> CGFloat {
         if self < 0 {
-            return 0
+            0
         } else if self > size.width {
-            return size.width
+            size.width
         } else {
-            return self
+            self
         }
     }
 }
@@ -104,11 +104,11 @@ extension CGFloat {
         // A recursive function to move the angle within a certain range
         func adjust(angle: CGFloat) -> CGFloat {
             if angle < range.lowerBound {
-                return adjust(angle: angle + delta)
+                adjust(angle: angle + delta)
             } else if angle >= range.upperBound {
-                return adjust(angle: angle - delta)
+                adjust(angle: angle - delta)
             } else {
-                return angle
+                angle
             }
         }
         return adjust(angle: angle)

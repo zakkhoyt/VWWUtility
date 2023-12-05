@@ -1,5 +1,5 @@
 //
-//  Data+HexString.swift
+//  HexString+Data.swift
 //
 //  Created by Zakk Hoyt on 7/15/23.
 //
@@ -24,7 +24,6 @@ extension Data {
     }
 }
 
-
 extension StringProtocol {
     public var data: Data { Data(byteSequence) }
     public var bytes: [UInt8] { [UInt8](byteSequence) }
@@ -45,4 +44,3 @@ extension Data {
         return mdata.withUnsafeBytes { $0.load(as: T.self).byteSwapped }
     }
 }
-

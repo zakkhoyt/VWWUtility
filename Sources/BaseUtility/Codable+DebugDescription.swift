@@ -80,8 +80,8 @@ extension EncodingError: CustomDebugStringConvertible {
     /// This property does its best to exctract the value of that paremter as a descriptive `String` type.
     private var subject: String {
         switch self {
-        case .invalidValue(let any, _): return "invalidValue: \(String(describing: any))"
-        @unknown default: return "@unknown default"
+        case .invalidValue(let any, _): "invalidValue: \(String(describing: any))"
+        @unknown default: "@unknown default"
         }
     }
     

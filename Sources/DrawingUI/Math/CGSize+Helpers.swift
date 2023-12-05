@@ -1,5 +1,5 @@
 //
-//  CGRect+Helpers.swift
+//  CGSize+Helpers.swift
 //  Sudoku-iOS
 //
 //  Created by Zakk Hoyt on 5/22/22.

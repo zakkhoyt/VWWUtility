@@ -43,13 +43,13 @@ let package = Package(
             targets: ["Nodes"]
         ),
         .library(
-             name: "TerminalUtility",
-             targets: ["TerminalUtility"]
+            name: "TerminalUtility",
+            targets: ["TerminalUtility"]
         ),
         .library(
-             name: "VWWUtility",
-             targets: ["VWWUtility"]
-        ),
+            name: "VWWUtility",
+            targets: ["VWWUtility"]
+        )
     ],
     dependencies: [
         .package(
@@ -94,7 +94,7 @@ let package = Package(
                 )
             ],
             exclude: [
-               "Docs"
+                "Docs"
             ],
 
             swiftSettings: swiftSettings,
@@ -164,7 +164,7 @@ let package = Package(
                 "Nodes"
             ],
             exclude: [
-//                ".gitignored/"
+                //                ".gitignored/"
             ],
             resources: [
                 // .process("Resources/Strings/Localizable.stringsdict"),
@@ -179,7 +179,7 @@ let package = Package(
                     name: "VWWUtility"
                 ),
                 .product(
-                    name: "ArgumentParser", 
+                    name: "ArgumentParser",
                     package: "swift-argument-parser"
                 )
             ],
@@ -193,11 +193,11 @@ let package = Package(
 //                 "WaveSynthesizer"
 //             ],
 //             exclude: [
-// //                ".gitignored/"
+        // //                ".gitignored/"
 //             ],
 //             resources: [
-// //                .process("View/SwiftUI/Buffer/AudioBuffer/Subviews/Shader/AudioBufferShader.metal"),
-// //                .process("View/SwiftUI/Buffer/AudioBufferFFT/Subviews/Shader/FFTBufferShader.metal")
+        // //                .process("View/SwiftUI/Buffer/AudioBuffer/Subviews/Shader/AudioBufferShader.metal"),
+        // //                .process("View/SwiftUI/Buffer/AudioBufferFFT/Subviews/Shader/FFTBufferShader.metal")
 //             ],
 //             swiftSettings: swiftSettings
 //         ),
@@ -205,7 +205,7 @@ let package = Package(
             name: "NodesTests",
             dependencies: ["Nodes"],
             swiftSettings: swiftSettings
-        ),
+        )
         // .testTarget(
         //     name: "WaveSynthesizerTests",
         //     dependencies: ["WaveSynthesizer"],

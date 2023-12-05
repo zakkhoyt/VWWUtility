@@ -44,7 +44,7 @@ struct Polynomial: Identifiable, Hashable, CustomStringConvertible {
             switch $1.sign {
             case "+",
                  "-":
-                return $0 + $1.solve(v: v)
+                $0 + $1.solve(v: v)
             default:
                 preconditionFailure("Unsupported sign")
             }
@@ -301,11 +301,10 @@ extension Polynomial {
     }
 }
 
-extension Array where Element == Polynomial {
+extension [Polynomial] {
     func joined() -> Polynomial {
         reduce(Polynomial()) { // result, poly in
             $0 + $1
         }
     }
 }
-

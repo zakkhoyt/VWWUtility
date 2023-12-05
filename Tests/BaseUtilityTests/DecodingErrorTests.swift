@@ -92,7 +92,6 @@ final class DecodingErrorTests: XCTestCase {
         )
     }
 
-    
     func testDecodingErrorWrongType() throws {
         try expectDecodingError(
             jsonString: invalid_json_wrong_type,

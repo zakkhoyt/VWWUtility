@@ -1,5 +1,5 @@
 //
-//  HexString.swift
+//  HexString+Primitives.swift
 //  Nightlight
 //
 //  Created by Zakk Hoyt on 8/26/16.
@@ -55,23 +55,16 @@ extension FixedWidthInteger {
     }
 }
 
+extension BinaryInteger {}
 
-
-extension BinaryInteger {
-    
-}
 extension FixedWidthInteger {
     public var hexString: String {
         let hexString = String(self, radix: 16)
-        return "0x" + (0..<Swift.max(0, MemoryLayout<Self>.size * 2 - hexString.count)).reduce(into: hexString.replacingOccurrences(of: "-", with: "")) {  partialResult, i in
+        return "0x" + (0..<Swift.max(0, MemoryLayout<Self>.size * 2 - hexString.count)).reduce(into: hexString.replacingOccurrences(of: "-", with: "")) { partialResult, _ in
             partialResult = "0" + partialResult
         }.uppercased()
     }
 }
-
-
-
-
 
 extension FixedWidthInteger {
     public var percentString: String {
@@ -80,14 +73,13 @@ extension FixedWidthInteger {
     }
 }
 
-
 extension FixedWidthInteger {
     /// Easy way to return a percentage of an Int type.
     public static func fractionOfMax(percent: Float) -> Self { Self((Float(Self.max) * percent).rounded()) }
 }
 
 //
-//extension Result {
+// extension Result {
 //    /// Expresses `Result` as a `Bool`.
 //    public var successful: Bool {
 //        switch self {
@@ -95,5 +87,5 @@ extension FixedWidthInteger {
 //        case .failure: return false
 //        }
 //    }
-//}
+// }
 //

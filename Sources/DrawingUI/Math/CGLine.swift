@@ -1,5 +1,5 @@
 //
-//  Line.swift
+//  CGLine.swift
 //  Bezier
 //
 //  Created by Zakk Hoyt on 9/6/21.
@@ -58,9 +58,8 @@ extension CGLine {
 
 extension CGVector {
     var length: CGFloat {
-        sqrt(pow(self.dx, 2) + pow(self.dy, 2))
+        sqrt(pow(dx, 2) + pow(dy, 2))
     }
-    
     
     /// `|a| × |b| × cos(θ)`
     ///
@@ -84,13 +83,13 @@ extension CGVector {
     /// If result near -1, unit vectors point away from each other.
     func unitDotProduct(other: CGVector) -> CGFloat {
         #if DEBUG
-        assert(self.length == 1.0 && other.length == 1.0, "dotProduct only applicable to unitVectors")
+            assert(length == 1.0 && other.length == 1.0, "dotProduct only applicable to unitVectors")
         #endif
         return dotProduct(other: other)
     }
     
 //    /// https://www.mathsisfun.com/algebra/vectors-cross-product.html
 //    func crossProduct(b: CGVector, c: CGVector) -> CGVector {
-//        
+//
 //    }
 }

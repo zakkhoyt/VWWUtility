@@ -75,7 +75,7 @@ extension Bezier {
             array(data: samples.map { $0.point })
         }
         
-        private func array<T: Encodable>(data: [T]) -> String {
+        private func array(data: [some Encodable]) -> String {
             do {
                 let encoder = JSONEncoder()
                 encoder.outputFormatting = .prettyPrinted

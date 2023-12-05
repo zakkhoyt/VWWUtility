@@ -4,7 +4,6 @@
 // Swift Argument Parser
 // https://swiftpackageindex.com/apple/swift-argument-parser/documentation
 
-
 // @Argument var mode: String
 // an un-named value
 //
@@ -15,7 +14,6 @@ import BaseUtility
 import Foundation
 import MPEngine
 import TerminalUtility
-
 
 struct App: ParsableCommand {
     static var configuration: CommandConfiguration {
@@ -52,7 +50,6 @@ struct App: ParsableCommand {
             } else {
                 print("\(i)isPowerOfTwo: false")
             }
-            
             
             Terminal.test()
 

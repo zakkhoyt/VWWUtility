@@ -1,5 +1,5 @@
 //
-//  ScalarOutputValue.swift
+//  ScalarOutput.swift
 //
 //  Created by Zakk Hoyt on 6/20/23.
 //
@@ -42,5 +42,3 @@ public struct ScalarOutput<T: Numeric & Comparable>: ScalarOutputRepresentable {
     public let stride: T?
     public var isEnabled: Bool
 }
-
-

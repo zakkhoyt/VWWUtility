@@ -35,28 +35,27 @@ public struct AsyncArray<T>: AsyncSequence, AsyncIteratorProtocol {
     }
 }
 
-extension Array where Element == String {
-    
+extension [String] {
     /// Converts any `[String]` to a list by joining all `Element`s using `separator`
-    /// 
+    ///
     /// ```swift
     /// print(["a", "b", "c"].listDescription())
     /// // [a, b, c]
     /// ```
-    /// 
+    ///
     /// - Parameters:
     ///   - separator: The `String` to use as a separator. Defaults to `", "`.
     ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
-    /// 
+    ///
     /// **Example:**
-    /// 
+    ///
     /// ```swift
     /// let array == ["a", "b", "c"]
-    /// 
+    ///
     /// // Array style:
     /// print(array.listDescription())
     /// // [a, b, c]
-    /// 
+    ///
     /// // CSV style:
     /// print(
     ///     array.listDescription(
@@ -65,7 +64,7 @@ extension Array where Element == String {
     ///     )
     /// )
     /// // a,b,c,
-    /// 
+    ///
     /// // Markdown table style:
     /// print(
     ///     array.listDescription(
@@ -95,25 +94,23 @@ extension Array where Element == String {
 }
 
 extension Array where Element: CustomStringConvertible {
-    
     public func listDescription(
         separator: String = ", ",
         endcaps: (String, String) = ("[", "]")
     ) -> String {
         let insert = separator == "\n" ? "\n" : ""
-        return "\(endcaps.0)\(insert)\(self.map{ $0.description }.joined(separator: separator))\(insert)\(endcaps.1)"
+        return "\(endcaps.0)\(insert)\(map { $0.description }.joined(separator: separator))\(insert)\(endcaps.1)"
     }
 
     /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
     public var listDescription: String {
-        map{ $0.description }.listDescription
+        map { $0.description }.listDescription
     }
 }
 
 extension Array where Element: CustomDebugStringConvertible {
     /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
     public var listDescription: String {
-        map{ $0.debugDescription }.listDescription
+        map { $0.debugDescription }.listDescription
     }
 }
-
