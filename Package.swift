@@ -42,10 +42,14 @@ let package = Package(
             name: "Nodes",
             targets: ["Nodes"]
         ),
-         .library(
+        .library(
+             name: "TerminalUtility",
+             targets: ["TerminalUtility"]
+        ),
+        .library(
              name: "VWWUtility",
              targets: ["VWWUtility"]
-         ),
+        ),
     ],
     dependencies: [
         .package(
@@ -105,7 +109,13 @@ let package = Package(
             name: "MPEngineTerminalApp",
             dependencies: [
                 .target(
+                    name: "BaseUtility"
+                ),
+                .target(
                     name: "MPEngine"
+                ),
+                .target(
+                    name: "TerminalUtility"
                 ),
                 .product(
                     name: "ArgumentParser",
@@ -133,6 +143,17 @@ let package = Package(
                     name: "ArgumentParser",
                     package: "swift-argument-parser"
                 )
+            ],
+            swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "TerminalUtility",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [
+            ],
+            resources: [
             ],
             swiftSettings: swiftSettings
         ),
