@@ -68,7 +68,7 @@ public final class MPEngine: NSObject {
 //                "text: \(text)",
 //                "date: \(date)"
 //            ]
-//            
+//
 //            return valueStrings.joined(separator: ", ")
             [
                 "from": connectedPeer.name,
@@ -150,7 +150,7 @@ public final class MPEngine: NSObject {
         a.startAdvertising()
         advertiser = a
         
-        a.invitations.sink { invitations in
+        a.invitations.sink { _ in
             #warning("FIXME: zakkhoyt - Combine auto accept if argument is present")
         }
         .store(in: &subscriptions)

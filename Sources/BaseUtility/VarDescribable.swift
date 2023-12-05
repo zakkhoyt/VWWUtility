@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  VarDescribable.swift
+//
 //
 //  Created by Zakk Hoyt on 12/5/23.
 //

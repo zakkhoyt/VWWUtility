@@ -33,7 +33,7 @@ struct App: ParsableCommand, Sendable {
     @Option
     var mode: Mode
     
-    @Option 
+    @Option
     var name: String
 
     @Option
@@ -47,19 +47,14 @@ struct App: ParsableCommand, Sendable {
     
     class Helpers: Codable {
         static let shared = Helpers()
-        func encode(to encoder: any Encoder) throws {
-        }
+        func encode(to encoder: any Encoder) throws {}
         
-        required init(from decoder: any Decoder) throws {
-        }
+        required init(from decoder: any Decoder) throws {}
         
-        init() {
-        }
+        init() {}
 
         var subscriptions = Set<AnyCancellable>()
     }
-    
-    
     
     func run() throws {
         print("mode: \(mode)")
@@ -90,18 +85,17 @@ struct App: ParsableCommand, Sendable {
                             break
                         }
                     }
-
                 }
                 .store(in: &Helpers.shared.subscriptions)
                 
                 engine.payloads.sink { payloads in
                     guard let first = payloads.first else {
                         print("payloads updated but are empty")
-                        return 
+                        return
                     }
-                    guard first.connectedPeer.name != engine.peerDisplayName else { 
+                    guard first.connectedPeer.name != engine.peerDisplayName else {
                         print("payloads is from self. Ignoring. \(first.description)")
-                        return 
+                        return
                     }
                     
                     print("Echoing payload \(first.description)")

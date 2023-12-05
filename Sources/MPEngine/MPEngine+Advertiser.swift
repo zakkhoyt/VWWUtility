@@ -49,7 +49,7 @@ extension MPEngine {
 //                    "id: \(id.uuidString)",
 //                    "peerID: \(peerID.displayName)"
 //                ]
-//                
+//
 //                #warning("TODO: zakkhoyt - data to string")
 //                if let context {
 //                    if let contextText = String(data: context, encoding: .utf8) {
@@ -58,11 +58,9 @@ extension MPEngine {
 //                        valueStrings.append("context: \(context.count) bytes")
 //                    }
 //                }
-//                    
+//
 //                return valueStrings.joined(separator: ", ")
 
-                
-                
 //                OrderedDictionary<String, String>(
 //                    [
 //                        "id": id.uuidString,
@@ -95,7 +93,6 @@ extension MPEngine {
                     }(),
                     "response": response.description
                 ].varDescription
-
             }
             
             public static func == (
@@ -269,4 +266,3 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         )
     }
 }
-

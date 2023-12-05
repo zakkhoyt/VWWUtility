@@ -1,5 +1,5 @@
 //
-//  Array+Helper.swift
+//  Dictionary+Helper.swift
 //
 //  Created by Zakk Hoyt on 6/23/23.
 //
@@ -14,18 +14,17 @@ extension Dictionary {
 }
 
 extension OrderedDictionary {
-    public init(dictionary: Dictionary<Key, Value>) {
+    public init(dictionary: [Key: Value]) {
         self.init(uniqueKeys: dictionary.keys, values: dictionary.values)
     }
     
-    public init(_ dictionary: Dictionary<Key, Value>) {
+    public init(_ dictionary: [Key: Value]) {
         self.init(uniqueKeys: dictionary.keys, values: dictionary.values)
     }
 }
 
-
 extension OrderedDictionary {
-    public var dictionary: Dictionary<Key, Value> {
+    public var dictionary: [Key: Value] {
         Dictionary(orderedDictionary: self)
     }
 }

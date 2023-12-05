@@ -1,12 +1,11 @@
 //
-//  File.swift
-//  
+//  Date+Format.swift
+//
 //
 //  Created by Zakk Hoyt on 12/5/23.
 //
 
 import Foundation
-
 
 public protocol DateFormatProvider {
     var format: String { get }
