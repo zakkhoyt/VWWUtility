@@ -124,14 +124,8 @@ extension MPEngine {
 
         // MARK: Public properties
         
-        public var didUpdateState: ((State) -> Void)?
-        public private(set) var state: State = .stopped {
-            didSet {
-                didUpdateState?(state)
-            }
-        }
+        public let state = CurrentValueSubject<State, Never>(.stopped)
         
-        #warning("TODO: zakkhoyt - Look into swift collections for a sorted set or similar")
         public let invitations = CurrentValueSubject<[Invititation], Never>([])
 
         private var advertisedServiceName: String?
@@ -166,7 +160,7 @@ extension MPEngine {
             // start
             serviceAdvertiser.delegate = self
             serviceAdvertiser.startAdvertisingPeer()
-            state = .started
+            state.value = .started
             
             logger.debug(
                 """
@@ -183,7 +177,7 @@ extension MPEngine {
             serviceAdvertiser.delegate = nil
             serviceAdvertiser.stopAdvertisingPeer()
             invitations.value.removeAll()
-            state = .stopped
+            state.value = .stopped
             
             logger.debug(
                 """
@@ -223,7 +217,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         _ advertiser: MCNearbyServiceAdvertiser,
         didNotStartAdvertisingPeer error: any Error
     ) {
-        state = .failed(error)
+        state.value = .failed(error)
         
         logger.fault(
             """
@@ -246,34 +240,24 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         } else {
             "<nil>"
         }
-        
-        DispatchQueue.main.async {
-//            self.invitations.append(
+
+        invitations.value.append(
+            Invititation(
+                peerID: peerID,
+                context: context,
+                handler: invitationHandler
+            )
+        )
+
+//        DispatchQueue.main.async {
+//            self.invitations.value.append(
 //                Invititation(
 //                    peerID: peerID,
 //                    context: context,
 //                    handler: invitationHandler
 //                )
 //            )
-            self.invitations.value.append(
-                Invititation(
-                    peerID: peerID,
-                    context: context,
-                    handler: invitationHandler
-                )
-            )
-        }
-        
-        
-//        invitations.append(
-//            Invititation(
-//                peerID: peerID,
-//                context: context,
-//                handler: invitationHandler
-//            )
-//        )
-        
-
+//        }
         
         logger.debug(
             """

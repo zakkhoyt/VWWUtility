@@ -5,6 +5,7 @@
 //  Created by Zakk Hoyt on 12/2/23.
 //
 
+import Combine
 import Foundation
 import MultipeerConnectivity
 
@@ -97,25 +98,9 @@ extension MPEngine {
 
         // MARK: Public properties
 
-        public var didUpdateState: ((State) -> Void)?
-        public private(set) var state: State = .stopped {
-            didSet {
-                didUpdateState?(state)
-            }
-        }
+        public let state = CurrentValueSubject<State, Never>(.stopped)
 
-        public var didUpdateAdvertisedServices: (([Service]) -> Void)?
-        public private(set) var advertisedServices = [Service]() {
-            didSet {
-                logger.debug(
-                    """
-                    [DEBUG] \(#function, privacy: .public):#\(#line) - \
-                    count: \(self.advertisedServices.count, privacy: .public)
-                    """
-                )
-                didUpdateAdvertisedServices?(advertisedServices)
-            }
-        }
+        public let advertisedServices = CurrentValueSubject<[Service], Never>([])
 
         private let serviceBrowser: MCNearbyServiceBrowser
 
@@ -137,7 +122,7 @@ extension MPEngine {
             // start
             serviceBrowser.delegate = self
             serviceBrowser.startBrowsingForPeers()
-            state = .started
+            state.value = .started
 
             logger.debug(
                 """
@@ -151,8 +136,8 @@ extension MPEngine {
         func stopBrowsing() {
             serviceBrowser.delegate = nil
             serviceBrowser.stopBrowsingForPeers()
-            advertisedServices.removeAll()
-            state = .stopped
+            advertisedServices.value.removeAll()
+            state.value = .stopped
             
             logger.debug(
                 """
@@ -175,7 +160,7 @@ extension MPEngine {
             )
             
             service.invitationState = .invitationSent(.now)
-            didUpdateAdvertisedServices?(advertisedServices)
+            advertisedServices.send(advertisedServices.value)
             
             logger.debug(
                 """
@@ -191,7 +176,7 @@ extension MPEngine {
             peer peerID: MCPeerID,
             didChange state: MCSessionState
         ) {
-            guard let service = advertisedServices.first(where: {
+            guard let service = advertisedServices.value.first(where: {
                 $0.peerID == peerID
             }) else {
                 logger.error(
@@ -207,12 +192,12 @@ extension MPEngine {
             switch state {
             case .notConnected:
                 service.invitationState = .invitationRejected(.now)
-                didUpdateAdvertisedServices?(advertisedServices)
+                advertisedServices.send(advertisedServices.value)
             case .connecting:
                 break
             case .connected:
                 service.invitationState = .invitationAccepted(.now)
-                didUpdateAdvertisedServices?(advertisedServices)
+                advertisedServices.send(advertisedServices.value)
             @unknown default:
                 break
             }
@@ -227,7 +212,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         foundPeer peerID: MCPeerID,
         withDiscoveryInfo info: [String: String]?
     ) {
-        advertisedServices.append(
+        advertisedServices.value.append(
             Service(
                 peerID: peerID,
                 discoveryInfo: info
@@ -261,7 +246,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         _ browser: MCNearbyServiceBrowser,
         didNotStartBrowsingForPeers error: any Error
     ) {
-        state = .failed(error)
+        state.value = .failed(error)
         logger.fault(
             """
             [FAULT] \(#function, privacy: .public):#\(#line) - \

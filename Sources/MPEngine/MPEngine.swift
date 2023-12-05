@@ -101,31 +101,9 @@ public final class MPEngine: NSObject {
     }
     
     #warning("TODO: zakkhoyt - This dict should contain contributions from this peer")
-    public var didUpdateConnectedPeers: ((OrderedDictionary<ConnectedPeer, [String]>) -> Void)?
-    public private(set) var connectedPeers: OrderedDictionary<ConnectedPeer, [String]> = [:] {
-        didSet {
-            logger.debug(
-                """
-                [DEBUG] \(#file) - \(#function, privacy: .public):#\(#line) - \
-                count: \(self.connectedPeers.count, privacy: .public)
-                """
-            )
-            didUpdateConnectedPeers?(connectedPeers)
-        }
-    }
-
-    public var didUpdatePayloads: (([Payload]) -> Void)?
-    public private(set) var payloads: [Payload] = [] {
-        didSet {
-            logger.debug(
-                """
-                [DEBUG] \(#file) - \(#function, privacy: .public):#\(#line) - \
-                count: \(self.payloads.count, privacy: .public)
-                """
-            )
-            didUpdatePayloads?(payloads)
-        }
-    }
+    public let connectedPeers = CurrentValueSubject<OrderedDictionary<ConnectedPeer, [String]>, Never>([:])
+    
+    public let payloads = CurrentValueSubject<[Payload], Never>([])
 
     public var peerDisplayName: String {
         peerID.displayName
@@ -247,7 +225,7 @@ public final class MPEngine: NSObject {
         }
         try send(data: data)
         
-        payloads.insert(
+        payloads.value.insert(
             Payload(
                 connectedPeer: ConnectedPeer(peerID: peerID),
                 text: text,
@@ -279,11 +257,11 @@ extension MPEngine: MCSessionDelegate {
                 let connectedPeer = ConnectedPeer(peerID: peerID)
                 switch state {
                 case .notConnected:
-                    connectedPeers[connectedPeer] = nil
+                    connectedPeers.value[connectedPeer] = nil
                 case .connecting:
-                    connectedPeers[connectedPeer] = nil
+                    connectedPeers.value[connectedPeer] = nil
                 case .connected:
-                    connectedPeers[connectedPeer] = []
+                    connectedPeers.value[connectedPeer] = []
                 @unknown default:
                     break
                 }
@@ -313,7 +291,7 @@ extension MPEngine: MCSessionDelegate {
             return
         }
         
-        payloads.insert(
+        payloads.value.insert(
             Payload(
                 connectedPeer: ConnectedPeer(peerID: peerID),
                 text: text,
