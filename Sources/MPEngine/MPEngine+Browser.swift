@@ -59,18 +59,11 @@ extension MPEngine {
             public var invitationState: InvitationState = .notSent
 
             public var description: String {
-                #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
-                var valueStrings = [
-                    "id: \(id.uuidString)",
-                    "peerID: \(peerID.displayName)"
-                ]
-                
-                #warning("TODO: zakkhoyt - data to string")
-                if let discoveryInfo {
-                    valueStrings.append("discoveryInfo: \(discoveryInfo.description)")
-                }
-                    
-                return valueStrings.joined(separator: ", ")
+                [
+                    "peerID": peerID.displayName,
+                    "id": id.uuidString,
+                    "discoveryInfo": discoveryInfo?.description
+                ].varDescription
             }
             
             public static func == (

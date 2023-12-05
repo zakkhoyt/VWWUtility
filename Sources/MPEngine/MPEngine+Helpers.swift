@@ -18,10 +18,3 @@ extension MCSessionState: CustomStringConvertible {
         }
     }
 }
-
-#warning("TODO: zakkhoyt - See what the default is")
-extension MCPeerID: CustomStringConvertible {
-    override open var description: String {
-        displayName
-    }
-}

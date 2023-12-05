@@ -7,7 +7,6 @@
 import Foundation
 
 extension DecodingError: CustomDebugStringConvertible {
-    #warning("FIXME: @zakkhoyt - docc examples")
     /// Returns a `String` describing why the `DecodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var debugDescription: String {
@@ -29,7 +28,6 @@ extension DecodingError: CustomDebugStringConvertible {
     /// `DecodingError` is an `Enum` type. Each case has an associated value (the first parameter).
     /// This property does its best to exctract the value of that paremter as a descriptive `String` type.
     private var subject: String {
-        #warning("FIXME: @zakkhoyt - Should we use String(describing:) vs hoping for CustomStringConvertible?")
         switch self {
         case .typeMismatch(let type, _): return "typeMismatch: \(type)"
         case .valueNotFound(let type, _): return "valueNotFound: \(type)"
@@ -57,7 +55,6 @@ extension DecodingError: CustomDebugStringConvertible {
 }
 
 extension EncodingError: CustomDebugStringConvertible {
-    #warning("FIXME: @zakkhoyt - docc examples")
     /// Returns a `String` describing why the `EncodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var debugDescription: String {

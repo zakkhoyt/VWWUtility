@@ -24,18 +24,14 @@ public protocol PayloadRepresentable: Identifiable, Hashable {
 #warning("FIXME: zakkhoyt - Rename package (so that class name no longer matches")
 public final class MPEngine: NSObject {
     public class ConnectedPeer: Identifiable, Hashable, CustomStringConvertible {
-        // public let id = UUID()
         public var id: String { name }
         public let name: String
         
         public var description: String {
-            #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
-            let valueStrings = [
-                "id: \(id)",
-                "name: \(name)"
-            ]
-            
-            return valueStrings.joined(separator: ", ")
+            [
+                "id": id,
+                "name": name
+            ].varDescription
         }
         
         public static func == (
@@ -61,15 +57,6 @@ public final class MPEngine: NSObject {
         public let date: Date
         
         public var description: String {
-//            #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
-//            let valueStrings = [
-//                "from: \(connectedPeer.name)",
-//                "id: \(id.uuidString)",
-//                "text: \(text)",
-//                "date: \(date)"
-//            ]
-//
-//            return valueStrings.joined(separator: ", ")
             [
                 "from": connectedPeer.name,
                 "id": id.uuidString,
