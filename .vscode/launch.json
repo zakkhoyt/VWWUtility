@@ -47,6 +47,30 @@
       "name": "Release VWWUtilityTerminalApp",
       "program": "${workspaceFolder:VWWUtility}/.build/release/VWWUtilityTerminalApp",
       "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Debug MPEngineTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/debug/MPEngineTerminalApp",
+      "preLaunchTask": "swift: Build Debug MPEngineTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Release MPEngineTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/release/MPEngineTerminalApp",
+      "preLaunchTask": "swift: Build Release MPEngineTerminalApp"
     }
   ]
 }
