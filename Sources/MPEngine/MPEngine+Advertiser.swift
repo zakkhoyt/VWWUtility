@@ -5,6 +5,8 @@
 //  Created by Zakk Hoyt on 12/2/23.
 //
 
+import BaseUtility
+import Collections
 import Foundation
 import MultipeerConnectivity
 
@@ -41,22 +43,57 @@ extension MPEngine {
             public var response: Response = .noResponse
             
             public var description: String {
-                #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
-                var valueStrings = [
-                    "id: \(id.uuidString)",
-                    "peerID: \(peerID.displayName)"
-                ]
+//                #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
+//                var valueStrings = [
+//                    "id: \(id.uuidString)",
+//                    "peerID: \(peerID.displayName)"
+//                ]
+//                
+//                #warning("TODO: zakkhoyt - data to string")
+//                if let context {
+//                    if let contextText = String(data: context, encoding: .utf8) {
+//                        valueStrings.append("context: \(contextText)")
+//                    } else {
+//                        valueStrings.append("context: \(context.count) bytes")
+//                    }
+//                }
+//                    
+//                return valueStrings.joined(separator: ", ")
+
                 
-                #warning("TODO: zakkhoyt - data to string")
-                if let context {
-                    if let contextText = String(data: context, encoding: .utf8) {
-                        valueStrings.append("context: \(contextText)")
-                    } else {
-                        valueStrings.append("context: \(context.count) bytes")
-                    }
-                }
-                    
-                return valueStrings.joined(separator: ", ")
+                
+//                OrderedDictionary<String, String>(
+//                    [
+//                        "id": id.uuidString,
+//                        "peerID": peerID.displayName,
+//                        "context": {
+//                            guard let context else { return nil }
+//                            if let contextText = String(data: context, encoding: .utf8) {
+//                                return contextText
+//                            } else {
+//                                return "\(context.count) bytes"
+//                            }
+//                        }()
+//                    ].compactMapValues { $0 }
+//                ).map {
+//                    [
+//                        $0.key, $0.value
+//                    ].joined(separator: ": ")
+//                }.joined(separator: ", ")
+
+                [
+                    "id": id.uuidString,
+                    "peerID": peerID.displayName,
+                    "context": {
+                        guard let context else { return nil }
+                        if let contextText = String(data: context, encoding: .utf8) {
+                            return contextText
+                        } else {
+                            return "\(context.count) bytes"
+                        }
+                    }()
+                ].varDescription
+
             }
             
             public static func == (
@@ -237,3 +274,4 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         )
     }
 }
+

@@ -66,7 +66,12 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "BaseUtility",
-            dependencies: [],
+            dependencies: [
+                .product(
+                    name: "Collections",
+                    package: "swift-collections"
+                )
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
@@ -88,6 +93,9 @@ let package = Package(
         .target(
             name: "MPEngine",
             dependencies: [
+                .target(
+                    name: "BaseUtility"
+                ),
                 .product(
                     name: "Collections",
                     package: "swift-collections"
@@ -164,11 +172,8 @@ let package = Package(
                 "Nodes"
             ],
             exclude: [
-                //                ".gitignored/"
             ],
             resources: [
-                // .process("Resources/Strings/Localizable.stringsdict"),
-                // .copy("Resources/Fonts/Fonts.bundle"),
             ],
             swiftSettings: swiftSettings
         ),
@@ -185,31 +190,10 @@ let package = Package(
             ],
             swiftSettings: swiftSettings
         ),
-//         .target(
-//             name: "WaveSynthesizerUI",
-//             dependencies: [
-//                 "BaseUtility",
-//                 "DrawingUI",
-//                 "WaveSynthesizer"
-//             ],
-//             exclude: [
-        // //                ".gitignored/"
-//             ],
-//             resources: [
-        // //                .process("View/SwiftUI/Buffer/AudioBuffer/Subviews/Shader/AudioBufferShader.metal"),
-        // //                .process("View/SwiftUI/Buffer/AudioBufferFFT/Subviews/Shader/FFTBufferShader.metal")
-//             ],
-//             swiftSettings: swiftSettings
-//         ),
         .testTarget(
             name: "NodesTests",
             dependencies: ["Nodes"],
             swiftSettings: swiftSettings
         )
-        // .testTarget(
-        //     name: "WaveSynthesizerTests",
-        //     dependencies: ["WaveSynthesizer"],
-        //     swiftSettings: swiftSettings
-        // ),
     ]
 )
