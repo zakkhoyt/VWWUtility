@@ -6,8 +6,11 @@
 
 // https://www.hackingwithswift.com/example-code/networking/how-to-create-a-peer-to-peer-network-using-the-multipeer-connectivity-framework
 // https://www.kodeco.com/12689804-getting-started-with-multipeer-connectivity
+// https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/10-actors-in-a-distributed-system
 
+import BaseUtility
 import Collections
+import Combine
 import Foundation
 import MultipeerConnectivity
 
@@ -58,15 +61,21 @@ public final class MPEngine: NSObject {
         public let date: Date
         
         public var description: String {
-            #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
-            let valueStrings = [
-                "from: \(connectedPeer.name)",
-                "id: \(id.uuidString)",
-                "text: \(text)",
-                "date: \(date)"
-            ]
-            
-            return valueStrings.joined(separator: ", ")
+//            #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
+//            let valueStrings = [
+//                "from: \(connectedPeer.name)",
+//                "id: \(id.uuidString)",
+//                "text: \(text)",
+//                "date: \(date)"
+//            ]
+//            
+//            return valueStrings.joined(separator: ", ")
+            [
+                "from": connectedPeer.name,
+                "id": id.uuidString,
+                "text": text,
+                "date": date.string(formatProvider: DateFormat.accurate)
+            ].varDescription
         }
         
         public static func == (
@@ -129,6 +138,8 @@ public final class MPEngine: NSObject {
     
     private var advertiser: Advertiser?
     private var browser: Browser?
+    
+    private var subscriptions = Set<AnyCancellable>()
 
     public init(
         displayName: String // UIDevice.current.name
@@ -160,6 +171,12 @@ public final class MPEngine: NSObject {
         )
         a.startAdvertising()
         advertiser = a
+        
+        a.invitations.sink { invitations in
+            #warning("FIXME: zakkhoyt - Combine auto accept if argument is present")
+        }
+        .store(in: &subscriptions)
+        
         return a
     }
     

@@ -48,3 +48,8 @@
 ## Features
 * [ ] auto invite/accept mode
 * [ ] Publish data to consumer (IE a game)
+
+
+## Bugs
+* '+GCKSession Something is terribly wrong; no clist for'
+  * https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/10-actors-in-a-distributed-system

@@ -7,6 +7,7 @@
 
 import BaseUtility
 import Collections
+import Combine
 import Foundation
 import MultipeerConnectivity
 
@@ -30,8 +31,8 @@ extension MPEngine {
                 public var description: String {
                     switch self {
                     case .noResponse: ".noResponse"
-                    case .accepted: ".accepted"
-                    case .rejected: ".rejected"
+                    case .accepted(let date): ".accepted \(date.string(formatProvider: DateFormat.accurate))"
+                    case .rejected(let date): ".rejected \(date.string(formatProvider: DateFormat.accurate))"
                     }
                 }
             }
@@ -91,7 +92,8 @@ extension MPEngine {
                         } else {
                             return "\(context.count) bytes"
                         }
-                    }()
+                    }(),
+                    "response": response.description
                 ].varDescription
 
             }
@@ -130,18 +132,7 @@ extension MPEngine {
         }
         
         #warning("TODO: zakkhoyt - Look into swift collections for a sorted set or similar")
-        public var didUpdateInvitations: (([Invititation]) -> Void)?
-        public private(set) var invitations = [Invititation]() {
-            didSet {
-                logger.debug(
-                    """
-                    [DEBUG] \(#function, privacy: .public):#\(#line) - \
-                    count: \(self.invitations.count, privacy: .public)
-                    """
-                )
-                didUpdateInvitations?(invitations)
-            }
-        }
+        public let invitations = CurrentValueSubject<[Invititation], Never>([])
 
         private var advertisedServiceName: String?
         private var serviceAdvertiser = MCNearbyServiceAdvertiser(
@@ -191,7 +182,7 @@ extension MPEngine {
         func stopAdvertising() {
             serviceAdvertiser.delegate = nil
             serviceAdvertiser.stopAdvertisingPeer()
-            invitations.removeAll()
+            invitations.value.removeAll()
             state = .stopped
             
             logger.debug(
@@ -213,7 +204,7 @@ extension MPEngine {
 //            }
             
             invitation.response = accept ? .accepted(.now) : .rejected(.now)
-            didUpdateInvitations?(invitations)
+            invitations.send(invitations.value)
             
             logger.debug(
                 """
@@ -256,13 +247,33 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
             "<nil>"
         }
         
-        invitations.append(
-            Invititation(
-                peerID: peerID,
-                context: context,
-                handler: invitationHandler
+        DispatchQueue.main.async {
+//            self.invitations.append(
+//                Invititation(
+//                    peerID: peerID,
+//                    context: context,
+//                    handler: invitationHandler
+//                )
+//            )
+            self.invitations.value.append(
+                Invititation(
+                    peerID: peerID,
+                    context: context,
+                    handler: invitationHandler
+                )
             )
-        )
+        }
+        
+        
+//        invitations.append(
+//            Invititation(
+//                peerID: peerID,
+//                context: context,
+//                handler: invitationHandler
+//            )
+//        )
+        
+
         
         logger.debug(
             """

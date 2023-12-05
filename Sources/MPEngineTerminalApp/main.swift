@@ -11,6 +11,7 @@
 
 import ArgumentParser
 import BaseUtility
+import Combine
 import Foundation
 import MPEngine
 import TerminalUtility
@@ -44,6 +45,30 @@ struct App: ParsableCommand {
     )
     var isDebugMode = false
     
+    class Helpers: Codable {
+        func encode(to encoder: any Encoder) throws {
+//            var container = encoder.container(keyedBy: CodingKeys.self)
+//            try container.encode(serverId, forKey: .serverId)
+//            try container.encode(volume, forKey: .volume)
+//            try container.encode(isEnabled, forKey: .isEnabled)
+        }
+        
+        required init(from decoder: any Decoder) throws {
+//            let container = try decoder.container(keyedBy: CodingKeys.self)
+//            self.serverId = try container.decode(Int.self, forKey: .serverId)
+//            self.volume = try container.decodeIfPresent(UInt16.self, forKey: .volume) ?? Shadow.AudioContent.kDefaultVolume
+//            self.isEnabled = try container.decodeIfPresent(Bool.self, forKey: .isEnabled) ?? false
+        }
+        
+        init() {
+            
+        }
+
+        var subscriptions = Set<AnyCancellable>()
+    }
+    var helpers = Helpers()
+    
+    
     func run() throws {
         print("mode: \(mode)")
         print("name: \(name)")
@@ -62,25 +87,36 @@ struct App: ParsableCommand {
                 }
             case .advertiser:
                 let advertiser = engine.startAdvertising(serviceName: serviceName)
-                advertiser.didUpdateInvitations = { invitations in
+                advertiser.invitations.sink { invitations in
                     print("did receive invitations: \(invitations)")
-                    invitations.forEach {
-                        switch $0.response {
-                        case .noResponse:
-                            engine.respond(invitation: $0, accept: true)
-                        default:
-                            break
-                        }
-                    }
+//                    invitations.forEach {
+//                        switch $0.response {
+//                        case .noResponse:
+//                            engine.respond(invitation: $0, accept: true)
+//                        default:
+//                            break
+//                        }
+//                    }
+
                 }
+                .store(in: &helpers.subscriptions)
                 
                 engine.didUpdatePayloads = { payloads in
-                    guard let first = payloads.first else { return }
-                    guard first.connectedPeer.name != engine.peerDisplayName else { return }
+                    guard let first = payloads.first else { 
+                        print("payloads updated but are empty")
+                        return 
+                    }
+                    guard first.connectedPeer.name != engine.peerDisplayName else { 
+                        print("payloads is from self. Ignoring. \(first.description)")
+                        return 
+                    }
+                    
 //                    if first.connectedPeer.name != engine.peerDisplayName {
 //                        try? engine.send(text: first.text)
 //                    }
-                    
+
+
+                    print("Echoing payload \(first.description)")
                     try? engine.send(text: "echo \(first.text)")
                 }
             }

@@ -17,6 +17,5 @@ extension [String: String?] {
                 $0.key, $0.value
             ].joined(separator: ": ")
         }.joined(separator: ", ")
-
     }
 }
