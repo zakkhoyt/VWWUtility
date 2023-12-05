@@ -112,12 +112,16 @@ public final class MPEngine: NSObject {
     public var peerDisplayName: String {
         peerID.displayName
     }
-    
-    public private(set) var advertiser: Advertiser?
-    public private(set) var browser: Browser?
+
+    // MARK: Private vars
     
     private let session: MCSession
     private let peerID: MCPeerID
+    
+    #warning("FIXME: zakkhoyt - make private after UI viewModel fixed")
+    public var advertiser: Advertiser?
+    public var browser: Browser?
+
     
     public init(
         displayName: String // UIDevice.current.name
@@ -139,17 +143,17 @@ public final class MPEngine: NSObject {
     
     // MARK: Advertising
     
-    #warning("FIXME: zakkhoyt - Should this return Advertiser instance?")
     public func startAdvertising(
         serviceName: String
-    ) {
-        if advertiser == nil {
-            advertiser = Advertiser(
-                peerID: peerID,
-                serviceType: serviceName
-            )
-        }
-        advertiser?.startAdvertising()
+    ) -> Advertiser {
+        #warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
+        let a: Advertiser = advertiser ?? Advertiser(
+            peerID: peerID,
+            serviceType: serviceName
+        )
+        a.startAdvertising()
+        self.advertiser = a
+        return a
     }
     
     public func stopAdvertising() {
@@ -169,17 +173,17 @@ public final class MPEngine: NSObject {
     
     // MARK: Browsing
     
-    #warning("FIXME: zakkhoyt - Should this return Browser instance?")
     public func startBrowsing(
         serviceName: String
-    ) {
-        if browser == nil {
-            browser = Browser(
-                peerID: peerID,
-                serviceType: serviceName
-            )
-        }
-        browser?.startBrowsing()
+    ) -> Browser {
+#warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
+        let b: Browser = browser ?? Browser(
+            peerID: peerID,
+            serviceType: serviceName
+        )
+        b.startBrowsing()
+        self.browser = b
+        return b
     }
     
     public func stopBrowsing() throws {
