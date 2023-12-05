@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Bundle+Version.swift
+//
 //
 //  Created by Zakk Hoyt on 12/4/23.
 //

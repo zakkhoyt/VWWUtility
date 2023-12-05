@@ -1,5 +1,6 @@
 {
   "configurations": [
+
     {
       "type": "lldb",
       "request": "launch",
@@ -54,7 +55,11 @@
       "sourceLanguages": [
         "swift"
       ],
-      "args": [],
+      "args": [
+        "--mode", "advertiser",
+        "--name", "zakkbookmax2",
+        "--service-name", "vww-mpdev"
+      ],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Debug MPEngineTerminalApp",
       "program": "${workspaceFolder:VWWUtility}/.build/debug/MPEngineTerminalApp",

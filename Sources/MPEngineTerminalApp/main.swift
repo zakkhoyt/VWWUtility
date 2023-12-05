@@ -38,7 +38,6 @@ struct App: ParsableCommand {
     @Option
     var serviceName: String
 
-    
     @Flag(
         name: [.long, .customLong("debug")],
         help: "Verbose debug logging to stderr"
@@ -74,16 +73,26 @@ struct App: ParsableCommand {
                         }
                     }
                 }
+                
+                engine.didUpdatePayloads = { payloads in
+                    guard let first = payloads.first else { return }
+                    guard first.connectedPeer.name != engine.peerDisplayName else { return }
+//                    if first.connectedPeer.name != engine.peerDisplayName {
+//                        try? engine.send(text: first.text)
+//                    }
+                    
+                    try? engine.send(text: "echo \(first.text)")
+                }
             }
             
-            //try? await Task.sleep(nanoseconds: 10_000_000_000)
-            await Task.sleep(duration: 10)
-            print("Enter your name: ")
-            if let str = readLine(strippingNewline: true) {
-                print("You entered: \(str)")
-            } else {
-                print("Failed to collect your name")
-            }
+            // try? await Task.sleep(nanoseconds: 10_000_000_000)
+            // await Task.sleep(duration: 10)
+            // print("Enter your name: ")
+            // if let str = readLine(strippingNewline: true) {
+            //     print("You entered: \(str)")
+            // } else {
+            //     print("Failed to collect your name")
+            // }
         
 //
 //            let sequencer = try SongTrackSequencer()

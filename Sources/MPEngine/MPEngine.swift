@@ -11,6 +11,14 @@ import Collections
 import Foundation
 import MultipeerConnectivity
 
+public protocol PayloadRepresentable: Identifiable, Hashable {
+    var id: UUID { get }
+    var connectedPeer: MPEngine.ConnectedPeer { get }
+    var text: String { get }
+    var date: Date { get }
+}
+
+#warning("FIXME: zakkhoyt - Rename package (so that class name no longer matches")
 public final class MPEngine: NSObject {
     public class ConnectedPeer: Identifiable, Hashable, CustomStringConvertible {
         // public let id = UUID()
@@ -43,7 +51,7 @@ public final class MPEngine: NSObject {
         }
     }
     
-    public class Payload: Identifiable, Hashable {
+    public class Payload: PayloadRepresentable, Identifiable, Hashable {
         public let id = UUID()
         public let connectedPeer: ConnectedPeer
         public let text: String
@@ -52,6 +60,7 @@ public final class MPEngine: NSObject {
         public var description: String {
             #warning("TODO: zakkhoyt - VWWUtil, list to description or, reflection, etc..")
             let valueStrings = [
+                "from: \(connectedPeer.name)",
                 "id: \(id.uuidString)",
                 "text: \(text)",
                 "date: \(date)"
@@ -88,7 +97,7 @@ public final class MPEngine: NSObject {
         didSet {
             logger.debug(
                 """
-                [DEBUG] \(#file) - \(#function, privacy: .public):\(#line) \
+                [DEBUG] \(#file) - \(#function, privacy: .public):#\(#line) - \
                 count: \(self.connectedPeers.count, privacy: .public)
                 """
             )
@@ -101,7 +110,7 @@ public final class MPEngine: NSObject {
         didSet {
             logger.debug(
                 """
-                [DEBUG] \(#file) - \(#function, privacy: .public):\(#line) \
+                [DEBUG] \(#file) - \(#function, privacy: .public):#\(#line) - \
                 count: \(self.payloads.count, privacy: .public)
                 """
             )
@@ -150,7 +159,7 @@ public final class MPEngine: NSObject {
             serviceType: serviceName
         )
         a.startAdvertising()
-        self.advertiser = a
+        advertiser = a
         return a
     }
     
@@ -174,13 +183,13 @@ public final class MPEngine: NSObject {
     public func startBrowsing(
         serviceName: String
     ) -> Browser {
-#warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
+        #warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
         let b: Browser = browser ?? Browser(
             peerID: peerID,
             serviceType: serviceName
         )
         b.startBrowsing()
-        self.browser = b
+        browser = b
         return b
     }
     
@@ -241,7 +250,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             peer: \(peerID.displayName, privacy: .public) \
             didChange: \(state, privacy: .public)
             """
@@ -275,7 +284,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             data: \(data.count, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public)
             """
@@ -306,7 +315,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             stream: \(stream, privacy: .public) \
             withName: \(streamName, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public)
@@ -323,7 +332,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             didStartReceivingResourceWithName: \(resourceName, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public) \
             progress: \(String(format: "%.01f", progress.fractionCompleted), privacy: .public)
@@ -343,7 +352,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             didFinishReceivingResourceWithName: \(resourceName, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public) \
             at: \(localURL?.absoluteString ?? "<nil>", privacy: .public) \
@@ -362,7 +371,7 @@ extension MPEngine: MCSessionDelegate {
 //    ) {
 //        logger.debug(
 //            """
-//            [DEBUG] \(#function, privacy: .public):\(#line) \
+//            [DEBUG] \(#function, privacy: .public):#\(#line) - \
 //            didReceiveCertificate: \((certificate ?? []).description, privacy: .public) \
 //            fromPeer: \(peerID.displayName, privacy: .public)
 //            """

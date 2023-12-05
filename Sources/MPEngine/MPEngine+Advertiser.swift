@@ -98,7 +98,7 @@ extension MPEngine {
             didSet {
                 logger.debug(
                     """
-                    [DEBUG] \(#function, privacy: .public):\(#line) \
+                    [DEBUG] \(#function, privacy: .public):#\(#line) - \
                     count: \(self.invitations.count, privacy: .public)
                     """
                 )
@@ -142,7 +142,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):\(#line) \
+                [DEBUG] \(#function, privacy: .public):#\(#line) - \
                 Did start advertising \
                 peerID: \(self.serviceAdvertiser.myPeerID.displayName, privacy: .public) \
                 discoveryInfo: \(self.serviceAdvertiser.discoveryInfo ?? [:], privacy: .public) \
@@ -159,7 +159,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):\(#line)
+                [DEBUG] \(#function, privacy: .public):#\(#line)
                 """
             )
         }
@@ -180,7 +180,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):\(#line) \
+                [DEBUG] \(#function, privacy: .public):#\(#line) - \
                 accept: \(accept, privacy: .public) \
                 invitation: \(invitation, privacy: .public)
                 """
@@ -199,7 +199,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         
         logger.fault(
             """
-            [FAULT] \(#function, privacy: .public):\(#line) \
+            [FAULT] \(#function, privacy: .public):#\(#line) - \
             error: \(error.localizedDescription, privacy: .public)
             """
         )
@@ -229,7 +229,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             didReceiveInvitationFromPeer: \(peerID.displayName, privacy: .public) \
             context: \(contextDescription) \
             invitationHandler: [redacted]

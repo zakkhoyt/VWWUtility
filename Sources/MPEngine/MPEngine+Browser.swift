@@ -109,7 +109,7 @@ extension MPEngine {
             didSet {
                 logger.debug(
                     """
-                    [DEBUG] \(#function, privacy: .public):\(#line) \
+                    [DEBUG] \(#function, privacy: .public):#\(#line) - \
                     count: \(self.advertisedServices.count, privacy: .public)
                     """
                 )
@@ -141,7 +141,7 @@ extension MPEngine {
 
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):\(#line) \
+                [DEBUG] \(#function, privacy: .public):#\(#line) - \
                 peerID: \(self.serviceBrowser.myPeerID.displayName, privacy: .public) \
                 serviceName: \(self.serviceBrowser.serviceType, privacy: .public)
                 """
@@ -156,7 +156,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):\(#line)
+                [DEBUG] \(#function, privacy: .public):#\(#line)
                 """
             )
         }
@@ -179,7 +179,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):\(#line) \
+                [DEBUG] \(#function, privacy: .public):#\(#line) - \
                 peerID: \(service.peerID.displayName, privacy: .public) \
                 session: \(self.serviceBrowser.serviceType, privacy: .public)
                 """
@@ -196,7 +196,7 @@ extension MPEngine {
             }) else {
                 logger.error(
                     """
-                    [ERROR] \(#function, privacy: .public):\(#line) \
+                    [ERROR] \(#function, privacy: .public):#\(#line) - \
                     Failed to find service with peerID: \(peerID.displayName)
                     state: \(state, privacy: .public)
                     """
@@ -236,7 +236,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             peerID: \(peerID.displayName, privacy: .public) \
             info: \(info?.description ?? "<nil>", privacy: .public)
             """
@@ -250,7 +250,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):\(#line) \
+            [DEBUG] \(#function, privacy: .public):#\(#line) - \
             peerID: \(peerID.displayName, privacy: .public)
             """
         )
@@ -264,7 +264,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         state = .failed(error)
         logger.fault(
             """
-            [FAULT] \(#function, privacy: .public):\(#line) \
+            [FAULT] \(#function, privacy: .public):#\(#line) - \
             error: \(error.localizedDescription, privacy: .public)
             """
         )
