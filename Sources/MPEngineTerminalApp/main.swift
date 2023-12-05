@@ -32,6 +32,13 @@ struct App: ParsableCommand {
     @Option
     var mode: Mode
     
+    @Option
+    var name: String
+
+    @Option
+    var serviceName: String
+
+    
     @Flag(
         name: [.long, .customLong("debug")],
         help: "Verbose debug logging to stderr"
@@ -40,19 +47,53 @@ struct App: ParsableCommand {
     
     func run() throws {
         print("mode: \(mode)")
+        print("name: \(name)")
+        print("serviceName: \(serviceName)")
         print("isDebugMode: \(isDebugMode)")
         
         Task {
-            let i = 44
+//            let i = 44
             
-            if i.isPowerOfTwo {
-                print("\(i)isPowerOfTwo: true")
+//            
+//            if i.isPowerOfTwo {
+//                print("\(i)isPowerOfTwo: true")
+//            } else {
+//                print("\(i)isPowerOfTwo: false")
+//            }
+//            
+//            Terminal.test()
+
+            print("Enter your name: ")
+            if let str = readLine(strippingNewline: true) {
+                print("You entered: \(str)")
             } else {
-                print("\(i)isPowerOfTwo: false")
+                print("Failed to collect your name")
+            }
+
+            let engine = MPEngine(displayName: name)
+            
+            switch mode {
+            case .browser:
+            
+                engine.startBrowsing(serviceName: serviceName)
+                guard let browser = engine.browser else {
+                    preconditionFailure("browser == nil")
+                }
+                browser.didUpdateAdvertisedServices = { services in
+                    print("found services: \(services)")
+                }
+            case .advertiser:
+                engine.startAdvertising(serviceName: serviceName)
+                guard let advertiser = engine.advertiser else {
+                    preconditionFailure("advertiser == nil")
+                }
+                advertiser.didUpdateInvitations = { invitations in
+                    print("did receive invitations: \(invitations)")
+                }
             }
             
-            Terminal.test()
-
+            
+            try? await Task.sleep(nanoseconds: 10_000_000_000)
             print("Enter your name: ")
             if let str = readLine(strippingNewline: true) {
                 print("You entered: \(str)")

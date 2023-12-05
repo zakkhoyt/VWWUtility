@@ -55,6 +55,14 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "--name=&quot;zakkbookmax&quot;"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--service-name=&quot;vww-mpdev&quot;"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "--is-verbose"
             isEnabled = "NO">
          </CommandLineArgument>
