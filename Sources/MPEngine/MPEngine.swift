@@ -118,11 +118,9 @@ public final class MPEngine: NSObject {
     private let session: MCSession
     private let peerID: MCPeerID
     
-    #warning("FIXME: zakkhoyt - make private after UI viewModel fixed")
-    public var advertiser: Advertiser?
-    public var browser: Browser?
+    private var advertiser: Advertiser?
+    private var browser: Browser?
 
-    
     public init(
         displayName: String // UIDevice.current.name
     ) {

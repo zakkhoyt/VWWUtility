@@ -52,48 +52,32 @@ struct App: ParsableCommand {
         print("isDebugMode: \(isDebugMode)")
         
         Task {
-//            let i = 44
-            
-//            
-//            if i.isPowerOfTwo {
-//                print("\(i)isPowerOfTwo: true")
-//            } else {
-//                print("\(i)isPowerOfTwo: false")
-//            }
-//            
-//            Terminal.test()
-
-            print("Enter your name: ")
-            if let str = readLine(strippingNewline: true) {
-                print("You entered: \(str)")
-            } else {
-                print("Failed to collect your name")
-            }
-
             let engine = MPEngine(displayName: name)
             
             switch mode {
             case .browser:
             
-                engine.startBrowsing(serviceName: serviceName)
-                guard let browser = engine.browser else {
-                    preconditionFailure("browser == nil")
-                }
+                let browser = engine.startBrowsing(serviceName: serviceName)
                 browser.didUpdateAdvertisedServices = { services in
                     print("found services: \(services)")
                 }
             case .advertiser:
-                engine.startAdvertising(serviceName: serviceName)
-                guard let advertiser = engine.advertiser else {
-                    preconditionFailure("advertiser == nil")
-                }
+                let advertiser = engine.startAdvertising(serviceName: serviceName)
                 advertiser.didUpdateInvitations = { invitations in
                     print("did receive invitations: \(invitations)")
+                    invitations.forEach {
+                        switch $0.response {
+                        case .noResponse:
+                            engine.respond(invitation: $0, accept: true)
+                        default:
+                            break
+                        }
+                    }
                 }
             }
             
-            
-            try? await Task.sleep(nanoseconds: 10_000_000_000)
+            //try? await Task.sleep(nanoseconds: 10_000_000_000)
+            await Task.sleep(duration: 10)
             print("Enter your name: ")
             if let str = readLine(strippingNewline: true) {
                 print("You entered: \(str)")
