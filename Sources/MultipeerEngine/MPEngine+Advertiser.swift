@@ -95,7 +95,23 @@ extension MPEngine {
         
         @Published
         public private(set) var invitations: [Invititation] = []
+        
+        // MARK: Internal properties
+        
+        var peerID: MCPeerID {
+            serviceAdvertiser.myPeerID
+        }
+        
+        var serviceType: String {
+            serviceAdvertiser.serviceType
+        }
+        
+        var discoveryInfo: [String: String]? {
+            serviceAdvertiser.discoveryInfo
+        }
 
+        // MARK: Private vars
+        
         private var advertisedServiceName: String?
         private var serviceAdvertiser = MCNearbyServiceAdvertiser(
             peer: MCPeerID(displayName: "com.tempPID"),
@@ -108,7 +124,7 @@ extension MPEngine {
         init(
             peerID: MCPeerID,
             serviceType: String,
-            discoveryInfo: [String: String]
+            discoveryInfo: [String: String]?
         ) {
             self.serviceAdvertiser = MCNearbyServiceAdvertiser(
                 peer: peerID,

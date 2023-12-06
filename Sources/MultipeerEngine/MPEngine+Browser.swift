@@ -94,6 +94,14 @@ extension MPEngine {
 
         @Published
         public private(set) var advertisedServices = [Service]()
+        
+        // MARK: Internal vars
+        
+        var serviceType: String {
+            serviceBrowser.serviceType
+        }
+        
+        // MARK: Private vars
 
         private let serviceBrowser: MCNearbyServiceBrowser
 

@@ -130,18 +130,27 @@ public final class MPEngine: NSObject {
     
     public func startAdvertising(
         serviceName: String,
-        discoveryInfo: [String: String]
+        discoveryInfo: [String: String]?
     ) -> Advertiser {
-        #warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
-        let a: Advertiser = advertiser ?? Advertiser(
-            peerID: peerID,
-            serviceType: serviceName,
-            discoveryInfo: discoveryInfo
-        )
-        a.startAdvertising()
-        advertiser = a
+        let advertiser: Advertiser = {
+            guard let advertiser = self.advertiser,
+                  advertiser.serviceType == serviceName,
+                  advertiser.discoveryInfo == discoveryInfo
+            else {
+                return Advertiser(
+                    peerID: peerID,
+                    serviceType: serviceName,
+                    discoveryInfo: discoveryInfo
+                )
+            }
+            
+            return advertiser
+        }()
         
-        a.$invitations.sink { [weak self] invitations in
+        advertiser.startAdvertising()
+        self.advertiser = advertiser
+        
+        advertiser.$invitations.sink { [weak self] invitations in
             guard let self else { return }
             
             // Auto accept invitation if configuration supports it.
@@ -155,7 +164,7 @@ public final class MPEngine: NSObject {
         }
         .store(in: &subscriptions)
         
-        return a
+        return advertiser
     }
     
     public func stopAdvertising() {
@@ -178,14 +187,21 @@ public final class MPEngine: NSObject {
     public func startBrowsing(
         serviceName: String
     ) -> Browser {
-        #warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
-        let b: Browser = browser ?? Browser(
-            peerID: peerID,
-            serviceType: serviceName
-        )
-        b.startBrowsing()
-        browser = b
-        return b
+        let browser: Browser = {
+            guard let browser = self.browser,
+                  browser.serviceType == serviceName
+            else {
+                return Browser(
+                    peerID: peerID,
+                    serviceType: serviceName
+                )
+            }
+            
+            return browser
+        }()
+        browser.startBrowsing()
+        self.browser = browser
+        return browser
     }
     
     public func stopBrowsing() throws {
