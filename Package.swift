@@ -35,8 +35,8 @@ let package = Package(
             targets: ["DrawingUI"]
         ),
         .library(
-            name: "MPEngine",
-            targets: ["MPEngine"]
+            name: "MultipeerEngine",
+            targets: ["MultipeerEngine"]
         ),
         .library(
             name: "Nodes",
@@ -91,7 +91,7 @@ let package = Package(
             plugins: []
         ),
         .target(
-            name: "MPEngine",
+            name: "MultipeerEngine",
             dependencies: [
                 .target(
                     name: "BaseUtility"
@@ -109,18 +109,18 @@ let package = Package(
             plugins: []
         ),
         .testTarget(
-            name: "MPEngineTests",
-            dependencies: ["MPEngine"],
+            name: "MultipeerEngineTests",
+            dependencies: ["MultipeerEngine"],
             swiftSettings: swiftSettings
         ),
         .executableTarget(
-            name: "MPEngineTerminalApp",
+            name: "MultipeerEngineTerminalApp",
             dependencies: [
                 .target(
                     name: "BaseUtility"
                 ),
                 .target(
-                    name: "MPEngine"
+                    name: "MultipeerEngine"
                 ),
                 .target(
                     name: "TerminalUtility"

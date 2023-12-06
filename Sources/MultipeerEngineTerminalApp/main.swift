@@ -13,7 +13,7 @@ import ArgumentParser
 import BaseUtility
 import Combine
 import Foundation
-import MPEngine
+import MultipeerEngine
 import TerminalUtility
 
 struct App: ParsableCommand, Sendable {

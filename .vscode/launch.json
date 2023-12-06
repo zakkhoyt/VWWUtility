@@ -1,6 +1,5 @@
 {
   "configurations": [
-
     {
       "type": "lldb",
       "request": "launch",
@@ -56,14 +55,17 @@
         "swift"
       ],
       "args": [
-        "--mode", "advertiser",
-        "--name", "zakkbookmax2",
-        "--service-name", "vww-mpdev"
+        "--mode",
+        "advertiser",
+        "--name",
+        "zakkbookmax2",
+        "--service-name",
+        "vww-mpdev"
       ],
       "cwd": "${workspaceFolder:VWWUtility}",
-      "name": "Debug MPEngineTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/debug/MPEngineTerminalApp",
-      "preLaunchTask": "swift: Build Debug MPEngineTerminalApp"
+      "name": "Debug MultipeerEngineTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/debug/MultipeerEngineTerminalApp",
+      "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp"
     },
     {
       "type": "lldb",
@@ -73,9 +75,9 @@
       ],
       "args": [],
       "cwd": "${workspaceFolder:VWWUtility}",
-      "name": "Release MPEngineTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/release/MPEngineTerminalApp",
-      "preLaunchTask": "swift: Build Release MPEngineTerminalApp"
+      "name": "Release MultipeerEngineTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/release/MultipeerEngineTerminalApp",
+      "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp"
     }
   ]
 }

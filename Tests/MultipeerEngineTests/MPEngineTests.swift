@@ -1,4 +1,4 @@
-@testable import MPEngine
+@testable import MultipeerEngine
 import XCTest
 
 final class MPEngineTests: XCTestCase {

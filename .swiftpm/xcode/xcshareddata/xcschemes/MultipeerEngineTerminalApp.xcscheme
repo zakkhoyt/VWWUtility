@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MPEngineTerminalApp"
-               BuildableName = "MPEngineTerminalApp"
-               BlueprintName = "MPEngineTerminalApp"
+               BlueprintIdentifier = "MultipeerEngineTerminalApp"
+               BuildableName = "MultipeerEngineTerminalApp"
+               BlueprintName = "MultipeerEngineTerminalApp"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,28 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BaseUtilityTests"
-               BuildableName = "BaseUtilityTests"
-               BlueprintName = "BaseUtilityTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MPEngineTests"
-               BuildableName = "MPEngineTests"
-               BlueprintName = "MPEngineTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -65,49 +43,26 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "MPEngineTerminalApp"
-            BuildableName = "MPEngineTerminalApp"
-            BlueprintName = "MPEngineTerminalApp"
+            BlueprintIdentifier = "MultipeerEngineTerminalApp"
+            BuildableName = "MultipeerEngineTerminalApp"
+            BlueprintName = "MultipeerEngineTerminalApp"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "--mode=&quot;advertiser&quot;"
+            argument = "--name=&quot;zakkbookmax&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--name=&quot;zakkbookmax&quot;"
+            argument = "--mode=&quot;advertiser&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "--service-name=&quot;vww-mpdev&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
-         <CommandLineArgument
-            argument = "--is-verbose"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "--debug-mode"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-m &quot;ADvertiser&quot;"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "&quot;someType&quot;"
-            isEnabled = "NO">
-         </CommandLineArgument>
       </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "--mode"
-            value = "browser"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -119,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "MPEngineTerminalApp"
-            BuildableName = "MPEngineTerminalApp"
-            BlueprintName = "MPEngineTerminalApp"
+            BlueprintIdentifier = "MultipeerEngineTerminalApp"
+            BuildableName = "MultipeerEngineTerminalApp"
+            BlueprintName = "MultipeerEngineTerminalApp"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
