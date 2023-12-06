@@ -90,9 +90,11 @@ extension MPEngine {
 
         // MARK: Public properties
         
-        public let state = CurrentValueSubject<State, Never>(.stopped)
+        @Published
+        public private(set) var state: State = .stopped
         
-        public let invitations = CurrentValueSubject<[Invititation], Never>([])
+        @Published
+        public private(set) var invitations: [Invititation] = []
 
         private var advertisedServiceName: String?
         private var serviceAdvertiser = MCNearbyServiceAdvertiser(
@@ -126,7 +128,7 @@ extension MPEngine {
             // start
             serviceAdvertiser.delegate = self
             serviceAdvertiser.startAdvertisingPeer()
-            state.value = .started
+            state = .started
             
             logger.debug(
                 """
@@ -142,8 +144,9 @@ extension MPEngine {
         func stopAdvertising() {
             serviceAdvertiser.delegate = nil
             serviceAdvertiser.stopAdvertisingPeer()
-            invitations.value.removeAll()
-            state.value = .stopped
+//            invitations.value.removeAll()
+            invitations.removeAll()
+            state = .stopped
             
             logger.debug(
                 """
@@ -164,7 +167,8 @@ extension MPEngine {
 //            }
             
             invitation.response = accept ? .accepted(.now) : .rejected(.now)
-            invitations.send(invitations.value)
+//            invitations.send(invitations.value)
+            invitations = invitations
             
             logger.debug(
                 """
@@ -183,7 +187,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         _ advertiser: MCNearbyServiceAdvertiser,
         didNotStartAdvertisingPeer error: any Error
     ) {
-        state.value = .failed(error)
+        state = .failed(error)
         
         logger.fault(
             """
@@ -207,7 +211,8 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
             "<nil>"
         }
 
-        invitations.value.append(
+//        invitations.value.append(
+        invitations.append(
             Invititation(
                 peerID: peerID,
                 context: context,

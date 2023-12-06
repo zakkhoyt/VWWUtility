@@ -88,9 +88,11 @@ public final class MPEngine: NSObject {
     }
     
     #warning("TODO: zakkhoyt - This dict should contain contributions from this peer")
-    public let connectedPeers = CurrentValueSubject<OrderedDictionary<Peer, [String]>, Never>([:])
+    @Published
+    public private(set) var connectedPeers = OrderedDictionary<Peer, [String]>()
     
-    public let payloads = CurrentValueSubject<[Payload], Never>([])
+    @Published
+    public private(set) var payloads = [Payload]()
 
     public var peerDisplayName: String {
         peerID.displayName
@@ -139,7 +141,7 @@ public final class MPEngine: NSObject {
         a.startAdvertising()
         advertiser = a
         
-        a.invitations.sink { [weak self] invitations in
+        a.$invitations.sink { [weak self] invitations in
             guard let self else { return }
             
             // Auto accept invitation if configuration supports it.
@@ -249,7 +251,7 @@ public final class MPEngine: NSObject {
         }
         try send(data: data)
         
-        payloads.value.insert(
+        payloads.insert(
             Payload(
                 connectedPeer: Peer(peerID: peerID),
                 text: text,
@@ -288,11 +290,11 @@ extension MPEngine: MCSessionDelegate {
                 let connectedPeer = Peer(peerID: peerID)
                 switch state {
                 case .notConnected:
-                    connectedPeers.value[connectedPeer] = nil
+                    connectedPeers[connectedPeer] = nil
                 case .connecting:
-                    connectedPeers.value[connectedPeer] = nil
+                    connectedPeers[connectedPeer] = nil
                 case .connected:
-                    connectedPeers.value[connectedPeer] = []
+                    connectedPeers[connectedPeer] = []
                 @unknown default:
                     break
                 }
@@ -322,7 +324,7 @@ extension MPEngine: MCSessionDelegate {
             return
         }
         
-        payloads.value.insert(
+        payloads.insert(
             Payload(
                 connectedPeer: Peer(peerID: peerID),
                 text: text,

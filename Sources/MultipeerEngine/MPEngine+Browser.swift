@@ -19,8 +19,6 @@ extension MPEngine {
             case failed(any Error)
         }
 
-//        #warning("FIXME: zakkhoyt - Represent state (waiting for response)")
-        
         public final class Service: Hashable, Identifiable, CustomStringConvertible {
             // MARK: Nested Types
   
@@ -91,9 +89,11 @@ extension MPEngine {
 
         // MARK: Public properties
 
-        public let state = CurrentValueSubject<State, Never>(.stopped)
+        @Published
+        public private(set) var state = State.stopped
 
-        public let advertisedServices = CurrentValueSubject<[Service], Never>([])
+        @Published
+        public private(set) var advertisedServices = [Service]()
 
         private let serviceBrowser: MCNearbyServiceBrowser
 
@@ -115,7 +115,7 @@ extension MPEngine {
             // start
             serviceBrowser.delegate = self
             serviceBrowser.startBrowsingForPeers()
-            state.value = .started
+            state = .started
 
             logger.debug(
                 """
@@ -129,8 +129,8 @@ extension MPEngine {
         func stopBrowsing() {
             serviceBrowser.delegate = nil
             serviceBrowser.stopBrowsingForPeers()
-            advertisedServices.value.removeAll()
-            state.value = .stopped
+            advertisedServices.removeAll()
+            state = .stopped
             
             logger.debug(
                 """
@@ -153,7 +153,7 @@ extension MPEngine {
             )
             
             service.invitationState = .invitationSent(.now)
-            advertisedServices.send(advertisedServices.value)
+            advertisedServices = advertisedServices
             
             logger.debug(
                 """
@@ -169,7 +169,7 @@ extension MPEngine {
             peer peerID: MCPeerID,
             didChange state: MCSessionState
         ) {
-            guard let service = advertisedServices.value.first(where: {
+            guard let service = advertisedServices.first(where: {
                 $0.peerID == peerID
             }) else {
                 logger.error(
@@ -185,12 +185,12 @@ extension MPEngine {
             switch state {
             case .notConnected:
                 service.invitationState = .invitationRejected(.now)
-                advertisedServices.send(advertisedServices.value)
+                advertisedServices = advertisedServices
             case .connecting:
                 break
             case .connected:
                 service.invitationState = .invitationAccepted(.now)
-                advertisedServices.send(advertisedServices.value)
+                advertisedServices = advertisedServices
             @unknown default:
                 break
             }
@@ -205,7 +205,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         foundPeer peerID: MCPeerID,
         withDiscoveryInfo info: [String: String]?
     ) {
-        advertisedServices.value.append(
+        advertisedServices.append(
             Service(
                 peerID: peerID,
                 discoveryInfo: info
@@ -239,7 +239,7 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         _ browser: MCNearbyServiceBrowser,
         didNotStartBrowsingForPeers error: any Error
     ) {
-        state.value = .failed(error)
+        state = .failed(error)
         logger.fault(
             """
             \(#function, privacy: .public):#\(#line) - \
