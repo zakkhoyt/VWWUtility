@@ -21,7 +21,7 @@ public protocol PayloadRepresentable: Identifiable, Hashable {
     var date: Date { get }
 }
 
-public final class MPEngine: NSObject {
+public final class MPEngine: NSObject, Sendable {
     public enum Encryption: @unchecked Sendable {
         /// Session prefers encryption but will accept unencrypted connections.
         case optional
@@ -41,7 +41,7 @@ public final class MPEngine: NSObject {
         }
     }
 
-    public struct Peer: Identifiable, Hashable, CustomStringConvertible, Codable {
+    public struct Peer: Sendable, Identifiable, Hashable, CustomStringConvertible, Codable {
         public var id: String { name }
         public let name: String
         
@@ -68,7 +68,7 @@ public final class MPEngine: NSObject {
         }
     }
     
-    public class Payload: PayloadRepresentable, Identifiable, Hashable {
+    public final class Payload: PayloadRepresentable, Identifiable, Hashable, Sendable {
         public let id = UUID()
         public let connectedPeer: Peer
         public let text: String
@@ -105,12 +105,65 @@ public final class MPEngine: NSObject {
         }
     }
     
-    #warning("TODO: zakkhoyt - This dict should contain contributions from this peer")
-    @Published
-    public private(set) var connectedPeers = OrderedDictionary<Peer, [String]>()
+    public actor DataStore {
+//        @Published
+//        public private(set) var state: State = .stopped
+//
+//        func setState(_ newState: State) {
+//            state = newState
+//        }
+//
+//        @Published
+//        public private(set) var invitations: [Invititation] = []
+//
+//        func removeAllInvitations() {
+//            invitations.removeAll()
+//        }
+//
+//        func appendInvitation(_ invitation: Invititation) {
+//            invitations.append(invitation)
+//        }
+//
+//        func refreshInvitations() {
+//            self.invitations = invitations
+//        }
+        #warning("TODO: zakkhoyt - This dict should contain contributions from this peer")
+        @Published
+        public private(set) var connectedPeers = OrderedDictionary<Peer, [String]>()
+        
+        func removeAllConnectedPeers() {
+            connectedPeers.removeAll()
+        }
+        
+        func removeConnectedPeer(_ peer: Peer) {
+            connectedPeers[peer] = nil
+        }
+
+        func insertConnectedPeer(_ peer: Peer, payloads: [String]) {
+            connectedPeers[peer] = payloads
+        }
+        
+//        func refreshInvitations() {
+//            self.invitations = invitations
+//        }
+
+        @Published
+        public private(set) var payloads = [Payload]()
+        
+        func removePayloads() {
+            payloads.removeAll()
+        }
+        
+        func prependPayload(_ payload: Payload) {
+            payloads.insert(payload, at: 0)
+        }
+        
+        func refreshPayloads() {
+            payloads = payloads
+        }
+    }
     
-    @Published
-    public private(set) var payloads = [Payload]()
+    public let dataStore = DataStore()
 
     public var peerDisplayName: String {
         peerID.displayName
@@ -168,19 +221,23 @@ public final class MPEngine: NSObject {
         advertiser.startAdvertising()
         self.advertiser = advertiser
         
-        advertiser.$invitations.sink { [weak self] invitations in
-            guard let self else { return }
-            
-            // Auto accept invitation if configuration supports it.
-            if ProcessInfo.processInfo.arguments.contains("--advertiser-auto-accept-invitataions") {
-                invitations.forEach {
-                    if case .noResponse = $0.response {
-                        self.respond(invitation: $0, accept: true)
+        Task {
+            await advertiser.dataStore.$invitations.sink { [weak self] invitations in
+                guard let self else { return }
+                
+                Task {
+                    // Auto accept invitation if configuration supports it.
+                    if ProcessInfo.processInfo.arguments.contains("--advertiser-auto-accept-invitataions") {
+                        invitations.forEach {
+                            if case .noResponse = $0.response {
+                                self.respond(invitation: $0, accept: true)
+                            }
+                        }
                     }
                 }
             }
+            .store(in: &subscriptions)
         }
-        .store(in: &subscriptions)
         
         return advertiser
     }
@@ -285,14 +342,15 @@ public final class MPEngine: NSObject {
         }
         try send(data: data)
         
-        payloads.insert(
-            Payload(
-                connectedPeer: Peer(peerID: peerID),
-                text: text,
-                date: .now
-            ),
-            at: 0
-        )
+        Task {
+            await dataStore.prependPayload(
+                Payload(
+                    connectedPeer: Peer(peerID: peerID),
+                    text: text,
+                    date: .now
+                )
+            )
+        }
     }
     
     // MARK: Private functions
@@ -311,31 +369,31 @@ extension MPEngine: MCSessionDelegate {
         peer peerID: MCPeerID,
         didChange state: MCSessionState
     ) {
-        logger.debug(
-            """
-            \(#function, privacy: .public):#\(#line) - \
-            peer: \(peerID.displayName, privacy: .public) \
-            didChange: \(state, privacy: .public)
-            """
-        )
+        let connectedPeer = Peer(peerID: peerID)
         
         Task {
-            await MainActor.run {
-                let connectedPeer = Peer(peerID: peerID)
-                switch state {
-                case .notConnected:
-                    connectedPeers[connectedPeer] = nil
-                case .connecting:
-                    connectedPeers[connectedPeer] = nil
-                case .connected:
-                    connectedPeers[connectedPeer] = []
-                @unknown default:
-                    break
-                }
+            logger.debug(
+                """
+                \(#function, privacy: .public):#\(#line) - \
+                peer: \(peerID.displayName, privacy: .public) \
+                didChange: \(state, privacy: .public)
+                """
+            )
+
+            switch state {
+            case .notConnected:
+                await dataStore.removeConnectedPeer(connectedPeer)
+            case .connecting:
+                await dataStore.removeConnectedPeer(connectedPeer)
+            case .connected:
+                await dataStore.insertConnectedPeer(connectedPeer, payloads: [])
+            @unknown default:
+                break
             }
+            
+            // Tell our browser instance about any changes so it can update invitations
+            browser?.session(session, peer: peerID, didChange: state)
         }
-        
-        browser?.session(session, peer: peerID, didChange: state)
     }
     
     // Received data from remote peer.
@@ -358,14 +416,15 @@ extension MPEngine: MCSessionDelegate {
             return
         }
         
-        payloads.insert(
-            Payload(
-                connectedPeer: Peer(peerID: peerID),
-                text: text,
-                date: Date()
-            ),
-            at: 0
-        )
+        Task {
+            await dataStore.prependPayload(
+                Payload(
+                    connectedPeer: Peer(peerID: peerID),
+                    text: text,
+                    date: Date()
+                )
+            )
+        }
     }
     
     // Received a byte stream from remote peer.

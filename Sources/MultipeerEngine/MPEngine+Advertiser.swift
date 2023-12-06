@@ -12,21 +12,21 @@ import Foundation
 import MultipeerConnectivity
 
 extension MPEngine {
-    public final class Advertiser: NSObject {
+    public final class Advertiser: NSObject, Sendable {
         // MARK: Nested Types
         
-        public enum DiscoveryInfo {
+        public enum DiscoveryInfo: Sendable {
             public static let activityKey = "activity"
             public static let messageKey = "message"
         }
         
-        public enum State {
+        public enum State: Sendable {
             case stopped
             case started
             case failed(any Error)
         }
 
-        public class Invititation: Hashable, Identifiable, CustomStringConvertible {
+        public final class Invititation: Sendable, Hashable, Identifiable, CustomStringConvertible {
             // public enum Response: Hashable, Identifiable, CustomStringConvertible {
             public enum Response: CustomStringConvertible {
                 case noResponse
@@ -87,14 +87,34 @@ extension MPEngine {
                 self.handler = handler
             }
         }
+        
+        public actor DataStore {
+            @Published
+            public private(set) var state: State = .stopped
+            
+            func setState(_ newState: State) {
+                state = newState
+            }
+            
+            @Published
+            public private(set) var invitations: [Invititation] = []
+            
+            func removeAllInvitations() {
+                invitations.removeAll()
+            }
+            
+            func appendInvitation(_ invitation: Invititation) {
+                invitations.append(invitation)
+            }
+            
+            func refreshInvitations() {
+                invitations = invitations
+            }
+        }
 
         // MARK: Public properties
         
-        @Published
-        public private(set) var state: State = .stopped
-        
-        @Published
-        public private(set) var invitations: [Invititation] = []
+        public let dataStore = DataStore()
         
         // MARK: Internal properties
         
@@ -144,7 +164,11 @@ extension MPEngine {
             // start
             serviceAdvertiser.delegate = self
             serviceAdvertiser.startAdvertisingPeer()
-            state = .started
+            
+//            dataStore.state = .started
+            Task {
+                await dataStore.setState(.started)
+            }
             
             logger.debug(
                 """
@@ -161,8 +185,12 @@ extension MPEngine {
             serviceAdvertiser.delegate = nil
             serviceAdvertiser.stopAdvertisingPeer()
 //            invitations.value.removeAll()
-            invitations.removeAll()
-            state = .stopped
+            Task {
+                // dataStore.invitations.removeAll()
+                await dataStore.removeAllInvitations()
+//                dataStore.state = .stopped
+                await dataStore.setState(.stopped)
+            }
             
             logger.debug(
                 """
@@ -184,7 +212,10 @@ extension MPEngine {
             
             invitation.response = accept ? .accepted(.now) : .rejected(.now)
 //            invitations.send(invitations.value)
-            invitations = invitations
+            Task {
+                // dataStore.invitations = await dataStore.invitations
+                await dataStore.refreshInvitations()
+            }
             
             logger.debug(
                 """
@@ -203,14 +234,17 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         _ advertiser: MCNearbyServiceAdvertiser,
         didNotStartAdvertisingPeer error: any Error
     ) {
-        state = .failed(error)
-        
-        logger.fault(
-            """
-            \(#function, privacy: .public):#\(#line) - \
-            error: \(error.localizedDescription, privacy: .public)
-            """
-        )
+        Task {
+//            dataStore.state = .failed(error)
+            await dataStore.setState(.failed(error))
+            
+            logger.fault(
+                """
+                \(#function, privacy: .public):#\(#line) - \
+                error: \(error.localizedDescription, privacy: .public)
+                """
+            )
+        }
     }
 
     // Incoming invitation request.  Call the invitationHandler block with YES
@@ -228,13 +262,16 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         }
 
 //        invitations.value.append(
-        invitations.append(
-            Invititation(
-                peerID: peerID,
-                context: context,
-                handler: invitationHandler
+        Task {
+//            dataStore.invitations.append(
+            await dataStore.appendInvitation(
+                Invititation(
+                    peerID: peerID,
+                    context: context,
+                    handler: invitationHandler
+                )
             )
-        )
+        }
 
 //        DispatchQueue.main.async {
 //            self.invitations.value.append(

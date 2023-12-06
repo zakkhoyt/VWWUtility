@@ -86,14 +86,40 @@ extension MPEngine {
                 self.discoveryInfo = discoveryInfo
             }
         }
+        
+        public actor DataStore {
+            @Published
+            public private(set) var state = State.stopped
+
+            func setState(_ newState: State) {
+                state = newState
+            }
+
+            @Published
+            public private(set) var advertisedServices = [Service]()
+
+            func removeAllAdvertisedServices() {
+                advertisedServices.removeAll()
+            }
+            
+            func appendAdvertisedService(_ service: Service) {
+                advertisedServices.append(service)
+            }
+            
+            func refreshAdvertisedServices() {
+                advertisedServices = advertisedServices
+            }
+        }
 
         // MARK: Public properties
 
-        @Published
-        public private(set) var state = State.stopped
-
-        @Published
-        public private(set) var advertisedServices = [Service]()
+//        @Published
+//        public private(set) var state = State.stopped
+//
+//        @Published
+//        public private(set) var advertisedServices = [Service]()
+        
+        public let dataStore = DataStore()
         
         // MARK: Internal vars
         
@@ -123,7 +149,10 @@ extension MPEngine {
             // start
             serviceBrowser.delegate = self
             serviceBrowser.startBrowsingForPeers()
-            state = .started
+            
+            Task {
+                await dataStore.setState(.started)
+            }
 
             logger.debug(
                 """
@@ -137,8 +166,11 @@ extension MPEngine {
         func stopBrowsing() {
             serviceBrowser.delegate = nil
             serviceBrowser.stopBrowsingForPeers()
-            advertisedServices.removeAll()
-            state = .stopped
+            
+            Task {
+                await dataStore.removeAllAdvertisedServices()
+                await dataStore.setState(.stopped)
+            }
             
             logger.debug(
                 """
@@ -161,7 +193,10 @@ extension MPEngine {
             )
             
             service.invitationState = .invitationSent(.now)
-            advertisedServices = advertisedServices
+            Task {
+//                advertisedServices = advertisedServices
+                await dataStore.refreshAdvertisedServices()
+            }
             
             logger.debug(
                 """
@@ -177,30 +212,32 @@ extension MPEngine {
             peer peerID: MCPeerID,
             didChange state: MCSessionState
         ) {
-            guard let service = advertisedServices.first(where: {
-                $0.peerID == peerID
-            }) else {
-                logger.error(
-                    """
-                    \(#function, privacy: .public):#\(#line) - \
-                    Failed to find service with peerID: \(peerID.displayName)
-                    state: \(state, privacy: .public)
-                    """
-                )
-                return
-            }
-            
-            switch state {
-            case .notConnected:
-                service.invitationState = .invitationRejected(.now)
-                advertisedServices = advertisedServices
-            case .connecting:
-                break
-            case .connected:
-                service.invitationState = .invitationAccepted(.now)
-                advertisedServices = advertisedServices
-            @unknown default:
-                break
+            Task {
+                guard let service = await dataStore.advertisedServices.first(where: {
+                    $0.peerID == peerID
+                }) else {
+                    logger.error(
+                        """
+                        \(#function, privacy: .public):#\(#line) - \
+                        Failed to find service with peerID: \(peerID.displayName)
+                        state: \(state, privacy: .public)
+                        """
+                    )
+                    return
+                }
+                
+                switch state {
+                case .notConnected:
+                    service.invitationState = .invitationRejected(.now)
+                    await dataStore.refreshAdvertisedServices()
+                case .connecting:
+                    break
+                case .connected:
+                    service.invitationState = .invitationAccepted(.now)
+                    await dataStore.refreshAdvertisedServices()
+                @unknown default:
+                    break
+                }
             }
         }
     }
@@ -213,20 +250,23 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         foundPeer peerID: MCPeerID,
         withDiscoveryInfo info: [String: String]?
     ) {
-        advertisedServices.append(
-            Service(
-                peerID: peerID,
-                discoveryInfo: info
+        Task {
+//            advertisedServices.append(
+            await dataStore.appendAdvertisedService(
+                Service(
+                    peerID: peerID,
+                    discoveryInfo: info
+                )
             )
-        )
-        
-        logger.debug(
-            """
-            \(#function, privacy: .public):#\(#line) - \
-            peerID: \(peerID.displayName, privacy: .public) \
-            info: \(info?.description ?? "<nil>", privacy: .public)
-            """
-        )
+            
+            logger.debug(
+                """
+                \(#function, privacy: .public):#\(#line) - \
+                peerID: \(peerID.displayName, privacy: .public) \
+                info: \(info?.description ?? "<nil>", privacy: .public)
+                """
+            )
+        }
     }
 
     // A nearby peer has stopped advertising.
@@ -247,12 +287,15 @@ extension MPEngine.Browser: MCNearbyServiceBrowserDelegate {
         _ browser: MCNearbyServiceBrowser,
         didNotStartBrowsingForPeers error: any Error
     ) {
-        state = .failed(error)
-        logger.fault(
-            """
-            \(#function, privacy: .public):#\(#line) - \
-            error: \(error.localizedDescription, privacy: .public)
-            """
-        )
+        Task {
+//            state = .failed(error)
+            await dataStore.setState(.failed(error))
+            logger.fault(
+                """
+                \(#function, privacy: .public):#\(#line) - \
+                error: \(error.localizedDescription, privacy: .public)
+                """
+            )
+        }
     }
 }
