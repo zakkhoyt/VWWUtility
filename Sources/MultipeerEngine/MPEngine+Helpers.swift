@@ -18,3 +18,15 @@ extension MCSessionState: CustomStringConvertible {
         }
     }
 }
+
+extension [MCPeerID] {
+    var peers: [MPEngine.Peer] {
+        map { MPEngine.Peer(peerID: $0) }
+    }
+}
+
+extension [MPEngine.Peer] {
+    var peerIDs: [MCPeerID] {
+        map { MCPeerID(displayName: $0.name) }
+    }
+}

@@ -16,14 +16,14 @@ import MultipeerConnectivity
 
 public protocol PayloadRepresentable: Identifiable, Hashable {
     var id: UUID { get }
-    var connectedPeer: MPEngine.ConnectedPeer { get }
+    var connectedPeer: MPEngine.Peer { get }
     var text: String { get }
     var date: Date { get }
 }
 
 #warning("FIXME: zakkhoyt - Rename package (so that class name no longer matches")
 public final class MPEngine: NSObject {
-    public class ConnectedPeer: Identifiable, Hashable, CustomStringConvertible {
+    public struct Peer: Identifiable, Hashable, CustomStringConvertible, Codable {
         public var id: String { name }
         public let name: String
         
@@ -35,8 +35,8 @@ public final class MPEngine: NSObject {
         }
         
         public static func == (
-            lhs: MPEngine.ConnectedPeer,
-            rhs: MPEngine.ConnectedPeer
+            lhs: MPEngine.Peer,
+            rhs: MPEngine.Peer
         ) -> Bool {
             lhs.id == rhs.id
         }
@@ -52,7 +52,7 @@ public final class MPEngine: NSObject {
     
     public class Payload: PayloadRepresentable, Identifiable, Hashable {
         public let id = UUID()
-        public let connectedPeer: ConnectedPeer
+        public let connectedPeer: Peer
         public let text: String
         public let date: Date
         
@@ -77,7 +77,7 @@ public final class MPEngine: NSObject {
         }
         
         public init(
-            connectedPeer: MPEngine.ConnectedPeer,
+            connectedPeer: MPEngine.Peer,
             text: String,
             date: Date
         ) {
@@ -88,7 +88,7 @@ public final class MPEngine: NSObject {
     }
     
     #warning("TODO: zakkhoyt - This dict should contain contributions from this peer")
-    public let connectedPeers = CurrentValueSubject<OrderedDictionary<ConnectedPeer, [String]>, Never>([:])
+    public let connectedPeers = CurrentValueSubject<OrderedDictionary<Peer, [String]>, Never>([:])
     
     public let payloads = CurrentValueSubject<[Payload], Never>([])
 
@@ -127,12 +127,14 @@ public final class MPEngine: NSObject {
     // MARK: Advertising
     
     public func startAdvertising(
-        serviceName: String
+        serviceName: String,
+        discoveryInfo: [String: String]
     ) -> Advertiser {
         #warning("TODO: zakkhoyt - compare serviceType and peerID before reusing")
         let a: Advertiser = advertiser ?? Advertiser(
             peerID: peerID,
-            serviceType: serviceName
+            serviceType: serviceName,
+            discoveryInfo: discoveryInfo
         )
         a.startAdvertising()
         advertiser = a
@@ -203,13 +205,39 @@ public final class MPEngine: NSObject {
     
     // MARK: Data Transfer
     
+    public enum Recipients {
+        case all
+        case peers([MPEngine.Peer])
+    }
+    
     public func send(
-        data: Data
+        data: Data,
+        recipients: Recipients = .all
     ) throws {
+        // let peerIDs: [MCPeerID] = [MCPeerID(displayName: "fake")]
+        let peerIDs: [MCPeerID] = switch recipients {
+        case .all:
+            session.connectedPeers
+        case .peers(let peers):
+            // Instead of directly translating, let's instead filter them out
+            session.connectedPeers.filter { peerID in
+                peers.contains { peer in
+                    peer.name == peerID.displayName
+                }
+            }
+        }
+
         try session.send(
             data,
-            toPeers: session.connectedPeers,
+            toPeers: peerIDs,
             with: .reliable
+        )
+        
+        logger.debug(
+            """
+            \(#function, privacy: .public):#\(#line) - \
+            Did send payload of \(data.count) bytes to recipients: \(peerIDs.map { $0.displayName })
+            """
         )
     }
     
@@ -223,12 +251,20 @@ public final class MPEngine: NSObject {
         
         payloads.value.insert(
             Payload(
-                connectedPeer: ConnectedPeer(peerID: peerID),
+                connectedPeer: Peer(peerID: peerID),
                 text: text,
                 date: .now
             ),
             at: 0
         )
+    }
+    
+    // MARK: Private functions
+    
+    private func peers(
+        peerIDs: [MCPeerID]
+    ) -> [Peer] {
+        peerIDs.map { Peer(peerID: $0) }
     }
 }
 
@@ -241,7 +277,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             peer: \(peerID.displayName, privacy: .public) \
             didChange: \(state, privacy: .public)
             """
@@ -249,7 +285,7 @@ extension MPEngine: MCSessionDelegate {
         
         Task {
             await MainActor.run {
-                let connectedPeer = ConnectedPeer(peerID: peerID)
+                let connectedPeer = Peer(peerID: peerID)
                 switch state {
                 case .notConnected:
                     connectedPeers.value[connectedPeer] = nil
@@ -274,7 +310,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             data: \(data.count, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public)
             """
@@ -288,7 +324,7 @@ extension MPEngine: MCSessionDelegate {
         
         payloads.value.insert(
             Payload(
-                connectedPeer: ConnectedPeer(peerID: peerID),
+                connectedPeer: Peer(peerID: peerID),
                 text: text,
                 date: Date()
             ),
@@ -305,7 +341,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             stream: \(stream, privacy: .public) \
             withName: \(streamName, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public)
@@ -322,7 +358,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             didStartReceivingResourceWithName: \(resourceName, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public) \
             progress: \(String(format: "%.01f", progress.fractionCompleted), privacy: .public)
@@ -342,7 +378,7 @@ extension MPEngine: MCSessionDelegate {
     ) {
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             didFinishReceivingResourceWithName: \(resourceName, privacy: .public) \
             fromPeer: \(peerID.displayName, privacy: .public) \
             at: \(localURL?.absoluteString ?? "<nil>", privacy: .public) \
@@ -361,7 +397,7 @@ extension MPEngine: MCSessionDelegate {
 //    ) {
 //        logger.debug(
 //            """
-//            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+//            \(#function, privacy: .public):#\(#line) - \
 //            didReceiveCertificate: \((certificate ?? []).description, privacy: .public) \
 //            fromPeer: \(peerID.displayName, privacy: .public)
 //            """

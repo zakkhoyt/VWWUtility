@@ -69,39 +69,50 @@ struct App: ParsableCommand, Sendable {
             case .browser:
             
                 let browser = engine.startBrowsing(serviceName: serviceName)
-                browser.advertisedServices.sink { services in
-                    print("found services: \(services)")
-                }
-                .store(in: &Helpers.shared.subscriptions)
+                browser.advertisedServices
+                    .receive(on: DispatchQueue.main)
+                    .sink { services in
+                        print("found services: \(services)")
+                    }
+                    .store(in: &Helpers.shared.subscriptions)
             case .advertiser:
-                let advertiser = engine.startAdvertising(serviceName: serviceName)
-                advertiser.invitations.sink { invitations in
-                    print("did receive invitations: \(invitations)")
-                    invitations.forEach {
-                        switch $0.response {
-                        case .noResponse:
-                            engine.respond(invitation: $0, accept: true)
-                        default:
-                            break
+                let advertiser = engine.startAdvertising(
+                    serviceName: serviceName,
+                    discoveryInfo: [
+                        MPEngine.Advertiser.DiscoveryInfo.activityKey: "Tic Tac Toe"
+                    ]
+                )
+                advertiser.invitations
+                    .receive(on: DispatchQueue.main)
+                    .sink { invitations in
+                        print("did receive invitations: \(invitations)")
+                        invitations.forEach {
+                            switch $0.response {
+                            case .noResponse:
+                                engine.respond(invitation: $0, accept: true)
+                            default:
+                                break
+                            }
                         }
                     }
-                }
-                .store(in: &Helpers.shared.subscriptions)
+                    .store(in: &Helpers.shared.subscriptions)
                 
-                engine.payloads.sink { payloads in
-                    guard let first = payloads.first else {
-                        print("payloads updated but are empty")
-                        return
-                    }
-                    guard first.connectedPeer.name != engine.peerDisplayName else {
-                        print("payloads is from self. Ignoring. \(first.description)")
-                        return
-                    }
+                engine.payloads
+                    .receive(on: DispatchQueue.main)
+                    .sink { payloads in
+                        guard let first = payloads.first else {
+                            print("payloads updated but are empty")
+                            return
+                        }
+                        guard first.connectedPeer.name != engine.peerDisplayName else {
+                            print("payloads is from self. Ignoring. \(first.description)")
+                            return
+                        }
                     
-                    print("Echoing payload \(first.description)")
-                    try? engine.send(text: "echo \(first.text)")
-                }
-                .store(in: &Helpers.shared.subscriptions)
+                        print("Echoing payload \(first.description)")
+                        try? engine.send(text: "echo \(first.text)")
+                    }
+                    .store(in: &Helpers.shared.subscriptions)
             }
         }
     }

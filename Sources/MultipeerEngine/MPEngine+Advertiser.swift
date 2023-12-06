@@ -15,6 +15,11 @@ extension MPEngine {
     public final class Advertiser: NSObject {
         // MARK: Nested Types
         
+        public enum DiscoveryInfo {
+            public static let activityKey = "activity"
+            public static let messageKey = "message"
+        }
+        
         public enum State {
             case stopped
             case started
@@ -101,7 +106,7 @@ extension MPEngine {
         init(
             peerID: MCPeerID,
             serviceType: String,
-            discoveryInfo: [String: String] = [:]
+            discoveryInfo: [String: String]
         ) {
             self.serviceAdvertiser = MCNearbyServiceAdvertiser(
                 peer: peerID,
@@ -125,7 +130,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):#\(#line) - \
+                \(#function, privacy: .public):#\(#line) - \
                 Did start advertising \
                 peerID: \(self.serviceAdvertiser.myPeerID.displayName, privacy: .public) \
                 discoveryInfo: \(self.serviceAdvertiser.discoveryInfo ?? [:], privacy: .public) \
@@ -142,7 +147,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):#\(#line)
+                \(#function, privacy: .public):#\(#line)
                 """
             )
         }
@@ -163,7 +168,7 @@ extension MPEngine {
             
             logger.debug(
                 """
-                [DEBUG] \(#function, privacy: .public):#\(#line) - \
+                \(#function, privacy: .public):#\(#line) - \
                 accept: \(accept, privacy: .public) \
                 invitation: \(invitation, privacy: .public)
                 """
@@ -182,7 +187,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         
         logger.fault(
             """
-            [FAULT] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             error: \(error.localizedDescription, privacy: .public)
             """
         )
@@ -222,7 +227,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
         
         logger.debug(
             """
-            [DEBUG] \(#function, privacy: .public):#\(#line) - \
+            \(#function, privacy: .public):#\(#line) - \
             didReceiveInvitationFromPeer: \(peerID.displayName, privacy: .public) \
             context: \(contextDescription) \
             invitationHandler: [redacted]
