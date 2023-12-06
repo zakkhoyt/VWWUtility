@@ -21,8 +21,26 @@ public protocol PayloadRepresentable: Identifiable, Hashable {
     var date: Date { get }
 }
 
-#warning("FIXME: zakkhoyt - Rename package (so that class name no longer matches")
 public final class MPEngine: NSObject {
+    public enum Encryption: @unchecked Sendable {
+        /// Session prefers encryption but will accept unencrypted connections.
+        case optional
+        
+        /// Session requires encryption
+        case required
+
+        /// Session should not be encrypted
+        case unencrypted
+        
+        fileprivate var mcEncryptionPreference: MCEncryptionPreference {
+            switch self {
+            case .optional: .optional
+            case .required: .required
+            case .unencrypted: .none
+            }
+        }
+    }
+
     public struct Peer: Identifiable, Hashable, CustomStringConvertible, Codable {
         public var id: String { name }
         public let name: String
@@ -109,14 +127,14 @@ public final class MPEngine: NSObject {
     private var subscriptions = Set<AnyCancellable>()
 
     public init(
-        displayName: String // UIDevice.current.name
+        displayName: String, // UIDevice.current.name
+        encryption: Encryption = .required
     ) {
         self.peerID = MCPeerID(displayName: displayName)
-        #warning("TODO: zakkhoyt - encryption via injection")
         self.session = MCSession(
             peer: peerID,
-            securityIdentity: nil,
-            encryptionPreference: .none
+            securityIdentity: nil, // unsuppored by this SDK for now.
+            encryptionPreference: encryption.mcEncryptionPreference
         )
         super.init()
         session.delegate = self
