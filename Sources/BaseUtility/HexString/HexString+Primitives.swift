@@ -89,3 +89,18 @@ extension FixedWidthInteger {
 //    }
 // }
 //
+
+extension Unicode {
+    public static func printTable() {
+        (UInt8.min...UInt8.max).forEach {
+            print(
+                [
+                    "\($0)",
+                    String(format: "%02X", $0),
+                    $0.binaryString,
+                    Unicode.Scalar($0).escaped(asASCII: true)
+                ].joined(separator: "\t")
+            )
+        }
+    }
+}

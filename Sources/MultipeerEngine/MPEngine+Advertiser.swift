@@ -25,7 +25,7 @@ extension MPEngine {
             case started
             case failed(any Error)
         }
-
+        
         public final class Invititation: Sendable, Hashable, Identifiable, CustomStringConvertible {
             // public enum Response: Hashable, Identifiable, CustomStringConvertible {
             public enum Response: CustomStringConvertible {
@@ -111,7 +111,7 @@ extension MPEngine {
                 invitations = invitations
             }
         }
-
+        
         // MARK: Public properties
         
         public let dataStore = DataStore()
@@ -129,10 +129,9 @@ extension MPEngine {
         var discoveryInfo: [String: String]? {
             serviceAdvertiser.discoveryInfo
         }
-
+        
         // MARK: Private vars
         
-        private var advertisedServiceName: String?
         private var serviceAdvertiser = MCNearbyServiceAdvertiser(
             peer: MCPeerID(displayName: "com.tempPID"),
             discoveryInfo: nil,
@@ -165,7 +164,6 @@ extension MPEngine {
             serviceAdvertiser.delegate = self
             serviceAdvertiser.startAdvertisingPeer()
             
-//            dataStore.state = .started
             Task {
                 await dataStore.setState(.started)
             }
@@ -184,11 +182,9 @@ extension MPEngine {
         func stopAdvertising() {
             serviceAdvertiser.delegate = nil
             serviceAdvertiser.stopAdvertisingPeer()
-//            invitations.value.removeAll()
+
             Task {
-                // dataStore.invitations.removeAll()
                 await dataStore.removeAllInvitations()
-//                dataStore.state = .stopped
                 await dataStore.setState(.stopped)
             }
             
@@ -206,14 +202,9 @@ extension MPEngine {
         ) {
             invitation.handler(accept, session)
 
-//            invitations.removeAll {
-//                $0.id == invitation.id
-//            }
-            
             invitation.response = accept ? .accepted(.now) : .rejected(.now)
-//            invitations.send(invitations.value)
+
             Task {
-                // dataStore.invitations = await dataStore.invitations
                 await dataStore.refreshInvitations()
             }
             
@@ -261,9 +252,7 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
             "<nil>"
         }
 
-//        invitations.value.append(
         Task {
-//            dataStore.invitations.append(
             await dataStore.appendInvitation(
                 Invititation(
                     peerID: peerID,
@@ -272,16 +261,6 @@ extension MPEngine.Advertiser: MCNearbyServiceAdvertiserDelegate {
                 )
             )
         }
-
-//        DispatchQueue.main.async {
-//            self.invitations.value.append(
-//                Invititation(
-//                    peerID: peerID,
-//                    context: context,
-//                    handler: invitationHandler
-//                )
-//            )
-//        }
         
         logger.debug(
             """

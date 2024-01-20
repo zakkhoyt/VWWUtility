@@ -8,14 +8,14 @@
 import Collections
 import Foundation
 
-extension [String: String?] {
-    public var varDescription: String {
-        OrderedDictionary<String, String>(
-            self.compactMapValues { $0 }
-        ).map {
-            [
-                $0.key, $0.value
-            ].joined(separator: ": ")
-        }.joined(separator: ", ")
-    }
-}
+//extension [String: String?] {
+//    public var varDescription: String {
+//        OrderedDictionary<String, String>(
+//            self.compactMapValues { $0 }
+//        ).map {
+//            [
+//                $0.key, $0.value
+//            ].joined(separator: ": ")
+//        }.joined(separator: ", ")
+//    }
+//}
