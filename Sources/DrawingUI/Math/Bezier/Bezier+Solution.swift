@@ -18,9 +18,9 @@ extension Bezier {
             var errorDescription: String? {
                 switch self {
                 case .inputOutOfRange(let t):
-                    return "Input out of range: \(t)"
+                    "Input out of range: \(t)"
                 case .pointOutOfRange(let point):
-                    return "Point out of range: \(point.debugDescription)"
+                    "Point out of range: \(point.debugDescription)"
                 }
             }
         }

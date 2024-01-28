@@ -1,5 +1,5 @@
-import XCTest
 import Nodes
+import XCTest
 
 final class ScalarNodeTests: XCTestCase {
     private let node = ScalarGeneratorNode()
@@ -11,7 +11,6 @@ final class ScalarNodeTests: XCTestCase {
             XCTAssert(node.generated.value == Double(i))
             
             node.process()
-            
             
             let expected = sin(node.generated.value)
             let actual = node.amplitude.value
@@ -28,7 +27,7 @@ final class ScalarNodeTests: XCTestCase {
     }
 }
 
-fileprivate class ScalarGeneratorNode: Node {
+private class ScalarGeneratorNode: Node {
     var generated = ScalarInput(
         name: "Generated",
         minValue: 0.0,
@@ -50,7 +49,6 @@ fileprivate class ScalarGeneratorNode: Node {
     var inputs: [any InputRepresentable] = []
     var outputs: [any OutputRepresentable] = []
     
-    
     init() {
         self.name = "Start Node (freq generator)"
         self.isEnabled = true
@@ -67,4 +65,3 @@ fileprivate class ScalarGeneratorNode: Node {
         amplitude.value = sin(generated.value)
     }
 }
-

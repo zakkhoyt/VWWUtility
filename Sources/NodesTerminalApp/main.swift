@@ -1,4 +1,3 @@
-
 import ArgumentParser
 import Foundation
 import Nodes
@@ -26,14 +25,14 @@ App.main()
 // This keeps the script open so our async events can run
 RunLoop.main.run()
 
-//struct SynthHelper{
+// struct SynthHelper{
 //    private let synth = WaveSynthesizer()
 //
 //    init() {
-//        
+//
 //    }
-//    
-//   
+//
+//
 //    func play(
 //        for duration: TimeInterval
 //    ) async {
@@ -51,4 +50,4 @@ RunLoop.main.run()
 //            }
 //        }
 //    }
-//}
+// }

@@ -47,6 +47,37 @@
       "name": "Release VWWUtilityTerminalApp",
       "program": "${workspaceFolder:VWWUtility}/.build/release/VWWUtilityTerminalApp",
       "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [
+        "--mode",
+        "advertiser",
+        "--name",
+        "zakkbookmax2",
+        "--service-name",
+        "vww-mpdev"
+      ],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Debug MultipeerEngineTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/debug/MultipeerEngineTerminalApp",
+      "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:VWWUtility}",
+      "name": "Release MultipeerEngineTerminalApp",
+      "program": "${workspaceFolder:VWWUtility}/.build/release/MultipeerEngineTerminalApp",
+      "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp"
     }
   ]
 }

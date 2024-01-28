@@ -22,7 +22,8 @@ let package = Package(
     name: "VWWUtility",
     platforms: [
         .iOS(.v15),
-        .macOS(.v14)
+        .macOS(.v14),
+        .visionOS(.v1)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -35,18 +36,30 @@ let package = Package(
             targets: ["DrawingUI"]
         ),
         .library(
+            name: "MultipeerEngine",
+            targets: ["MultipeerEngine"]
+        ),
+        .library(
             name: "Nodes",
             targets: ["Nodes"]
         ),
-         .library(
-             name: "VWWUtility",
-             targets: ["VWWUtility"]
-         ),
+        .library(
+            name: "TerminalUtility",
+            targets: ["TerminalUtility"]
+        ),
+        .library(
+            name: "VWWUtility",
+            targets: ["VWWUtility"]
+        )
     ],
     dependencies: [
         .package(
             url: "https://github.com/apple/swift-argument-parser.git",
             from: "1.2.0"
+        ),
+        .package(
+            url: "https://github.com/apple/swift-collections.git",
+            from: "1.0.5"
         )
     ],
     targets: [
@@ -54,7 +67,12 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "BaseUtility",
-            dependencies: [],
+            dependencies: [
+                .product(
+                    name: "Collections",
+                    package: "swift-collections"
+                )
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
@@ -63,7 +81,6 @@ let package = Package(
             dependencies: ["BaseUtility"],
             swiftSettings: swiftSettings
         ),
-
         .target(
             name: "DrawingUI",
             dependencies: [
@@ -73,6 +90,48 @@ let package = Package(
             ],
             swiftSettings: swiftSettings,
             plugins: []
+        ),
+        .target(
+            name: "MultipeerEngine",
+            dependencies: [
+                .target(
+                    name: "BaseUtility"
+                ),
+                .product(
+                    name: "Collections",
+                    package: "swift-collections"
+                )
+            ],
+            exclude: [
+                "Docs"
+            ],
+
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .testTarget(
+            name: "MultipeerEngineTests",
+            dependencies: ["MultipeerEngine"],
+            swiftSettings: swiftSettings
+        ),
+        .executableTarget(
+            name: "MultipeerEngineTerminalApp",
+            dependencies: [
+                .target(
+                    name: "BaseUtility"
+                ),
+                .target(
+                    name: "MultipeerEngine"
+                ),
+                .target(
+                    name: "TerminalUtility"
+                ),
+                .product(
+                    name: "ArgumentParser",
+                    package: "swift-argument-parser"
+                )
+            ],
+            swiftSettings: swiftSettings
         ),
         .target(
             name: "Nodes",
@@ -97,17 +156,25 @@ let package = Package(
             swiftSettings: swiftSettings
         ),
         .target(
+            name: "TerminalUtility",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [
+            ],
+            resources: [
+            ],
+            swiftSettings: swiftSettings
+        ),
+        .target(
             name: "VWWUtility",
             dependencies: [
                 "BaseUtility",
                 "Nodes"
             ],
             exclude: [
-                ".gitignored/"
             ],
             resources: [
-                // .process("Resources/Strings/Localizable.stringsdict"),
-                // .copy("Resources/Fonts/Fonts.bundle"),
             ],
             swiftSettings: swiftSettings
         ),
@@ -118,37 +185,16 @@ let package = Package(
                     name: "VWWUtility"
                 ),
                 .product(
-                    name: "ArgumentParser", 
+                    name: "ArgumentParser",
                     package: "swift-argument-parser"
                 )
             ],
             swiftSettings: swiftSettings
         ),
-//         .target(
-//             name: "WaveSynthesizerUI",
-//             dependencies: [
-//                 "BaseUtility",
-//                 "DrawingUI",
-//                 "WaveSynthesizer"
-//             ],
-//             exclude: [
-// //                ".gitignored/"
-//             ],
-//             resources: [
-// //                .process("View/SwiftUI/Buffer/AudioBuffer/Subviews/Shader/AudioBufferShader.metal"),
-// //                .process("View/SwiftUI/Buffer/AudioBufferFFT/Subviews/Shader/FFTBufferShader.metal")
-//             ],
-//             swiftSettings: swiftSettings
-//         ),
         .testTarget(
             name: "NodesTests",
             dependencies: ["Nodes"],
             swiftSettings: swiftSettings
-        ),
-        // .testTarget(
-        //     name: "WaveSynthesizerTests",
-        //     dependencies: ["WaveSynthesizer"],
-        //     swiftSettings: swiftSettings
-        // ),
+        )
     ]
 )

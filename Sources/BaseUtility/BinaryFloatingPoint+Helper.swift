@@ -1,5 +1,5 @@
 //
-//  Double+Round.swift
+//  BinaryFloatingPoint+Helper.swift
 //  WaveSynthesizer-iOS
 //
 //  Created by Zakk Hoyt on 6/23/19.
@@ -34,6 +34,7 @@ extension BinaryFloatingPoint {
     public var d: Double {
         Double(self)
     }
+
     public var f: Float {
         Float(self)
     }
@@ -52,4 +53,3 @@ extension BinaryInteger {
         Float(self)
     }
 }
-

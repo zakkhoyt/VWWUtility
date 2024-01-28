@@ -17,10 +17,10 @@ import Foundation
 public enum URLService {
     // MARK: Public static vars
     
-    public static var applicationDirURL: URL = documentsDirURL.deletingLastPathComponent()
+    public static let applicationDirURL: URL = documentsDirURL.deletingLastPathComponent()
     
     /// Returns the `Documents` directory in the application sandbox.
-    public static var documentsDirURL: URL = {
+    public static let documentsDirURL: URL = {
         guard let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
         ).first else {
@@ -30,7 +30,7 @@ public enum URLService {
     }()
     
     /// Returns the `Library` directory in the application sandbox.
-    public static var libraryDirURL: URL = {
+    public static let libraryDirURL: URL = {
         guard let path = NSSearchPathForDirectoriesInDomains(
             .libraryDirectory, .userDomainMask, true
         ).first else {
@@ -40,10 +40,10 @@ public enum URLService {
     }()
     
     /// Returns the `Library/Preferences` directory in the application sandbox.
-    public static var preferencesDirUrl = libraryDirURL.appendingPathComponent("Preferences")
+    public static let preferencesDirUrl = libraryDirURL.appendingPathComponent("Preferences")
     
     /// Returns a `URL` pointing to the backing `plist` file for `UserDefaults.standard`.
-    public static var standardUserDefaultsUrl: URL = {
+    public static let standardUserDefaultsUrl: URL = {
         guard let mainBundleIdentifier = Bundle.main.bundleIdentifier else {
             preconditionFailure("Bundle.main.bundleIdentifier == nil")
         }
