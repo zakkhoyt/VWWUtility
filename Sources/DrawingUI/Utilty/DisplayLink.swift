@@ -125,7 +125,7 @@ extension DisplayLink {
                 displayLink.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
 
                 target.callback = { [unowned self] frame in
-                    self.onFrame?(frame)
+                    onFrame?(frame)
                 }
             }
 

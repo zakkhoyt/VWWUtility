@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  HexString+Collections.swift
+//
 //
 //  Created by Zakk Hoyt on 7/27/23.
 //

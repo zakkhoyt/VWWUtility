@@ -1,10 +1,9 @@
-import XCTest
 import BaseUtility
+import XCTest
 
 final class MirrorTests: XCTestCase {
-    
-    private func reflect<T>(
-        propertiesOfType propertiesType: T.Type,
+    private func reflect(
+        propertiesOfType propertiesType: (some Any).Type,
         withNames propertyNames: [String],
         on instance: Any
     ) {
@@ -14,7 +13,7 @@ final class MirrorTests: XCTestCase {
         XCTAssert(propertyTuples.count == propertyNames.count, "Expected \(propertyNames.count) properties of type \(propertiesType)")
         let propertyNames = propertyTuples.map { $0.0 }
         propertyNames.forEach { propertyName in
-            XCTAssert(propertyNames.contains(where: { $0 == propertyName}), "Expected to find property named '\(propertyName)'")
+            XCTAssert(propertyNames.contains(where: { $0 == propertyName }), "Expected to find property named '\(propertyName)'")
         }
     }
 

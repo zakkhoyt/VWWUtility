@@ -1,5 +1,5 @@
 //
-//  String+HexString.swift
+//  String+HexColor.swift
 //
 //  Created by Zakk Hoyt on 7/14/23.
 //

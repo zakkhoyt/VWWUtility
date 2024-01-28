@@ -1,5 +1,5 @@
-import XCTest
 import Nodes
+import XCTest
 
 final class GenericIOTests: XCTestCase {
     private let node = GeneratorNode()
@@ -11,7 +11,6 @@ final class GenericIOTests: XCTestCase {
             XCTAssert(node.seed.value == Double(i))
             
             node.process()
-            
             
             let expected = sin(node.seed.value)
             let actual = node.amplitude.value
@@ -28,7 +27,7 @@ final class GenericIOTests: XCTestCase {
     }
 }
 
-fileprivate class GeneratorNode: Node {
+private class GeneratorNode: Node {
     var seed = Input(
         name: "Seed",
         value: 0.0
@@ -43,7 +42,6 @@ fileprivate class GeneratorNode: Node {
     var isEnabled: Bool
     var inputs: [any InputRepresentable] = []
     var outputs: [any OutputRepresentable] = []
-    
     
     init() {
         self.name = "Start Node (freq generator)"

@@ -1,5 +1,5 @@
 //
-//  Array+PascalTriangle.swift
+//  Array+SafeIndex.swift
 //  Array+PascalTriangle
 //
 //  Created by Zakk Hoyt on 9/9/21.

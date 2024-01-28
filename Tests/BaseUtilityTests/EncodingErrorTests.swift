@@ -87,7 +87,7 @@ final class EncodingErrorTests: XCTestCase {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .sortedKeys
         do {
-            let _ = try encoder.encode(instance)
+            _ = try encoder.encode(instance)
             XCTFail("Expectd EncodingError")
         } catch let error as EncodingError {
             print(error.debugDescription)

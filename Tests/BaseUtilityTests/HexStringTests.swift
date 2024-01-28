@@ -5,15 +5,13 @@
 //  Created by Zakk Hoyt on 7/27/23.
 //
 
-import XCTest
 import BaseUtility
+import XCTest
 
 final class HexStringTests: XCTestCase {
-    
-
     func testHexStringPrimitives() throws {
         let bitsPerByte = 8
-        //FixedWidthInteger
+        // FixedWidthInteger
 //        let a: UInt8 = 0xFF
 //        print("UInt8.bitWidth: \(a.bitWidth)")
 //        print("UInt8.nonzeroBitCount: \(a.nonzeroBitCount)")
@@ -29,11 +27,9 @@ final class HexStringTests: XCTestCase {
             expectedByteWidth: Int,
             expectedBinaryString: String,
             expectedHexString: String
-            
-            
         ) {
-            //FixedWidthInteger
-            //let a: UInt8 = 0xFF
+            // FixedWidthInteger
+            // let a: UInt8 = 0xFF
             print("---- ---- ---- ----")
 //            print("\(F.self).words: \(f.words)")
             
@@ -58,7 +54,6 @@ final class HexStringTests: XCTestCase {
             print("\(F.self).nonzeroBitCount: \(f.nonzeroBitCount)")
             print("\(F.self).leadingZeroBitCount: \(f.leadingZeroBitCount)")
             print("\(F.self).trailingZeroBitCount: \(f.trailingZeroBitCount)")
-
         }
 
         examine(
@@ -84,7 +79,6 @@ final class HexStringTests: XCTestCase {
             expectedBinaryString: "0b0000000000000001",
             expectedHexString: "0x0001"
         )
-
 
         examine(
             f: UInt32(0xABCDEFFE),
@@ -128,16 +122,15 @@ final class HexStringTests: XCTestCase {
     //        Int32(bitPattern: 0xABCDEFFE).test()
     //        Int64(bitPattern: 0xABCDEF0110FEDCBA).test()
     //        Int(bitPattern: 0xABCDEF0110FEDCBA).test()
-
 }
 
-//let bitsPerByte = 8
-//extension FixedWidthInteger {
-//    
+// let bitsPerByte = 8
+// extension FixedWidthInteger {
+//
 //    var byteWidth: Int {
 //        bitWidth / 8
 //    }
-//    
+//
 //    var binaryString: String {
 //        "0b" + (0..<(Self.bitWidth / 8)).reduce(into: []) { // partialResult, Int in
 //            let byteString = String(
@@ -153,7 +146,7 @@ final class HexStringTests: XCTestCase {
 //
 //
 //    }
-//}
+// }
 
 extension FixedWidthInteger {
 //    func test() {
@@ -164,7 +157,7 @@ extension FixedWidthInteger {
 //        print("\(Self.self).bitWidth: \(self.bitWidth)")
 //        print("MemoryLayout<\(Self.self)>.size: \(MemoryLayout<Self>.size * bitsPerByte)")
 //        print("MemoryLayout<\(Self.self)>.size(of:): \(MemoryLayout<Self>.size(ofValue: self) * bitsPerByte)")
-//        
+//
 //        print("----")
 //        print("\(Self.self).binaryString: \(self.binaryString)")
 //        print("----")

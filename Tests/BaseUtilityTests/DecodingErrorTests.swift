@@ -92,7 +92,6 @@ final class DecodingErrorTests: XCTestCase {
         )
     }
 
-    
     func testDecodingErrorWrongType() throws {
         try expectDecodingError(
             jsonString: invalid_json_wrong_type,
@@ -104,6 +103,66 @@ final class DecodingErrorTests: XCTestCase {
         try expectDecodingError(
             jsonString: invalid_json_wrong_type_nested,
             errorSnippet: "codingPath: nested.count"
+        )
+    }
+    
+    func testAcquireDecodingError() throws {
+
+        do {
+            let numbers: [[Int?]] = [[1,2,3, nil],[4],[5,6,7,8,9]]
+            let reduced = numbers.reduce([], +)
+            print("reduced: \(reduced)")
+            
+            let flattened = numbers.flatMap { $0 }
+            print("flattened: \(flattened)")
+            
+            let joined = Array(numbers.joined()).compactMap { $0 }
+            print("joined: \(joined)")
+            
+            print("insepct")
+        }
+        
+//        let a: [String] = {
+//            "1", "2", "3"
+//        }
+//
+//        let b = "4"
+//        let c: [String?] = [
+//            "5", nil, "6"
+//        ]
+//        
+        
+        
+        
+        let jsonString = """
+            [
+                {
+                    "bssid": "AA:BB:CC:DD:EE:FF",
+                    "rssi": -68,
+                    "ssid": "Pretty Fly For A Wi-Fi",
+                    "encryption": "WPA2_PSK"
+                },
+                {
+                    "bssid": "99:AA:BB:CC:DD:EE",
+                    "rssi": -88,
+                    "ssid": "Steveweiser",
+                    "encryption": "WPA2_PSK"
+                }
+            ]            
+            """
+        let decodingErrorString = try XCTUnwrap(
+            acquireDecodingError(
+                jsonString: jsonString
+            )
+        )
+        print(
+            """
+            ***************************************
+            Acquired DecodingError.debugDescription:
+            
+            \(decodingErrorString)
+            ***************************************
+            """
         )
     }
     
@@ -143,6 +202,29 @@ final class DecodingErrorTests: XCTestCase {
             XCTAssertTrue(error.debugDescription.contains(errorSnippet))
         } catch {
             XCTFail("Expected DecodingError, got other type of error: \(error.localizedDescription)")
+        }
+    }
+    
+    private func acquireDecodingError(
+        jsonString: String
+    ) throws -> String? {
+        let decoder = JSONDecoder()
+        let data = try XCTUnwrap(jsonString.data(using: .utf8))
+        do {
+            let decodedInstance = try decoder.decode(MyStruct.self, from: data)
+            XCTFail("Expected EecodingError to be thrown")
+            return nil
+        } catch let error as DecodingError {
+            print(
+                """
+                Acquired DecodingError:
+                \(error.debugDescription)
+                """
+            )
+            return error.debugDescription
+        } catch {
+            XCTFail("Expected DecodingError, got other type of error: \(error.localizedDescription)")
+            return nil
         }
     }
 }

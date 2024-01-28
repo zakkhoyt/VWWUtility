@@ -17,13 +17,13 @@ enum ROYGBIV: Int, CaseIterable, RGBHexStringConvertible {
     
     var hexString: String {
         switch self {
-        case .red: return "FF0000"
-        case .orange: return "FF7F00"
-        case .yellow: return "FFFFOO"
-        case .green: return "00FFOO"
-        case .blue: return "0000FF"
-        case .indigo: return "4B0082"
-        case .violet: return "9400D3"
+        case .red: "FF0000"
+        case .orange: "FF7F00"
+        case .yellow: "FFFFOO"
+        case .green: "00FFOO"
+        case .blue: "0000FF"
+        case .indigo: "4B0082"
+        case .violet: "9400D3"
         }
     }
     
