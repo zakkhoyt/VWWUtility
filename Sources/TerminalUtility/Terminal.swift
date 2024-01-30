@@ -4,7 +4,7 @@
 //  Created by Zakk Hoyt on 12/2/23.
 //
 
-#warning("TODO: zakkhoyt - Port select tools from HatchTerminal")
+#warning("TODO: zakkhoyt - Port select tools from HTerminal")
 
 public enum Terminal {
     public static func test() {
