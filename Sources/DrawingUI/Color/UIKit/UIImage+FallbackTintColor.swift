@@ -1,9 +1,7 @@
 //
 //  UIImage+FallbackTintColor.swift
-//  Nightlight
 //
 //  Created by Zakk Hoyt on 8/19/21.
-//  Copyright © 2021 Hatch. All rights reserved.
 //
 
 #if os(iOS)
