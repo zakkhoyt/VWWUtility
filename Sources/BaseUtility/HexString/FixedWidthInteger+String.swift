@@ -9,55 +9,38 @@ import Foundation
 
 extension FixedWidthInteger {
     public init?(hexString: String) {
-        let cleanString: String = {
-            guard hexString.hasPrefix("0x") else { return hexString }
-            return hexString.replacingOccurrences(of: "0x", with: "")
-        }()
-        self.init(cleanString, radix: 16)
+        guard hexString.hasPrefix("0x") else { return nil }
+        self.init(hexString.replacingOccurrences(of: "0x", with: ""), radix: 16)
     }
 }
 
-#warning("FIXME: zakkhoyt - Convert this to tests for the above")
-//func test<T: FixedWidthInteger>(
-//    type: T.Type,
-//    hexString: String
-//) -> T? {
-//    let v = T(hexString: hexString)
-//    print("--- Type: \(type)")
-//    print("hexString: \(hexString), v: \(v?.string ?? "<nil>")")
-//    return v
-//}
-//
-//let types: [any FixedWidthInteger.Type] = [
-//    UInt8.self,
-//    UInt16.self,
-//    UInt32.self,
-//    UInt64.self,
-//    Int8.self,
-//    Int16.self,
-//    Int32.self,
-//    Int64.self
-//]
-//
-//let hexStrings = [
-//    "0x7F",
-//    "0xFF",
-//    "0xFF00",
-//    "0xFF000000",
-//    "0xFF00000000000000"
-//]
-//
-//for hexString in hexStrings {
-//    for type in types {
-//        let r = test(
-//            type: type,
-//            hexString: hexString
-//        )
-//        print("r: \(r?.string ?? "<nil>")")
-//    }
-//}
+extension FixedWidthInteger {
+    public init?(binaryString: String) {
+        guard binaryString.hasPrefix("0b") else { return nil }
+        self.init(binaryString.replacingOccurrences(of: "0b", with: ""), radix: 2)
+    }
+}
 
-
+extension FixedWidthInteger {
+    /// The number of bytes in the current binary representation of this value.
+    public static var byteWidth: Int {
+        bitWidth / 8
+    }
+    
+    public var byteWidth: Int {
+        Self.byteWidth
+    }
+    
+    /// The number of bits that are used to indicate negative values
+    public static var signBitWidth: any FixedWidthInteger {
+        isSigned ? 1 : 0
+    }
+    
+    /// The number of bits that max unsigned value occupy (bitWidth - signBitWidth)
+    public static var unsignedBitWidth: any FixedWidthInteger {
+        bitWidth - Int(signBitWidth)
+    }
+}
 
 extension String {
     public init?(ifNotNil value: (any FixedWidthInteger)?) {

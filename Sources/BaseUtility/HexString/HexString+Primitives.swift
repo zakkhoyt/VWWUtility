@@ -22,26 +22,11 @@ extension Bool {
     }
 }
 
-private let bitsPerByte = 8
+private let bitsPerByte = UInt8.bitWidth
 extension FixedWidthInteger {
-    public var byteWidth: Int {
-        bitWidth / 8
-    }
-
-//    public var binaryString: String {
-//        let binaryString = String(self, radix: 2)
-//        let isNegative = binaryString.prefix(1) == "-"
-//        var toAdd: Int = MemoryLayout<Self>.size * 8 - binaryString.count
-//        if toAdd < 0 { toAdd = 0 }
-//        var padded = binaryString.replacingOccurrences(of: "-", with: "") // input may have - sign
-//        for _ in 0..<toAdd {
-//            padded = "0" + padded
-//        }
-//        let prefix = isNegative ? "-" : ""
-//        return "\(prefix)0b\(padded)"
-//    }
     public var binaryString: String {
-        "0b" + (0..<(Self.bitWidth / 8)).reduce(into: []) {
+        //"0b" + (0..<(Self.bitWidth / 8)).reduce(into: []) {
+        "0b" + (0..<(Self.byteWidth)).reduce(into: []) {
             let byteString = String(
                 UInt8(truncatingIfNeeded: self >> ($1 * 8)),
                 radix: 2
@@ -60,9 +45,12 @@ extension BinaryInteger {}
 extension FixedWidthInteger {
     public var hexString: String {
         let hexString = String(self, radix: 16)
-        return "0x" + (0..<Swift.max(0, MemoryLayout<Self>.size * 2 - hexString.count)).reduce(into: hexString.replacingOccurrences(of: "-", with: "")) { partialResult, _ in
-            partialResult = "0" + partialResult
-        }.uppercased()
+        return "0x" + (0..<Swift.max(0, MemoryLayout<Self>.size * 2 - hexString.count))
+            .reduce(
+                into: hexString.replacingOccurrences(of: "-", with: "")
+            ) { partialResult, _ in
+                partialResult = "0" + partialResult
+            }.uppercased()
     }
 }
 

@@ -11,16 +11,6 @@ import XCTest
 final class HexStringTests: XCTestCase {
     func testHexStringPrimitives() throws {
         let bitsPerByte = 8
-        // FixedWidthInteger
-//        let a: UInt8 = 0xFF
-//        print("UInt8.bitWidth: \(a.bitWidth)")
-//        print("UInt8.nonzeroBitCount: \(a.nonzeroBitCount)")
-//        print("UInt8.leadingZeroBitCount: \(a.leadingZeroBitCount)")
-//        print("UInt8.trailingZeroBitCount: \(a.trailingZeroBitCount)")
-        
-//        print("MemoryLayout<UInt8>.size: \(MemoryLayout<UInt8>.size * bitsPerByte)")
-//        print("MemoryLayout<UInt8>.size(of:): \(MemoryLayout<UInt8>.size(ofValue: a) * bitsPerByte)")
-
         func examine<F: FixedWidthInteger>(
             f: F,
             expectedBitWidth: Int,
@@ -28,10 +18,7 @@ final class HexStringTests: XCTestCase {
             expectedBinaryString: String,
             expectedHexString: String
         ) {
-            // FixedWidthInteger
-            // let a: UInt8 = 0xFF
             print("---- ---- ---- ----")
-//            print("\(F.self).words: \(f.words)")
             
             print("\(F.self).bitWidth: \(f.bitWidth)")
             XCTAssert(f.bitWidth == expectedBitWidth, "Expected bitWidth = \(expectedBitWidth)")
@@ -111,59 +98,113 @@ final class HexStringTests: XCTestCase {
 //        examine(f: Int(bitPattern: 0xABCDEF0110FEDCBA))
     }
     
-    //        UInt8(0xAB).test()
-    //        UInt16(0xABCD).test()
-    //        UInt32(0xABCDEFFE).test()
-    //        UInt64(0xABCDEF0110FEDCBA).test()
-    //        UInt(0xABCDEF0110FEDCBA).test()
-    //
-    //        Int8(bitPattern: 0xAB).test()
-    //        Int16(bitPattern: 0xABCD).test()
-    //        Int32(bitPattern: 0xABCDEFFE).test()
-    //        Int64(bitPattern: 0xABCDEF0110FEDCBA).test()
-    //        Int(bitPattern: 0xABCDEF0110FEDCBA).test()
-}
-
-// let bitsPerByte = 8
-// extension FixedWidthInteger {
-//
-//    var byteWidth: Int {
-//        bitWidth / 8
-//    }
-//
-//    var binaryString: String {
-//        "0b" + (0..<(Self.bitWidth / 8)).reduce(into: []) { // partialResult, Int in
-//            let byteString = String(
-//                UInt8(truncatingIfNeeded: self >> ($1 * 8)),
-//                radix: 2
-//            )
-//            let padding = String(
-//                repeating: "0",
-//                count: 8 - byteString.count
-//            )
-//            $0.append(padding + byteString)
-//        }.reversed().joined(separator: "")
-//
-//
-//    }
-// }
-
-extension FixedWidthInteger {
-//    func test() {
-//        //FixedWidthInteger
-//        //let a: UInt8 = 0xFF
-//        print("---- ---- ---- ----")
-//        print("\(Self.self).words: \(self.words)")
-//        print("\(Self.self).bitWidth: \(self.bitWidth)")
-//        print("MemoryLayout<\(Self.self)>.size: \(MemoryLayout<Self>.size * bitsPerByte)")
-//        print("MemoryLayout<\(Self.self)>.size(of:): \(MemoryLayout<Self>.size(ofValue: self) * bitsPerByte)")
-//
-//        print("----")
-//        print("\(Self.self).binaryString: \(self.binaryString)")
-//        print("----")
-//        print("\(Self.self).nonzeroBitCount: \(self.nonzeroBitCount)")
-//        print("\(Self.self).leadingZeroBitCount: \(self.leadingZeroBitCount)")
-//        print("\(Self.self).trailingZeroBitCount: \(self.trailingZeroBitCount)")
-//
-//    }
+    func testFixedWidthIntegerToHexString() throws {
+        let types: [any FixedWidthInteger.Type] = [
+            UInt8.self,
+            UInt16.self,
+            UInt32.self,
+            UInt64.self,
+            Int8.self,
+            Int16.self,
+            Int32.self,
+            Int64.self
+        ]
+        
+        let hexStrings = [
+            "0x7F",
+            "0xFF",
+            "0xFF00",
+            "0xFF000000",
+            "0xFF00000000000000",
+            "0xFFFFFFFFFFFFFFFF"
+        ]
+        
+        for hexString in hexStrings {
+            for type in types {
+                guard let v = type.init(hexString: hexString) else {
+                    // Number of bytes the hexString represents as an unsigned int (remove "0x")
+                    let hexStringBitWidth = (hexString.count - 2) * 4
+                    // Number of bytes the type represents when holding an unsigned int
+                    let typeUnsignedBitWidth = Int(type.unsignedBitWidth)
+                    XCTAssertGreaterThanOrEqual(
+                        hexStringBitWidth,
+                        typeUnsignedBitWidth,
+                        """
+                        Failed to convert \(hexString) to \(type).
+                        type: \(type) typeUnsignedBitWidth: \(typeUnsignedBitWidth) hexString: \(hexString) hexStringBitWidth: \(hexStringBitWidth)
+                        """
+                    )
+                    continue
+                }
+                
+            
+                // So far hexString has been converted to an int type.
+                // Let's convert back to hexString then compare against original.
+                
+                
+                // Let's pad the original hexString with the appropriate number of
+                // leading 0's to match `type`.
+                let nakedHexString = hexString.replacingOccurrences(of: "0x", with: "")
+                let length: Int = type.bitWidth / 4
+                let buffedHexString = nakedHexString.padded(length: length, character: "0", endfix: .prefix)
+                let paddedHexString = "0x\(buffedHexString)"
+                let reconstitutedHexString = v.hexString
+                XCTAssertEqual(paddedHexString, reconstitutedHexString, "type: \(type) expected: \(paddedHexString) actual: \(reconstitutedHexString)")
+            }
+        }
+    }
+    
+    func testFixedWidthIntegerToBinaryString() throws {
+        let types: [any FixedWidthInteger.Type] = [
+            UInt8.self,
+            UInt16.self,
+            UInt32.self,
+            UInt64.self,
+            Int8.self,
+            Int16.self,
+            Int32.self,
+            Int64.self
+        ]
+        
+        let binaryStrings = [
+            "0b01111111",
+            "0b11111111",
+            "0b1111111100000000",
+            "0b11111111000000000000000000000000",
+            "0b1111111100000000000000000000000000000000000000000000000000000000",
+            "0b1111111111111111111111111111111111111111111111111111111111111111",
+        ]
+        
+        for binaryString in binaryStrings {
+            for type in types {
+                guard let v = type.init(binaryString: binaryString) else {
+                    // Number of bytes the binaryString represents as an unsigned int (remove "0b")
+                    let binaryStringBitWidth = (binaryString.count - 2)
+                    // Number of bytes the type represents when holding an unsigned int
+                    let typeUnsignedBitWidth = Int(type.unsignedBitWidth)
+                    XCTAssertGreaterThanOrEqual(
+                        binaryStringBitWidth,
+                        typeUnsignedBitWidth,
+                        """
+                        Failed to convert \(binaryString) to \(type).
+                        type: \(type) typeUnsignedBitWidth: \(typeUnsignedBitWidth) binaryString: \(binaryString) binaryStringBitWidth: \(binaryStringBitWidth)
+                        """
+                    )
+                    continue
+                }
+                
+                // So far binaryString has been converted to an int type.
+                // Let's convert back to binaryString then compare against original.
+                
+                // Let's pad the original binaryString with the appropriate number of
+                // leading 0's to match `type`.
+                let nakedHexString = binaryString.replacingOccurrences(of: "0b", with: "")
+                let length: Int = type.bitWidth
+                let buffedHexString = nakedHexString.padded(length: length, character: "0", endfix: .prefix)
+                let paddedHexString = "0b\(buffedHexString)"
+                let reconstitutedHexString = v.binaryString
+                XCTAssertEqual(paddedHexString, reconstitutedHexString, "type: \(type) expected: \(paddedHexString) actual: \(reconstitutedHexString)")
+            }
+        }
+    }
 }
