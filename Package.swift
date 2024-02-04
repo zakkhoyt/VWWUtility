@@ -73,6 +73,10 @@ let package = Package(
                     package: "swift-collections"
                 )
             ],
+            exclude: [
+                "OSSettings/iOS/SettingsURL.md",
+                "OSSettings/macOS/SettingsPane.md"
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
