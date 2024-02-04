@@ -6,8 +6,26 @@
 //
 
 import AppKit
+import CoreGraphics
 import Foundation
 
+
+
+/// ## Example
+///
+/// ```swift
+/// // enum  UInt32
+/// let a: CGEventType = .keyDown
+///
+/// // typealias UIInt64
+/// let b: CGEventMask! = CGEventMask
+///
+/// // enum  UInt
+/// let c: NSEvent.EventType! = .keyDown
+///
+/// // struct OptionSet<UInt64>. init(NSEvent.EventType)
+/// let d: NSEvent.EventTypeMask!
+/// ```
 public enum EventType: UInt32, CaseIterable {
     case leftMouseDown = 1
     case leftMouseUp = 2
@@ -28,28 +46,33 @@ public enum EventType: UInt32, CaseIterable {
     case otherMouseUp = 26
     case otherMouseDragged = 27
     
-    //    case null = 0                             // CGOnly
-    //    case mouseEntered = 8                     // NS only
-    //    case mouseExited = 9                      // NS only
-    //    case appKitDefined = 13                   // NS only
-    //    case systemDefined = 14                   // NS only
-    //    case applicationDefined = 15              // NS only
-    //    case periodic = 16                        // NS only
-    //    case cursorUpdate = 17                    // NS only
-    //    case tapDisabledByTimeout = 0xFFFFFFFE    // CGOnly
-    //    case tapDisabledByUserInput = 0xFFFFFFFF  // CGOnly
+    #warning("FIXME: zakkhoyt - Evaluate the 2 mask types as well")
+    
+    
+    //    case null = 0                             // CGEventType Only
+    //    case mouseEntered = 8                     // NSEvent.EventType only
+    //    case mouseExited = 9                      // NSEvent.EventType only
+    //    case appKitDefined = 13                   // NSEvent.EventType only
+    //    case systemDefined = 14                   // NSEvent.EventType only
+    //    case applicationDefined = 15              // NSEvent.EventType only
+    //    case periodic = 16                        // NSEvent.EventType only
+    //    case cursorUpdate = 17                    // NSEvent.EventType only
+    //    case tapDisabledByTimeout = 0xFFFFFFFE    // CGEventType Only
+    //    case tapDisabledByUserInput = 0xFFFFFFFF  // CGEventType Only
      
 #warning("FIXME: zakkhoyt - Add tests for all 4 below and array variants")
     var cgEventType: CGEventType {
         //guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
-        guard let eventType = CGEventType(rawValue: rawValue) else {
+        //guard let eventType = CGEventType(rawValue: rawValue) else {
+        guard let eventType = CGEventType(rawValue: CGEventType.RawValue.init(rawValue)) else {
             preconditionFailure("Failed to cast EventType to CGEventType")
         }
         return eventType
     }
 
     var nsEventType: NSEvent.EventType {
-        guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
+//        guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
+        guard let eventType = NSEvent.EventType(rawValue: NSEvent.EventType.RawValue.init(rawValue)) else {
             preconditionFailure("Failed to cast EventType to NSEvent.EventType")
         }
         return eventType
@@ -59,22 +82,21 @@ public enum EventType: UInt32, CaseIterable {
         CGEventMask(eventType: cgEventType)
     }
 
-
     var nsEventTypeMask: NSEvent.EventTypeMask {
         NSEvent.EventTypeMask(rawValue: UInt64(rawValue))
     }
 }
 
 extension Collection where Element == EventType {
-    var nsEventMask: NSEvent.EventTypeMask {
-        NSEvent.EventTypeMask(
-            rawValue: map { 1 << $0.rawValue }.reduce(0, |)
-        )
-//        NSEvent.EventTypeMask(eventTypes: map { $0.nsEventType })
-    }
-    
     var cgEventMask: CGEventMask {
         CGEventMask(eventTypes: map { $0.cgEventType })
+    }
+
+    var nsEventMask: NSEvent.EventTypeMask {
+//        NSEvent.EventTypeMask(
+//            rawValue: map { 1 << $0.rawValue }.reduce(0, |)
+//        )
+        NSEvent.EventTypeMask(eventTypes: map { $0.nsEventType })
     }
 }
 

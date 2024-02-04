@@ -26,7 +26,7 @@ extension CGEventMask {
     ///
     /// - Note: Obj-C provides a macro for this (``CGEventMaskBit``)
     /// which doesn't seem to be available in Swift.
-    /// - SeeAlso: `CGEvent.eventBitMask`
+    /// - SeeAlso: `CGEventType.maskBit`
     public init(eventTypes: [CGEventType]) {
         self = CGEventMask(
             eventTypes.map { $0.maskBit }.reduce(0, |)
@@ -40,11 +40,11 @@ extension CGEventMask {
     static let allEvents = CGEventMask(UInt64.max)
 }
 
-extension Collection where Element == CGEventMask {
-    #warning("FIXME: zakkhoyt - description")
-}
 
 extension CGEventType {
+    /// Math/value used when Apple's private APIs convert 
+    /// * from: `CGEventType` (`enum: UInt32`)
+    /// * to: `CGEventMask` (`typealias UInt64`)
     var maskBit: UInt32 {
         switch self {
         case .null: 0
@@ -98,7 +98,7 @@ extension CGEventType: CustomStringConvertible, CustomDebugStringConvertible {
     }
     
     public var debugDescription: String {
-        "\(description) (\(rawValue) (\(rawValue.binaryString)"
+        "\(description) \(rawValue.hexString) \(rawValue) \(rawValue.binaryString)"
     }
 }
 

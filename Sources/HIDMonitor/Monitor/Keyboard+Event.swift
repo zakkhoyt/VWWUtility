@@ -13,6 +13,7 @@ extension Keyboard {
         case keyDown
         case keyUp
         
+        #warning("FIXME: zakkhoyt - Clones EventType (prefer newer EventType")
         #warning("FIXME: zakkhoyt - Support flagsChanged")
 //        case flagsChanged
         

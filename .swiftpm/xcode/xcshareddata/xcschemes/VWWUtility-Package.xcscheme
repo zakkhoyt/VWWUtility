@@ -160,6 +160,48 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "HIDMonitor"
+               BuildableName = "HIDMonitor"
+               BlueprintName = "HIDMonitor"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MultipeerEngine"
+               BuildableName = "MultipeerEngine"
+               BlueprintName = "MultipeerEngine"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MultipeerEngineTerminalApp"
+               BuildableName = "MultipeerEngineTerminalApp"
+               BlueprintName = "MultipeerEngineTerminalApp"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -199,6 +241,16 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "MultipeerEngineTests"
+               BuildableName = "MultipeerEngineTests"
+               BlueprintName = "MultipeerEngineTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -215,9 +267,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "MPEngineTerminalApp"
-            BuildableName = "MPEngineTerminalApp"
-            BlueprintName = "MPEngineTerminalApp"
+            BlueprintIdentifier = "MultipeerEngineTerminalApp"
+            BuildableName = "MultipeerEngineTerminalApp"
+            BlueprintName = "MultipeerEngineTerminalApp"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -241,9 +293,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "MPEngineTerminalApp"
-            BuildableName = "MPEngineTerminalApp"
-            BlueprintName = "MPEngineTerminalApp"
+            BlueprintIdentifier = "MultipeerEngineTerminalApp"
+            BuildableName = "MultipeerEngineTerminalApp"
+            BlueprintName = "MultipeerEngineTerminalApp"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
