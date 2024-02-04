@@ -18,12 +18,13 @@ class HIDNSEventListener {
     private var monitors = [Any]()
     
     func start(
-        mask: NSEvent.EventTypeMask,
+//        mask: NSEvent.EventTypeMask,
+        mask: [EventType],
         scope: HIDEventScope,
         handler: @escaping (NSEvent) -> NSEvent?
     ) throws {
         guard let localKeyDownMonitor = NSEvent.addLocalMonitorForEvents(
-            matching: mask,
+            matching: mask.nsEventMask,
             handler: handler
         ) else {
             throw Error.failedToStartEventMonitor

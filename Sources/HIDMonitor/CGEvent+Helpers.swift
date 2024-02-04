@@ -40,6 +40,10 @@ extension CGEventMask {
     static let allEvents = CGEventMask(UInt64.max)
 }
 
+extension Collection where Element == CGEventMask {
+    #warning("FIXME: zakkhoyt - description")
+}
+
 extension CGEventType {
     var maskBit: UInt32 {
         switch self {
@@ -97,3 +101,4 @@ extension CGEventType: CustomStringConvertible, CustomDebugStringConvertible {
         "\(description) (\(rawValue) (\(rawValue.binaryString)"
     }
 }
+

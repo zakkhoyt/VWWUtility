@@ -56,12 +56,13 @@ public class HIDCGEventListener {
     public init() {}
     
     public func start(
-        mask: CGEventMask,
+//        mask: CGEventMask,
+        mask: [EventType],
         scope: HIDEventScope,
         handler: @escaping (NSEvent) -> NSEvent?
     ) throws {
         nsEventCallback = handler
-        try startEventTapIfNeeded()
+        try startEventTapIfNeeded(mask: mask, scope: scope)
     }
     
     public func stop() {
@@ -76,7 +77,10 @@ public class HIDCGEventListener {
     /// * [CGEventType](https://developer.apple.com/documentation/coregraphics/cgeventtype)
     /// * [CGEventMask](https://developer.apple.com/documentation/coregraphics/cgeventmask)
     ///
-    private func startEventTapIfNeeded() throws {
+    private func startEventTapIfNeeded(
+        mask: [EventType],
+        scope: HIDEventScope
+    ) throws {
         let tapExistsButIsDisabled: Bool = {
             if let tap = context.tap, CGEvent.tapIsEnabled(tap: tap) {
                 false
@@ -104,7 +108,8 @@ public class HIDCGEventListener {
             place: .headInsertEventTap,
             options: .listenOnly, //.defaultTap,
             eventsOfInterest: CGEventMask(
-                eventTypes: [.keyDown, .keyUp, .flagsChanged]
+                //eventTypes: [.keyDown, .keyUp, .flagsChanged]
+                eventTypes: mask.map { $0.cgEventType }
             ),
             callback: { (
                 tapProxy: CGEventTapProxy,
@@ -119,8 +124,6 @@ public class HIDCGEventListener {
                 let eventTap = unsafeBitCast(userInfoPtr, to: HIDCGEventListener.self)
 
 #warning("TODO: zakkhoyt - Documentation about the audible clunk when this app is focused. Works okay with other apps running. ")
-//                if NSApplication.shared.isActive {}
-
                 if let nsEvent = NSEvent(cgEvent: cgEvent) {
                     if let outputNSEvent = eventTap.processNSEvent(nsEvent),
                        let outputCGEvent = outputNSEvent.cgEvent {

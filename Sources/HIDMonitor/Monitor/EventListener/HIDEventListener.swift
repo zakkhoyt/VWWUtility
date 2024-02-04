@@ -9,8 +9,6 @@ import AppKit
 import Foundation
 
 public enum EventType: UInt32, CaseIterable {
-    
-
     case leftMouseDown = 1
     case leftMouseUp = 2
     case rightMouseDown = 3
@@ -41,13 +39,7 @@ public enum EventType: UInt32, CaseIterable {
     //    case tapDisabledByTimeout = 0xFFFFFFFE    // CGOnly
     //    case tapDisabledByUserInput = 0xFFFFFFFF  // CGOnly
      
-    var nsEventType: NSEvent.EventType {
-        guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
-            preconditionFailure("Failed to cast EventType to NSEvent.EventType")
-        }
-        return eventType
-    }
-    
+#warning("FIXME: zakkhoyt - Add tests for all 4 below and array variants")
     var cgEventType: CGEventType {
         //guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
         guard let eventType = CGEventType(rawValue: rawValue) else {
@@ -55,12 +47,38 @@ public enum EventType: UInt32, CaseIterable {
         }
         return eventType
     }
- 
-    #warning("FIXME: zakkhoyt - Handle collection for NS and CG cases. ")
-//    var cgEventMask: CGEventMask {
-//        CGEventMask(eventType: cgEventType)
-//    }
+
+    var nsEventType: NSEvent.EventType {
+        guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
+            preconditionFailure("Failed to cast EventType to NSEvent.EventType")
+        }
+        return eventType
+    }
+    
+    var cgEventMask: CGEventMask {
+        CGEventMask(eventType: cgEventType)
+    }
+
+
+    var nsEventTypeMask: NSEvent.EventTypeMask {
+        NSEvent.EventTypeMask(rawValue: UInt64(rawValue))
+    }
 }
+
+extension Collection where Element == EventType {
+    var nsEventMask: NSEvent.EventTypeMask {
+        NSEvent.EventTypeMask(
+            rawValue: map { 1 << $0.rawValue }.reduce(0, |)
+        )
+//        NSEvent.EventTypeMask(eventTypes: map { $0.nsEventType })
+    }
+    
+    var cgEventMask: CGEventMask {
+        CGEventMask(eventTypes: map { $0.cgEventType })
+    }
+}
+
+
 
 
 public enum HIDEventScope: CaseIterable {
@@ -85,7 +103,9 @@ public enum HIDEventListenerType {
     /// )
     /// ```
     case nsEventListener(
-        mask: NSEvent.EventTypeMask,
+//        mask: NSEvent.EventTypeMask,
+//        mask: Set<EventType>,
+        mask: [EventType],
         scope: HIDEventScope
     )
     
@@ -101,7 +121,9 @@ public enum HIDEventListenerType {
     /// )
     /// ```
     case cgEventListener(
-        mask: CGEventMask,
+//        mask: CGEventMask,
+//        mask: Set<EventType>,
+        mask: [EventType],
         scope: HIDEventScope
     )
 }
