@@ -21,11 +21,11 @@ extension SettingsPaneURLProvider where RawValue == String {
         self.rawValue
     }
     
-    public var url: URL {
-        guard let url = URL(string: urlString) else {
+    public var appSpecificUrl: URL {
+        guard let appSpecificUrl = URL(string: urlString) else {
             preconditionFailure("Failed to create URL from \(urlString)")
         }
-        return url
+        return appSpecificUrl
     }
 }
 
@@ -38,7 +38,7 @@ public enum SettingsPane {
     public static func navigateTo(
         _ pane: any SettingsPaneURLProvider
     ) {
-        NSWorkspace.shared.open(pane.url)
+        NSWorkspace.shared.open(pane.appSpecificUrl)
     }
 
     public enum SoftwareUpdate: String, SettingsPaneURLProvider {
