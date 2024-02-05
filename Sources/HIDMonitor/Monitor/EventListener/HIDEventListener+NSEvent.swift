@@ -4,7 +4,7 @@
 //
 //  Created by Zakk Hoyt on 2/3/24.
 //
-
+#if os(macOS)
 import AppKit
 import Foundation
 
@@ -73,3 +73,4 @@ class HIDNSEventListener {
 //    }
 //}
 //
+#endif

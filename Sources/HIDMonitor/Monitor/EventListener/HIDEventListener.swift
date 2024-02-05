@@ -5,6 +5,7 @@
 //  Created by Zakk Hoyt on 2/3/24.
 //
 
+#if os(macOS)
 import AppKit
 import CoreGraphics
 import Foundation
@@ -149,3 +150,4 @@ public enum HIDEventListenerType {
         scope: HIDEventScope
     )
 }
+#endif

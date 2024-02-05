@@ -5,6 +5,7 @@
 //  Created by Zakk Hoyt on 1/31/24.
 //
 
+#if os(macOS)
 import CoreGraphics
 import Foundation
 
@@ -102,3 +103,4 @@ extension CGEventType: CustomStringConvertible, CustomDebugStringConvertible {
     }
 }
 
+#endif

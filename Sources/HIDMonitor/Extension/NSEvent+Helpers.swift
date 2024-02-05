@@ -5,6 +5,7 @@
 //  Created by Zakk Hoyt on 1/31/24.
 //
 
+#if os(macOS)
 import AppKit
 import Foundation
 
@@ -88,3 +89,4 @@ extension NSEvent.EventType: CustomStringConvertible, CustomDebugStringConvertib
     }
 
 }
+#endif

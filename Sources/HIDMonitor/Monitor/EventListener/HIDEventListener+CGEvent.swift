@@ -4,7 +4,7 @@
 //
 //  Created by Zakk Hoyt on 1/31/24.
 //
-
+#if os(macOS)
 import AppKit
 import CoreGraphics
 import Foundation
@@ -164,3 +164,4 @@ public class HIDCGEventListener {
         nsEventCallback(event)
     }
 }
+#endif
