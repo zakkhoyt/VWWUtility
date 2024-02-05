@@ -133,6 +133,7 @@
 ## indent
 ## --disable indent
 --xcodeindentation enabled
+--ifdef outdent
 
 ## leadingDelimiters
 ## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#leadingdelimiters
