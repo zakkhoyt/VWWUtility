@@ -78,7 +78,7 @@ let package = Package(
                 )
             ],
             exclude: [
-                "SystemSettings/View/"
+//                "SystemSettings/View/"
             ],
             swiftSettings: swiftSettings,
             plugins: []
