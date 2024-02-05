@@ -1,7 +1,7 @@
+// https://stackoverflow.com/a/61383270/80388
+// https://www.macstories.net/ios/a-comprehensive-guide-to-all-120-settings-urls-supported-by-ios-and-ipados-13-1/
 // https://stackoverflow.com/a/35987082/803882
 // https://stackoverflow.com/a/8246814/803882
-
-
 
 // https://www.macstories.net/ios/a-comprehensive-guide-to-all-120-settings-urls-supported-by-ios-and-ipados-13-1/
 // https://forums.macrumors.com/threads/manually-creating-settings-launchers-in-app-launching-apps.2037291/
@@ -13,61 +13,24 @@
 import Foundation
 import UIKit
 
-
-/// # Public Settings
-/// Navigating the user to public settings (not app specific)
-/// I (zakkhoyt) tested [this](https://stackoverflow.com/a/61383270/80388) and it works
-/// (if using the syntax in one of the comments)
-/// I have also same issue with iOS 14 but in my case it is resolved when i remove root prefix.
-/// For example instead of
-/// `"prefs:root=Privacy&path=LOCATION"`
-/// I used
-/// `"App-prefs:Privacy&path=LOCATION"`
-/// and it works in iOS 14.
-///
-/// IE: `prefs:root=` -> `App-prefs:`
-///
-/// ## Example (research)
-///
-/// ```swift
-/// guard let url = URL(string: "prefs:root=Bluetooth") else {
-/// guard let url = URL(string: "prefs:root=Bluetooth") else { // short ulong warning //
-/// guard let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") else { // ulog warning // https://stackoverflow.com/a/43090019/803882
-/// guard let url = URL(string: "\(UIApplication.openSettingsURLString)&prefs:root=WIFI") else { // main settings app
-/// guard let url = URL(string: "\(UIApplication.openSettingsURLString)&prefs:root=WIFI/\(bundleId)") else { // main settings app
-/// guard let url = URL(string: "prefs:root=WIFI/\(bundleId)") else { // nothing
-/// // iOS 14 comment https://stackoverflow.com/a/61383270/803882
-/// // iOS 15 tested. Takes to general location services (apps listed as siblings)
-/// //    guard let url = URL(string: "App-prefs:Privacy&path=LOCATION") else {
-/// // iOS 15 tested. Takes to app specific locatoin service underneat general location services (not in the app settings directly)
-/// guard let url = URL(string: "App-prefs:Privacy&path=LOCATION/\(bundleId)") else {
-///     preconditionFailure()
-/// }
-/// ```
-public enum SystemSettings {
+public enum SystemSettings: SystemSettingsURLParticipant {
     @MainActor
     public static func open(
         _ provider: any SystemSettingsURLProvider,
         appSpecific: Bool = false
     ) {
-        open(url: appSpecific ? provider.appSpecificUrl : provider.url)
-    }
-    
-
-    @MainActor
-    private static func open(
-        url: URL
-    ) {
+        let url = appSpecific ? provider.appSpecificUrl : provider.url
         logger.debug("can open url? \(UIApplication.shared.canOpenURL(url)) (\(url.absoluteString))")
         logger.debug("Opening url \(url.absoluteString)")
         UIApplication.shared.open(url)
         // Even though the settings are being opened, we are getting warnings from com.apple.launchservices
         //    `Failed to open URL App-prefs:Privacy&path=LOCATION: Error Domain=FBSOpenApplicationServiceErrorDomain Code=1 "The request to open "com.apple.Preferences" failed." UserInfo={BSErrorCodeDescription=RequestDenied, NSUnderlyingError=0x282002130 {Error Domain=FBSOpenApplicationErrorDomain Code=3 "Application com.vaporwarewolf.SystemSettingsExerciser is neither visible nor entitled, so may not perform un-trusted user actions." UserInfo={BSErrorCodeDescription=Security, NSLocalizedFailureReason=Application com.vaporwarewolf.SystemSettingsExerciser is neither visible nor entitled, so may not perform un-trusted user actions.}}, NSLocalizedDescription=The request to open "com.apple.Preferences" failed., FBSOpenApplicationRequestID=0xabee, NSLocalizedFailureReason=The request was denied by service delegate (SBMainWorkspace) for reason: Security ("Application com.vaporwarewolf.SystemSettingsExerciser is neither visible nor entitled, so may not perform un-trusted user actions").}`
     }
-}
-
-public enum Settings {
-    public static var categories: [any SystemSettingsURLProvider.Type] {
+    
+    /// Represents enums nested under this namespace to represent "sections" of settings.
+    public static var categories: [
+        any SystemSettingsURLProvider.Type
+    ] {
         [
             Accessibility.self,
             ApplePencil.self,
@@ -115,7 +78,55 @@ public enum Settings {
             WirelessRadios.self
         ]
     }
+}
 
+// MARK: - Nested types
+
+#warning(
+    """
+    TODO: zakkhoyt - Document the struggle to validate
+    * How to inspect values for myself? See SO posts.
+    * How to modernize this list?
+    * How to test these?
+        * Document OSLog warnings/output
+    * Different settings: General vs General (under app leaf) vs App Settings
+    * Post back on forums to share work
+    """
+)
+/// # Public Settings
+/// Navigating the user to public settings (not app specific)
+/// I (zakkhoyt) tested [this](https://stackoverflow.com/a/61383270/80388) and it works
+/// (if using the syntax in one of the comments)
+/// I have also same issue with iOS 14 but in my case it is resolved when i remove root prefix.
+/// For example instead of
+/// `"prefs:root=Privacy&path=LOCATION"`
+/// I used
+/// `"App-prefs:Privacy&path=LOCATION"`
+/// and it works in iOS 14.
+///
+/// IE: `prefs:root=` -> `App-prefs:`
+///
+/// ## Example (research)
+///
+/// ```swift
+/// guard let url = URL(string: "prefs:root=Bluetooth") else {
+/// guard let url = URL(string: "prefs:root=Bluetooth") else { // short ulong warning //
+/// guard let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") else { // ulog warning // https://stackoverflow.com/a/43090019/803882
+/// guard let url = URL(string: "\(UIApplication.openSettingsURLString)&prefs:root=WIFI") else { // main settings app
+/// guard let url = URL(string: "\(UIApplication.openSettingsURLString)&prefs:root=WIFI/\(bundleId)") else { // main settings app
+/// guard let url = URL(string: "prefs:root=WIFI/\(bundleId)") else { // nothing
+/// // iOS 14 comment https://stackoverflow.com/a/61383270/803882
+/// // iOS 15 tested. Takes to general location services (apps listed as siblings)
+/// //    guard let url = URL(string: "App-prefs:Privacy&path=LOCATION") else {
+/// // iOS 15 tested. Takes to app specific locatoin service underneat general location services (not in the app settings directly)
+/// guard let url = URL(string: "App-prefs:Privacy&path=LOCATION/\(bundleId)") else {
+///     preconditionFailure()
+/// }
+/// ```
+
+/// The URLs below were mined [from here](https://www.macstories.net/ios/a-comprehensive-guide-to-all-120-settings-urls-supported-by-ios-and-ipados-13-1/)
+/// however the URLs did not work as provided and were modified. This list is based on iOS 13.1 and needs to be updated.
+extension SystemSettings {
     
     public enum iCloud: String, SystemSettingsURLProvider {
         case root = "App-prefs:CASTLE"
@@ -382,7 +393,5 @@ public enum Settings {
     public enum GameCenter: String, SystemSettingsURLProvider {
         case root = "App-prefs:GAMECENTER"
     }
-    
 }
-//}
 #endif
