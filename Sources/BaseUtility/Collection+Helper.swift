@@ -1,10 +1,20 @@
 //
-//  Array+Helper.swift
+//  Collection+Helper.swift
 //
 //  Created by Zakk Hoyt on 6/23/23.
 //
 
 import Foundation
+
+#warning("FIXME: zakkhoyt - debugDescrition for [String: String]. Use a protocol?")
+public protocol ListDescribable {
+    var listDescription: String { get }
+
+    func listDescription(
+        separator: String,
+        endcaps: (String, String)
+    ) -> String
+}
 
 extension [String] {
     /// Converts any `[String]` to a list by joining all `Element`s using `separator`
@@ -86,6 +96,7 @@ extension Array where Element: CustomDebugStringConvertible {
     }
 }
 
+#warning("FIXME: zakkhoyt - debugDescrition for [String: String]")
 
 extension [String: String?] {
     public var varDescription: String {
@@ -103,3 +114,32 @@ extension [String: String?] {
         .joined(separator: ", ")
     }
 }
+
+// extension [String: String?] {
+//    public var varDescription: String {
+//        OrderedDictionary<String, String>(
+//            self.compactMapValues { $0 }
+//        ).map {
+//            [
+//                $0.key, $0.value
+//            ].joined(separator: ": ")
+//        }.joined(separator: ", ")
+//    }
+// }
+
+//        let pairs: [String: String] = [
+//            "address": address,
+//            "class": String(describing: classForCoder),
+//            "identifier": peripheral.identifier.uuidString,
+//            "peripheralName": peripheral.name ?? "-",
+//            "advertisedName": advertisedName ?? "-",
+//            "state": peripheral.state.toString(),
+//            "hash": "\(hash)",
+//            "rssi": "\(rssi)"
+//        ]
+//
+//        let str: String = pairs.keys.sorted().reduce(into: "") {
+//            if let value = pairs[$1] {
+//                $0 += "\($1): \(value)"
+//            }
+//        }

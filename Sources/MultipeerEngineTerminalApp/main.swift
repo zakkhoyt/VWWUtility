@@ -69,7 +69,7 @@ struct App: ParsableCommand, Sendable {
             case .browser:
             
                 let browser = engine.startBrowsing(serviceName: serviceName)
-                browser.advertisedServices
+                await browser.dataStore.$advertisedServices
                     .receive(on: DispatchQueue.main)
                     .sink { services in
                         print("found services: \(services)")
@@ -82,7 +82,7 @@ struct App: ParsableCommand, Sendable {
                         MPEngine.Advertiser.DiscoveryInfo.activityKey: "Tic Tac Toe"
                     ]
                 )
-                advertiser.invitations
+                await advertiser.dataStore.$invitations
                     .receive(on: DispatchQueue.main)
                     .sink { invitations in
                         print("did receive invitations: \(invitations)")
@@ -97,7 +97,7 @@ struct App: ParsableCommand, Sendable {
                     }
                     .store(in: &Helpers.shared.subscriptions)
                 
-                engine.payloads
+                await engine.dataStore.$payloads
                     .receive(on: DispatchQueue.main)
                     .sink { payloads in
                         guard let first = payloads.first else {

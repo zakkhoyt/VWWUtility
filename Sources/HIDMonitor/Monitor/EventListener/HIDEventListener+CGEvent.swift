@@ -4,11 +4,11 @@
 //
 //  Created by Zakk Hoyt on 1/31/24.
 //
-
+#if os(macOS)
 import AppKit
+import BaseUtility
 import CoreGraphics
 import Foundation
-import BaseUtility
 
 /// From Hammerspoon code
 ///
@@ -56,7 +56,7 @@ public class HIDCGEventListener {
     public init() {}
     
     public func start(
-//        mask: CGEventMask,
+        //        mask: CGEventMask,
         mask: [EventType],
         scope: HIDEventScope,
         handler: @escaping (NSEvent) -> NSEvent?
@@ -106,14 +106,14 @@ public class HIDCGEventListener {
         context.tap = CGEvent.tapCreate(
             tap: .cgSessionEventTap,
             place: .headInsertEventTap,
-            options: .listenOnly, //.defaultTap,
+            options: .listenOnly, // .defaultTap,
             eventsOfInterest: CGEventMask(
-                //eventTypes: [.keyDown, .keyUp, .flagsChanged]
+                // eventTypes: [.keyDown, .keyUp, .flagsChanged]
                 eventTypes: mask.map { $0.cgEventType }
             ),
             callback: { (
-                tapProxy: CGEventTapProxy,
-                cgEventType: CGEventType,
+                _: CGEventTapProxy,
+                _: CGEventType,
                 cgEvent: CGEvent,
                 userInfoPtr: UnsafeMutableRawPointer?
             ) -> Unmanaged<CGEvent>? in
@@ -123,7 +123,7 @@ public class HIDCGEventListener {
                 // unwrap it as such then call its functions that way.
                 let eventTap = unsafeBitCast(userInfoPtr, to: HIDCGEventListener.self)
 
-#warning("TODO: zakkhoyt - Documentation about the audible clunk when this app is focused. Works okay with other apps running. ")
+                #warning("TODO: zakkhoyt - Documentation about the audible clunk when this app is focused. Works okay with other apps running. ")
                 if let nsEvent = NSEvent(cgEvent: cgEvent) {
                     if let outputNSEvent = eventTap.processNSEvent(nsEvent),
                        let outputCGEvent = outputNSEvent.cgEvent {
@@ -137,11 +137,9 @@ public class HIDCGEventListener {
 //                    if NSApplication.shared.isActive {
 //                        return nil
 //                    } else {
-                        let outputNSEventPtr = Unmanaged.passUnretained(nsEvent.cgEvent!)
-                        return outputNSEventPtr
+                    let outputNSEventPtr = Unmanaged.passUnretained(nsEvent.cgEvent!)
+                    return outputNSEventPtr
 //                    }
-                    
-
                 }
                 return Unmanaged.passUnretained(cgEvent)
             },
@@ -164,3 +162,4 @@ public class HIDCGEventListener {
         nsEventCallback(event)
     }
 }
+#endif

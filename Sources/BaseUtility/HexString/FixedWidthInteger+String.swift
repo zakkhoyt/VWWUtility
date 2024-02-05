@@ -44,7 +44,7 @@ extension FixedWidthInteger {
 
 extension String {
     public init?(ifNotNil value: (any FixedWidthInteger)?) {
-        guard let value = value else { return nil }
+        guard let value else { return nil }
         self = "\(value)"
     }
 }

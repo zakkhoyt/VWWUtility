@@ -19,126 +19,126 @@ extension Keyboard {
             rawValue
         }
 
-        case a = 0                  // Carbon.kVK_ANSI_A
-        case b = 11                 // Carbon.kVK_ANSI_B
-        case c = 8                  // Carbon.kVK_ANSI_C
-        case d = 2                  // Carbon.kVK_ANSI_D
-        case context = 14                 // Carbon.kVK_ANSI_E
-        case f = 3                  // Carbon.kVK_ANSI_F
-        case g = 5                  // Carbon.kVK_ANSI_G
-        case h = 4                  // Carbon.kVK_ANSI_H
-        case i = 34                 // Carbon.kVK_ANSI_I
-        case j = 38                 // Carbon.kVK_ANSI_J
-        case k = 40                 // Carbon.kVK_ANSI_K
-        case l = 37                 // Carbon.kVK_ANSI_L
-        case m = 46                 // Carbon.kVK_ANSI_M
-        case n = 45                 // Carbon.kVK_ANSI_N
-        case o = 31                 // Carbon.kVK_ANSI_O
-        case p = 35                 // Carbon.kVK_ANSI_P
-        case q = 12                 // Carbon.kVK_ANSI_Q
-        case r = 15                 // Carbon.kVK_ANSI_R
-        case s = 1                  // Carbon.kVK_ANSI_S
-        case t = 17                 // Carbon.kVK_ANSI_T
-        case u = 32                 // Carbon.kVK_ANSI_U
-        case v = 9                  // Carbon.kVK_ANSI_V
-        case w = 13                 // Carbon.kVK_ANSI_W
-        case x = 7                  // Carbon.kVK_ANSI_X
-        case y = 16                 // Carbon.kVK_ANSI_Y
-        case z = 6                  // Carbon.kVK_ANSI_Z
+        case a = 0 // Carbon.kVK_ANSI_A
+        case b = 11 // Carbon.kVK_ANSI_B
+        case c = 8 // Carbon.kVK_ANSI_C
+        case d = 2 // Carbon.kVK_ANSI_D
+        case context = 14 // Carbon.kVK_ANSI_E
+        case f = 3 // Carbon.kVK_ANSI_F
+        case g = 5 // Carbon.kVK_ANSI_G
+        case h = 4 // Carbon.kVK_ANSI_H
+        case i = 34 // Carbon.kVK_ANSI_I
+        case j = 38 // Carbon.kVK_ANSI_J
+        case k = 40 // Carbon.kVK_ANSI_K
+        case l = 37 // Carbon.kVK_ANSI_L
+        case m = 46 // Carbon.kVK_ANSI_M
+        case n = 45 // Carbon.kVK_ANSI_N
+        case o = 31 // Carbon.kVK_ANSI_O
+        case p = 35 // Carbon.kVK_ANSI_P
+        case q = 12 // Carbon.kVK_ANSI_Q
+        case r = 15 // Carbon.kVK_ANSI_R
+        case s = 1 // Carbon.kVK_ANSI_S
+        case t = 17 // Carbon.kVK_ANSI_T
+        case u = 32 // Carbon.kVK_ANSI_U
+        case v = 9 // Carbon.kVK_ANSI_V
+        case w = 13 // Carbon.kVK_ANSI_W
+        case x = 7 // Carbon.kVK_ANSI_X
+        case y = 16 // Carbon.kVK_ANSI_Y
+        case z = 6 // Carbon.kVK_ANSI_Z
         
-        case number0 = 29           // Carbon.kVK_ANSI_0
-        case number1 = 18           // Carbon.kVK_ANSI_1
-        case number2 = 19           // Carbon.kVK_ANSI_2
-        case number3 = 20           // Carbon.kVK_ANSI_3
-        case number4 = 21           // Carbon.kVK_ANSI_4
-        case number5 = 23           // Carbon.kVK_ANSI_5
-        case number6 = 22           // Carbon.kVK_ANSI_6
-        case number7 = 26           // Carbon.kVK_ANSI_7
-        case number8 = 28           // Carbon.kVK_ANSI_8
-        case number9 = 25           // Carbon.kVK_ANSI_9
+        case number0 = 29 // Carbon.kVK_ANSI_0
+        case number1 = 18 // Carbon.kVK_ANSI_1
+        case number2 = 19 // Carbon.kVK_ANSI_2
+        case number3 = 20 // Carbon.kVK_ANSI_3
+        case number4 = 21 // Carbon.kVK_ANSI_4
+        case number5 = 23 // Carbon.kVK_ANSI_5
+        case number6 = 22 // Carbon.kVK_ANSI_6
+        case number7 = 26 // Carbon.kVK_ANSI_7
+        case number8 = 28 // Carbon.kVK_ANSI_8
+        case number9 = 25 // Carbon.kVK_ANSI_9
         
-        case keypad0 = 82           // Carbon.kVK_ANSI_Keypad0
-        case keypad1 = 83           // Carbon.kVK_ANSI_Keypad1
-        case keypad2 = 84           // Carbon.kVK_ANSI_Keypad2
-        case keypad3 = 85           // Carbon.kVK_ANSI_Keypad3
-        case keypad4 = 86           // Carbon.kVK_ANSI_Keypad4
-        case keypad5 = 87           // Carbon.kVK_ANSI_Keypad5
-        case keypad6 = 88           // Carbon.kVK_ANSI_Keypad6
-        case keypad7 = 89           // Carbon.kVK_ANSI_Keypad7
-        case keypad8 = 91           // Carbon.kVK_ANSI_Keypad8
-        case keypad9 = 92           // Carbon.kVK_ANSI_Keypad9
-        case keypadClear = 71       // Carbon.kVK_ANSI_KeypadClear
-        case keypadDivide = 75      // Carbon.kVK_ANSI_KeypadDivide
-        case keypadEnter = 76       // Carbon.kVK_ANSI_KeypadEnter
-        case keypadEquals = 81      // Carbon.kVK_ANSI_KeypadEquals
-        case keypadMinus = 78       // Carbon.kVK_ANSI_KeypadMinus
-        case keypadPlus = 69        // Carbon.kVK_ANSI_KeypadPlus
+        case keypad0 = 82 // Carbon.kVK_ANSI_Keypad0
+        case keypad1 = 83 // Carbon.kVK_ANSI_Keypad1
+        case keypad2 = 84 // Carbon.kVK_ANSI_Keypad2
+        case keypad3 = 85 // Carbon.kVK_ANSI_Keypad3
+        case keypad4 = 86 // Carbon.kVK_ANSI_Keypad4
+        case keypad5 = 87 // Carbon.kVK_ANSI_Keypad5
+        case keypad6 = 88 // Carbon.kVK_ANSI_Keypad6
+        case keypad7 = 89 // Carbon.kVK_ANSI_Keypad7
+        case keypad8 = 91 // Carbon.kVK_ANSI_Keypad8
+        case keypad9 = 92 // Carbon.kVK_ANSI_Keypad9
+        case keypadClear = 71 // Carbon.kVK_ANSI_KeypadClear
+        case keypadDivide = 75 // Carbon.kVK_ANSI_KeypadDivide
+        case keypadEnter = 76 // Carbon.kVK_ANSI_KeypadEnter
+        case keypadEquals = 81 // Carbon.kVK_ANSI_KeypadEquals
+        case keypadMinus = 78 // Carbon.kVK_ANSI_KeypadMinus
+        case keypadPlus = 69 // Carbon.kVK_ANSI_KeypadPlus
         
-        case pageDown = 121         // Carbon.kVK_PageDown
-        case pageUp = 116           // Carbon.kVK_PageUp
-        case end = 119              // Carbon.kVK_End
-        case home = 115             // Carbon.kVK_Home
+        case pageDown = 121 // Carbon.kVK_PageDown
+        case pageUp = 116 // Carbon.kVK_PageUp
+        case end = 119 // Carbon.kVK_End
+        case home = 115 // Carbon.kVK_Home
         
-        case f1 = 122               // Carbon.kVK_F1
-        case f2 = 120               // Carbon.kVK_F2
-        case f3 = 99                // Carbon.kVK_F3
-        case f4 = 118               // Carbon.kVK_F4
-        case f5 = 96                // Carbon.kVK_F5
-        case f6 = 97                // Carbon.kVK_F6
-        case f7 = 98                // Carbon.kVK_F7
-        case f8 = 100               // Carbon.kVK_F8
-        case f9 = 101               // Carbon.kVK_F9
-        case f10 = 109              // Carbon.kVK_F10
-        case f11 = 103              // Carbon.kVK_F11
-        case f12 = 111              // Carbon.kVK_F12
-        case f13 = 105              // Carbon.kVK_F13
-        case f14 = 107              // Carbon.kVK_F14
-        case f15 = 113              // Carbon.kVK_F15
-        case f16 = 106              // Carbon.kVK_F16
-        case f17 = 64               // Carbon.kVK_F17
-        case f18 = 79               // Carbon.kVK_F18
-        case f19 = 80               // Carbon.kVK_F19
-        case f20 = 90               // Carbon.kVK_F20
+        case f1 = 122 // Carbon.kVK_F1
+        case f2 = 120 // Carbon.kVK_F2
+        case f3 = 99 // Carbon.kVK_F3
+        case f4 = 118 // Carbon.kVK_F4
+        case f5 = 96 // Carbon.kVK_F5
+        case f6 = 97 // Carbon.kVK_F6
+        case f7 = 98 // Carbon.kVK_F7
+        case f8 = 100 // Carbon.kVK_F8
+        case f9 = 101 // Carbon.kVK_F9
+        case f10 = 109 // Carbon.kVK_F10
+        case f11 = 103 // Carbon.kVK_F11
+        case f12 = 111 // Carbon.kVK_F12
+        case f13 = 105 // Carbon.kVK_F13
+        case f14 = 107 // Carbon.kVK_F14
+        case f15 = 113 // Carbon.kVK_F15
+        case f16 = 106 // Carbon.kVK_F16
+        case f17 = 64 // Carbon.kVK_F17
+        case f18 = 79 // Carbon.kVK_F18
+        case f19 = 80 // Carbon.kVK_F19
+        case f20 = 90 // Carbon.kVK_F20
         
-        case apostrophe = 39        // Carbon.kVK_ANSI_Quote
-        case backApostrophe = 50    // Carbon.kVK_ANSI_Grave
-        case backslash = 42         // Carbon.kVK_ANSI_Backslash
-        case capsLock = 57          // Carbon.kVK_CapsLock
-        case comma = 43             // Carbon.kVK_ANSI_Comma
-        case help = 114             // Carbon.kVK_Help
-        case forwardDelete = 117    // Carbon.kVK_ForwardDelete
-        case decimal = 65           // Carbon.kVK_ANSI_KeypadDecimal
-        case delete = 51            // Carbon.kVK_Delete
-        case equals = 24            // Carbon.kVK_ANSI_Equal
-        case escape = 53            // Carbon.kVK_Escape
-        case leftBracket = 33       // Carbon.kVK_ANSI_LeftBracket
-        case minus = 27             // Carbon.kVK_ANSI_Minus
-        case multiply = 67          // Carbon.kVK_ANSI_KeypadMultiply
-        case period = 47            // Carbon.kVK_ANSI_Period
-        case `return` = 36          // Carbon.kVK_Return
-        case rightBracket = 30      // Carbon.kVK_ANSI_RightBracket
-        case semicolon = 41         // Carbon.kVK_ANSI_Semicolon
-        case slash = 44             // Carbon.kVK_ANSI_Slash
-        case space = 49             // Carbon.kVK_Space
-        case tab = 48               // Carbon.kVK_Tab
-        case mute = 74              // Carbon.kVK_Mute
-        case volumeDown = 73        // Carbon.kVK_VolumeDown
-        case volumeUp = 72          // Carbon.kVK_VolumeUp
+        case apostrophe = 39 // Carbon.kVK_ANSI_Quote
+        case backApostrophe = 50 // Carbon.kVK_ANSI_Grave
+        case backslash = 42 // Carbon.kVK_ANSI_Backslash
+        case capsLock = 57 // Carbon.kVK_CapsLock
+        case comma = 43 // Carbon.kVK_ANSI_Comma
+        case help = 114 // Carbon.kVK_Help
+        case forwardDelete = 117 // Carbon.kVK_ForwardDelete
+        case decimal = 65 // Carbon.kVK_ANSI_KeypadDecimal
+        case delete = 51 // Carbon.kVK_Delete
+        case equals = 24 // Carbon.kVK_ANSI_Equal
+        case escape = 53 // Carbon.kVK_Escape
+        case leftBracket = 33 // Carbon.kVK_ANSI_LeftBracket
+        case minus = 27 // Carbon.kVK_ANSI_Minus
+        case multiply = 67 // Carbon.kVK_ANSI_KeypadMultiply
+        case period = 47 // Carbon.kVK_ANSI_Period
+        case `return` = 36 // Carbon.kVK_Return
+        case rightBracket = 30 // Carbon.kVK_ANSI_RightBracket
+        case semicolon = 41 // Carbon.kVK_ANSI_Semicolon
+        case slash = 44 // Carbon.kVK_ANSI_Slash
+        case space = 49 // Carbon.kVK_Space
+        case tab = 48 // Carbon.kVK_Tab
+        case mute = 74 // Carbon.kVK_Mute
+        case volumeDown = 73 // Carbon.kVK_VolumeDown
+        case volumeUp = 72 // Carbon.kVK_VolumeUp
         
-        case command = 55           // Carbon.kVK_Command
-        case rightCommand = 54      // Carbon.kVK_RightCommand
-        case control = 59           // Carbon.kVK_Control
-        case rightControl = 62      // Carbon.kVK_RightControl
-        case function = 63          // Carbon.kVK_Function
-        case option = 58            // Carbon.kVK_Option
-        case rightOption = 61       // Carbon.kVK_RightOption
-        case shift = 56             // Carbon.kVK_Shift
-        case rightShift = 60        // Carbon.kVK_RightShift
+        case command = 55 // Carbon.kVK_Command
+        case rightCommand = 54 // Carbon.kVK_RightCommand
+        case control = 59 // Carbon.kVK_Control
+        case rightControl = 62 // Carbon.kVK_RightControl
+        case function = 63 // Carbon.kVK_Function
+        case option = 58 // Carbon.kVK_Option
+        case rightOption = 61 // Carbon.kVK_RightOption
+        case shift = 56 // Carbon.kVK_Shift
+        case rightShift = 60 // Carbon.kVK_RightShift
         
-        case downArrow = 125        // Carbon.kVK_DownArrow
-        case leftArrow = 123        // Carbon.kVK_LeftArrow
-        case rightArrow = 124       // Carbon.kVK_RightArrow
-        case upArrow = 126          // Carbon.kVK_UpArrow
+        case downArrow = 125 // Carbon.kVK_DownArrow
+        case leftArrow = 123 // Carbon.kVK_LeftArrow
+        case rightArrow = 124 // Carbon.kVK_RightArrow
+        case upArrow = 126 // Carbon.kVK_UpArrow
         
         // MARK: - Nested Types
         
@@ -264,7 +264,7 @@ extension Keyboard.Key: CustomStringConvertible {
         case .minus: "-"
         case .multiply: "*"
         case .period: "."
-        case .`return`: "􀆎" // 􀅇
+        case .return: "􀆎" // 􀅇
         case .rightBracket: "]"
         case .semicolon: ";"
         case .slash: "/"
@@ -288,7 +288,6 @@ extension Keyboard.Key: CustomStringConvertible {
         case .leftArrow: "􀄪"
         case .rightArrow: "􀄫"
         case .upArrow: "􀄨"
-            
         }
     }
 }
@@ -394,7 +393,7 @@ extension Keyboard.Key: CustomDebugStringConvertible {
         case .minus: "\(description) minus (Carbon.kVK_ANSI_Minus: \(rawValue))"
         case .multiply: "\(description) multiply (Carbon.kVK_ANSI_KeypadMultiply: \(rawValue))"
         case .period: "\(description) period (Carbon.kVK_ANSI_Period: \(rawValue))"
-        case .`return`: "\(description) (Carbon: VK_Return (\(rawValue))"
+        case .return: "\(description) (Carbon: VK_Return (\(rawValue))"
         case .rightBracket: "\(description) rightBracket (Carbon.kVK_ANSI_RightBracket: \(rawValue))"
         case .semicolon: "\(description) semicolon (Carbon.kVK_ANSI_Semicolon: \(rawValue))"
         case .slash: "\(description) slash (Carbon.kVK_ANSI_Slash: \(rawValue))"
@@ -435,12 +434,12 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .g: "􀂠"
         case .h: "􀂢"
         case .i: "􀂤"
-        case .j: "\u{004A}" // Ｊ𝐉𝕁🄹 
+        case .j: "\u{004A}" // Ｊ𝐉𝕁🄹
             
 //            J
 //            LATIN CAPITAL LETTER J
 //        Unicode: U+004A, UTF-8: 4A
-//        
+//
 //            I
 //            LATIN CAPITAL LETTER I
 //        Unicode: U+0049, UTF-8: 49
@@ -531,7 +530,7 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .minus: "-"
         case .multiply: "*"
         case .period: "."
-        case .`return`: "􀆎" // 􀅇
+        case .return: "􀆎" // 􀅇
         case .rightBracket: "]"
         case .semicolon: ";"
         case .slash: "/"
@@ -555,7 +554,6 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .leftArrow: "􀄪"
         case .rightArrow: "􀄫"
         case .upArrow: "􀄨"
-            
         }
     }
     
@@ -657,7 +655,7 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .minus: ""
         case .multiply: ""
         case .period: ""
-        case .`return`: ""
+        case .return: ""
         case .rightBracket: ""
         case .semicolon: ""
         case .slash: ""
@@ -681,12 +679,9 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .leftArrow: ""
         case .rightArrow: ""
         case .upArrow: ""
-            
         }
     }
 }
-
-
 
 extension NSEvent {
     // FIXME: @zakkhoyt - Maybe returning an optional value would be better than fatalError.

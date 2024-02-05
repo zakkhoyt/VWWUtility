@@ -54,8 +54,8 @@ extension Keyboard {
 extension Keyboard.Event: CustomDebugStringConvertible {
     public var debugDescription: String {
         switch self {
-        case .keyDown: return "keyDown"
-        case .keyUp: return "keyUp"
+        case .keyDown: "keyDown"
+        case .keyUp: "keyUp"
         }
     }
 }

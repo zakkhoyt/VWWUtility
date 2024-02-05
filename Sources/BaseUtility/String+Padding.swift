@@ -26,7 +26,7 @@ extension String {
     ) -> String {
         let padding = String(
             repeating: character,
-            count: max(0, Int(length) - self.count)
+            count: max(0, Int(length) - count)
         )
         switch endfix {
         case .prefix: return "\(padding)\(self)"
@@ -34,8 +34,8 @@ extension String {
         }
     }
     
-    mutating
-    public func pad(
+    public mutating
+    func pad(
         length: Int,
         character: Character = " ",
         endfix: EndFix = .prefix

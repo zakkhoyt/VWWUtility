@@ -1,15 +1,14 @@
 //
-//  File.swift
-//  
+//  HIDEventListener.swift
+//
 //
 //  Created by Zakk Hoyt on 2/3/24.
 //
 
+#if os(macOS)
 import AppKit
 import CoreGraphics
 import Foundation
-
-
 
 /// ## Example
 ///
@@ -48,7 +47,6 @@ public enum EventType: UInt32, CaseIterable {
     
     #warning("FIXME: zakkhoyt - Evaluate the 2 mask types as well")
     
-    
     //    case null = 0                             // CGEventType Only
     //    case mouseEntered = 8                     // NSEvent.EventType only
     //    case mouseExited = 9                      // NSEvent.EventType only
@@ -60,11 +58,11 @@ public enum EventType: UInt32, CaseIterable {
     //    case tapDisabledByTimeout = 0xFFFFFFFE    // CGEventType Only
     //    case tapDisabledByUserInput = 0xFFFFFFFF  // CGEventType Only
      
-#warning("FIXME: zakkhoyt - Add tests for all 4 below and array variants")
+    #warning("FIXME: zakkhoyt - Add tests for all 4 below and array variants")
     var cgEventType: CGEventType {
-        //guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
-        //guard let eventType = CGEventType(rawValue: rawValue) else {
-        guard let eventType = CGEventType(rawValue: CGEventType.RawValue.init(rawValue)) else {
+        // guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
+        // guard let eventType = CGEventType(rawValue: rawValue) else {
+        guard let eventType = CGEventType(rawValue: CGEventType.RawValue(rawValue)) else {
             preconditionFailure("Failed to cast EventType to CGEventType")
         }
         return eventType
@@ -72,7 +70,7 @@ public enum EventType: UInt32, CaseIterable {
 
     var nsEventType: NSEvent.EventType {
 //        guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
-        guard let eventType = NSEvent.EventType(rawValue: NSEvent.EventType.RawValue.init(rawValue)) else {
+        guard let eventType = NSEvent.EventType(rawValue: NSEvent.EventType.RawValue(rawValue)) else {
             preconditionFailure("Failed to cast EventType to NSEvent.EventType")
         }
         return eventType
@@ -87,7 +85,7 @@ public enum EventType: UInt32, CaseIterable {
     }
 }
 
-extension Collection where Element == EventType {
+extension Collection<EventType> {
     var cgEventMask: CGEventMask {
         CGEventMask(eventTypes: map { $0.cgEventType })
     }
@@ -99,9 +97,6 @@ extension Collection where Element == EventType {
         NSEvent.EventTypeMask(eventTypes: map { $0.nsEventType })
     }
 }
-
-
-
 
 public enum HIDEventScope: CaseIterable {
     case local
@@ -125,13 +120,12 @@ public enum HIDEventListenerType {
     /// )
     /// ```
     case nsEventListener(
-//        mask: NSEvent.EventTypeMask,
+        //        mask: NSEvent.EventTypeMask,
 //        mask: Set<EventType>,
         mask: [EventType],
         scope: HIDEventScope
     )
     
-
     /// ## Example
     ///
     /// ```swift
@@ -143,9 +137,10 @@ public enum HIDEventListenerType {
     /// )
     /// ```
     case cgEventListener(
-//        mask: CGEventMask,
+        //        mask: CGEventMask,
 //        mask: Set<EventType>,
         mask: [EventType],
         scope: HIDEventScope
     )
 }
+#endif

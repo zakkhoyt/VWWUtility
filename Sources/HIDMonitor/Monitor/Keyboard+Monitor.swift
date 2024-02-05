@@ -1,5 +1,5 @@
 //
-//  KeyboardMonitor.swift
+//  Keyboard+Monitor.swift
 //  WaveSynthesizerSPM_multiplatform_app
 //
 //  Created by Zakk Hoyt on 6/23/23.
@@ -18,11 +18,11 @@ public enum Keyboard {}
 extension Keyboard {
     public class Monitor {
         // MARK: Nested Types
+
         public enum Error: Swift.Error {
-                    case noKeyPressMonitor
+            case noKeyPressMonitor
 //            case noGlobalAuthorization
         }
-        
         
         // MARK: Public vars
         
@@ -36,7 +36,7 @@ extension Keyboard {
 
         /// This function is called when a key press (up) event occurs.
         /// - Parameter press: The `Keyboard.Press` instance to process.
-        /// 
+        ///
         /// - Returns: The implementor should return `true` if the press was responded to. `false` otherwise.
         /// When a value of `false` is returned, the system "clunk" noise will be played (audible alert) and the keypress event
         /// will then be forwarded on to other responders. It is important to return `false` if you expect `cmd+q` to quit the app
@@ -64,7 +64,6 @@ extension Keyboard {
         
         public init() {}
         
-        
         // MARK: Public functions
         
         /// Starts listening for keypress events (keyDown and keyUp events).
@@ -72,7 +71,6 @@ extension Keyboard {
         public func start(
             captureType: HIDEventListenerType
         ) throws {
-            
             self.captureType = captureType
             switch captureType {
             case .noListen:
