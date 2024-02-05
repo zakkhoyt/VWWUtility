@@ -3,14 +3,12 @@ import XCTest
 
 final class ArrayHelperTests: XCTestCase {
     func testReflectPropertiesOnClass() throws {
-        
-        let a: String = "a"
-        let b: String = "b"
-        let c: String = "c"
-        let i: Int = 123
+        let a = "a"
+        let b = "b"
+        let c = "c"
+        let i = 123
         let oi: Int? = 234
         let o: String? = nil
-        
         
         let vd: [String: String?] = [
             "a": a,
@@ -25,8 +23,6 @@ final class ArrayHelperTests: XCTestCase {
         dump(d)
         print("")
         
-        
-        
         let sd = vd.sorted { // (key: String, value: String?), (key: String, value: String?) in
             $0.key > $1.key
         }.description
@@ -35,7 +31,6 @@ final class ArrayHelperTests: XCTestCase {
         print(sd.debugDescription)
         dump(sd)
         print("")
-        
         
         let dd = vd.compactMapValues { // String? in
             guard let value = $0 else { return "<nil>" }
@@ -46,7 +41,6 @@ final class ArrayHelperTests: XCTestCase {
         print(dd.debugDescription)
         dump(dd)
         print("")
-        
         
         let dd2 = vd.compactMapValues { // String? in
             guard let value = $0 else { return "<nil>" }
@@ -59,18 +53,10 @@ final class ArrayHelperTests: XCTestCase {
             return #""\#($0)": "\#(value)""#
         }
         
-        
-        
-        
         print(ddd)
 //        print(ddd.description)
 //        print(ddd.debugDescription)
 //        dump(ddd)
         print("")
-        
-        
-        
-        
     }
-    
 }

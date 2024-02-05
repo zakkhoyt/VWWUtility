@@ -25,7 +25,7 @@ The directory path for ***application sandbox*** varies by platform. Here are so
 
 ### Files
 A few examples of files stored in the ***application sandbox***:
-* `UserDefaults.standard` data is stored in the ***application sandbox*** under `\(appSandboxURL)/Library/Preferences/com.hatchbaby.NightlightDevelopment.plist`
+* `UserDefaults.standard` data is stored in the ***application sandbox*** under `\(appSandboxURL)/Library/Preferences/\(Bundle.main.bundleIdentifier!).plist`
 * `Logger` log files are stored in the ***application sandbox*** under: `\(appSandboxURL)/Documents/\(dateStamp).log`
 
 ## App Group (Shared)
@@ -36,9 +36,9 @@ Sometimes it may be useful for apps/extensions to share data. Apps cannot read d
 Again, the directory path for an ***app group*** varies by platform. Here are some examples:
 * iOS Hardware: `/private/var/mobile/Containers/Shared/AppGroup/\(UUID)`
 * iOS Simulator: `~/Library/Developer/CoreSimulator/Devices/\(UUID)/data/Containers/Shared/AppGroup/\(UUID)`
-* Mac iOS App: ` ~/Library/GroupContainersAlias/group.com.hatchbaby.NightlightDevelopment`
+* Mac iOS App: ` ~/Library/GroupContainersAlias/group.\(Bundle.main.bundleIdentifier!)`
 
 ### Files
 A few examples of files stored in the ***app group***:
-* `UserDefaults.appGroup` stores data in a shared ***app group*** under `\(appGroupURL)/Library/Preferences/group.com.hatchbaby.NightlightDevelopment.plist`
+* `UserDefaults.appGroup` stores data in a shared ***app group*** under `\(appGroupURL)/Library/Preferences/group.\(Bundle.main.bundleIdentifier!).plist`
 * `CoreDataService` stores its data in a shared ***app group*** under: `\(appGroupURL)/Nightlight.sqlite`

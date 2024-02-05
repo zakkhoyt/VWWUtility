@@ -107,9 +107,8 @@ final class DecodingErrorTests: XCTestCase {
     }
     
     func testAcquireDecodingError() throws {
-
         do {
-            let numbers: [[Int?]] = [[1,2,3, nil],[4],[5,6,7,8,9]]
+            let numbers: [[Int?]] = [[1, 2, 3, nil], [4], [5, 6, 7, 8, 9]]
             let reduced = numbers.reduce([], +)
             print("reduced: \(reduced)")
             
@@ -130,26 +129,24 @@ final class DecodingErrorTests: XCTestCase {
 //        let c: [String?] = [
 //            "5", nil, "6"
 //        ]
-//        
-        
-        
+//
         
         let jsonString = """
-            [
-                {
-                    "bssid": "AA:BB:CC:DD:EE:FF",
-                    "rssi": -68,
-                    "ssid": "Pretty Fly For A Wi-Fi",
-                    "encryption": "WPA2_PSK"
-                },
-                {
-                    "bssid": "99:AA:BB:CC:DD:EE",
-                    "rssi": -88,
-                    "ssid": "Steveweiser",
-                    "encryption": "WPA2_PSK"
-                }
-            ]            
-            """
+        [
+            {
+                "bssid": "AA:BB:CC:DD:EE:FF",
+                "rssi": -68,
+                "ssid": "Pretty Fly For A Wi-Fi",
+                "encryption": "WPA2_PSK"
+            },
+            {
+                "bssid": "99:AA:BB:CC:DD:EE",
+                "rssi": -88,
+                "ssid": "Steveweiser",
+                "encryption": "WPA2_PSK"
+            }
+        ]
+        """
         let decodingErrorString = try XCTUnwrap(
             acquireDecodingError(
                 jsonString: jsonString

@@ -1,10 +1,10 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Zakk Hoyt on 2/3/24.
 //
-
+#if os(macOS)
 import AppKit
 import Foundation
 
@@ -18,7 +18,7 @@ class HIDNSEventListener {
     private var monitors = [Any]()
     
     func start(
-//        mask: NSEvent.EventTypeMask,
+        //        mask: NSEvent.EventTypeMask,
         mask: [EventType],
         scope: HIDEventScope,
         handler: @escaping (NSEvent) -> NSEvent?
@@ -41,15 +41,15 @@ class HIDNSEventListener {
 }
 
 //
-//class GlobalNSEventMonitor {
+// class GlobalNSEventMonitor {
 //    // MARK: Nested Types
-//    
+//
 //    enum Error: Swift.Error {
 //        case failedToStartEventMonitor
 //    }
-//    
+//
 //    private var monitors = [Any]()
-//    
+//
 //    func start(
 //        mask: NSEvent.EventTypeMask,
 //        handler: @escaping (NSEvent) -> Void
@@ -64,12 +64,13 @@ class HIDNSEventListener {
 //        }
 //        monitors.append(globalKeyDownMonitor)
 //    }
-//    
+//
 //    func stop() {
 //        monitors.forEach {
 //            NSEvent.removeMonitor($0)
 //        }
 //        monitors.removeAll()
 //    }
-//}
+// }
 //
+#endif

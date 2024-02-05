@@ -82,9 +82,9 @@ extension CGVector {
     /// If resutl is near 0, unit vectors are perpindicular
     /// If result near -1, unit vectors point away from each other.
     func unitDotProduct(other: CGVector) -> CGFloat {
-        #if DEBUG
-            assert(length == 1.0 && other.length == 1.0, "dotProduct only applicable to unitVectors")
-        #endif
+#if DEBUG
+        assert(length == 1.0 && other.length == 1.0, "dotProduct only applicable to unitVectors")
+#endif
         return dotProduct(other: other)
     }
     

@@ -34,7 +34,6 @@ extension Keyboard.Press: CustomStringConvertible {
         let flagsDescription: String = {
             guard !flags.isEmpty else { return "" }
             return flags.map { $0.description }.description
-
         }()
         return [flagsDescription, key.description].joined(separator: " ")
     }
@@ -45,7 +44,6 @@ extension Keyboard.Press: CustomDebugStringConvertible {
         let flagsDescription: String = {
             guard !flags.isEmpty else { return "" }
             return flags.map { $0.debugDescription }.description
-
         }()
         return [flagsDescription, key.debugDescription].joined(separator: " ")
     }
@@ -56,7 +54,6 @@ extension Keyboard.Press: KeyboardKeyRepresentable {
         let flagSymbols: String = {
             guard !flags.isEmpty else { return "" }
             return flags.map { $0.symbol }.joined(separator: " + ")
-            
         }()
         #warning("FIXME: zakkhoyt - Broken when no flags")
         return [flagSymbols, key.symbol].joined(separator: " + ")
@@ -65,7 +62,6 @@ extension Keyboard.Press: KeyboardKeyRepresentable {
     public var symbolName: String {
         ""
     }
-
 }
 
 extension Keyboard.Press: Hashable {

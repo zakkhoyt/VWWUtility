@@ -137,10 +137,8 @@ final class HexStringTests: XCTestCase {
                     continue
                 }
                 
-            
                 // So far hexString has been converted to an int type.
                 // Let's convert back to hexString then compare against original.
-                
                 
                 // Let's pad the original hexString with the appropriate number of
                 // leading 0's to match `type`.
@@ -172,7 +170,7 @@ final class HexStringTests: XCTestCase {
             "0b1111111100000000",
             "0b11111111000000000000000000000000",
             "0b1111111100000000000000000000000000000000000000000000000000000000",
-            "0b1111111111111111111111111111111111111111111111111111111111111111",
+            "0b1111111111111111111111111111111111111111111111111111111111111111"
         ]
         
         for binaryString in binaryStrings {

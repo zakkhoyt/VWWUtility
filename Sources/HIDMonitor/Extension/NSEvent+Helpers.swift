@@ -1,10 +1,11 @@
 //
-//  HammerspoonEventTap.swift
+//  NSEvent+Helpers.swift
 //  HotkeyDecorator
 //
 //  Created by Zakk Hoyt on 1/31/24.
 //
 
+#if os(macOS)
 import AppKit
 import Foundation
 
@@ -29,7 +30,7 @@ extension NSEvent.EventTypeMask {
 }
 
 extension NSEvent.EventType {
-#warning("FIXME: zakkhoyt - Write code to check this assumption. See CGEventType to CGEventMask for analog")
+    #warning("FIXME: zakkhoyt - Write code to check this assumption. See CGEventType to CGEventMask for analog")
     /// Math/value used when Apple's private APIs convert
     /// * From: `NSEvent.EventType` (`enum: UInt`)
     /// * To: `NSEvent.EventTypeMask` (`OptionSet<UInt64>`)
@@ -86,5 +87,5 @@ extension NSEvent.EventType: CustomStringConvertible, CustomDebugStringConvertib
     public var debugDescription: String {
         "\(description) \(rawValue.hexString) \(rawValue) \(rawValue.binaryString)"
     }
-
 }
+#endif

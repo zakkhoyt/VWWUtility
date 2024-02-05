@@ -25,15 +25,15 @@ extension Keyboard {
          
         var modifierFlags: NSEvent.ModifierFlags {
             switch self {
-            case .capsLock: return .capsLock
-            case .shift: return .shift
-            case .control: return .control
-            case .option: return .option
-            case .command: return .command
-            case .numericPad: return .numericPad
-            case .help: return .help
-            case .function: return .function
-            case .deviceIndependentFlagsMask: return .deviceIndependentFlagsMask
+            case .capsLock: .capsLock
+            case .shift: .shift
+            case .control: .control
+            case .option: .option
+            case .command: .command
+            case .numericPad: .numericPad
+            case .help: .help
+            case .function: .function
+            case .deviceIndependentFlagsMask: .deviceIndependentFlagsMask
             }
         }
         
@@ -75,7 +75,6 @@ extension Keyboard.Flag: CustomStringConvertible {
     }
 }
 
-
 extension Keyboard.Flag: KeyboardKeyRepresentable {
     /// Taken from `SF Symbols.app`
     public var symbol: String {
@@ -107,7 +106,6 @@ extension Keyboard.Flag: KeyboardKeyRepresentable {
     }
 }
 
-
 // MARK: - Implements CustomDebugStringConvertible
 
 extension Keyboard.Flag: CustomDebugStringConvertible {
@@ -126,5 +124,3 @@ extension Keyboard.Flag: CustomDebugStringConvertible {
     }
 }
 #endif
-
-

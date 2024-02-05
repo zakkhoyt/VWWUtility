@@ -1,10 +1,11 @@
 //
-//  HammerspoonEventTap.swift
+//  CGEvent+Helpers.swift
 //  HotkeyDecorator
 //
 //  Created by Zakk Hoyt on 1/31/24.
 //
 
+#if os(macOS)
 import CoreGraphics
 import Foundation
 
@@ -40,9 +41,8 @@ extension CGEventMask {
     static let allEvents = CGEventMask(UInt64.max)
 }
 
-
 extension CGEventType {
-    /// Math/value used when Apple's private APIs convert 
+    /// Math/value used when Apple's private APIs convert
     /// * from: `CGEventType` (`enum: UInt32`)
     /// * to: `CGEventMask` (`typealias UInt64`)
     var maskBit: UInt32 {
@@ -102,3 +102,4 @@ extension CGEventType: CustomStringConvertible, CustomDebugStringConvertible {
     }
 }
 
+#endif
