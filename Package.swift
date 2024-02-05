@@ -36,6 +36,10 @@ let package = Package(
             targets: ["DrawingUI"]
         ),
         .library(
+            name: "HIDMonitor",
+            targets: ["HIDMonitor"]
+        ),
+        .library(
             name: "MultipeerEngine",
             targets: ["MultipeerEngine"]
         ),
@@ -73,6 +77,10 @@ let package = Package(
                     package: "swift-collections"
                 )
             ],
+            exclude: [
+                "OSSettings/iOS/SettingsURL.md",
+                "OSSettings/macOS/SettingsPane.md"
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
@@ -83,6 +91,16 @@ let package = Package(
         ),
         .target(
             name: "DrawingUI",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [
+            ],
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .target(
+            name: "HIDMonitor",
             dependencies: [
                 "BaseUtility"
             ],

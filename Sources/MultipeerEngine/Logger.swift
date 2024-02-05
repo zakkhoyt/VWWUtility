@@ -6,4 +6,7 @@
 
 import os.log
 
-let logger = Logger(subsystem: "com.vaporwarewolf", category: "MPEngine")
+let logger = Logger(
+    subsystem: "com.vaporwarewolf",
+    category: "MultipeerEngine"
+)
