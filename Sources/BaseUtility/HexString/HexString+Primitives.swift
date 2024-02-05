@@ -25,7 +25,7 @@ extension Bool {
 private let bitsPerByte = UInt8.bitWidth
 extension FixedWidthInteger {
     public var binaryString: String {
-        //"0b" + (0..<(Self.bitWidth / 8)).reduce(into: []) {
+        // "0b" + (0..<(Self.bitWidth / 8)).reduce(into: []) {
         "0b" + (0..<(Self.byteWidth)).reduce(into: []) {
             let byteString = String(
                 UInt8(truncatingIfNeeded: self >> ($1 * 8)),

@@ -1,0 +1,221 @@
+# https://github.com/nicklockwood/SwiftFormat#config-file
+
+# To print all rules:
+#  swiftformat --rules 
+# https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+#
+# To print all options:
+#  swiftformat --options
+
+# # proper indenting
+# swiftformat . --swiftversion 5.9 --rules indent --lint
+# swiftformat . --swiftversion 5.9 --rules blankLinesBetweenScopes --lint
+
+# # for function definitions
+# swiftformat . --swiftversion 5.9 --rules wraparguments --wraparguments before-first --lint 
+# # for callers of functions
+# swiftformat . --swiftversion 5.9 --rules wraparguments --wrapparameters before-first --lint
+
+# # for arrays/dicts/sets
+# swiftformat . --swiftversion 5.9 --rules wraparguments --wrapcollections before-first --lint
+
+# # To see which rules are applied during a session:
+# swiftformat . --verbose --dryrun
+
+# Format only dirty files
+# git status --short | egrep ".swift\"*$" | egrep "^[AM]" | cut -b 4- | xargs swiftformat
+
+# ------------------------------------------------------------------------------------------------------
+# Excluded files and folders. 
+
+# '.build' dirs are generated when Swift packages are opened / compiled directly 
+# (not as part of our xcproject or xcworkspace)
+--exclude **/.build/
+
+
+# ------------------------------------------------------------------------------------------------------
+# Format options
+--swiftversion 5.9
+
+# ------------------------------------------------------------------------------------------------------
+# Rules (opt in) https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#opt-in-rules-disabled-by-default
+
+## acronyms
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#acronyms
+# --enable acronyms
+# --acronyms ble
+# Notes: This doesn't seem to work reliably or at all when defined in this config file. 
+# When enabled with default values, doing a dry run seems to give inconsistent results. 
+# EX: I ran this command a few times in a row: ~/.mint/bin/swiftformat .  --dryrun --cache ignore
+# 348/1617 files would have been formatted, 18 files skipped.
+# 402/1617 files would have been formatted, 18 files skipped.
+# When executed on the command line it seems to work. 
+# 
+# Additionally when disable in this file, but enabled on command line, I get different results. 
+# These results seem more consistent, but I have only done dry runs thus far. 
+# ~/.mint/bin/swiftformat .  --dryrun --enable acronyms --acronyms ble --cache ignore
+
+## blankLineAfterImports
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#blankLineAfterImports
+--enable blankLineAfterImports
+
+## blankLinesBetweenImports
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#blanklinesbetweenimports
+--enable blankLinesBetweenImports
+
+## blockComments
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#blockComments
+--enable blockComments
+
+## conditionalAssignment
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#conditionalAssignment
+## --disable
+
+## headerFileName
+## https://github.com/nicklockwood/SwiftFormat/blob/main/Rules.md#headerfilename
+
+## isEmpty
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#isempty
+--enable isEmpty
+
+## markTypes
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#markTypes
+## We want this disabled
+## TODO: This rule makes it difficult to pass linting without running formatter (which most devs do not)
+# --enable markTypes
+
+# ## organizedeclarations
+# ## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#organizedeclarations
+## We want this disabled
+## TODO: This rule makes it difficult to pass linting without running formatter (which most devs do not)
+# --organizetypes enum
+# --markcategories Public
+
+## preferDouble
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#preferDouble
+## We want this disabled
+## This makes a lot of changes to our code, several of which will need comment disabling in many places. 
+
+## sortedSwitchCases
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#sortedSwitchCases
+## We want this disabled
+
+## wrapConditionalBodies
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wrapConditionalBodies
+## We want this disabled
+
+## wrapEnumCases
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wrapenumcases
+--enable wrapEnumCases
+
+## wrapSwitchCases
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wrapswitchcases
+--enable wrapSwitchCases 
+
+# ------------------------------------------------------------------------------------------------------
+# Rule options. These rules are enabled by default
+
+## elseOnSameLine 
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#elseonsameline
+--elseposition same-line
+--guardelse auto
+
+## extensionAccessControl
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#extensionaccesscontrol
+--extensionacl on-declarations
+
+## hoistPatternLet
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#hoistpatternlet
+--patternlet inline 
+
+## indent
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#indent
+## indent
+## --disable indent
+--xcodeindentation enabled
+
+## leadingDelimiters
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#leadingdelimiters
+
+## modifierOrder
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#modifierorder
+--modifierorder public,private,internal,convenience,static,class,lazy
+
+## numberFormatting
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#numberformatting
+--binarygrouping none 
+--decimalgrouping none 
+--hexgrouping none 
+--hexliteralcase upper
+--octalgrouping none 
+
+## preferKeyPath
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#preferkeypath
+--disable preferKeyPath
+
+## redundantClosure
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#redundantClosure
+## --disable redundantClosure
+
+## redundantOptionalBinding
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#redundantoptionalbinding
+### In Xcode use this regex and replace (slashes are not escaped)
+### (if|guard)(\s+)(let|var) (\w*) = \4([\s,])(?!as)
+### $1$2$3 $4$5
+
+## redundantSelf
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#redundantself
+# removes `self.` except for in inits and where re quired
+--self init-only 
+# This will strip `self.` from autoclosures such as unified logger. In order to omit those autoclosures, 
+# use the command line parameter `--selfrequired "info,debug,error,warning"`
+
+## redundantReturn
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#redundantReturn
+## --disable redundantReturn
+
+## redundantType
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#redundanttype
+--redundanttype inferred
+
+## semicolons
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#semicolons
+--semicolons never 
+
+## spaceAroundOperators
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#spacearoundoperators
+# --nospaceoperators ...,..< 
+--ranges no-space
+# --ranges spaced
+
+## strongOutlets
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#strongoutlets
+## Enabling this requires too many untestable changes and edge cases. Mainly with legacy code.
+--disable strongOutlets
+
+## trailingCommas
+--commas inline # don't allow trailing commas after last collection element. 
+
+## trailingSpace
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#trailingspace
+--trimwhitespace nonblank-lines
+
+
+## unusedArguments
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#unusedarguments
+--stripunusedargs closure-only 
+
+## wrapArguments
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wraparguments
+--wraparguments before-first 
+--wrapcollections before-first 
+--wrapparameters before-first
+## TODO: This one looks interesting
+# --wrapconditions before-first
+
+## wrapMultilineStatementBraces
+## https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md#wrapmultilinestatementbraces
+## We don't want this style/syntax. 
+--disable wrapMultilineStatementBraces
+
+## TODO: bring swiftformat in via mint after SPM MR is done

@@ -1,5 +1,5 @@
 //
-//  Number+PowerOfTwo.swift
+//  BinaryNumber+PowerOfTwo.swift
 //
 //  Created by Zakk Hoyt on 6/26/23.
 //

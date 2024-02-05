@@ -6,7 +6,6 @@
 
 import Foundation
 
-
 public protocol SystemSettingsURLParticipant {
     @MainActor
     static func open(
@@ -35,13 +34,13 @@ extension SystemSettingsURLProvider {
     public var appSpecificUrl: URL {
 #if os(iOS)
         guard let bundleId = Bundle.main.bundleIdentifier,
-              let appSpecificUrl = URL(string: "\(self.rawValue)/\(bundleId)")
+              let appSpecificUrl = URL(string: "\(rawValue)/\(bundleId)")
         else {
             preconditionFailure("Must be able to get app settings url")
         }
         return appSpecificUrl
 #elseif os(macOS)
-        
+    
         #warning("TODO: zakkhoyt - App specific URLs doen't work the same for macOS. Research and document.")
         return url
 #endif

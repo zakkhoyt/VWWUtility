@@ -1,55 +1,55 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Zakk Hoyt on 2/3/24.
 //
 #if os(macOS)
-import AppKit
-import Foundation
+    import AppKit
+    import Foundation
 
-class HIDNSEventListener {
-    // MARK: Nested Types
+    class HIDNSEventListener {
+        // MARK: Nested Types
     
-    enum Error: Swift.Error {
-        case failedToStartEventMonitor
-    }
-    
-    private var monitors = [Any]()
-    
-    func start(
-//        mask: NSEvent.EventTypeMask,
-        mask: [EventType],
-        scope: HIDEventScope,
-        handler: @escaping (NSEvent) -> NSEvent?
-    ) throws {
-        guard let localKeyDownMonitor = NSEvent.addLocalMonitorForEvents(
-            matching: mask.nsEventMask,
-            handler: handler
-        ) else {
-            throw Error.failedToStartEventMonitor
+        enum Error: Swift.Error {
+            case failedToStartEventMonitor
         }
-        monitors.append(localKeyDownMonitor)
-    }
     
-    func stop() {
-        monitors.forEach {
-            NSEvent.removeMonitor($0)
+        private var monitors = [Any]()
+    
+        func start(
+            //        mask: NSEvent.EventTypeMask,
+            mask: [EventType],
+            scope: HIDEventScope,
+            handler: @escaping (NSEvent) -> NSEvent?
+        ) throws {
+            guard let localKeyDownMonitor = NSEvent.addLocalMonitorForEvents(
+                matching: mask.nsEventMask,
+                handler: handler
+            ) else {
+                throw Error.failedToStartEventMonitor
+            }
+            monitors.append(localKeyDownMonitor)
         }
-        monitors.removeAll()
+    
+        func stop() {
+            monitors.forEach {
+                NSEvent.removeMonitor($0)
+            }
+            monitors.removeAll()
+        }
     }
-}
 
 //
-//class GlobalNSEventMonitor {
+    // class GlobalNSEventMonitor {
 //    // MARK: Nested Types
-//    
+//
 //    enum Error: Swift.Error {
 //        case failedToStartEventMonitor
 //    }
-//    
+//
 //    private var monitors = [Any]()
-//    
+//
 //    func start(
 //        mask: NSEvent.EventTypeMask,
 //        handler: @escaping (NSEvent) -> Void
@@ -64,13 +64,13 @@ class HIDNSEventListener {
 //        }
 //        monitors.append(globalKeyDownMonitor)
 //    }
-//    
+//
 //    func stop() {
 //        monitors.forEach {
 //            NSEvent.removeMonitor($0)
 //        }
 //        monitors.removeAll()
 //    }
-//}
+    // }
 //
 #endif

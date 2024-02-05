@@ -1,5 +1,5 @@
 //
-//  Array+Helper.swift
+//  Collection+Helper.swift
 //
 //  Created by Zakk Hoyt on 6/23/23.
 //
@@ -96,9 +96,7 @@ extension Array where Element: CustomDebugStringConvertible {
     }
 }
 
-
 #warning("FIXME: zakkhoyt - debugDescrition for [String: String]")
-
 
 extension [String: String?] {
     public var varDescription: String {
@@ -117,7 +115,7 @@ extension [String: String?] {
     }
 }
 
-//extension [String: String?] {
+// extension [String: String?] {
 //    public var varDescription: String {
 //        OrderedDictionary<String, String>(
 //            self.compactMapValues { $0 }
@@ -127,9 +125,7 @@ extension [String: String?] {
 //            ].joined(separator: ": ")
 //        }.joined(separator: ", ")
 //    }
-//}
-
-
+// }
 
 //        let pairs: [String: String] = [
 //            "address": address,
@@ -141,7 +137,7 @@ extension [String: String?] {
 //            "hash": "\(hash)",
 //            "rssi": "\(rssi)"
 //        ]
-//        
+//
 //        let str: String = pairs.keys.sorted().reduce(into: "") {
 //            if let value = pairs[$1] {
 //                $0 += "\($1): \(value)"
