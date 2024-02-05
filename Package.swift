@@ -78,8 +78,7 @@ let package = Package(
                 )
             ],
             exclude: [
-                "SystemSettings/iOS/SettingsURL.md",
-                "SystemSettings/macOS/SettingsPane.md"
+                "SystemSettings/View/"
             ],
             swiftSettings: swiftSettings,
             plugins: []
