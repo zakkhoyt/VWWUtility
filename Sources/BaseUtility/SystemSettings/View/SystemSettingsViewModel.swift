@@ -5,11 +5,12 @@
 //  Created by Zakk Hoyt on 2/4/24.
 //
 
-import BaseUtility
+//import BaseUtility
 import Foundation
 
+@available(iOS 17.0, *)
 @Observable
-class SystemSettingsViewModel {
+public class SystemSettingsViewModel {
     struct Section: Identifiable {
         struct Item: Identifiable {
             var id: String { path }
@@ -28,7 +29,7 @@ class SystemSettingsViewModel {
     
     
     let sections: [Section]
-    init() {
+    public init() {
         self.sections = SystemSettings.categories.enumerated().map { section in
             Section(
                 title: String(describing: section.element),
