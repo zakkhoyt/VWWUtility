@@ -1,64 +1,60 @@
 //
 //  SystemSettingsView.swift
-//  SystemSettingsExerciser
+//  VWWUtility.BaseUtility
 //
 //  Created by Zakk Hoyt on 2/4/24.
 //
 
-import BaseUtility
 import SwiftUI
-#warning("FIXME: zakkhoyt - Clean this file up for use in a general app")
-struct SystemSettingsView: View {
-    @Environment(PermissionsViewModel.self)
-    private var permissionsViewModel: PermissionsViewModel
 
-    
-    var viewModel = SystemSettingsViewModel()
+@available(iOS 17.0, *)
+public struct SystemSettingsView: View {
+    private var viewModel = SystemSettingsViewModel()
     @State private var isPermissionSheetPresented = false
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         VStack {
-            NavigationView {
-                List(viewModel.sections) { section in
-                    Section(section.title) {
-                        ForEach(section.items) { item in
-                            HStack {
-                                Text(item.title)
-                                Spacer()
-                                Button("", systemImage: "gear") {
-                                    SystemSettings.open(
-                                        item.urlProvider,
-                                        appSpecific: false
-                                    )
-                                }
-                                .buttonStyle(.plain)
+            List(viewModel.sections) { section in
+                Section(section.title) {
+                    ForEach(section.items) { item in
+                        HStack {
+                            Text(item.title)
+                            Spacer()
+                            Button("", systemImage: "gear") {
+                                SystemSettings.open(
+                                    item.urlProvider,
+                                    appSpecific: false
+                                )
+                            }
+                            .buttonStyle(.plain)
 
-                                Button("", systemImage: "app.badge") {
-                                    SystemSettings.open(
-                                        item.urlProvider,
-                                        appSpecific: true
-                                    )
-                                }
-                                .buttonStyle(.plain)
+                            Button("", systemImage: "app.badge") {
+                                SystemSettings.open(
+                                    item.urlProvider,
+                                    appSpecific: true
+                                )
                             }
-                            .onTapGesture {
-                                print("row")
-                            }
-                            
-                            
+                            .buttonStyle(.plain)
                         }
+                        .onTapGesture {
+                            print("row")
+                        }
+                        
+                        
                     }
-                    
                 }
-                // This property work for iOS, not macOS
-//                .navigationBarTitle("System Settings", displayMode: .inline)
             }
-            // This property work for iOS, not macOS
-//            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
 
 #Preview {
-    SystemSettingsView()
+    if #available(iOS 17.0, *) {
+        SystemSettingsView()
+    } else {
+        // Fallback on earlier versions
+        preconditionFailure()
+    }
 }

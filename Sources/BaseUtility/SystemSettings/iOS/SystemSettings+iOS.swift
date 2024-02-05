@@ -129,7 +129,7 @@ public enum SystemSettings: SystemSettingsURLParticipant {
 /// however the URLs did not work as provided and were modified. This list is based on iOS 13.1 and needs to be updated.
 extension SystemSettings {
     public enum iCloud: String, SystemSettingsURLProvider {
-        case root = "App-prefs:CASTLE"
+        case main = "App-prefs:CASTLE"
         case backup = "App-prefs:CASTLE&path=BACKUP"
     }
     
@@ -151,29 +151,29 @@ extension SystemSettings {
     }
     
     public enum Notifications: String, SystemSettingsURLProvider {
-        case root = "App-prefs:NOTIFICATIONS_ID"
+        case main = "App-prefs:NOTIFICATIONS_ID"
         case siriSuggestions = "App-prefs:NOTIFICATIONS_ID&path=Siri%20Suggestions"
     }
     
     public enum Sounds: String, SystemSettingsURLProvider {
-        case root = "App-prefs:Sounds"
+        case main = "App-prefs:Sounds"
         case ringtone = "App-prefs:Sounds&path=Ringtone"
     }
     
     public enum DoNotDisturb: String, SystemSettingsURLProvider {
-        case root = "App-prefs:DO_NOT_DISTURB"
+        case main = "App-prefs:DO_NOT_DISTURB"
         case allowCallsFrom = "App-prefs:DO_NOT_DISTURB&path=Allow%20Calls%20From"
     }
     
     public enum ScreenTime: String, SystemSettingsURLProvider {
-        case root = "App-prefs:SCREEN_TIME"
+        case main = "App-prefs:SCREEN_TIME"
         case downtime = "App-prefs:SCREEN_TIME&path=DOWNTIME"
         case appLimits = "App-prefs:SCREEN_TIME&path=APP_LIMITS"
         case alwaysAllowed = "App-prefs:SCREEN_TIME&path=ALWAYS_ALLOWED"
     }
     
     public enum General: String, SystemSettingsURLProvider {
-        case root = "App-prefs:General"
+        case main = "App-prefs:General"
         case about = "App-prefs:General&path=About"
         case softwareUpdate = "App-prefs:General&path=SOFTWARE_UPDATE_LINK"
         case carPlay = "App-prefs:General&path=CARPLAY"
@@ -192,47 +192,47 @@ extension SystemSettings {
     }
     
     public enum ControlCenter: String, SystemSettingsURLProvider {
-        case root = "App-prefs:ControlCenter"
+        case main = "App-prefs:ControlCenter"
         case customizeControls = "App-prefs:ControlCenter&path=CUSTOMIZE_CONTROLS"
     }
     
     public enum Display: String, SystemSettingsURLProvider {
-        case root = "App-prefs:DISPLAY"
+        case main = "App-prefs:DISPLAY"
         case autoLock = "App-prefs:DISPLAY&path=AUTOLOCK"
         case textSize = "App-prefs:DISPLAY&path=TEXT_SIZE"
     }
     
     public enum Accessibility: String, SystemSettingsURLProvider {
-        case root = "App-prefs:ACCESSIBILITY"
+        case main = "App-prefs:ACCESSIBILITY"
     }
     
     public enum Wallpaper: String, SystemSettingsURLProvider {
-        case root = "App-prefs:Wallpaper"
+        case main = "App-prefs:Wallpaper"
     }
     
     public enum Siri: String, SystemSettingsURLProvider {
-        case root = "App-prefs:SIRI"
+        case main = "App-prefs:SIRI"
     }
     
     public enum ApplePencil: String, SystemSettingsURLProvider {
-        case root = "App-prefs:Pencil" // iPad-only
+        case main = "App-prefs:Pencil" // iPad-only
     }
     
     public enum FaceID: String, SystemSettingsURLProvider {
-        case root = "App-prefs:PASSCODE"
+        case main = "App-prefs:PASSCODE"
     }
     
     public enum EmergencySOS: String, SystemSettingsURLProvider {
-        case root = "App-prefs:EMERGENCY_SOS"
+        case main = "App-prefs:EMERGENCY_SOS"
     }
     
     public enum BatteryUsage: String, SystemSettingsURLProvider {
-        case root = "App-prefs:BATTERY_USAGE"
+        case main = "App-prefs:BATTERY_USAGE"
         case health = "App-prefs:BATTERY_USAGE&path=BATTERY_HEALTH" // iPhone-only
     }
     
     public enum Privacy: String, SystemSettingsURLProvider {
-        case root = "App-prefs:Privacy"
+        case main = "App-prefs:Privacy"
         
         case locationServices = "App-prefs:Privacy&path=LOCATION"
         case contacts = "App-prefs:Privacy&path=CONTACTS"
@@ -248,21 +248,21 @@ extension SystemSettings {
     }
     
     public enum AppStore: String, SystemSettingsURLProvider {
-        case root = "App-prefs:STORE"
+        case main = "App-prefs:STORE"
         case appDownloads = "App-prefs:STORE&path=App%20Downloads"
         case videoAutoplay = "App-prefs:STORE&path=Video%20Autoplay"
     }
     
     public enum Wallet: String, SystemSettingsURLProvider {
-        case root = "App-prefs:PASSBOOK"
+        case main = "App-prefs:PASSBOOK"
     }
     
     public enum Passwords: String, SystemSettingsURLProvider {
-        case root = "App-prefs:PASSWORDS"
+        case main = "App-prefs:PASSWORDS"
     }
     
     public enum Mail: String, SystemSettingsURLProvider {
-        case root = "App-prefs:MAIL"
+        case main = "App-prefs:MAIL"
         case accounts = "App-prefs:ACCOUNTS_AND_PASSWORDS&path=ACCOUNTS"
         case accountsFetchNewData = "App-prefs:ACCOUNTS_AND_PASSWORDS&path=FETCH_NEW_DATA"
         case accountsAddAccount = "App-prefs:ACCOUNTS_AND_PASSWORDS&path=ADD_ACCOUNT"
@@ -280,11 +280,11 @@ extension SystemSettings {
     }
     
     public enum Contacts: String, SystemSettingsURLProvider {
-        case root = "App-prefs:CONTACTS"
+        case main = "App-prefs:CONTACTS"
     }
     
     public enum Calendar: String, SystemSettingsURLProvider {
-        case root = "App-prefs:CALENDAR"
+        case main = "App-prefs:CALENDAR"
         case alternateCalendars = "App-prefs:CALENDAR&path=Alternate%20Calendars"
         case sync = "App-prefs:CALENDAR&path=Sync"
         case defaultAlertTimes = "App-prefs:CALENDAR&path=Default%20Alert%20Times"
@@ -292,7 +292,7 @@ extension SystemSettings {
     }
     
     public enum Notes: String, SystemSettingsURLProvider {
-        case root = "App-prefs:NOTES"
+        case main = "App-prefs:NOTES"
         case defaultAccount = "App-prefs:NOTES&path=Default%20Account"
         case password = "App-prefs:NOTES&path=Password"
         case sortNotesBy = "App-prefs:NOTES&path=Sort%20Notes%20By"
@@ -303,42 +303,42 @@ extension SystemSettings {
     }
     
     public enum Reminders: String, SystemSettingsURLProvider {
-        case root = "App-prefs:REMINDERS"
+        case main = "App-prefs:REMINDERS"
         case defaultList = "App-prefs:REMINDERS&path=DEFAULT_LIST"
     }
     
     public enum VoiceMemos: String, SystemSettingsURLProvider {
-        case root = "App-prefs:VOICE_MEMOS"
+        case main = "App-prefs:VOICE_MEMOS"
     }
     
     public enum Phone: String, SystemSettingsURLProvider {
-        case root = "App-prefs:Phone"
+        case main = "App-prefs:Phone"
     }
     
     public enum Messages: String, SystemSettingsURLProvider {
-        case root = "App-prefs:MESSAGES"
+        case main = "App-prefs:MESSAGES"
     }
     
     public enum FaceTime: String, SystemSettingsURLProvider {
-        case root = "App-prefs:FACETIME"
+        case main = "App-prefs:FACETIME"
     }
     
     public enum Maps: String, SystemSettingsURLProvider {
-        case root = "App-prefs:MAPS"
+        case main = "App-prefs:MAPS"
         case drivingNavigation = "App-prefs:MAPS&path=Driving%20%26%20Navigation"
         case transit = "App-prefs:MAPS&path=Transit"
     }
     
     public enum Compass: String, SystemSettingsURLProvider {
-        case root = "App-prefs:COMPASS"
+        case main = "App-prefs:COMPASS"
     }
     
     public enum Measure: String, SystemSettingsURLProvider {
-        case root = "App-prefs:MEASURE"
+        case main = "App-prefs:MEASURE"
     }
     
     public enum Safari: String, SystemSettingsURLProvider {
-        case root = "App-prefs:SAFARI"
+        case main = "App-prefs:SAFARI"
         case contentBlockers = "App-prefs:SAFARI&path=Content%20Blockers"
         case downloads = "App-prefs:SAFARI&path=DOWNLOADS"
         case closeTabs = "App-prefs:SAFARI&path=Close%20Tabs"
@@ -353,19 +353,19 @@ extension SystemSettings {
     }
     
     public enum News: String, SystemSettingsURLProvider {
-        case root = "App-prefs:NEWS"
+        case main = "App-prefs:NEWS"
     }
     
     public enum Health: String, SystemSettingsURLProvider {
-        case root = "App-prefs:HEALTH"
+        case main = "App-prefs:HEALTH"
     }
     
     public enum Shortcuts: String, SystemSettingsURLProvider {
-        case root = "App-prefs:SHORTCUTS"
+        case main = "App-prefs:SHORTCUTS"
     }
     
     public enum Music: String, SystemSettingsURLProvider {
-        case root = "App-prefs:MUSIC"
+        case main = "App-prefs:MUSIC"
         case cellularData = "App-prefs:MUSIC&path=com.apple.Music:CellularData"
         case optimizeStorage = "App-prefs:MUSIC&path=com.apple.Music:OptimizeStorage"
         case eQ = "App-prefs:MUSIC&path=com.apple.Music:EQ"
@@ -373,25 +373,25 @@ extension SystemSettings {
     }
     
     public enum TV: String, SystemSettingsURLProvider {
-        case root = "App-prefs:TVAPP"
+        case main = "App-prefs:TVAPP"
     }
     
     public enum Photos: String, SystemSettingsURLProvider {
-        case root = "App-prefs:Photos"
+        case main = "App-prefs:Photos"
     }
     
     public enum Camera: String, SystemSettingsURLProvider {
-        case root = "App-prefs:CAMERA"
+        case main = "App-prefs:CAMERA"
         case recordVideo = "App-prefs:CAMERA&path=Record%20Video"
         case recordSlowMotion = "App-prefs:CAMERA&path=Record%20Slo-mo"
     }
     
     public enum Books: String, SystemSettingsURLProvider {
-        case root = "App-prefs:IBOOKS"
+        case main = "App-prefs:IBOOKS"
     }
     
     public enum GameCenter: String, SystemSettingsURLProvider {
-        case root = "App-prefs:GAMECENTER"
+        case main = "App-prefs:GAMECENTER"
     }
 }
 #endif
