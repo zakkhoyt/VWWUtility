@@ -267,14 +267,6 @@ extension SystemSettings {
             case bluetooth = "x-apple.systempreferences:com.apple.Network-Settings.extension?Bluetooth"
         }
         
-        public enum WiFi: String, SystemSettingsURLProvider {
-            case main = "x-apple.systempreferences:com.apple.wifi-settings-extension"
-            case advanced = "x-apple.systempreferences:com.apple.wifi-settings-extension?Advanced"
-            case generalDetails = "x-apple.systempreferences:com.apple.wifi-settings-extension?General_Details"
-            case generalJoin = "x-apple.systempreferences:com.apple.wifi-settings-extension?General_Join"
-            case generalMain = "x-apple.systempreferences:com.apple.wifi-settings-extension?General_Main"
-        }
-        
         // Sharing Preference Pane
         public enum Sharing: String, SystemSettingsURLProvider {
             case main = "x-apple.systempreferences:com.apple.preferences.sharing"
