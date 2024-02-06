@@ -44,8 +44,6 @@ import Foundation
 ///
 public class HIDCGEventListener {
     private class Context {
-        var fn: Int?
-        var mask: CGEvent?
         var tap: CFMachPort?
         var runLoop: CFRunLoopSource?
     }
@@ -56,7 +54,6 @@ public class HIDCGEventListener {
     public init() {}
     
     public func start(
-        //        mask: CGEventMask,
         mask: [EventType],
         scope: HIDEventScope,
         handler: @escaping (NSEvent) -> NSEvent?
@@ -67,7 +64,18 @@ public class HIDCGEventListener {
     
     public func stop() {
         nsEventCallback = { _ in nil }
-        #warning("FIXME: zakkhoyt - Implement stop()")
+        if let runLoop = context.runLoop  {
+            logger.debug("Will remove tap from runloop")
+            CFRunLoopRemoveSource(CFRunLoopGetMain(), runLoop, .commonModes)
+            context.runLoop = nil
+            logger.debug("Did remove tap from runloop")
+        }
+        if let tap = context.tap {
+            logger.debug("Will disable tap")
+            CGEvent.tapEnable(tap: tap, enable: false)
+            context.tap = nil
+            logger.debug("Did disable tap")
+        }
     }
 
     // MARK: - Private functions
@@ -152,8 +160,11 @@ public class HIDCGEventListener {
         logger.debug("Did create new event tap")
         
         if let tap = context.tap {
-            logger.debug("Will add tap to runloop")
+            logger.debug("Will enable tap")
             CGEvent.tapEnable(tap: tap, enable: true)
+            logger.debug("Did enable tap")
+            
+            logger.debug("Will add tap to runloop")
             context.runLoop = CFMachPortCreateRunLoopSource(nil, tap, 0)
             CFRunLoopAddSource(CFRunLoopGetMain(), context.runLoop, .commonModes)
             logger.debug("Did add tap to runloop")

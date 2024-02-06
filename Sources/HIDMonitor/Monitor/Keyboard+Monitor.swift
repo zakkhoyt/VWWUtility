@@ -5,8 +5,6 @@
 //  Created by Zakk Hoyt on 6/23/23.
 //
 
-#warning("FIXME: zakkhoyt - Move to package")
-
 #if os(macOS)
 import Combine
 import Foundation
