@@ -12,6 +12,7 @@ extension Keyboard {
     public enum Event: CaseIterable {
         case keyDown
         case keyUp
+        case flagsChanged
         
         #warning("FIXME: zakkhoyt - Clones EventType (prefer newer EventType")
         #warning("FIXME: zakkhoyt - Support flagsChanged")
@@ -44,6 +45,7 @@ extension Keyboard {
             switch self {
             case .keyDown: .keyDown
             case .keyUp: .keyUp
+            case .flagsChanged: .flagsChanged
             }
         }
     }
@@ -56,6 +58,7 @@ extension Keyboard.Event: CustomDebugStringConvertible {
         switch self {
         case .keyDown: "keyDown"
         case .keyUp: "keyUp"
+        case .flagsChanged: "flagsChanged"
         }
     }
 }

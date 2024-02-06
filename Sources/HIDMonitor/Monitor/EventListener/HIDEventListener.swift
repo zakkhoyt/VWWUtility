@@ -60,8 +60,6 @@ public enum EventType: UInt32, CaseIterable {
      
     #warning("FIXME: zakkhoyt - Add tests for all 4 below and array variants")
     var cgEventType: CGEventType {
-        // guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
-        // guard let eventType = CGEventType(rawValue: rawValue) else {
         guard let eventType = CGEventType(rawValue: CGEventType.RawValue(rawValue)) else {
             preconditionFailure("Failed to cast EventType to CGEventType")
         }
@@ -69,7 +67,6 @@ public enum EventType: UInt32, CaseIterable {
     }
 
     var nsEventType: NSEvent.EventType {
-//        guard let eventType = NSEvent.EventType(rawValue: UInt(rawValue)) else {
         guard let eventType = NSEvent.EventType(rawValue: NSEvent.EventType.RawValue(rawValue)) else {
             preconditionFailure("Failed to cast EventType to NSEvent.EventType")
         }
