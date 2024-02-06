@@ -22,6 +22,7 @@ extension Keyboard {
         init(
             nsEvent: NSEvent
         ) throws {
+            #warning("FIXME: zakkhoyt - This init fails for .flagsChanged")
             self.event = try Event(nsEvent: nsEvent)
             self.key = try Key(nsEvent: nsEvent)
             self.flags = Flag.flags(nsEvent: nsEvent)

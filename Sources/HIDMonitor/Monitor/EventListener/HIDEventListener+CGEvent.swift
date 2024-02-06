@@ -44,8 +44,6 @@ import Foundation
 ///
 public class HIDCGEventListener {
     private class Context {
-        var fn: Int?
-        var mask: CGEvent?
         var tap: CFMachPort?
         var runLoop: CFRunLoopSource?
     }
@@ -56,7 +54,6 @@ public class HIDCGEventListener {
     public init() {}
     
     public func start(
-        //        mask: CGEventMask,
         mask: [EventType],
         scope: HIDEventScope,
         handler: @escaping (NSEvent) -> NSEvent?
@@ -67,7 +64,18 @@ public class HIDCGEventListener {
     
     public func stop() {
         nsEventCallback = { _ in nil }
-        #warning("FIXME: zakkhoyt - Implement stop()")
+        if let runLoop = context.runLoop  {
+            logger.debug("Will remove tap from runloop")
+            CFRunLoopRemoveSource(CFRunLoopGetMain(), runLoop, .commonModes)
+            context.runLoop = nil
+            logger.debug("Did remove tap from runloop")
+        }
+        if let tap = context.tap {
+            logger.debug("Will disable tap")
+            CGEvent.tapEnable(tap: tap, enable: false)
+            context.tap = nil
+            logger.debug("Did disable tap")
+        }
     }
 
     // MARK: - Private functions
@@ -117,14 +125,16 @@ public class HIDCGEventListener {
                 cgEvent: CGEvent,
                 userInfoPtr: UnsafeMutableRawPointer?
             ) -> Unmanaged<CGEvent>? in
-                logger.debug("callback")
+                
                 // Since this is a C callback, it cannot capture swift context.
                 // However the `ptr` param points to self (EventTap). We can
                 // unwrap it as such then call its functions that way.
                 let eventTap = unsafeBitCast(userInfoPtr, to: HIDCGEventListener.self)
 
+                
                 #warning("TODO: zakkhoyt - Documentation about the audible clunk when this app is focused. Works okay with other apps running. ")
                 if let nsEvent = NSEvent(cgEvent: cgEvent) {
+                    logger.debug("CGEvent tap callback w/nsEvent: \(nsEvent)")
                     if let outputNSEvent = eventTap.processNSEvent(nsEvent),
                        let outputCGEvent = outputNSEvent.cgEvent {
 //                        let outputCGEventPtr = Unmanaged.passUnretained(outputCGEvent)
@@ -140,6 +150,8 @@ public class HIDCGEventListener {
                     let outputNSEventPtr = Unmanaged.passUnretained(nsEvent.cgEvent!)
                     return outputNSEventPtr
 //                    }
+                } else {
+                    logger.debug("CGEvent tap callback w/cgEvent: \(cgEvent.flags.rawValue.hexString)")
                 }
                 return Unmanaged.passUnretained(cgEvent)
             },
@@ -148,8 +160,11 @@ public class HIDCGEventListener {
         logger.debug("Did create new event tap")
         
         if let tap = context.tap {
-            logger.debug("Will add tap to runloop")
+            logger.debug("Will enable tap")
             CGEvent.tapEnable(tap: tap, enable: true)
+            logger.debug("Did enable tap")
+            
+            logger.debug("Will add tap to runloop")
             context.runLoop = CFMachPortCreateRunLoopSource(nil, tap, 0)
             CFRunLoopAddSource(CFRunLoopGetMain(), context.runLoop, .commonModes)
             logger.debug("Did add tap to runloop")
