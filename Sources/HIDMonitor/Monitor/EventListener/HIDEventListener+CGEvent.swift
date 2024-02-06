@@ -117,14 +117,16 @@ public class HIDCGEventListener {
                 cgEvent: CGEvent,
                 userInfoPtr: UnsafeMutableRawPointer?
             ) -> Unmanaged<CGEvent>? in
-                logger.debug("callback")
+                
                 // Since this is a C callback, it cannot capture swift context.
                 // However the `ptr` param points to self (EventTap). We can
                 // unwrap it as such then call its functions that way.
                 let eventTap = unsafeBitCast(userInfoPtr, to: HIDCGEventListener.self)
 
+                
                 #warning("TODO: zakkhoyt - Documentation about the audible clunk when this app is focused. Works okay with other apps running. ")
                 if let nsEvent = NSEvent(cgEvent: cgEvent) {
+                    logger.debug("CGEvent tap callback w/nsEvent: \(nsEvent)")
                     if let outputNSEvent = eventTap.processNSEvent(nsEvent),
                        let outputCGEvent = outputNSEvent.cgEvent {
 //                        let outputCGEventPtr = Unmanaged.passUnretained(outputCGEvent)
@@ -140,6 +142,8 @@ public class HIDCGEventListener {
                     let outputNSEventPtr = Unmanaged.passUnretained(nsEvent.cgEvent!)
                     return outputNSEventPtr
 //                    }
+                } else {
+                    logger.debug("CGEvent tap callback w/cgEvent: \(cgEvent.flags.rawValue.hexString)")
                 }
                 return Unmanaged.passUnretained(cgEvent)
             },

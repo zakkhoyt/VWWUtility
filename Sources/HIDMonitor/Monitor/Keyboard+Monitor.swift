@@ -42,6 +42,9 @@ extension Keyboard {
         /// will then be forwarded on to other responders. It is important to return `false` if you expect `cmd+q` to quit the app
         /// for example.
         public var pressUp: (Keyboard.Press) -> Bool = { _ in false }
+        
+        
+        public var flagsChanged: (Keyboard.Press) -> Bool = { _ in false }
 
         /// This set keeps track of which keys are down and which have been released.
         /// This will smooth out key repeat events (liek holding a key down).
@@ -138,6 +141,7 @@ extension Keyboard {
             
             switch press.event {
             case .keyDown:
+                    
                 // Ignores repeat key down events (holding a key down).zxc
                 // See if activePresses already contains the keypress event (masking out repeat events when holding the key down).
                 guard !activePresses.contains(press) else {
@@ -159,6 +163,10 @@ extension Keyboard {
                 }
                 activePresses.remove(press)
                 return pressUp(press) ? nil : event
+            case .flagsChanged:
+//                #warning("FIXME: zakkhoyt - handle this event")
+//                /return event
+                return flagsChanged(press) ? nil : event
             }
         }
     }
