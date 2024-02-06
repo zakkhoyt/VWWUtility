@@ -23,7 +23,7 @@ extension Keyboard {
         case b = 11 // Carbon.kVK_ANSI_B
         case c = 8 // Carbon.kVK_ANSI_C
         case d = 2 // Carbon.kVK_ANSI_D
-        case context = 14 // Carbon.kVK_ANSI_E
+        case e = 14 // Carbon.kVK_ANSI_E
         case f = 3 // Carbon.kVK_ANSI_F
         case g = 5 // Carbon.kVK_ANSI_G
         case h = 4 // Carbon.kVK_ANSI_H
@@ -172,7 +172,7 @@ extension Keyboard.Key: CustomStringConvertible {
         case .b: "b"
         case .c: "c"
         case .d: "d"
-        case .context: "e"
+        case .e: "e"
         case .f: "f"
         case .g: "g"
         case .h: "h"
@@ -301,7 +301,7 @@ extension Keyboard.Key: CustomDebugStringConvertible {
         case .b: "\(description) b (Carbon.kVK_ANSI_B: \(rawValue))"
         case .c: "\(description) c (Carbon.kVK_ANSI_C: \(rawValue))"
         case .d: "\(description) d (Carbon.kVK_ANSI_D: \(rawValue))"
-        case .context: "\(description) e (Carbon.kVK_ANSI_E: \(rawValue))"
+        case .e: "\(description) e (Carbon.kVK_ANSI_E: \(rawValue))"
         case .f: "\(description) f (Carbon.kVK_ANSI_F: \(rawValue))"
         case .g: "\(description) g (Carbon.kVK_ANSI_G: \(rawValue))"
         case .h: "\(description) h (Carbon.kVK_ANSI_H: \(rawValue))"
@@ -425,52 +425,43 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
     /// Taken from `SF Symbols.app`
     public var symbol: String {
         switch self {
-        case .a: "􀂔" // "a"
+        case .a: "􀂔"
         case .b: "􀂖"
         case .c: "􀂘"
         case .d: "􀂚"
-        case .context: "􀂜"
+        case .e: "􀂜"
         case .f: "􀂞"
         case .g: "􀂠"
         case .h: "􀂢"
         case .i: "􀂤"
-        case .j: "\u{004A}" // Ｊ𝐉𝕁🄹
+        case .j: "􀂦"
+        case .k: "􀂨"
+        case .l: "􀂪"
+        case .m: "􀂬"
+        case .n: "􀂮"
+        case .o: "􀂰"
+        case .p: "􀂲"
+        case .q: "􀂴"
+        case .r: "􀂶"
+        case .s: "􀂸"
+        case .t: "􀂺"
+        case .u: "􀂼"
+        case .v: "􀂾"
+        case .w: "􀃀"
+        case .x: "􀃂"
+        case .y: "􀃄"
+        case .z: "􀃆"
             
-//            J
-//            LATIN CAPITAL LETTER J
-//        Unicode: U+004A, UTF-8: 4A
-//
-//            I
-//            LATIN CAPITAL LETTER I
-//        Unicode: U+0049, UTF-8: 49
-            
-        case .k: "k"
-        case .l: "l"
-        case .m: "m"
-        case .n: "n"
-        case .o: "o"
-        case .p: "p"
-        case .q: "q"
-        case .r: "r"
-        case .s: "s"
-        case .t: "t"
-        case .u: "u"
-        case .v: "v"
-        case .w: "w"
-        case .x: "x"
-        case .y: "y"
-        case .z: "z"
-            
-        case .number0: "0"
-        case .number1: "1"
-        case .number2: "2"
-        case .number3: "3"
-        case .number4: "4"
-        case .number5: "5"
-        case .number6: "6"
-        case .number7: "7"
-        case .number8: "8"
-        case .number9: "9"
+        case .number0: "􀃈"
+        case .number1: "􀃊"
+        case .number2: "􀃌"
+        case .number3: "􀃎"
+        case .number4: "􀃐"
+        case .number5: "􀃒"
+        case .number6: "􀃔"
+        case .number7: "􀃖"
+        case .number8: "􀃘"
+        case .number9: "􀃚"
             
         case .keypad0: "0 (keypad)"
         case .keypad1: "1 (keypad)"
@@ -482,9 +473,9 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .keypad7: "7 (keypad)"
         case .keypad8: "8 (keypad)"
         case .keypad9: "9 (keypad)"
-        case .keypadClear: "clear (keypad)"
-        case .keypadDivide: "divide (keypad)"
-        case .keypadEnter: "enter (keypad)"
+        case .keypadClear: "􀆙"
+        case .keypadDivide: "􀅿"
+        case .keypadEnter: "􀆎"
         case .keypadEquals: "􀆀"
         case .keypadMinus: "􀅽"
         case .keypadPlus: "􀅼"
@@ -563,7 +554,7 @@ extension Keyboard.Key: KeyboardKeyRepresentable {
         case .b: "b.square"
         case .c: "c.square"
         case .d: "d.square"
-        case .context: "e.square"
+        case .e: "e.square"
         case .f: "f.square"
         case .g: "g.square"
         case .h: "h.square"
