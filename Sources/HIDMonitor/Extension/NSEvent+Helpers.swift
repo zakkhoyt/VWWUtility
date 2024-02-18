@@ -88,4 +88,43 @@ extension NSEvent.EventType: CustomStringConvertible, CustomDebugStringConvertib
         "\(description) \(rawValue.hexString) \(rawValue) \(rawValue.binaryString)"
     }
 }
+
+extension NSEvent.ModifierFlags: CustomStringConvertible, CustomDebugStringConvertible, CaseIterable {
+    public static var allCases: [NSEvent.ModifierFlags] {
+        [
+            .capsLock,
+            .shift,
+            .control,
+            .option,
+            .command,
+            .numericPad,
+            .help,
+            .function,
+            .deviceIndependentFlagsMask
+        ]
+    }
+    
+    public var description: String {
+        [
+            "capsLock": Self.capsLock,
+            "shift": Self.shift,
+            "control": Self.control,
+            "option": Self.option,
+            "command": Self.command,
+            "numericPad": Self.numericPad,
+            "help": Self.help,
+            "function": Self.function,
+            "deviceIndependentFlagsMask": Self.deviceIndependentFlagsMask,
+        ].compactMap {
+            self.contains($0.1) ? $0 : nil
+        }.map {
+            $0.0
+        }.sorted().joined(separator: ", ")
+    }
+    
+    public var debugDescription: String {
+        description
+    }
+}
+
 #endif

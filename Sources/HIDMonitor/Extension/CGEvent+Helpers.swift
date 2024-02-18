@@ -102,4 +102,42 @@ extension CGEventType: CustomStringConvertible, CustomDebugStringConvertible {
     }
 }
 
+extension CGEventFlags: CustomStringConvertible, CustomDebugStringConvertible, CaseIterable {
+    public static var allCases: [CGEventFlags] {
+        [
+            .maskAlphaShift,
+            .maskShift,
+            .maskControl,
+            .maskAlternate,
+            .maskCommand,
+            .maskHelp,
+            .maskSecondaryFn,
+            .maskNumericPad,
+            .maskNonCoalesced
+        ]
+    }
+    
+    public var description: String {
+        [
+            "maskAlphaShift": Self.maskAlphaShift,
+            "maskShift": Self.maskShift,
+            "maskControl": Self.maskControl,
+            "maskAlternate": Self.maskAlternate,
+            "maskCommand": Self.maskCommand,
+            "maskHelp": Self.maskHelp,
+            "maskSecondaryFn": Self.maskSecondaryFn,
+            "maskNumericPad": Self.maskNumericPad,
+            "maskNonCoalesced": Self.maskNonCoalesced
+        ].compactMap {
+            self.contains($0.1) ? $0 : nil
+        }.map {
+            $0.0
+        }.sorted().joined(separator: ", ")
+    }
+    
+    public var debugDescription: String {
+        description
+    }
+}
+
 #endif

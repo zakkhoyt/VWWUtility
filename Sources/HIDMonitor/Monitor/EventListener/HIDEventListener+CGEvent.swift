@@ -132,9 +132,16 @@ public class HIDCGEventListener {
                 let eventTap = unsafeBitCast(userInfoPtr, to: HIDCGEventListener.self)
 
                 
+//                logger.debug("CGEvent tap callback: \(cgEvent.flags.rawValue.hexString)")
+//                logger.debug("CGEvent tap callback: \(cgEvent.flags.description)")
+                
                 #warning("TODO: zakkhoyt - Documentation about the audible clunk when this app is focused. Works okay with other apps running. ")
                 if let nsEvent = NSEvent(cgEvent: cgEvent) {
                     logger.debug("CGEvent tap callback w/nsEvent: \(nsEvent)")
+                    
+//                    logger.debug("CGEvent tap callback w/nsEvent.modifierFlags: \(nsEvent.modifierFlags.rawValue.hexString)")
+//                    logger.debug("CGEvent tap callback w/nsEvent.modifierFlags: \(nsEvent.modifierFlags.description)")
+
                     if let outputNSEvent = eventTap.processNSEvent(nsEvent),
                        let outputCGEvent = outputNSEvent.cgEvent {
 //                        let outputCGEventPtr = Unmanaged.passUnretained(outputCGEvent)
