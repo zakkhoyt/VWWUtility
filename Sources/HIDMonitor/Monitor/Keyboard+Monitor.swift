@@ -140,30 +140,37 @@ extension Keyboard {
             switch press.event {
             case .keyDown:
                     
-                // Ignores repeat key down events (holding a key down).zxc
-                // See if activePresses already contains the keypress event (masking out repeat events when holding the key down).
-                guard !activePresses.contains(press) else {
-                    return nil
-                }
-                
-                // This configuration ignores repeat "clunk" on keys we don't handle. Only the first clunk will be heard.
-                // If you wish for repeat events to also clunk then move this line after the guard statement.
-                activePresses.insert(press)
-                guard pressDown(press) else {
-                    logger.debug("pressDown (ignored): \(press.description, privacy: .public)")
-                    return event
-                }
+//                // Ignores repeat key down events (holding a key down).zxc
+//                // See if activePresses already contains the keypress event (masking out repeat events when holding the key down).
+//                guard !activePresses.contains(press) else {
+//                    return nil
+//                }
+//                
+//                // This configuration ignores repeat "clunk" on keys we don't handle. Only the first clunk will be heard.
+//                // If you wish for repeat events to also clunk then move this line after the guard statement.
+//                activePresses.insert(press)
+//                guard pressDown(press) else {
+//                    logger.debug("pressDown (ignored): \(press.description, privacy: .public)")
+//                    return event
+//                }
+//                logger.debug("pressDown (processed): \(press.description, privacy: .public)")
+//                return nil
                 logger.debug("pressDown (processed): \(press.description, privacy: .public)")
-                return nil
+                return pressDown(press) ? nil : event
+                
             case .keyUp:
-                guard activePresses.contains(press) else {
-                    return event
-                }
-                activePresses.remove(press)
-                return pressUp(press) ? nil : event
+//                guard activePresses.contains(press) else {
+//                    return event
+//                }
+//                activePresses.remove(press)
+//                return pressUp(press) ? nil : event
+                logger.debug("pressUp (processed): \(press.description, privacy: .public)")
+                return pressDown(press) ? nil : event
+                
             case .flagsChanged:
 //                #warning("FIXME: zakkhoyt - handle this event")
 //                /return event
+                logger.debug("flagsChanged (processed): \(press.description, privacy: .public)")
                 return flagsChanged(press) ? nil : event
             }
         }
