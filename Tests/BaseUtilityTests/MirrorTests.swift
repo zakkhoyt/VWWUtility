@@ -12,7 +12,7 @@ final class MirrorTests: XCTestCase {
         let propertyTuples = Mirror.reflectProperties(of: instance, matchingType: propertiesType)
         XCTAssert(propertyTuples.count == propertyNames.count, "Expected \(propertyNames.count) properties of type \(propertiesType)")
         let propertyNames = propertyTuples.map { $0.0 }
-        propertyNames.forEach { propertyName in
+        for propertyName in propertyNames {
             XCTAssert(propertyNames.contains(where: { $0 == propertyName }), "Expected to find property named '\(propertyName)'")
         }
     }

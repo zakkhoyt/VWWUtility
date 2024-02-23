@@ -5,7 +5,6 @@
 //  Created by Zakk Hoyt on 2/4/24.
 //
 
-//import BaseUtility
 import Foundation
 
 @available(iOS 17.0, *)
@@ -26,7 +25,6 @@ public class SystemSettingsViewModel {
         let items: [Item]
         let category: any SystemSettingsURLProvider.Type
     }
-    
     
     let sections: [Section]
     public init() {
@@ -50,5 +48,5 @@ public class SystemSettingsViewModel {
                 category: section.element.self
             )
         }
-    }    
+    }
 }

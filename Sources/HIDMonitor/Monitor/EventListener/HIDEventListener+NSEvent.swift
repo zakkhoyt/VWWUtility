@@ -33,8 +33,8 @@ class HIDNSEventListener {
     }
     
     func stop() {
-        monitors.forEach {
-            NSEvent.removeMonitor($0)
+        for monitor in monitors {
+            NSEvent.removeMonitor(monitor)
         }
         monitors.removeAll()
     }

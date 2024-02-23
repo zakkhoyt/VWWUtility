@@ -32,7 +32,7 @@ extension UIView {
 
         translatesAutoresizingMaskIntoConstraints = false
 
-        pinStyles.forEach { pinStyle in
+        for pinStyle in pinStyles {
             switch pinStyle {
             case .superview(let edges, let insets):
                 if edges.contains(.left) {

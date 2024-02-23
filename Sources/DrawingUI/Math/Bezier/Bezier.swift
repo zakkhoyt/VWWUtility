@@ -14,7 +14,7 @@
 import CoreGraphics
 import Foundation
 
-class Bezier {
+enum Bezier {
     static let defaultControlPoints = [
         CGPoint(x: 0, y: 1),
         CGPoint(x: 0, y: 0),

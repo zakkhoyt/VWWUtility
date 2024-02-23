@@ -41,8 +41,6 @@ public struct SystemSettingsView: View {
                         .onTapGesture {
                             print("row")
                         }
-                        
-                        
                     }
                 }
             }

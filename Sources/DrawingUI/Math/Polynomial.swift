@@ -106,9 +106,9 @@ extension Polynomial {
         }
 
         var terms = polynomial.terms
-        stride(from: maxExponent - 1, through: 0, by: -1).forEach { exponent in
+        for exponent in stride(from: maxExponent - 1, through: 0, by: -1) {
             guard !polynomial.terms.contains(where: { $0.exponent == exponent }) else {
-                return
+                continue
             }
             terms.append(
                 Term(

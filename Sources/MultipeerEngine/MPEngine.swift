@@ -228,9 +228,9 @@ public final class MPEngine: NSObject, Sendable {
                 Task {
                     // Auto accept invitation if configuration supports it.
                     if ProcessInfo.processInfo.arguments.contains("--advertiser-auto-accept-invitataions") {
-                        invitations.forEach {
-                            if case .noResponse = $0.response {
-                                self.respond(invitation: $0, accept: true)
+                        for item in invitations {
+                            if case .noResponse = item.response {
+                                self.respond(invitation: item, accept: true)
                             }
                         }
                     }

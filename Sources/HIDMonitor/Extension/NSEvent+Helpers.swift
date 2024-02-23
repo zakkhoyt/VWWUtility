@@ -114,7 +114,7 @@ extension NSEvent.ModifierFlags: CustomStringConvertible, CustomDebugStringConve
             "numericPad": Self.numericPad,
             "help": Self.help,
             "function": Self.function,
-            "deviceIndependentFlagsMask": Self.deviceIndependentFlagsMask,
+            "deviceIndependentFlagsMask": Self.deviceIndependentFlagsMask
         ].compactMap {
             self.contains($0.1) ? $0 : nil
         }.map {

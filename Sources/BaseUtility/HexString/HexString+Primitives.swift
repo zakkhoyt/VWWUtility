@@ -80,13 +80,14 @@ extension FixedWidthInteger {
 
 extension Unicode {
     public static func printTable() {
-        (UInt8.min...UInt8.max).forEach {
+        (UInt8.min...UInt8.max).forEach { item in
+//        for item in UInt8.min...UInt8.max {
             print(
                 [
-                    "\($0)",
-                    String(format: "%02X", $0),
-                    $0.binaryString,
-                    Unicode.Scalar($0).escaped(asASCII: true)
+                    "\(item)",
+                    String(format: "%02X", item),
+                    item.binaryString,
+                    Unicode.Scalar(item).escaped(asASCII: true)
                 ].joined(separator: "\t")
             )
         }
