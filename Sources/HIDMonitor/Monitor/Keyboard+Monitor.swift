@@ -41,7 +41,6 @@ extension Keyboard {
         /// for example.
         public var pressUp: (Keyboard.Press) -> Bool = { _ in false }
         
-        
         public var flagsChanged: (Keyboard.Press) -> Bool = { _ in false }
 
         /// This set keeps track of which keys are down and which have been released.
@@ -145,7 +144,7 @@ extension Keyboard {
 //                guard !activePresses.contains(press) else {
 //                    return nil
 //                }
-//                
+//
 //                // This configuration ignores repeat "clunk" on keys we don't handle. Only the first clunk will be heard.
 //                // If you wish for repeat events to also clunk then move this line after the guard statement.
 //                activePresses.insert(press)
