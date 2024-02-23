@@ -107,7 +107,7 @@ extension [String: String?] {
         }
         .map {
             [
-                $0.key, $0.value
+                $0.key, #""\#($0.value)""#
             ].joined(separator: ": ")
         }
         .sorted()

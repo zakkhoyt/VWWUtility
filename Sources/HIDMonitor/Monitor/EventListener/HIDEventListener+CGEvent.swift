@@ -64,7 +64,7 @@ public class HIDCGEventListener {
     
     public func stop() {
         nsEventCallback = { _ in nil }
-        if let runLoop = context.runLoop  {
+        if let runLoop = context.runLoop {
             logger.debug("Will remove tap from runloop")
             CFRunLoopRemoveSource(CFRunLoopGetMain(), runLoop, .commonModes)
             context.runLoop = nil
@@ -89,13 +89,11 @@ public class HIDCGEventListener {
         mask: [EventType],
         scope: HIDEventScope
     ) throws {
-        let tapExistsButIsDisabled: Bool = {
-            if let tap = context.tap, CGEvent.tapIsEnabled(tap: tap) {
-                false
-            } else {
-                true
-            }
-        }()
+        let tapExistsButIsDisabled = if let tap = context.tap, CGEvent.tapIsEnabled(tap: tap) {
+            false
+        } else {
+            true
+        }
         
         guard context.tap == nil || tapExistsButIsDisabled else {
             logger.debug("Event  tap already exists and is already enabled")
@@ -131,7 +129,6 @@ public class HIDCGEventListener {
                 // unwrap it as such then call its functions that way.
                 let eventTap = unsafeBitCast(userInfoPtr, to: HIDCGEventListener.self)
 
-                
 //                logger.debug("CGEvent tap callback: \(cgEvent.flags.rawValue.hexString)")
 //                logger.debug("CGEvent tap callback: \(cgEvent.flags.description)")
                 

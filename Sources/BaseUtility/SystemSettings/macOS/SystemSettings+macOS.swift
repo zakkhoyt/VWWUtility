@@ -71,7 +71,6 @@ public enum SystemSettings: SystemSettingsURLParticipant {
             Legacy.PrivacyAndSecurity.self,
             Legacy.Dictation.self,
             Legacy.Sharing.self
-
         ]
     }
 }
@@ -330,8 +329,6 @@ extension SystemSettings {
     }
     
     //    enum General: String, SystemSettingsURLProvider {
-    //t
-    //
     //    }
     
     enum Appearance: String, SystemSettingsURLProvider {
