@@ -8,6 +8,42 @@
 
 import CoreGraphics
 
+
+extension CGPoint {
+    /// Returns a `CGPoint` where `x` and `y` are
+    /// mapped to normalized range (`0.0 ... 1.0`)
+    public func contract(
+        size: CGSize
+    ) -> CGPoint {
+        CGPoint(
+            x: x.percent(of: size.width),
+            y: y.percent(of: size.height)
+        )
+    }
+
+    /// Returns a normalized `CGPoint` where `x` and `y` are
+    /// mapped from normalized range (`0.0 ... 1.0`) to `size`.
+    public func expand(
+        size: CGSize
+    ) -> CGPoint {
+        CGPoint(
+            x: x * size.width,
+            y: y * size.height
+        )
+    }
+}
+
+extension CGPoint {
+    public func reflectY(
+        size: CGSize
+    ) -> CGPoint {
+        CGPoint(
+            x: x,
+            y: size.height - y
+        )
+    }
+}
+
 extension CGFloat {
     // TODO: For what ever reason, I can't use max/min here.
     // Compile errors

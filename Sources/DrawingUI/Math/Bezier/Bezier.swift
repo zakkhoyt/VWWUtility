@@ -24,10 +24,10 @@ enum Bezier {
 //        CGPoint(x: 0.75, y: 0.25)
     ]
 
-    private static var d_minX: CGFloat = 100
-    private static var d_maxX: CGFloat = -100
-    private static var d_minY: CGFloat = 100
-    private static var d_maxY: CGFloat = -100
+//    private static var d_minX: CGFloat = 100
+//    private static var d_maxX: CGFloat = -100
+//    private static var d_minY: CGFloat = 100
+//    private static var d_maxY: CGFloat = -100
 
     /// Solves for a point on a bezier curve.
     /// - Parameters:

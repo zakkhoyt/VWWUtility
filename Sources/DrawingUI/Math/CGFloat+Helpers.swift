@@ -10,6 +10,14 @@ import CoreGraphics
 import Foundation
 
 extension FloatingPoint {
+    public func percent(
+        of max: Self
+    ) -> Self {
+        self / max
+    }
+}
+
+extension FloatingPoint {
     /// Maps a value from some input range to some output domain by
     /// taking a percent of the value in the input range and applying it to the output range.
     /// - Parameters:

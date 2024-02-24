@@ -29,6 +29,40 @@ extension Mirror {
             }
     }
     
+    /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
+    /// - Parameters:
+    ///   - target: The instance to inspect/reflect.
+    ///   - type: The type of interest
+    /// - Returns: A list of tuples `(propertyName: String, property: T)`
+    /// - Remark: This does not apply to computed properties.
+    public static func reflectProperties(
+        of target: Any
+    ) -> [(name: String, value: String)] {
+        Mirror(reflecting: target)
+            .children
+            .compactMap {
+                guard let label = $0.label else {
+                    return nil
+                }
+                if let value = $0.value as? Float {
+//                    return (label, String(format: "%.03f", value))
+                    return (label, String(format: "%.2f", value))
+//                    return (label, "\(Int(value))")
+                } else if let value = $0.value as? Double {
+//                    return (label, String(format: "%.03f", value))
+                    return (label, String(format: "%.2f", value))
+//                    return (label, "\(Int(value))")
+                } else if let value = $0.value as? any BinaryInteger {
+                    return (label, "\(value)")
+                } else if let value = $0.value as? Bool {
+                    return (label, "\(value ? "true" : "false")")
+                }  else {
+                    return (label, String(describing: $0.value))
+                }
+            }
+    }
+
+    
     /// Inspects the properties of the instance of `target` to distill a list of all property instances of `matchingType`.
     /// Very similar to `reflectProperties(...)`, but returns only the property values.
     /// - Parameters:
