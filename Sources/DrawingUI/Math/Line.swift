@@ -51,7 +51,7 @@ extension Line {
 }
 
 extension Line {
-    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... 2*CGFloat.pi
+    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... .tau
     public var angle: CGFloat {
         .modulo(
             angle: atan2(

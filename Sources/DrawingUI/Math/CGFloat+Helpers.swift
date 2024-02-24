@@ -13,18 +13,18 @@ extension CGFloat {
     /// Adds or subtracts `2*pi` until  range `lowerBound ..< upperBound` contains `angle`.
     /// - Parameter angle: Input angle
     /// - Parameter into: The range to project `angle` in to.
-    /// - Returns: Output angle in the range `0 ..< 2 * .pi`
+    /// - Returns: Output angle in the range `0 ..< .tau`
     @available(*, unavailable, renamed: "modulo")
     public static func project(
         angle: CGFloat,
-        into range: Range<CGFloat> = (0 * CGFloat.pi)..<(2 * CGFloat.pi)
+        into range: Range<CGFloat> = (0 * .pi)..<(.tau)
     ) -> CGFloat {
         modulo(angle: angle, into: range)
     }
     
     public static func modulo(
         angle: CGFloat,
-        into range: Range<CGFloat> = (0 * CGFloat.pi)..<(2 * CGFloat.pi)
+        into range: Range<CGFloat> = (0 * .pi)..<(.tau)
     ) -> CGFloat {
         let delta = range.upperBound - range.lowerBound
         
@@ -45,7 +45,7 @@ extension CGFloat {
     /// - Parameters:
     ///   - point0: first point in a line
     ///   - point1: second point in a line
-    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... 2*CGFloat.pi
+    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... .tau
     public static func angle(point0: CGPoint, point1: CGPoint) -> CGFloat {
         .modulo(
             angle: atan2(
@@ -56,16 +56,16 @@ extension CGFloat {
     }
     
     /// Assuming that `self` is an angle given in radians
-    /// normal is that `self + 1 / 2 * CGFloat.pi` in terms of `0 ..< 2 * CGFloat.pi`
+    /// normal is that `self + 1 / .tau` in terms of `0 ..< .tau`
     public var normal0: CGFloat {
         .modulo(
-            angle: .modulo(angle: self + 1 / 2 * CGFloat.pi)
+            angle: .modulo(angle: self + 1 / .tau)
         )
     }
     
     public var normal1: CGFloat {
         .modulo(
-            angle: .modulo(angle: self - 1 / 2 * CGFloat.pi)
+            angle: .modulo(angle: self - 1 / .tau)
         )
     }
 }
