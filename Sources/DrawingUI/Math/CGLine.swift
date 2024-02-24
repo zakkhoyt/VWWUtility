@@ -34,7 +34,7 @@ extension CGLine {
 extension CGLine {
     /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... 2*CGFloat.pi
     public var angle: CGFloat {
-        CGFloat.project(
+        .modulo(
             angle: atan2(
                 point1.y - point0.y,
                 point1.x - point0.x
@@ -44,7 +44,7 @@ extension CGLine {
 
     /// - Returns: Self rotated by `.pi`, keeping in range `0 ... 2 * .pi`
     public var reverseAngle: CGFloat {
-        CGFloat.project(angle: angle - .pi)
+        .modulo(angle: angle - .pi)
     }
 
     /// - Returns: Length of the line using pythagorean theorem

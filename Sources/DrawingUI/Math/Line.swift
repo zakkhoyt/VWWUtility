@@ -8,8 +8,8 @@
 import CoreGraphics
 import Foundation
 
-struct Line: Identifiable {
-    var id: CGFloat {
+public struct Line: Identifiable {
+    public var id: CGFloat {
         point0.x + point0.y + point1.x + point1.y
     }
     
@@ -18,10 +18,10 @@ struct Line: Identifiable {
         UUID()
     }
     
-    let point0: CGPoint
-    let point1: CGPoint
+    public let point0: CGPoint
+    public let point1: CGPoint
 
-    init(
+    public init(
         point0: CGPoint,
         point1: CGPoint
     ) {
@@ -29,7 +29,7 @@ struct Line: Identifiable {
         self.point1 = point1
     }
 
-    init(
+    public init(
         x0: CGFloat,
         y0: CGFloat,
         x1: CGFloat,
@@ -41,19 +41,19 @@ struct Line: Identifiable {
 }
 
 extension Line {
-    var deltaX: CGFloat {
+    public var deltaX: CGFloat {
         point1.x - point0.x
     }
 
-    var deltaY: CGFloat {
+    public var deltaY: CGFloat {
         point1.y - point0.y
     }
 }
 
 extension Line {
     /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... 2*CGFloat.pi
-    var angle: CGFloat {
-        CGFloat.project(
+    public var angle: CGFloat {
+        .modulo(
             angle: atan2(
                 point1.y - point0.y,
                 point1.x - point0.x
@@ -61,12 +61,12 @@ extension Line {
         )
     }
 
-    var reverseAngle: CGFloat {
-        CGFloat.project(angle: angle - CGFloat.pi)
+    public var reverseAngle: CGFloat {
+        .modulo(angle: angle - .pi)
     }
 
     /// - Returns: Length of the line using pythagorean theorem
-    var length: CGFloat {
+    public var length: CGFloat {
         sqrt(
             pow(abs(point0.x - point1.x), 2) +
                 pow(abs(point0.y - point1.y), 2)

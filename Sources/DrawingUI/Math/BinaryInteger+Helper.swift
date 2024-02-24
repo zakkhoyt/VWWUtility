@@ -9,6 +9,11 @@
 import Foundation
 
 extension BinaryFloatingPoint {
+    /// `tau` is an alias for `2 * .pi` and can make for more readable code.
+    @inlinable public static var tau: Self { 2.0 * .pi }
+}
+
+extension BinaryFloatingPoint {
     /// Rounds a floating point number to some multiple of the given value `nearest`
     /// - Parameter nearest: A fractionating value to round to. Think of this like tick marks on a slider or knob.
     /// - Returns: `self`, but rounded to the nearest multiple of `nearest`
@@ -21,7 +26,6 @@ extension BinaryFloatingPoint {
     /// v.round(nearest: 0.01) // 1.12
     /// v.round(nearest: 0.15) // 1.15
     /// ```
-    @available(*, deprecated, message: "moved to DrawingUI")
     public func round(
         nearest: Self
     ) -> Self {
@@ -32,30 +36,14 @@ extension BinaryFloatingPoint {
 }
 
 extension BinaryFloatingPoint {
-    @available(*, deprecated, message: "moved to DrawingUI")
+    @available(*, unavailable, message: "Use Double(self)")
     public var d: Double {
         Double(self)
     }
 
-    @available(*, deprecated, message: "moved to DrawingUI")
+    @available(*, unavailable, message: "Use Float(self)")
     public var f: Float {
         Float(self)
     }
 }
 
-extension BinaryFloatingPoint {
-    @available(*, deprecated, message: "moved to DrawingUI")
-    @inlinable public static var tau: Self { 2.0 * .pi }
-}
-
-extension BinaryInteger {
-    @available(*, deprecated, message: "moved to DrawingUI")
-    public var d: Double {
-        Double(self)
-    }
-    
-    @available(*, deprecated, message: "moved to DrawingUI")
-    public var f: Float {
-        Float(self)
-    }
-}
