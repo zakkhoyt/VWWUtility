@@ -32,6 +32,10 @@ let package = Package(
             targets: ["BaseUtility"]
         ),
         .library(
+            name: "ComputerVision",
+            targets: ["ComputerVision"]
+        ),
+        .library(
             name: "DrawingUI",
             targets: ["DrawingUI"]
         ),
@@ -80,6 +84,13 @@ let package = Package(
             exclude: [
                 //                "SystemSettings/View/"
             ],
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .target(
+            name: "ComputerVision",
+            dependencies: [],
+            exclude: [],
             swiftSettings: swiftSettings,
             plugins: []
         ),
