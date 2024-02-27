@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  DetetctionDrawer.swift
+//
 //
 //  Created by Zakk Hoyt on 2/27/24.
 //
@@ -10,19 +10,21 @@ import UIKit
 import Vision
 
 
-class DetetctionDrawer {
+public class DetetctionDrawer {
     private let lastDraw = LastDraw()
     private var bufferSize: CGSize = .zero
-    var rootLayer: CALayer?
+    private var rootLayer: CALayer?
     private var detectionOverlay: CALayer! = nil
-    
-    init(
+    private let color = UIColor.systemYellow
+    private let shadowColor = UIColor.systemBackground
+
+    public init(
         bufferSize: CGSize
     ) {
         self.bufferSize = bufferSize
     }
     
-    func setupLayers(
+    public func setupLayers(
         rootLayer: CALayer
     ) {
         self.rootLayer = rootLayer
@@ -41,7 +43,7 @@ class DetetctionDrawer {
         rootLayer.addSublayer(detectionOverlay)
     }
     
-    func updateLayerGeometry(
+    public func updateLayerGeometry(
         //        rootLayer: CALayer
     ) {
         //        self.rootLayer = rootLayer
@@ -76,7 +78,7 @@ class DetetctionDrawer {
         
     }
     
-    func drawVisionRequestResults(
+    public func drawVisionRequestResults(
         //        _ results: [Any]
         objectObservations: [VNRecognizedObjectObservation]
     ) {
@@ -137,7 +139,7 @@ class DetetctionDrawer {
         CATransaction.commit()
     }
     
-    func createRoundedRectLayerWithBounds(
+    private func createRoundedRectLayerWithBounds(
         _ bounds: CGRect
     ) -> CALayer {
         let shapeLayer = CALayer()
@@ -153,9 +155,7 @@ class DetetctionDrawer {
         return shapeLayer
     }
     
-    private let color = UIColor.systemYellow
-    private let shadowColor = UIColor.systemBackground
-    func createTextSubLayerInBounds(
+    private func createTextSubLayerInBounds(
         _ bounds: CGRect,
         identifier: String,
         confidence: VNConfidence
