@@ -41,7 +41,30 @@ class CaptureSession: NSObject {
         setupAVCapture()
     }
     
-    func setupAVCapture() {
+    deinit {
+        stop()
+        teardownAVCapture()
+    }
+
+    public func start() {
+        DispatchQueue.global().async {
+            self.session.startRunning()
+        }
+    }
+    
+    public func stop() {
+        self.session.stopRunning()
+    }
+    
+#warning(
+    """
+    FIXME: zakkhoyt - Outputs:
+    bufferSize (capture device dimensions)
+    previewView or previewLayer: UIView/AVCaptureVideoPreviewLayer
+    callback to provide Vision results (for caller to render)
+    """
+    )
+    private func setupAVCapture() {
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
@@ -89,7 +112,9 @@ class CaptureSession: NSObject {
         captureConnection?.isEnabled = true
         do {
             try  videoDevice!.lockForConfiguration()
-            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
+            let dimensions = CMVideoFormatDescriptionGetDimensions(
+                (videoDevice?.activeFormat.formatDescription)!
+            )
             bufferSize.width = CGFloat(dimensions.width)
             bufferSize.height = CGFloat(dimensions.height)
             videoDevice!.unlockForConfiguration()
@@ -103,18 +128,16 @@ class CaptureSession: NSObject {
         previewView.layer.addSublayer(previewLayer)
         
         // ---------------
-        
+
+        #warning("FIXME: zakkhoyt - Move to caller")
         drawer = DetetctionDrawer(bufferSize: bufferSize)
         do {
-            
-#warning("TODO: zakkhoyt - external")
             drawer.setupLayers(rootLayer: previewView.layer)
-#warning("TODO: zakkhoyt - external")
             drawer.updateLayerGeometry()
             try setupVision(model: model)
             
-            // start the capture
-            startCaptureSession()
+//            // start the capture
+//            startCaptureSession()
         } catch {
             logger.error("\(error.localizedDescription)")
         }
@@ -133,6 +156,7 @@ class CaptureSession: NSObject {
                 if let error {
                     logger.fault("\(error.localizedDescription)")
                 }
+                
                 DispatchQueue.main.async {
                     guard let results = request.results else { return }
                     
@@ -142,34 +166,20 @@ class CaptureSession: NSObject {
                         classificationObservations.logHighestConfidence()
                         return
                     }
-                    
-                    let objectObservations = results.compactMap { $0 as? VNRecognizedObjectObservation }
-                    self.drawer.drawVisionRequestResults(objectObservations: objectObservations)
+                
+                    #warning("FIXME: zakkhoyt - callback to caller where rendering should occur")
+                    self.drawer.drawVisionRequestResults(
+                        objectObservations: results.compactMap { $0 as? VNRecognizedObjectObservation }
+                    )
                 }
             }
         ]
     }
-
-    func startCaptureSession() {
-        DispatchQueue.global().async {
-            self.session.startRunning()
-        }
-    }
     
     // Clean up capture setup
-    func teardownAVCapture() {
+    private func teardownAVCapture() {
         previewLayer.removeFromSuperlayer()
         previewLayer = nil
-    }
-    
-    private func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
-        switch UIDevice.current.orientation {
-        case .portraitUpsideDown: .left
-        case .landscapeLeft: .upMirrored
-        case .landscapeRight: .down
-        case .portrait: .up
-        default: .up
-        }
     }
 }
 
@@ -194,7 +204,7 @@ extension CaptureSession: AVCaptureVideoDataOutputSampleBufferDelegate {
         do {
             try VNImageRequestHandler(
                 cvPixelBuffer: pixelBuffer,
-                orientation: exifOrientationFromDeviceOrientation(),
+                orientation: UIDevice.current.orientation.exifOrientation,
                 options: [:]
             ).perform(self.requests)
         } catch {
@@ -217,6 +227,20 @@ extension UIDeviceOrientation: CustomStringConvertible {
         }
     }
     
+    
+    var exifOrientation: CGImagePropertyOrientation {
+        switch self {
+        case .portraitUpsideDown: .left
+        case .landscapeLeft: .upMirrored
+        case .landscapeRight: .down
+        case .portrait: .up
+        case .unknown: .up
+        case .faceUp: .up
+        case .faceDown: .up
+        @unknown default: .up
+        }
+    }
+
     // Returns a multiple of 90 degrees (in radians)
     var affineRotateAngle: CGFloat {
         .pi / 2 * {
