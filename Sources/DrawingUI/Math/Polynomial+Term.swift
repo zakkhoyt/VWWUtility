@@ -9,19 +9,19 @@ import CoreGraphics
 import Foundation
 
 extension Polynomial {
-    struct Term: CustomStringConvertible {
+    public struct Term: CustomStringConvertible {
         let coefficient: Int
         // TODO: Make this array of chars
         let variable: String
         let exponent: Int
 
-        init() {
+        public init() {
             self.coefficient = 0
             self.variable = "t"
             self.exponent = 0
         }
 
-        init(
+        public init(
             coefficient: Int,
             variable: String,
             exponent: Int
@@ -31,11 +31,11 @@ extension Polynomial {
             self.exponent = exponent
         }
 
-        var sign: String {
+        public var sign: String {
             coefficient < 0 ? "-" : "+"
         }
 
-        var description: String {
+        public var description: String {
             [
                 "\(coefficient)",
                 "\(variable)^\(exponent)"
@@ -44,7 +44,7 @@ extension Polynomial {
                 .joined(separator: "*")
         }
 
-        func solve(v: CGFloat) -> CGFloat {
+        public func solve(v: CGFloat) -> CGFloat {
             CGFloat(coefficient) * pow(v, CGFloat(exponent))
         }
     }
