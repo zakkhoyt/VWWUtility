@@ -119,6 +119,7 @@ public enum FileService {
     }
 }
 
+
 extension String {
     var fileURL: URL {
         if #available(macOS 13.0, *) {
@@ -154,13 +155,17 @@ extension FileService {
     public static func expand(path: String) -> String {
         NSString(string: path).expandingTildeInPath
     }
-    
+}
+
+#if os(macOS)
+extension FileService {
     private static var homeDirectoryOfCurrentUser: String {
         FileManager.default.homeDirectoryForCurrentUser.absoluteString
             .replacingOccurrences(of: "file://", with: "")
             .trimSuffix(text: "/")
     }
 }
+#endif
 
 extension String {
     func trimSuffix(text: String) -> String {
