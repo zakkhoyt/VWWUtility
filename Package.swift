@@ -21,7 +21,7 @@ let swiftSettings: [SwiftSetting] = [
 let package = Package(
     name: "VWWUtility",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v16),
         .macOS(.v14),
         .visionOS(.v1)
     ],
