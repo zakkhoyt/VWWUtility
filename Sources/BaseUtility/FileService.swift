@@ -121,7 +121,6 @@ public enum FileService {
     }
 }
 
-
 extension String {
     var fileURL: URL {
         if #available(macOS 13.0, *) {
@@ -281,16 +280,13 @@ extension URL {
         }
         
         return URL(filePath: canonicalPath)
-
     }
     
-#warning(
-            """
-            FIXME: zakkhoyt - new function, cleanURL
-            * removes "//" from middle of path (filePath)
-            * appendingPathComponent("Preferences")
-            """
+    #warning(
+        """
+        FIXME: zakkhoyt - new function, cleanURL
+        * removes "//" from middle of path (filePath)
+        * appendingPathComponent("Preferences")
+        """
     )
-
-    
 }

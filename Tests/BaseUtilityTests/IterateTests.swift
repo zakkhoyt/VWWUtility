@@ -17,7 +17,7 @@ final class IterateTests: XCTestCase {
     }
     
     // num to iterate to on each nest level
-    //private let v: UInt64 = 200
+    // private let v: UInt64 = 200
     private let v: UInt64 = 100
    
     //
@@ -93,10 +93,9 @@ final class IterateTests: XCTestCase {
         }
     }
 
-    
     private func mark(x: UInt64, y: UInt64, z: UInt64) {
         let xx = x
-        let yy = y * (v)
+        let yy = y * v
         let zz = z * (v * v)
         let i = xx + yy + zz
         arr[Int(i)] = i
@@ -107,7 +106,5 @@ final class IterateTests: XCTestCase {
         print("a: \(a)")
         XCTAssertEqual(a, UInt64(pow(Float(v), Float(3))))
         a = 0
-        
     }
-
 }

@@ -24,7 +24,7 @@ enum LogHelper {
             "fileID: \(fileID)",
             "filePath: \(filePath)",
             "function: \(function)",
-            "line: \(line)",
+            "line: \(line)"
         ].joined(separator: "\n")
     }
 }
