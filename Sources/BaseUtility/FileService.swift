@@ -135,7 +135,6 @@ extension FileService {
     public static func isDirectoryEmpty(
         directory: String
     ) throws -> Bool {
-        let safeDir = expand(path: directory)
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: directory)
             if contents.isEmpty { return true }
