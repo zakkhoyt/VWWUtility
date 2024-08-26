@@ -7,6 +7,7 @@
 import SwiftUI
 
 #warning("FIXME: zakkhoyt - Expose these files through Swift Package")
+
 // MARK: - Trying a different approach using ViewModifier
 
 /// This ViewModifier provides a point to execute some work **before** the view is loaded (via closure).
@@ -37,7 +38,7 @@ extension View {
     /// (typically at the `AppDelegate` level), which `Previews` does not call.
     ///
     /// One might think to execute this code in `.onAppear(perform:)`. but at that point, it's too late.
-    /// The fonts must be registered *before* view is loaded. 
+    /// The fonts must be registered *before* view is loaded.
     ///
     /// This extension provides a solution: use the `.willLoad { ... }` `ViewModifier`
     ///
@@ -69,7 +70,7 @@ extension View {
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil {
             modifier(PreliminaryWorkViewModifier(perform))
         } else {
-            modifier(PreliminaryWorkViewModifier({}))
+            modifier(PreliminaryWorkViewModifier {})
         }
     }
 }

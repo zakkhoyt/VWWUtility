@@ -6,8 +6,8 @@
 
 import Foundation
 
-//#warning("FIXME: zakkhoyt - debugDescrition for [String: String]. Use a protocol?")
-//public protocol ListDescribable {
+// #warning("FIXME: zakkhoyt - debugDescrition for [String: String]. Use a protocol?")
+// public protocol ListDescribable {
 //    var listDescription: String { get }
 //
 //    /// Converts any `[String]` to a list by joining all `Element`s using `separator`
@@ -52,9 +52,9 @@ import Foundation
 //        separator: String,
 //        endcaps: (Character, Character)
 //    ) -> String
-//}
+// }
 //
-//extension [String] {
+// extension [String] {
 //    /// Converts any `[String]` to a list by joining all `Element`s using `separator`
 //    ///
 //    /// ```swift
@@ -110,9 +110,9 @@ import Foundation
 //    public var listDescription: String {
 //        listDescription()
 //    }
-//}
+// }
 //
-//extension Array where Element: CustomStringConvertible {
+// extension Array where Element: CustomStringConvertible {
 //    /// Converts any `[String]` to a list by joining all `Element`s using `separator`
 //    ///
 //    /// ```swift
@@ -163,18 +163,18 @@ import Foundation
 //    public var listDescription: String {
 //        map { $0.description }.listDescription
 //    }
-//}
+// }
 //
-//extension Array where Element: CustomDebugStringConvertible {
+// extension Array where Element: CustomDebugStringConvertible {
 //    /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
 //    public var listDescription: String {
 //        map { $0.debugDescription }.listDescription
 //    }
-//}
+// }
 //
 //
 //
-//extension [String: any CustomStringConvertible] {
+// extension [String: any CustomStringConvertible] {
 ////    public var dictDescription: String {
 ////        //        compactMapValues { $0 }
 ////        compactMapValues {
@@ -190,8 +190,8 @@ import Foundation
 ////        //        .sorted()
 ////        //        .joined(separator: ", ")
 ////    }
-//    
-//    
+//
+//
 //    /// Converts any `[String]` to a list by joining all `Element`s using `separator`
 //    ///
 //    /// ```swift
@@ -244,15 +244,15 @@ import Foundation
 //                $0.key, $0.value
 //            ].joined(separator: ": ")
 //        }.listDescription(separator: separator, endcaps: endcaps)
-//        
+//
 //    }
-//}
+// }
 //
 //
 //
-//#warning("FIXME: zakkhoyt - debugDescrition for [String: String]")
+// #warning("FIXME: zakkhoyt - debugDescrition for [String: String]")
 //
-//extension [String: String?] {
+// extension [String: String?] {
 //    public var varDescription: String {
 ////        compactMapValues { $0 }
 //        compactMapValues {
@@ -267,7 +267,7 @@ import Foundation
 //        .sorted()
 //        .joined(separator: ", ")
 //    }
-//}
+// }
 //
 ////// extension [String: String?] {
 //////    public var varDescription: String {
@@ -298,12 +298,7 @@ import Foundation
 //////            }
 //////        }
 
-
-
-
-
 // MARK: - hatch Copy below
-
 
 #warning("FIXME: zakkhoyt - debugDescrition for [String: String]")
 
@@ -352,8 +347,6 @@ extension [String: String?] {
 ////                $0 += "\($1): \(value)"
 ////            }
 ////        }
-
-
 
 extension [any CustomStringConvertible] {
     /// Converts any `[String]` to a list by joining all `Element`s using `separator`
@@ -414,7 +407,7 @@ extension [String: any CustomStringConvertible] {
         endcaps: (Character, Character) = ("[", "]")
     ) -> String {
         compactMapValues {
-            return String(describing: $0)
+            String(describing: $0)
         }
         .map {
             [
@@ -425,5 +418,3 @@ extension [String: any CustomStringConvertible] {
         .joined(separator: separator)
     }
 }
-
-

@@ -9,7 +9,6 @@ import BaseUtility
 import XCTest
 
 final class MiscTests: XCTestCase {
-    
     func testNilOptionalString() {
         let text: String? = nil
         let expected = "<n/a>"
