@@ -413,18 +413,16 @@ extension [String: any CustomStringConvertible] {
         separator: String = ", ",
         endcaps: (Character, Character) = ("[", "]")
     ) -> String {
-        //        compactMapValues { $0 }
         compactMapValues {
-            //guard let value = $0 else { return "<nil>" }
             return String(describing: $0)
         }
         .map {
             [
                 $0.key, #""\#($0.value)""#
-            ].joined(separator: ": ")
+            ].joined(separator: keyValueSeparator)
         }
         .sorted()
-        .joined(separator: ", ")
+        .joined(separator: separator)
     }
 }
 
