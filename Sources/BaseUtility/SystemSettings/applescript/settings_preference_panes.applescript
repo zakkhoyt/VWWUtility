@@ -10,7 +10,8 @@ on mapAnchors(prefix, anchors)
 end mapAnchors
 
 tell application "System Settings"
-	set AppleScript's text item delimiters to ", "
+	set AppleScript's text item delimiters to "
+"
 	set CurrentPane to the id of the current pane
 	display dialog CurrentPane
 	-- log (CurrentPane)
