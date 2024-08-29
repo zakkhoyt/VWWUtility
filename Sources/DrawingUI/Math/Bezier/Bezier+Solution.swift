@@ -10,12 +10,12 @@ import Foundation
 
 extension Bezier {
     /// Containst the values for in input of T
-    struct Solution {
-        enum Error: Swift.Error, LocalizedError {
+    public struct Solution {
+        public enum Error: Swift.Error, LocalizedError {
             case inputOutOfRange(t: CGFloat)
             case pointOutOfRange(point: CGPoint)
 
-            var errorDescription: String? {
+            public var errorDescription: String? {
                 switch self {
                 case .inputOutOfRange(let t):
                     "Input out of range: \(t)"
@@ -28,25 +28,25 @@ extension Bezier {
         #warning("How do we want to include derivative, normal, tangent, etc..? A separate solution instance?")
 
         /// The 't' value from 0.0 ... 1.0
-        let t: CGFloat
+        public let t: CGFloat
 
         /// The final point after all recursively solving until there are only 2 controlPoints
-        var point: CGPoint {
+        public var point: CGPoint {
             pointsPyramid.last?.last ?? .zero
         }
 
         /// Tangent line for input `t`
-        let tangentLine: Line
+        public let tangentLine: Line
 
-        var tangent: CGFloat {
+        public var tangent: CGFloat {
             tangentLine.angle
         }
 
-        var normal0: CGFloat {
+        public var normal0: CGFloat {
             tangent.normal0
         }
         
-        var normal1: CGFloat {
+        public var normal1: CGFloat {
             tangent.normal1
         }
 
@@ -61,26 +61,26 @@ extension Bezier {
         ///     [(0.250, 0.500), (0.750, 0.500)],
         ///     [(0.500, 0.500)]
         /// ]
-        let pointsPyramid: [[CGPoint]]
+        public let pointsPyramid: [[CGPoint]]
         
-        struct PointPyramidRow: Identifiable {
-            var id: Int { index }
-            let index: Int
-            let points: [CGPoint]
+        public struct PointPyramidRow: Identifiable {
+            public var id: Int { index }
+            public let index: Int
+            public let points: [CGPoint]
         }
         
-        var pointPyramidRows: [PointPyramidRow] {
+        public var pointPyramidRows: [PointPyramidRow] {
             pointsPyramid.enumerated().map {
                 PointPyramidRow(index: $0.offset, points: $0.element)
             }
         }
 
-        let polynomials: [Polynomial]
+        public let polynomials: [Polynomial]
     }
 }
 
 extension Bezier.Solution {
-    static let empty = Bezier.Solution(
+    public static let empty = Bezier.Solution(
         t: 0,
         tangentLine: Line(point0: .zero, point1: .zero),
         pointsPyramid: [[]],
@@ -89,7 +89,7 @@ extension Bezier.Solution {
 }
     
 extension Bezier.Solution: CustomDebugStringConvertible {
-    var debugDescription: String {
+    public var debugDescription: String {
         """
         [
         \(
@@ -108,7 +108,7 @@ extension Bezier.Solution: CustomDebugStringConvertible {
 }
 
 extension Bezier.Solution {
-    func normalLines(length: CGFloat) -> [Line] {
+    public func normalLines(length: CGFloat) -> [Line] {
         let line0: Line = {
             let point0 = point
             let point1 = CGPoint(
