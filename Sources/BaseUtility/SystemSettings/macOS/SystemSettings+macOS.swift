@@ -167,14 +167,22 @@ extension SystemSettings {
             case mouseTrackpad = "x-apple.systempreferences:com.apple.preference.universalaccess?Mouse"
             case switchControl = "x-apple.systempreferences:com.apple.preference.universalaccess?Switch"
             case dictation = "x-apple.systempreferences:com.apple.preference.universalaccess?SpeakableItems"
+            case appleIntelligence = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae"
         }
         
+        // Security & Privacy Preference Pane
+        public enum AppleIntelligence: String, SystemSettingsURLProvider {
+            case siri = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&Siri"
+            case privacy = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&privacy"
+            case searchResults = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&searchResults"
+        }
+
         // Security & Privacy Preference Pane
         public enum PrivacyAndSecurity: String, SystemSettingsURLProvider {
             case main = "x-apple.systempreferences:com.apple.preference.security"
             case general = "x-apple.systempreferences:com.apple.preference.security?General"
             case fileVault = "x-apple.systempreferences:com.apple.preference.security?FDE"
-            case firewall = "x-apple.systempreferences:com.apple.preference.security?Firewall"
+            case fsirewall = "x-apple.systempreferences:com.apple.preference.security?Firewall"
             case advanced = "x-apple.systempreferences:com.apple.preference.security?Advanced"
             case privacy = "x-apple.systempreferences:com.apple.preference.security?Privacy"
             //        case privacyCamera = "x-apple.systempreferences:com.apple.preference.security?Privacy_Camera"
