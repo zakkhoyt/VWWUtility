@@ -18,7 +18,7 @@ extension Bezier {
     ///
     /// - Parameter order: The order of the polynomial (highest exponent)
     /// - Returns: A `Polynomial` instance.
-    /// - SeeAlso: ``Bezier/basisFunctions(order:)``
+    /// - SeeAlso: ``Bezier/basisFunction(order:)``
     ///
     /// ```
     /// B(t) = p_0 * 1 * (1 - t)^3 * t^0
@@ -58,7 +58,7 @@ extension Bezier {
     ///      + -3 * t^3 + 3 * t^2 + 0 * t^1 + 0 * t^0
     ///      + 1 * t^3 + 0 * t^2 + 0 * t^1 + 0 * t^0
     /// ```
-    static func basisFunctions(order: Int) -> [Polynomial] {
+    public static func basisFunctions(order: Int) -> [Polynomial] {
         let pascal = PascalTriangle(order: order)
         let coefficients = pascal.values[pascal.values.count - 1]
         return coefficients.enumerated().map { iter in
@@ -84,7 +84,8 @@ extension Bezier {
     ///
     /// - Parameter order: The order of the polynomial (highest exponent)
     /// - Returns: A `Polynomial` instance.
-    static func basisFunction(order: Int) -> Polynomial {
+    /// - SeeAlso: ``Bezier/basisFunctions(order:)``
+    public static func basisFunction(order: Int) -> Polynomial {
         let pascal = PascalTriangle(order: order)
         let coefficients = pascal.values[pascal.values.count - 1]
         return Polynomial(
