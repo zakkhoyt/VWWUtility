@@ -29,6 +29,19 @@ You can test them out from command line with `open` command:
 open "x-apple.systempreferences:com.apple.preference.universalaccess?Keyboard"
 ```
 
+If you receive errors on stderr:
+```sh
+$ open x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&fax; echo $?
+[1] 30641
+zsh: permission denied: fax
+126
+```
+
+```sh
+$ open x-apple.systempreferences:com.apple.Print-Scan-Settings.extension; echo $?
+0
+```
+
 
 Integrate these URLs in to `Sources/BaseUtility/SystemSettings/macOS/SystemSettings+macOS.swift`
 
