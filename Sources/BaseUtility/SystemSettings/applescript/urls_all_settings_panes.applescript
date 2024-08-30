@@ -21,16 +21,18 @@ end mapPanes
 
 tell application "System Settings"
 	set AppleScript's text item delimiters to "
-"
-	set CurrentPane to the id of the current pane
-	display dialog "CurrentPane: " & (CurrentPane as string) & return
-
-	set AllPanes to get the name of every pane
-	display dialog "AllPanes: " & (AllPanes as string) & return
+"script
 
 
--- 	set CurrentAnchors to get the name of every anchor of pane id CurrentPane
--- 	display dialog "Current Pane ID: " & CurrentPane & return & return & "Pane ID has been copied to the clipboard." & return & return & "All Panes: " & return & (AllPanes as string)
+	-- set CurrentPane to the id of the current pane
+	-- display dialog "CurrentPane: " & (CurrentPane as string) & return
+
+	-- set AllPanes to get the name of every pane
+	-- display dialog "AllPanes: " & (AllPanes as string) & return
+
+
+	set CurrentAnchors to get the name of every anchor of pane id CurrentPane
+	display dialog "Current Pane ID: " & CurrentPane & return & return & "Pane ID has been copied to the clipboard." & return & return & "All Panes: " & return & (AllPanes as string)
 
 
 -- 	set AllPanes to my mapPanes("", AllPanes)
