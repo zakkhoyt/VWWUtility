@@ -3,18 +3,17 @@
 set indent to "  "
 set urlBase to "x-apple.systempreferences:"
 
+-- on mapListToOutline(prefix, listItems)
+-- 	set outlineList to {}
+-- 	repeat with i from 1 to count of listItems
+-- 		set anchor to item i of listItems
+-- 		set newAnchor to prefix & anchor & ""
+-- 		set end of outlineList to newAnchor
+-- 	end repeat
+-- 	return outlineList
+-- end mapListToOutline
 
-on mapListToOutline(prefix, listItems)
-	set outlineList to {}
-	repeat with i from 1 to count of listItems
-		set anchor to item i of listItems
-		set newAnchor to prefix & anchor & ""
-		set end of outlineList to newAnchor
-	end repeat
-	return outlineList
-end mapListToOutline
-
-on mapListToSwiftCases(enumName, linePrefix, urlPrefix, listItems)
+on mapListToSwiftEnums(enumName, linePrefix, urlPrefix, listItems)
 	set swiftCases to {}
 
 	-- TODO: zakkhoyt - CamelCase for enumName. Maybe we can use bash / Terminal?
@@ -26,14 +25,14 @@ on mapListToSwiftCases(enumName, linePrefix, urlPrefix, listItems)
 		set listItem to item i of listItems
 		set line10 to linePrefix & "/// Shell command: `open \"" & urlPrefix & "&" & listItem & "\"; echo $?`"
 		set line20 to linePrefix & "case " & listItem & " = " & "\"" & urlPrefix & "&" & listItem & "\""
-		
-		set swiftCase to line10 & "\n" & line20
+		set line30 to ""
+		set swiftCase to line10 & "\n" & line20 & "\n" & line30
 		set end of swiftCases to swiftCase
 	end repeat
 	set lineCaseEnd to linePrefix & "}"
 	set end of swiftCases to lineCaseEnd
 	return swiftCases
-end mapListToSwiftCases
+end mapListToSwiftEnums
 
 on mapListToShellCommands(enumName, linePrefix, urlPrefix, listItems)
 	set shellCommands to {}
@@ -49,6 +48,7 @@ on mapListToShellCommands(enumName, linePrefix, urlPrefix, listItems)
 end mapListToShellCommands
 
 tell application "System Settings"
+-- tell application "Simulator"
 	set AppleScript's text item delimiters to "
 "
 
@@ -69,15 +69,13 @@ tell application "System Settings"
 		log indent & "name: " & currentPaneName
 		log indent & "id: " & currentPaneID
 
-
-		set paneAnchors to get the name of every anchor of pane id currentPaneID
-		-- set paneAnchors to my mapListToSwiftCases(indent & indent, paneAnchors)
-		set prefix to indent & indent & urlBase & currentPaneID
-		-- on mapListToSwiftCases(linePrefix, urlPrefix, listItems)
-		-- set paneAnchors to my mapListToSwiftCases(currentPaneName, indent & indent, urlBase & currentPaneID, paneAnchors)
-		set paneAnchors to my mapListToShellCommands(currentPaneName, indent & indent, urlBase & currentPaneID, paneAnchors)
-		log indent & "paneAnchors: 
-" & paneAnchors
+		set anchorNames to get the name of every anchor of pane id currentPaneID
+		
+		set swiftEnums to my mapListToSwiftEnums(currentPaneName, indent & indent, urlBase & currentPaneID, anchorNames)
+		log indent & "swift enums: \n" & swiftEnums
+		
+		-- set shellCommands to my mapListToShellCommands(currentPaneName, indent & indent, urlBase & currentPaneID, anchorNames)
+		-- log indent & "shellCommands: \n" & shellCommands
 	end repeat
 
 end tell
