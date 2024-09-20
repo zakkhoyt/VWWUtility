@@ -281,6 +281,16 @@ extension URL {
         return URL(filePath: canonicalPath)
     }
     
+    public var preferCanonicalURL: URL {
+        // https://stackoverflow.com/a/40401137
+        guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+            return self
+        }
+        
+        return URL(filePath: canonicalPath)
+    }
+
+    
     #warning(
         """
         FIXME: zakkhoyt - new function, cleanURL
