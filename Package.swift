@@ -80,6 +80,9 @@ let package = Package(
             exclude: [
                 //                "SystemSettings/View/"
             ],
+            resources: [
+                .copy("Placeholder.txt")
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
