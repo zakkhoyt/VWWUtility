@@ -147,6 +147,8 @@ extension OSStatus {
             self.osStatus = osStatus
             
             #warning("TODO: zakkhoyt - Handle negative numbers differently")
+            #warning("TODO: zakkhoyt - DRY (String+FourCharCode.swift")
+            
             var unsignedStatus = UInt32(bitPattern: osStatus)
             self.bytes = withUnsafePointer(to: &unsignedStatus) {
                 let count = MemoryLayout<UInt32>.size / MemoryLayout<UInt8>.size

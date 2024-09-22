@@ -25,19 +25,6 @@ extension FourCharCode {
 }
 
 extension String {
-#warning("FIXME: zakkhoyt - Remove after testing new impl")
-//    var fourCharCode: FourCharCode? {
-//        guard self.count == 4 && self.utf8.count == 4 else {
-//            return nil
-//        }
-//        
-//        var code: FourCharCode = 0
-//        for character in self.utf8 {
-//            code = code << 8 + FourCharCode(character)
-//        }
-//        return code
-//    }
-
     /// Construct `CoreFoundation.FourCharCode` from a `String` of compatible value
     ///
     /// - Precondition: `self.count == 4`
@@ -58,36 +45,30 @@ extension String {
                 throw FourCharCode.Error.invalidCharacterTypes(self)
             }
             
-//            return self.utf8.reduce(into: 0) {
-//                $0 <<= 8 + FourCharCode($1)
-//            }
-            var code: FourCharCode = 0
-            for character in self.utf8 {
-                code = code << 8 + FourCharCode(character)
+            return self.utf8.reduce(into: 0) {
+                $0 = $0 << 8 + FourCharCode($1)
             }
-            return code
         }
     }
 }
 
 extension FourCharCode {
+#warning("FIXME: zakkhoyt - documntation")
     public var stringRepresentation: String {
         var unsignedStatus: UInt32 = self
-        let bytes: [UInt8] = withUnsafePointer(to: &unsignedStatus) {
+        return withUnsafePointer(to: &unsignedStatus) {
             let count = MemoryLayout<UInt32>.size / MemoryLayout<UInt8>.size
             let bytePtr = $0.withMemoryRebound(to: UInt8.self, capacity: count) {
                 UnsafeBufferPointer(start: $0, count: count)
             }
             return [UInt8](bytePtr).reversed()
         }
-        
-        let characters: [Character] = bytes.compactMap {
+        .compactMap {
             guard let scalar = Unicode.Scalar(UInt32($0)) else { return nil }
             return Character(scalar)
         }
-        
-        let string: String = characters.map { String($0) }.joined()
-        return string
+        .map { String($0) }
+        .joined()
     }
 }
 
