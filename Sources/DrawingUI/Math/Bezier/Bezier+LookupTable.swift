@@ -1,8 +1,8 @@
 //
-//  Bezier+LookupTable.swift
-//  Bezier+LookupTable
+// Bezier+LookupTable.swift
+// Bezier+LookupTable
 //
-//  Created by Zakk Hoyt on 9/8/21.
+// Created by Zakk Hoyt on 9/8/21.
 //
 
 import CoreGraphics

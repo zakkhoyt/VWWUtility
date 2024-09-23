@@ -1,8 +1,8 @@
 //
-//  Array+SafeIndex.swift
-//  Array+PascalTriangle
+// Array+SafeIndex.swift
+// Array+PascalTriangle
 //
-//  Created by Zakk Hoyt on 9/9/21.
+// Created by Zakk Hoyt on 9/9/21.
 //
 
 import Foundation

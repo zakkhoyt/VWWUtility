@@ -1,13 +1,13 @@
 //
-//  Bezier.swift
-//  Mathic
+// Bezier.swift
+// Mathic
 //
-//  Created by Zakk Hoyt on 5/22/20.
-//  Copyright © 2020 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 5/22/20.
+// Copyright © 2020 Zakk Hoyt. All rights reserved.
 //
-//  https://en.wikipedia.org/wiki/B%C3%A9zier_curve
-//  https://medium.com/@Acegikmo/the-ever-so-lovely-b%C3%A9zier-curve-eb27514da3bf
-//  UICubicTimingParameters
+// https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+// https://medium.com/@Acegikmo/the-ever-so-lovely-b%C3%A9zier-curve-eb27514da3bf
+// UICubicTimingParameters
 // @available(iOS 10.0, *)
 // open class UICubicTimingParameters : NSObject, UITimingCurveProvider {
 

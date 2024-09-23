@@ -1,7 +1,7 @@
 //
-//  PreliminaryWorkViewModifier.swift
+// PreliminaryWorkViewModifier.swift
 //
-//  Created by Zakk Hoyt on 5/6/24.
+// Created by Zakk Hoyt on 5/6/24.
 //
 
 import SwiftUI

@@ -1,8 +1,8 @@
 //
-//  HexString+Collections.swift
+// HexString+Collections.swift
 //
 //
-//  Created by Zakk Hoyt on 7/27/23.
+// Created by Zakk Hoyt on 7/27/23.
 //
 
 import Foundation

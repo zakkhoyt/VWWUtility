@@ -1,9 +1,9 @@
 //
-//  Mirror+Reflect_T.swift
-//  WaveSynthesizer-iOS
+// Mirror+Reflect_T.swift
+// WaveSynthesizer-iOS
 //
-//  Created by Zakk Hoyt on 6/22/19.
-//  Copyright © 2019 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 6/22/19.
+// Copyright © 2019 Zakk Hoyt. All rights reserved.
 //
 
 import Foundation

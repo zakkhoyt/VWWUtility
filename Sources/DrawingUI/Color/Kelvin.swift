@@ -1,11 +1,11 @@
 //
-//  Kelvin.swift
-//  Multislider
+// Kelvin.swift
+// Multislider
 //
-//  Created by Zakk Hoyt on 2/24/18.
-//  Copyright © 2018 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 2/24/18.
+// Copyright © 2018 Zakk Hoyt. All rights reserved.
 //
-//  https://gist.github.com/paulkaplan/5184275
+// https://gist.github.com/paulkaplan/5184275
 
 import CoreGraphics
 

@@ -1,8 +1,8 @@
 //
-//  Polynomial+Term.swift
-//  Bezier
+// Polynomial+Term.swift
+// Bezier
 //
-//  Created by Zakk Hoyt on 9/10/21.
+// Created by Zakk Hoyt on 9/10/21.
 //
 
 import CoreGraphics

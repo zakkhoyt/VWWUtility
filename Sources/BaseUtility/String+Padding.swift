@@ -1,7 +1,7 @@
 //
-//  String+Padding.swift
+// String+Padding.swift
 //
-//  Created by Zakk Hoyt on 1/31/24.
+// Created by Zakk Hoyt on 1/31/24.
 //
 
 import Foundation

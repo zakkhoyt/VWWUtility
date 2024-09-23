@@ -1,8 +1,8 @@
 //
-//  Line.swift
-//  Bezier
+// Line.swift
+// Bezier
 //
-//  Created by Zakk Hoyt on 9/6/21.
+// Created by Zakk Hoyt on 9/6/21.
 //
 
 import CoreGraphics

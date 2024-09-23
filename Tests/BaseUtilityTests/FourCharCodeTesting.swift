@@ -1,8 +1,8 @@
 //
-//  FourCharCodeTesting.swift
-//  VWWUtility
+// FourCharCodeTesting.swift
+// VWWUtility
 //
-//  Created by Zakk Hoyt on 2024-09-22.
+// Created by Zakk Hoyt on 2024-09-22.
 //
 @testable import BaseUtility
 import CoreFoundation

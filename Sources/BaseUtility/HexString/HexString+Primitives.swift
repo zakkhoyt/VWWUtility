@@ -1,9 +1,9 @@
 //
-//  HexString+Primitives.swift
-//  Nightlight
+// HexString+Primitives.swift
+// Nightlight
 //
-//  Created by Zakk Hoyt on 8/26/16.
-//  Copyright © 2016 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 8/26/16.
+// Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
 import Foundation
