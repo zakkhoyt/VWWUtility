@@ -6,12 +6,12 @@
 //
 
 import BaseUtility
-import XCTest
 import CoreMedia
+import XCTest
 
 final class FourCharCodeTests: XCTestCase {
     func testAVMediaType() throws {
-#warning("FIXME: zakkhoyt - implement this test")
+        #warning("FIXME: zakkhoyt - implement this test")
 //        let input = "aaac"
 //        let fourCharCode: FourCharCode = try input.fourCharCode
 //        let output = CMFormatDescription.MediaSubType(rawValue: fourCharCode)
@@ -19,7 +19,7 @@ final class FourCharCodeTests: XCTestCase {
     }
 
     func testCMFormatDescriptionMediaType() throws {
-#warning("FIXME: zakkhoyt - implement this test")
+        #warning("FIXME: zakkhoyt - implement this test")
 //        let input = "aaac"
 //        let fourCharCode: FourCharCode = try input.fourCharCode
 //        let output = CMFormatDescription.MediaSubType(rawValue: fourCharCode)

@@ -86,7 +86,6 @@ extension Mirror {
     public static func reflectPropertyDescriptions(
         of target: Any
     ) -> [String] {
-    
         logger.debug("MIRROR reflecting \(String(describing: target))")
         let children = Mirror(reflecting: target)
             .children
@@ -133,7 +132,6 @@ extension Mirror {
             logger.debug("MIRROR Did compute propertyDescription: \(propertyDescription)")
             return propertyDescription
         }
-        
         
         return propertyDescriptions
     }

@@ -290,7 +290,6 @@ extension URL {
         return URL(filePath: canonicalPath)
     }
 
-    
     #warning(
         """
         FIXME: zakkhoyt - new function, cleanURL
