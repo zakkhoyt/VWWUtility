@@ -261,8 +261,8 @@ extension URL {
         
         #warning(
             """
-            FIXME: zakkhoyt - Add step to unwind symbolic links. 
-            * EX: /var vs /private/var on iPhone 
+            FIXME: zakkhoyt - Add step to unwind symbolic links.
+            * EX: /var vs /private/var on iPhone
             * maybe canonicalURL includes?
             """
         )
