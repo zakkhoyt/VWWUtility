@@ -9,7 +9,7 @@ import BaseUtility
 import XCTest
 
 final class MiscTests: XCTestCase {
-#warning("FIXME: zakkhoyt - Failing. Do we need or care?")
+    #warning("FIXME: zakkhoyt - Failing. Do we need or care?")
 //    func testNilOptionalString() {
 //        let text: String? = nil
 //        let expected = "<n/a>"

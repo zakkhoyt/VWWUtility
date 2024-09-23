@@ -38,14 +38,14 @@ extension String {
     ///
     public var fourCharCode: FourCharCode {
         get throws {
-            guard self.count == 4 else {
+            guard count == 4 else {
                 throw FourCharCode.Error.invalidStringLength(self)
             }
-            guard self.utf8.count == 4 else {
+            guard utf8.count == 4 else {
                 throw FourCharCode.Error.invalidCharacterTypes(self)
             }
             
-            return self.utf8.reduce(into: 0) {
+            return utf8.reduce(into: 0) {
                 $0 = $0 << 8 + FourCharCode($1)
             }
         }
@@ -53,7 +53,7 @@ extension String {
 }
 
 extension FourCharCode {
-#warning("FIXME: zakkhoyt - documntation")
+    #warning("FIXME: zakkhoyt - documntation")
     public var stringRepresentation: String {
         var unsignedStatus: UInt32 = self
         return withUnsafePointer(to: &unsignedStatus) {
@@ -71,4 +71,3 @@ extension FourCharCode {
         .joined()
     }
 }
-
