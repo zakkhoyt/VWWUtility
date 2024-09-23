@@ -93,13 +93,20 @@ import Foundation
 //    /// )
 //    /// // |a|b|c|
 //    /// ```
-////    public func listDescription(
-////        separator: String = ", ",
-////        endcaps: (Character, Character) = ("[", "]")
-////    ) -> String {
-////        let insert = separator == "\n" ? "\n" : ""
-////        return "\(endcaps.0)\(insert)\(joined(separator: separator))\(insert)\(endcaps.1)"
-////    }
+// //
+//     public func listDescription(
+// //
+//         separator: String = ", ",
+// //
+//         endcaps: (Character, Character) = ("[", "]")
+// //
+//     ) -> String {
+// //
+//         let insert = separator == "\n" ? "\n" : ""
+// //
+//         return "\(endcaps.0)\(insert)\(joined(separator: separator))\(insert)\(endcaps.1)"
+// //
+//     }
 //
 //    /// Converts any `[String]` to a comma delimited list (`String` ).
 //    ///
@@ -175,21 +182,36 @@ import Foundation
 //
 //
 // extension [String: any CustomStringConvertible] {
-////    public var dictDescription: String {
-////        //        compactMapValues { $0 }
-////        compactMapValues {
-////            //guard let value = $0 else { return "<nil>" }
-////            return String(describing: $0)
-////        }
-////        .map {
-////            [
-////                $0.key, $0.value
-////            ].joined(separator: ": ")
-////        }
-////        .listDescription
-////        //        .sorted()
-////        //        .joined(separator: ", ")
-////    }
+// //
+//     public var dictDescription: String {
+// //
+//         //        compactMapValues { $0 }
+// //
+//         compactMapValues {
+// //
+//             //guard let value = $0 else { return "<nil>" }
+// //
+//             return String(describing: $0)
+// //
+//         }
+// //
+//         .map {
+// //
+//             [
+// //
+//                 $0.key, $0.value
+// //
+//             ].joined(separator: ": ")
+// //
+//         }
+// //
+//         .listDescription
+// //
+//         //        .sorted()
+// //
+//         //        .joined(separator: ", ")
+// //
+//     }
 //
 //
 //    /// Converts any `[String]` to a list by joining all `Element`s using `separator`
@@ -254,7 +276,8 @@ import Foundation
 //
 // extension [String: String?] {
 //    public var varDescription: String {
-////        compactMapValues { $0 }
+// //
+//         compactMapValues { $0 }
 //        compactMapValues {
 //            guard let value = $0 else { return "<nil>" }
 //            return value
@@ -269,34 +292,61 @@ import Foundation
 //    }
 // }
 //
-////// extension [String: String?] {
-//////    public var varDescription: String {
-//////        OrderedDictionary<String, String>(
-//////            self.compactMapValues { $0 }
-//////        ).map {
-//////            [
-//////                $0.key, $0.value
-//////            ].joined(separator: ": ")
-//////        }.joined(separator: ", ")
-//////    }
-////// }
+// //
+// // extension [String: String?] {
+// //
+// //    public var varDescription: String {
+// //
+// //        OrderedDictionary<String, String>(
+// //
+// //            self.compactMapValues { $0 }
+// //
+// //        ).map {
+// //
+// //            [
+// //
+// //                $0.key, $0.value
+// //
+// //            ].joined(separator: ": ")
+// //
+// //        }.joined(separator: ", ")
+// //
+// //    }
+// //
+// // }
 ////
-//////        let pairs: [String: String] = [
-//////            "address": address,
-//////            "class": String(describing: classForCoder),
-//////            "identifier": peripheral.identifier.uuidString,
-//////            "peripheralName": peripheral.name ?? "-",
-//////            "advertisedName": advertisedName ?? "-",
-//////            "state": peripheral.state.toString(),
-//////            "hash": "\(hash)",
-//////            "rssi": "\(rssi)"
-//////        ]
-//////
-//////        let str: String = pairs.keys.sorted().reduce(into: "") {
-//////            if let value = pairs[$1] {
-//////                $0 += "\($1): \(value)"
-//////            }
-//////        }
+// //
+// //        let pairs: [String: String] = [
+// //
+// //            "address": address,
+// //
+// //            "class": String(describing: classForCoder),
+// //
+// //            "identifier": peripheral.identifier.uuidString,
+// //
+// //            "peripheralName": peripheral.name ?? "-",
+// //
+// //            "advertisedName": advertisedName ?? "-",
+// //
+// //            "state": peripheral.state.toString(),
+// //
+// //            "hash": "\(hash)",
+// //
+// //            "rssi": "\(rssi)"
+// //
+// //        ]
+// //
+// //
+// //
+// //        let str: String = pairs.keys.sorted().reduce(into: "") {
+// //
+// //            if let value = pairs[$1] {
+// //
+// //                $0 += "\($1): \(value)"
+// //
+// //            }
+// //
+// //        }
 
 // MARK: - hatch Copy below
 
@@ -319,34 +369,60 @@ extension [String: String?] {
     }
 }
 
-//// extension [String: String?] {
-////    public var varDescription: String {
-////        OrderedDictionary<String, String>(
-////            self.compactMapValues { $0 }
-////        ).map {
-////            [
-////                $0.key, $0.value
-////            ].joined(separator: ": ")
-////        }.joined(separator: ", ")
-////    }
-//// }
+// //
+//  extension [String: String?] {
+// //
+//     public var varDescription: String {
+// //
+//         OrderedDictionary<String, String>(
+// //
+//             self.compactMapValues { $0 }
+// //
+//         ).map {
+// //
+//             [
+// //
+//                 $0.key, $0.value
+// //
+//             ].joined(separator: ": ")
+// //
+//         }.joined(separator: ", ")
+// //
+//     }
+// //
+//  }
 //
-////        let pairs: [String: String] = [
-////            "address": address,
-////            "class": String(describing: classForCoder),
-////            "identifier": peripheral.identifier.uuidString,
-////            "peripheralName": peripheral.name ?? "-",
-////            "advertisedName": advertisedName ?? "-",
-////            "state": peripheral.state.toString(),
-////            "hash": "\(hash)",
-////            "rssi": "\(rssi)"
-////        ]
+// //
+//         let pairs: [String: String] = [
+// //
+//             "address": address,
+// //
+//             "class": String(describing: classForCoder),
+// //
+//             "identifier": peripheral.identifier.uuidString,
+// //
+//             "peripheralName": peripheral.name ?? "-",
+// //
+//             "advertisedName": advertisedName ?? "-",
+// //
+//             "state": peripheral.state.toString(),
+// //
+//             "hash": "\(hash)",
+// //
+//             "rssi": "\(rssi)"
+// //
+//         ]
 ////
-////        let str: String = pairs.keys.sorted().reduce(into: "") {
-////            if let value = pairs[$1] {
-////                $0 += "\($1): \(value)"
-////            }
-////        }
+// //
+//         let str: String = pairs.keys.sorted().reduce(into: "") {
+// //
+//             if let value = pairs[$1] {
+// //
+//                 $0 += "\($1): \(value)"
+// //
+//             }
+// //
+//         }
 
 extension [any CustomStringConvertible] {
     /// Converts any `[String]` to a list by joining all `Element`s using `separator`

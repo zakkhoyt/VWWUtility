@@ -6,10 +6,12 @@
 
 import os
 
+// swiftlint:disable prefixed_toplevel_constant
 let logger = Logger(
     subsystem: "com.vaporwarewolf",
     category: "BaseUtility"
 )
+// swiftlint:enable prefixed_toplevel_constant
 
 enum LogHelper {
     static func callerData(

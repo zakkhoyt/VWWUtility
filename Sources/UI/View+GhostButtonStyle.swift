@@ -78,7 +78,10 @@ extension StrokeStyle {
     )
 }
 
-//// MARK: - Custom Button Style
+// //
+
+//  MARK: - Custom Button Style
+
 //
 // struct GhostButtonStyle: ButtonStyle {
 //    let cornerRadius: Double
