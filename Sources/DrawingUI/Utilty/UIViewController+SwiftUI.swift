@@ -1,8 +1,8 @@
 //
-//  UIViewController+SwiftUI.swift
-//  Bezier
+// UIViewController+SwiftUI.swift
+// Bezier
 //
-//  Created by Zakk Hoyt on 9/5/21.
+// Created by Zakk Hoyt on 9/5/21.
 //
 
 #if os(iOS)

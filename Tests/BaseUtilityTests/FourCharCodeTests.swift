@@ -1,8 +1,8 @@
 //
-//  FourCharCodeTests.swift
+// FourCharCodeTests.swift
 //
 //
-//  Created by Zakk Hoyt
+// Created by Zakk Hoyt
 //
 
 import BaseUtility

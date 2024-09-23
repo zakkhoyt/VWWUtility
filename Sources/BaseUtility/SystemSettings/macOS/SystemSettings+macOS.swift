@@ -1,11 +1,11 @@
 //
-//  SystemSettings+macOS.swift
-//  HotkeyDecorator
+// SystemSettings+macOS.swift
+// HotkeyDecorator
 //
-//  Created by Zakk Hoyt on 1/31/24.
+// Created by Zakk Hoyt on 1/31/24.
 //
-//  https://apple.stackexchange.com/a/372303/270042
-//  https://developer.apple.com/documentation/devicemanagement/systempreferences
+// https://apple.stackexchange.com/a/372303/270042
+// https://developer.apple.com/documentation/devicemanagement/systempreferences
 
 #if os(macOS)
 import AppKit

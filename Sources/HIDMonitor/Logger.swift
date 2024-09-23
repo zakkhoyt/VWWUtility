@@ -1,7 +1,7 @@
 //
-//  Logger.swift
+// Logger.swift
 //
-//  Created by Zakk Hoyt on 7/13/23.
+// Created by Zakk Hoyt on 7/13/23.
 //
 
 import os

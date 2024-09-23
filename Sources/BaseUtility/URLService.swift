@@ -1,9 +1,9 @@
 //
-//  URLService.swift
-//  BaseUtility
+// URLService.swift
+// BaseUtility
 //
-//  Created by Zakk Hoyt 2023
-//  Copyright © 2023 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt 2023
+// Copyright © 2023 Zakk Hoyt. All rights reserved.
 //
 
 import Foundation

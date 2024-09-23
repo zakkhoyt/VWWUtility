@@ -1,8 +1,8 @@
 //
-//  String+FourCharCode.swift
-//  VWWUtility
+// String+FourCharCode.swift
+// VWWUtility
 //
-//  Created by Zakk Hoyt on 2024-09-21.
+// Created by Zakk Hoyt on 2024-09-21.
 //
 
 import CoreFoundation

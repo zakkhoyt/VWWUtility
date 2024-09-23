@@ -1,7 +1,7 @@
 //
-//  CGRect+Helpers.swift
+// CGRect+Helpers.swift
 //
-//  Created by Zakk Hoyt on 7/21/23.
+// Created by Zakk Hoyt on 7/21/23.
 //
 
 import CoreGraphics

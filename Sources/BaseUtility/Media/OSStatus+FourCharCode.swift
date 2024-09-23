@@ -1,7 +1,7 @@
 //
-//  OSStatus+FourCharCode.swift
+// OSStatus+FourCharCode.swift
 //
-//  Created by Zakk Hoyt on 2/21/24.
+// Created by Zakk Hoyt on 2/21/24.
 //
 
 import Foundation

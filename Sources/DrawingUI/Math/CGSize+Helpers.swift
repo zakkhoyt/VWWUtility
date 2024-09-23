@@ -1,9 +1,9 @@
 //
-//  CGSize+Helpers.swift
-//  Sudoku-iOS
+// CGSize+Helpers.swift
+// Sudoku-iOS
 //
-//  Created by Zakk Hoyt on 5/22/22.
-//  Copyright © 2022 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 5/22/22.
+// Copyright © 2022 Zakk Hoyt. All rights reserved.
 //
 
 import CoreGraphics

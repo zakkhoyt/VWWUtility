@@ -1,8 +1,8 @@
 //
-//  Bundle+Version.swift
+// Bundle+Version.swift
 //
 //
-//  Created by Zakk Hoyt on 12/4/23.
+// Created by Zakk Hoyt on 12/4/23.
 //
 
 import Foundation

@@ -1,8 +1,8 @@
 //
-//  Polynomial.swift
-//  Polynomial
+// Polynomial.swift
+// Polynomial
 //
-//  Created by Zakk Hoyt on 9/8/21.
+// Created by Zakk Hoyt on 9/8/21.
 //
 
 import CoreGraphics
