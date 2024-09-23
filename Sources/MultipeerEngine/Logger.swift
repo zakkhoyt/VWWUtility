@@ -6,7 +6,9 @@
 
 import os.log
 
+// swiftlint:disable prefixed_toplevel_constant
 let logger = Logger(
     subsystem: "com.vaporwarewolf",
     category: "MultipeerEngine"
 )
+// swiftlint:enable prefixed_toplevel_constant

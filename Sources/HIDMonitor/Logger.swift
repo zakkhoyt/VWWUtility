@@ -6,7 +6,9 @@
 
 import os
 
+// swiftlint:disable prefixed_toplevel_constant
 let logger = Logger(
     subsystem: "com.vaporwarewolf",
     category: "HIDMonitor"
 )
+// swiftlint:enable prefixed_toplevel_constant
