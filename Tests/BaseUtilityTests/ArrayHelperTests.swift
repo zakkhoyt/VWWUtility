@@ -11,14 +11,15 @@ final class ArrayHelperTests: XCTestCase {
         let o: String? = nil
         
         let vd: [String: String?] = [
+//        let vd = [
             "a": a,
             "b": b,
             "c": c,
-//            "i": if let i { "\(i)" } else { nil },
-//            "oi": if let oi { "\(oi)" } else { nil },
+            "i": i.hexString,
+            "oi": oi?.hexString,
             "o": o
         ]
-        let d = vd.varDescription
+        let d: String = vd.compactMap { $1 }.listDescription()
         print(d)
         dump(d)
         print("")

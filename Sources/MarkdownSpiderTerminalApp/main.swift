@@ -25,14 +25,14 @@
 /// This script uses a 3rd party Swift Script tool called [swift-sh](https://github.com/mxcl/swift-sh)
 import ArgumentParser // git@github.com:apple/swift-argument-parser ~> 1.3
 import Foundation
-import BaseUtility // git@github.com:zakkhoyt/VWWUtility.git ~> main
-import HatchTerminalTools // ../../../HatchTerminal
+import BaseUtility // // ../../../VWWUtility
 import os
+import Z2kTerminal
 
 
 private let logger = os.Logger(
-    subsystem: "co.hatch",
-    category: "ascii_table"
+    subsystem: "co.vaporwarewolf",
+    category: "md_spider"
 )
 
 extension FixedWidthInteger {
@@ -172,9 +172,10 @@ enum OutputStyle: CustomStringConvertible {
     }
 }
 
+#warning("FIXME: zakkhoyt - Name collisiont for easyFileUrl. Z2kTerminal, BaseUtiils")
 extension URL {
     var canonicalURL: URL {
-        let url = URL.easyFileUrl(path: path)
+        let url = URL.expandedFileURL(path: path)
         guard let canonicalPath = (
             try? url.resourceValues(
                 forKeys: [.canonicalPathKey]
@@ -198,6 +199,55 @@ extension [URL] {
         }
     }
 }
+
+#warning("FIXME: zakkhoyt - This is sa copy of BaseUtility.easyFileURL (to temp avoid name collision in Z2kTerminal, BaseUtiils)")
+extension URL {
+    /// Returns a file URL from path of type tilde (home dir), absolute (path starts with /), relative (to current dir)
+    /// - Parameter path: The file path
+    public static func expandedFileURL(
+        path: String,
+        isDirectory: Bool = false
+    ) -> URL {
+        let betterURL: URL = {
+            if path.contains("~") {
+                let expandedPath = NSString(string: path).expandingTildeInPath
+                if #available(macOS 13.0, *) {
+                    return URL(
+                        filePath: expandedPath,
+                        directoryHint: URL.DirectoryHint.checkFileSystem,
+                        relativeTo: nil
+                    )
+                } else {
+                    return URL(
+                        fileURLWithPath: expandedPath,
+                        isDirectory: isDirectory
+                    )
+                }
+            } else if path.prefix(1) == "/" {
+                return URL(
+                    fileURLWithPath: path,
+                    isDirectory: isDirectory
+                )
+            } else {
+                return URL(
+                    fileURLWithPath: FileManager.default.currentDirectoryPath,
+                    isDirectory: isDirectory
+                ).appendingPathComponent(path)
+            }
+        }()
+        
+        // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
+        // https://stackoverflow.com/a/40401137
+        let url = URL(fileURLWithPath: betterURL.path())
+        guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+            return url
+        }
+        
+        return URL(filePath: canonicalPath)
+    }
+}
+
+
 
 class FileInspector {
     

@@ -63,6 +63,10 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            url: "git@github.com:zakkhoyt/Terminal.git",
+            branch: "main"
+        ),
+        .package(
             url: "https://github.com/apple/swift-argument-parser.git",
             from: "1.2.0"
         ),
@@ -120,10 +124,10 @@ let package = Package(
                 .target(
                     name: "BaseUtility"
                 ),
-//                .product(
-//                    name: "BaseUtility",
-//                    package: "VWWUtility"
-//                ),
+                .product(
+                    name: "Z2kTerminal",
+                    package: "Terminal"
+                ),
                 .product(
                     name: "ArgumentParser",
                     package: "swift-argument-parser"

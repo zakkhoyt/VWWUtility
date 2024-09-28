@@ -54,7 +54,7 @@ extension [any CustomStringConvertible] {
     }
 }
 
-extension [String: (any CustomStringConvertible)?] {
+extension [String: any CustomStringConvertible] {
     /// Converts any `[String: any CustomStringConvertible]` to a list by joining all `Key` & `Value` to `[String]`
     /// then joining that array and finally wrapping in encaps.
     ///
