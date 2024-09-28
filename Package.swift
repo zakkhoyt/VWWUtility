@@ -53,6 +53,10 @@ let package = Package(
             targets: ["Nodes"]
         ),
         .library(
+            name: "ShellTools",
+            targets: ["ShellTools"]
+        ),
+        .library(
             name: "TerminalUtility",
             targets: ["TerminalUtility"]
         ),
@@ -196,6 +200,14 @@ let package = Package(
                     package: "swift-argument-parser"
                 )
             ],
+            swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "ShellTools",
+            dependencies: [],
+            exclude: [
+            ],
+            resources: [],
             swiftSettings: swiftSettings
         ),
         .target(
