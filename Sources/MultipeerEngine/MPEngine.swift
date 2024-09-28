@@ -49,7 +49,7 @@ public final class MPEngine: NSObject, Sendable {
             [
                 "id": id,
                 "name": name
-            ].listDescription()
+            ].varDescription
         }
         
         public static func == (
@@ -80,7 +80,7 @@ public final class MPEngine: NSObject, Sendable {
                 "id": id.uuidString,
                 "text": text,
                 "date": date.string(formatProvider: DateFormat.accurate)
-            ].listDescription()
+            ].varDescription
         }
         
         public static func == (

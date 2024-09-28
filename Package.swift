@@ -39,11 +39,6 @@ let package = Package(
             name: "HIDMonitor",
             targets: ["HIDMonitor"]
         ),
-        // This gives the exectableTarget (MarkdownSpider) a different name (echo_swift) on the command line
-        .executable(
-            name: "md_spider",
-            targets: ["MarkdownSpiderTerminalApp"]
-        ),
         .library(
             name: "MultipeerEngine",
             targets: ["MultipeerEngine"]
@@ -62,10 +57,6 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(
-            url: "git@github.com:zakkhoyt/Terminal.git",
-            branch: "main"
-        ),
         .package(
             url: "https://github.com/apple/swift-argument-parser.git",
             from: "1.2.0"
@@ -116,23 +107,6 @@ let package = Package(
             ],
             swiftSettings: swiftSettings,
             plugins: []
-        ),
-        .executableTarget(
-            name: "MarkdownSpiderTerminalApp",
-            
-            dependencies: [
-                .target(
-                    name: "BaseUtility"
-                ),
-                .product(
-                    name: "Z2kTerminal",
-                    package: "Terminal"
-                ),
-                .product(
-                    name: "ArgumentParser",
-                    package: "swift-argument-parser"
-                )
-            ]
         ),
         .target(
             name: "MultipeerEngine",

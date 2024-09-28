@@ -7,7 +7,6 @@
 //
 
 import Foundation
-#warning("FIXME: zakkhoyt - organize this type of file")
 
 extension Bool {
     public var boolString: String {
@@ -39,15 +38,11 @@ extension FixedWidthInteger {
             $0.append(padding + byteString)
         }.reversed().joined(separator: "")
     }
-    
-    /// Converts to a `String` representing `self` in base 10 (decimal) notation
-    ///
-    /// ## Example
-    /// `UInt8(128)` -> `"128"`
-    public var base10String: String {
-        "\(self)"
-    }
-    
+}
+
+extension BinaryInteger {}
+
+extension FixedWidthInteger {
     public var hexString: String {
         let hexString = String(self, radix: 16)
         return "0x" + (0..<Swift.max(0, MemoryLayout<Self>.size * 2 - hexString.count))
