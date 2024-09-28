@@ -1,7 +1,7 @@
 {
   "configurations": [
     {
-      "type": "swift-lldb",
+      "type": "lldb",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -13,7 +13,7 @@
       "preLaunchTask": "swift: Build Debug NodesTerminalApp"
     },
     {
-      "type": "swift-lldb",
+      "type": "lldb",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -25,7 +25,7 @@
       "preLaunchTask": "swift: Build Release NodesTerminalApp"
     },
     {
-      "type": "swift-lldb",
+      "type": "lldb",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -37,7 +37,7 @@
       "preLaunchTask": "swift: Build Debug VWWUtilityTerminalApp"
     },
     {
-      "type": "swift-lldb",
+      "type": "lldb",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -49,7 +49,7 @@
       "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp"
     },
     {
-      "type": "swift-lldb",
+      "type": "lldb",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -68,7 +68,7 @@
       "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp"
     },
     {
-      "type": "swift-lldb",
+      "type": "lldb",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -78,24 +78,6 @@
       "name": "Release MultipeerEngineTerminalApp",
       "program": "${workspaceFolder:VWWUtility}/.build/release/MultipeerEngineTerminalApp",
       "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp"
-    },
-    {
-      "type": "swift-lldb",
-      "request": "launch",
-      "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
-      "name": "Debug md_spider",
-      "program": "${workspaceFolder:VWWUtility}/.build/debug/md_spider",
-      "preLaunchTask": "swift: Build Debug md_spider"
-    },
-    {
-      "type": "swift-lldb",
-      "request": "launch",
-      "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
-      "name": "Release md_spider",
-      "program": "${workspaceFolder:VWWUtility}/.build/release/md_spider",
-      "preLaunchTask": "swift: Build Release md_spider"
     }
   ]
 }

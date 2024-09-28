@@ -61,9 +61,7 @@ extension MPEngine {
                         }
                     }(),
                     "response": response.description
-                ]
-                    .compactMapValues { $0 }
-                    .listDescription()
+                ].varDescription
             }
             
             public static func == (
