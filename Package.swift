@@ -39,6 +39,11 @@ let package = Package(
             name: "HIDMonitor",
             targets: ["HIDMonitor"]
         ),
+        // This gives the exectableTarget (MarkdownSpider) a different name (echo_swift) on the command line
+        .executable(
+            name: "md_spider",
+            targets: ["MarkdownSpiderTerminalApp"]
+        ),
         .library(
             name: "MultipeerEngine",
             targets: ["MultipeerEngine"]
@@ -107,6 +112,23 @@ let package = Package(
             ],
             swiftSettings: swiftSettings,
             plugins: []
+        ),
+        .executableTarget(
+            name: "MarkdownSpiderTerminalApp",
+            
+            dependencies: [
+                .target(
+                    name: "BaseUtility"
+                ),
+//                .product(
+//                    name: "BaseUtility",
+//                    package: "VWWUtility"
+//                ),
+                .product(
+                    name: "ArgumentParser",
+                    package: "swift-argument-parser"
+                )
+            ]
         ),
         .target(
             name: "MultipeerEngine",
