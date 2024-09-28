@@ -61,9 +61,7 @@ extension MPEngine {
                     "peerID": peerID.displayName,
                     "id": id.uuidString,
                     "discoveryInfo": discoveryInfo?.description
-                ]
-                    .compactMapValues { $0 }
-                    .listDescription()
+                ].varDescription
             }
             
             public static func == (
