@@ -251,6 +251,26 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BaseUtilityIntegrationTests"
+               BuildableName = "BaseUtilityIntegrationTests"
+               BlueprintName = "BaseUtilityIntegrationTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BaseUtilityUnitTests"
+               BuildableName = "BaseUtilityUnitTests"
+               BlueprintName = "BaseUtilityUnitTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
