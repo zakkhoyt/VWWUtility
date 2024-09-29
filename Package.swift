@@ -84,7 +84,12 @@ let package = Package(
             plugins: []
         ),
         .testTarget(
-            name: "BaseUtilityTests",
+            name: "BaseUtilityUnitTests",
+            dependencies: ["BaseUtility"],
+            swiftSettings: swiftSettings
+        ),
+        .testTarget(
+            name: "BaseUtilityIntegrationTests",
             dependencies: ["BaseUtility"],
             swiftSettings: swiftSettings
         ),

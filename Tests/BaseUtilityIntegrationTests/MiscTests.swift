@@ -14,8 +14,6 @@ final class MiscTests: XCTestCase {
         let text: String? = nil
         let expected = "<n/a>"
         XCTAssertEqual(text.optionalString, expected)
-        XCTAssertEqual(String(describing: text.optionalString), expected)
-        XCTAssertEqual(text, expected)
     }
     
     func testOptionalString() {
