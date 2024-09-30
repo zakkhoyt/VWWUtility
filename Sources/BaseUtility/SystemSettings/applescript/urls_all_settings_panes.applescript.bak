@@ -1,4 +1,5 @@
 #!/usr/bin/osascript
+
 on mapAnchors(prefix, anchors)
 	set newList to {}
 	repeat with i from 1 to count of anchors

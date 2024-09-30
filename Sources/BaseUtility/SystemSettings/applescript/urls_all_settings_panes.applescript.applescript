@@ -52,49 +52,20 @@ tell application "System Settings"
 	set AppleScript's text item delimiters to "
 "
 
-	-- set allPanesIDs to get the id of every pane
-	-- log "allPanesIDs: \n" & (allPanesIDs as string)
-	-- set allPanesNames to get the name of every pane
-	-- log "allPanesNames: \n" & (allPanesNames as string)
+	set allPanesIDs to get the id of every pane
+	log "allPanesIDs: \n" & (allPanesIDs as string)
+	set allPanesNames to get the name of every pane
+	log "allPanesNames: \n" & (allPanesNames as string)
 
-	-- log " ---- Feching properties of every pane"
-	-- set allPanesProperties to get the properties of every pane
-	-- repeat with i from 1 to count of allPanesProperties
-	-- 	-- log "[" & i & "]"
+	log " ---- Feching properties of every pane"
+	set allPanesProperties to get the properties of every pane
+	repeat with i from 1 to count of allPanesProperties
+		-- log "[" & i & "]"
 		
-	-- 	set currentPane to item i of allPanesProperties
-	-- 	set currentPaneName to the name of currentPane
-	-- 	set currentPaneID to the id of currentPane
-	-- 	log "panes[" & i & "]"
-	-- 	log indent & "name: " & currentPaneName
-	-- 	log indent & "id: " & currentPaneID
-
-	-- 	set anchorNames to get the name of every anchor of pane id currentPaneID
-		
-	-- 	set swiftEnums to my mapListToSwiftEnums(currentPaneName, indent & indent, urlBase & currentPaneID, anchorNames)
-	-- 	log indent & "swift enums: \n" & swiftEnums
-		
-	-- 	-- set shellCommands to my mapListToShellCommands(currentPaneName, indent & indent, urlBase & currentPaneID, anchorNames)
-	-- 	-- log indent & "shellCommands: \n" & shellCommands
-	-- end repeat
-
-
-	-- set allPanesIDs to get the id of every pane
-	-- log "allPanesIDs: \n" & (allPanesIDs as string)
-	-- set allPanesNames to get the name of every pane
-	-- log "allPanesNames: \n" & (allPanesNames as string)
-
-	-- log " ---- Feching properties of every pane"
-	-- set allPanesProperties to get the properties of every pane
-	-- repeat with i from 1 to count of allPanesProperties
-	-- 	-- log "[" & i & "]"
-		
-		-- set currentPane to item i of allPanesProperties
-		set currentPane to the current pane
+		set currentPane to item i of allPanesProperties
 		set currentPaneName to the name of currentPane
 		set currentPaneID to the id of currentPane
-		-- log "panes[" & i & "]"
-		log "currentPane"
+		log "panes[" & i & "]"
 		log indent & "name: " & currentPaneName
 		log indent & "id: " & currentPaneID
 
@@ -105,6 +76,6 @@ tell application "System Settings"
 		
 		-- set shellCommands to my mapListToShellCommands(currentPaneName, indent & indent, urlBase & currentPaneID, anchorNames)
 		-- log indent & "shellCommands: \n" & shellCommands
-	-- end repeat
+	end repeat
 
 end tell
