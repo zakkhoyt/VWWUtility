@@ -11,7 +11,7 @@ import Foundation
 extension Mirror {
     
 #warning("TODO: zakkhoyt - Try using generic '<S: StringProtocol>")
-    @inlinable public init?<S>(_ text: S, radix: Int = 10) where S : StringProtocol
+    //@inlinable public init?<S>(_ text: S, radix: Int = 10) where S : StringProtocol
     /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
     /// - Parameters:
     ///   - target: The instance to inspect/reflect.
