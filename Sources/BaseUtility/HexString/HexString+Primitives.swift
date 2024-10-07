@@ -43,6 +43,10 @@ extension FixedWidthInteger {
 extension BinaryInteger {}
 
 extension FixedWidthInteger {
+    public var base10String: String {
+        "\(self)"
+    }
+    
     public var hexString: String {
         let hexString = String(self, radix: 16)
         return "0x" + (0..<Swift.max(0, MemoryLayout<Self>.size * 2 - hexString.count))
