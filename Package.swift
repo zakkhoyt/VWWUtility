@@ -4,13 +4,13 @@
 import PackageDescription
 
 let swiftSettings: [SwiftSetting] = [
-    .enableUpcomingFeature("BareSlashRegexLiterals"),
-    .enableUpcomingFeature("ConciseMagicFile"),
-    .enableUpcomingFeature("ExistentialAny"),
-    .enableUpcomingFeature("ForwardTrailingClosures"),
-    .enableUpcomingFeature("ImplicitOpenExistentials"),
-    .enableUpcomingFeature("StrictConcurrency"),
-    .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"])
+//    .enableUpcomingFeature("BareSlashRegexLiterals"),
+//    .enableUpcomingFeature("ConciseMagicFile"),
+//    .enableUpcomingFeature("ExistentialAny"),
+//    .enableUpcomingFeature("ForwardTrailingClosures"),
+//    .enableUpcomingFeature("ImplicitOpenExistentials"),
+//    .enableUpcomingFeature("StrictConcurrency"),
+//    .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"])
 ]
 
 #warning("TODO: @zakkhoyt - Update iOS/MacOS")
