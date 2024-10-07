@@ -6,7 +6,7 @@
 
 import Foundation
 
-extension DecodingError: CustomDebugStringConvertible {
+extension DecodingError: @retroactive CustomDebugStringConvertible {
     /// Returns a `String` describing why the `DecodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var debugDescription: String {
@@ -54,7 +54,7 @@ extension DecodingError: CustomDebugStringConvertible {
     }
 }
 
-extension EncodingError: CustomDebugStringConvertible {
+extension EncodingError: @retroactive CustomDebugStringConvertible {
     /// Returns a `String` describing why the `EncodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var debugDescription: String {
