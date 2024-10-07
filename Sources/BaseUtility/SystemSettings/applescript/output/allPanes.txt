@@ -1,0 +1,1967 @@
+allPanesIDs: 
+com.apple.Battery-Settings.extension*BatteryPreferences
+com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs
+com.apple.Siri-Settings.extension*siri-sae
+com.apple.Trackpad-Settings.extension
+com.apple.Wallpaper-Settings.extension
+com.apple.wifi-settings-extension
+com.apple.Spotlight-Settings.extension
+com.apple.Displays-Settings.extension
+com.apple.Print-Scan-Settings.extension
+com.apple.systempreferences.GeneralSettings
+com.apple.SystemProfiler.AboutExtension
+com.apple.Software-Update-Settings.extension
+com.apple.settings.Storage
+com.apple.AirDrop-Handoff-Settings.extension
+com.apple.LoginItems-Settings.extension
+com.apple.Coverage-Settings.extension
+com.apple.Localization-Settings.extension
+com.apple.Date-Time-Settings.extension
+com.apple.Sharing-Settings.extension
+com.apple.Time-Machine-Settings.extension
+com.apple.Transfer-Reset-Settings.extension
+com.apple.Startup-Disk-Settings.extension
+com.apple.Profiles-Settings.extension
+com.apple.Accessibility-Settings.extension
+com.apple.Notifications-Settings.extension
+com.apple.Network-Settings.extension
+com.apple.Sound-Settings.extension
+com.apple.Desktop-Settings.extension
+com.apple.Game-Center-Settings.extension
+com.apple.Users-Groups-Settings.extension
+com.apple.Internet-Accounts-Settings.extension
+com.apple.settings.PrivacySecurity.extension
+com.apple.Appearance-Settings.extension
+com.apple.Keyboard-Settings.extension
+com.apple.Screen-Time-Settings.extension
+com.apple.ScreenSaver-Settings.extension
+com.apple.ControlCenter-Settings.extension
+com.apple.BluetoothSettings
+com.apple.Lock-Screen-Settings.extension
+com.apple.Focus-Settings.extension
+com.apple.WalletSettingsExtension
+com.apple.Game-Controller-Settings.extension
+com.apple.systempreferences.AppleIDSettings:icloud
+com.apple.systempreferences.AppleIDSettings*AppleIDSettings
+com.apple.Family-Settings.extension*Family
+com.apple.Network-Link-Conditioner
+allPanesNames: 
+Battery
+Touch ID & Password
+Apple Intelligence & Siri
+Trackpad
+Wallpaper
+Wi‑Fi
+Spotlight
+Displays
+Printers & Scanners
+General
+About
+Software Update
+Storage
+AirDrop & Handoff
+Login Items & Extensions
+AppleCare & Warranty
+Language & Region
+Date & Time
+Sharing
+Time Machine
+Transfer or Reset
+Startup Disk
+Device Management
+Keyboard
+Notifications
+Network
+Sound
+Desktop & Dock
+Game Center
+Users & Groups
+Internet Accounts
+Privacy & Security
+Appearance
+Keyboard
+Screen Time
+Screen Saver
+Control Center
+Bluetooth
+Lock Screen
+Focus
+Wallet & Apple Pay
+Game Controllers
+iCloud
+Zakk Hoyt
+Family
+Network Link Conditioner
+ ---- Feching properties of every pane
+panes[1]
+  name: Battery
+  id: com.apple.Battery-Settings.extension*BatteryPreferences
+  swift enums: 
+    enum Battery: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Battery-Settings.extension*BatteryPreferences&batteryhealth"; echo $?`
+    case batteryhealth = "x-apple.systempreferences:com.apple.Battery-Settings.extension*BatteryPreferences&batteryhealth"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Battery-Settings.extension*BatteryPreferences&currentSource"; echo $?`
+    case currentSource = "x-apple.systempreferences:com.apple.Battery-Settings.extension*BatteryPreferences&currentSource"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Battery-Settings.extension*BatteryPreferences&options"; echo $?`
+    case options = "x-apple.systempreferences:com.apple.Battery-Settings.extension*BatteryPreferences&options"
+
+    }
+panes[2]
+  name: Touch ID & Password
+  id: com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs
+  swift enums: 
+    enum Touch ID & Password: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs&Password"; echo $?`
+    case Password = "x-apple.systempreferences:com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs&Password"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs&TouchID"; echo $?`
+    case TouchID = "x-apple.systempreferences:com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs&TouchID"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs&Watch"; echo $?`
+    case Watch = "x-apple.systempreferences:com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs&Watch"
+
+    }
+panes[3]
+  name: Apple Intelligence & Siri
+  id: com.apple.Siri-Settings.extension*siri-sae
+  swift enums: 
+    enum Apple Intelligence & Siri: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&Siri"; echo $?`
+    case Siri = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&Siri"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&privacy"; echo $?`
+    case privacy = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&privacy"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&searchResults"; echo $?`
+    case searchResults = "x-apple.systempreferences:com.apple.Siri-Settings.extension*siri-sae&searchResults"
+
+    }
+panes[4]
+  name: Trackpad
+  id: com.apple.Trackpad-Settings.extension
+  swift enums: 
+    enum Trackpad: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Trackpad-Settings.extension&trackpadTab"; echo $?`
+    case trackpadTab = "x-apple.systempreferences:com.apple.Trackpad-Settings.extension&trackpadTab"
+
+    }
+panes[5]
+  name: Wallpaper
+  id: com.apple.Wallpaper-Settings.extension
+  swift enums: 
+    enum Wallpaper: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Wallpaper-Settings.extension&Wallpaper"; echo $?`
+    case Wallpaper = "x-apple.systempreferences:com.apple.Wallpaper-Settings.extension&Wallpaper"
+
+    }
+panes[6]
+  name: Wi‑Fi
+  id: com.apple.wifi-settings-extension
+  swift enums: 
+    enum Wi‑Fi: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.wifi-settings-extension&Advanced"; echo $?`
+    case Advanced = "x-apple.systempreferences:com.apple.wifi-settings-extension&Advanced"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.wifi-settings-extension&General_Details"; echo $?`
+    case General_Details = "x-apple.systempreferences:com.apple.wifi-settings-extension&General_Details"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.wifi-settings-extension&General_Join"; echo $?`
+    case General_Join = "x-apple.systempreferences:com.apple.wifi-settings-extension&General_Join"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.wifi-settings-extension&General_Main"; echo $?`
+    case General_Main = "x-apple.systempreferences:com.apple.wifi-settings-extension&General_Main"
+
+    }
+panes[7]
+  name: Spotlight
+  id: com.apple.Spotlight-Settings.extension
+  swift enums: 
+    enum Spotlight: String {
+    }
+panes[8]
+  name: Displays
+  id: com.apple.Displays-Settings.extension
+  swift enums: 
+    enum Displays: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&advancedSection"; echo $?`
+    case advancedSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&advancedSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&ambienceSection"; echo $?`
+    case ambienceSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&ambienceSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&arrangementSection"; echo $?`
+    case arrangementSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&arrangementSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&characteristicSection"; echo $?`
+    case characteristicSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&characteristicSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&displaysSection"; echo $?`
+    case displaysSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&displaysSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&miscellaneousSection"; echo $?`
+    case miscellaneousSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&miscellaneousSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&nightShiftSection"; echo $?`
+    case nightShiftSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&nightShiftSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&profileSection"; echo $?`
+    case profileSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&profileSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&resolutionSection"; echo $?`
+    case resolutionSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&resolutionSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Displays-Settings.extension&sidecarSection"; echo $?`
+    case sidecarSection = "x-apple.systempreferences:com.apple.Displays-Settings.extension&sidecarSection"
+
+    }
+panes[9]
+  name: Printers & Scanners
+  id: com.apple.Print-Scan-Settings.extension
+  swift enums: 
+    enum Printers & Scanners: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&fax"; echo $?`
+    case fax = "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&fax"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&print"; echo $?`
+    case print = "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&print"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&scan"; echo $?`
+    case scan = "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&scan"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&share"; echo $?`
+    case share = "x-apple.systempreferences:com.apple.Print-Scan-Settings.extension&share"
+
+    }
+panes[10]
+  name: General
+  id: com.apple.systempreferences.GeneralSettings
+  swift enums: 
+    enum General: String {
+    }
+panes[11]
+  name: About
+  id: com.apple.SystemProfiler.AboutExtension
+  swift enums: 
+    enum About: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&aboutSection"; echo $?`
+    case aboutSection = "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&aboutSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&generalSection"; echo $?`
+    case generalSection = "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&generalSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&legalSection"; echo $?`
+    case legalSection = "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&legalSection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&softwareSection"; echo $?`
+    case softwareSection = "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension&softwareSection"
+
+    }
+panes[12]
+  name: Software Update
+  id: com.apple.Software-Update-Settings.extension
+  swift enums: 
+    enum Software Update: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Software-Update-Settings.extension&SoftwareUpdate"; echo $?`
+    case SoftwareUpdate = "x-apple.systempreferences:com.apple.Software-Update-Settings.extension&SoftwareUpdate"
+
+    }
+panes[13]
+  name: Storage
+  id: com.apple.settings.Storage
+  swift enums: 
+    enum Storage: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.Storage&storagePref"; echo $?`
+    case storagePref = "x-apple.systempreferences:com.apple.settings.Storage&storagePref"
+
+    }
+panes[14]
+  name: AirDrop & Handoff
+  id: com.apple.AirDrop-Handoff-Settings.extension
+  swift enums: 
+    enum AirDrop & Handoff: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.AirDrop-Handoff-Settings.extension&AirDrop_Handoff"; echo $?`
+    case AirDrop_Handoff = "x-apple.systempreferences:com.apple.AirDrop-Handoff-Settings.extension&AirDrop_Handoff"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.AirDrop-Handoff-Settings.extension&AirPlay_Receiver"; echo $?`
+    case AirPlay_Receiver = "x-apple.systempreferences:com.apple.AirDrop-Handoff-Settings.extension&AirPlay_Receiver"
+
+    }
+panes[15]
+  name: Login Items & Extensions
+  id: com.apple.LoginItems-Settings.extension
+  swift enums: 
+    enum Login Items & Extensions: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.LoginItems-Settings.extension&ExtensionItems"; echo $?`
+    case ExtensionItems = "x-apple.systempreferences:com.apple.LoginItems-Settings.extension&ExtensionItems"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.LoginItems-Settings.extension&startupItemsPref"; echo $?`
+    case startupItemsPref = "x-apple.systempreferences:com.apple.LoginItems-Settings.extension&startupItemsPref"
+
+    }
+panes[16]
+  name: AppleCare & Warranty
+  id: com.apple.Coverage-Settings.extension
+  swift enums: 
+    enum AppleCare & Warranty: String {
+    }
+panes[17]
+  name: Language & Region
+  id: com.apple.Localization-Settings.extension
+  swift enums: 
+    enum Language & Region: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Localization-Settings.extension&Language"; echo $?`
+    case Language = "x-apple.systempreferences:com.apple.Localization-Settings.extension&Language"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Localization-Settings.extension&Region"; echo $?`
+    case Region = "x-apple.systempreferences:com.apple.Localization-Settings.extension&Region"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Localization-Settings.extension&translation"; echo $?`
+    case translation = "x-apple.systempreferences:com.apple.Localization-Settings.extension&translation"
+
+    }
+panes[18]
+  name: Date & Time
+  id: com.apple.Date-Time-Settings.extension
+  swift enums: 
+    enum Date & Time: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Date-Time-Settings.extension&24HourTime"; echo $?`
+    case 24HourTime = "x-apple.systempreferences:com.apple.Date-Time-Settings.extension&24HourTime"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Date-Time-Settings.extension&DateTimePref"; echo $?`
+    case DateTimePref = "x-apple.systempreferences:com.apple.Date-Time-Settings.extension&DateTimePref"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Date-Time-Settings.extension&TimeZonePref"; echo $?`
+    case TimeZonePref = "x-apple.systempreferences:com.apple.Date-Time-Settings.extension&TimeZonePref"
+
+    }
+panes[19]
+  name: Sharing
+  id: com.apple.Sharing-Settings.extension
+  swift enums: 
+    enum Sharing: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Hostname"; echo $?`
+    case Hostname = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Hostname"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Internet"; echo $?`
+    case Internet = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Internet"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_ARDService"; echo $?`
+    case Services_ARDService = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_ARDService"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_BluetoothSharing"; echo $?`
+    case Services_BluetoothSharing = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_BluetoothSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_ContentCaching"; echo $?`
+    case Services_ContentCaching = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_ContentCaching"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_MediaSharing"; echo $?`
+    case Services_MediaSharing = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_MediaSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_PersonalFileSharing"; echo $?`
+    case Services_PersonalFileSharing = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_PersonalFileSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_PrinterSharing"; echo $?`
+    case Services_PrinterSharing = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_PrinterSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_RemoteAppleEvent"; echo $?`
+    case Services_RemoteAppleEvent = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_RemoteAppleEvent"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_RemoteLogin"; echo $?`
+    case Services_RemoteLogin = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_RemoteLogin"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_ScreenSharing"; echo $?`
+    case Services_ScreenSharing = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_ScreenSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_WindowsSharing"; echo $?`
+    case Services_WindowsSharing = "x-apple.systempreferences:com.apple.Sharing-Settings.extension&Services_WindowsSharing"
+
+    }
+panes[20]
+  name: Time Machine
+  id: com.apple.Time-Machine-Settings.extension
+  swift enums: 
+    enum Time Machine: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Time-Machine-Settings.extension&main"; echo $?`
+    case main = "x-apple.systempreferences:com.apple.Time-Machine-Settings.extension&main"
+
+    }
+panes[21]
+  name: Transfer or Reset
+  id: com.apple.Transfer-Reset-Settings.extension
+  swift enums: 
+    enum Transfer or Reset: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Transfer-Reset-Settings.extension&primary"; echo $?`
+    case primary = "x-apple.systempreferences:com.apple.Transfer-Reset-Settings.extension&primary"
+
+    }
+panes[22]
+  name: Startup Disk
+  id: com.apple.Startup-Disk-Settings.extension
+  swift enums: 
+    enum Startup Disk: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Startup-Disk-Settings.extension&StartupSearchGroup"; echo $?`
+    case StartupSearchGroup = "x-apple.systempreferences:com.apple.Startup-Disk-Settings.extension&StartupSearchGroup"
+
+    }
+panes[23]
+  name: Device Management
+  id: com.apple.Profiles-Settings.extension
+  swift enums: 
+    enum Device Management: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Profiles-Settings.extension&Main"; echo $?`
+    case Main = "x-apple.systempreferences:com.apple.Profiles-Settings.extension&Main"
+
+    }
+panes[24]
+  name: Keyboard
+  id: com.apple.Accessibility-Settings.extension
+  swift enums: 
+    enum Keyboard: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ALT_MOUSE_BUTTONS"; echo $?`
+    case AX_ALT_MOUSE_BUTTONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ALT_MOUSE_BUTTONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ALT_MOUSE_ENABLE_SOUNDS"; echo $?`
+    case AX_ALT_MOUSE_ENABLE_SOUNDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ALT_MOUSE_ENABLE_SOUNDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ALT_MOUSE_ENABLE_VISUALS"; echo $?`
+    case AX_ALT_MOUSE_ENABLE_VISUALS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ALT_MOUSE_ENABLE_VISUALS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ANIMATED_IMAGES"; echo $?`
+    case AX_ANIMATED_IMAGES = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ANIMATED_IMAGES"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BACKGROUND_SOUNDS"; echo $?`
+    case AX_BACKGROUND_SOUNDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BACKGROUND_SOUNDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BACKGROUND_SOUNDS_LOCK_SCREEN"; echo $?`
+    case AX_BACKGROUND_SOUNDS_LOCK_SCREEN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BACKGROUND_SOUNDS_LOCK_SCREEN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BACKGROUND_SOUNDS_VOLUME"; echo $?`
+    case AX_BACKGROUND_SOUNDS_VOLUME = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BACKGROUND_SOUNDS_VOLUME"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BG_SOUND_SELECT_HEADER"; echo $?`
+    case AX_BG_SOUND_SELECT_HEADER = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_BG_SOUND_SELECT_HEADER"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_CAPTIONING_PREFER_SDH"; echo $?`
+    case AX_CAPTIONING_PREFER_SDH = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_CAPTIONING_PREFER_SDH"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_CONFIGURE_CAMERA"; echo $?`
+    case AX_CONFIGURE_CAMERA = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_CONFIGURE_CAMERA"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_CURSOR_SIZE"; echo $?`
+    case AX_CURSOR_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_CURSOR_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DIFFERENTIATE_WITHOUT_COLOR"; echo $?`
+    case AX_DIFFERENTIATE_WITHOUT_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DIFFERENTIATE_WITHOUT_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DIM_FLASHING"; echo $?`
+    case AX_DIM_FLASHING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DIM_FLASHING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_ENABLED"; echo $?`
+    case AX_DISPLAY_FILTER_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_INTENSITY"; echo $?`
+    case AX_DISPLAY_FILTER_INTENSITY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_INTENSITY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_TINT_COLOR"; echo $?`
+    case AX_DISPLAY_FILTER_TINT_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_TINT_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_TYPE"; echo $?`
+    case AX_DISPLAY_FILTER_TYPE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DISPLAY_FILTER_TYPE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_ACTION"; echo $?`
+    case AX_DWELL_ACTION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_ACTION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_AUTO_REVERT"; echo $?`
+    case AX_DWELL_AUTO_REVERT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_AUTO_REVERT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_CURSOR_COLOR"; echo $?`
+    case AX_DWELL_CURSOR_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_CURSOR_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_IN_MENU_EXTRA"; echo $?`
+    case AX_DWELL_IN_MENU_EXTRA = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_IN_MENU_EXTRA"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_IN_PANELS"; echo $?`
+    case AX_DWELL_IN_PANELS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_IN_PANELS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_PROGRESS_INDICATOR"; echo $?`
+    case AX_DWELL_PROGRESS_INDICATOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_PROGRESS_INDICATOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_RETRIGGER_TOLERANCE"; echo $?`
+    case AX_DWELL_RETRIGGER_TOLERANCE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_RETRIGGER_TOLERANCE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_TOLERANCE"; echo $?`
+    case AX_DWELL_TOLERANCE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_TOLERANCE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_WAIT_TIME"; echo $?`
+    case AX_DWELL_WAIT_TIME = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_WAIT_TIME"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_WAIT_TIME_HOME"; echo $?`
+    case AX_DWELL_WAIT_TIME_HOME = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_WAIT_TIME_HOME"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_ZOOM"; echo $?`
+    case AX_DWELL_ZOOM = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_ZOOM"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_ZOOM_WAIT"; echo $?`
+    case AX_DWELL_ZOOM_WAIT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_DWELL_ZOOM_WAIT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ENHANCE_CONTRAST"; echo $?`
+    case AX_ENHANCE_CONTRAST = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ENHANCE_CONTRAST"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FACETIME_TRANSCRIPTIONS"; echo $?`
+    case AX_FACETIME_TRANSCRIPTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FACETIME_TRANSCRIPTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_AUDIO"; echo $?`
+    case AX_FEATURE_AUDIO = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_AUDIO"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_AVS"; echo $?`
+    case AX_FEATURE_AVS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_AVS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_CAPTIONS"; echo $?`
+    case AX_FEATURE_CAPTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_CAPTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_DESCRIPTIONS"; echo $?`
+    case AX_FEATURE_DESCRIPTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_DESCRIPTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_HEARINGAIDS"; echo $?`
+    case AX_FEATURE_HEARINGAIDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_HEARINGAIDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_KEYBOARD"; echo $?`
+    case AX_FEATURE_KEYBOARD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_KEYBOARD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_PERSONALVOICE"; echo $?`
+    case AX_FEATURE_PERSONALVOICE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_PERSONALVOICE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_POINTERCONTROL"; echo $?`
+    case AX_FEATURE_POINTERCONTROL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_POINTERCONTROL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_SHORTCUT"; echo $?`
+    case AX_FEATURE_SHORTCUT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_SHORTCUT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_SIRI"; echo $?`
+    case AX_FEATURE_SIRI = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_SIRI"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_SPOKENCONTENT"; echo $?`
+    case AX_FEATURE_SPOKENCONTENT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_SPOKENCONTENT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_ZOOM"; echo $?`
+    case AX_FEATURE_ZOOM = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FEATURE_ZOOM"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FIND_CURSOR"; echo $?`
+    case AX_FIND_CURSOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FIND_CURSOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_AUTO_HIDE_CHECKBOX"; echo $?`
+    case AX_FKA_AUTO_HIDE_CHECKBOX = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_AUTO_HIDE_CHECKBOX"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_COLOR_POP_UP"; echo $?`
+    case AX_FKA_COLOR_POP_UP = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_COLOR_POP_UP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_COMMANDS_RESTORE_DEFAULTS"; echo $?`
+    case AX_FKA_COMMANDS_RESTORE_DEFAULTS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_COMMANDS_RESTORE_DEFAULTS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_ENABLE_CHECKBOX"; echo $?`
+    case AX_FKA_ENABLE_CHECKBOX = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_ENABLE_CHECKBOX"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_HIGH_CONTRAST_CHECKBOX"; echo $?`
+    case AX_FKA_HIGH_CONTRAST_CHECKBOX = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_HIGH_CONTRAST_CHECKBOX"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_INCREASE_SIZE_CHECKBOX"; echo $?`
+    case AX_FKA_INCREASE_SIZE_CHECKBOX = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FKA_INCREASE_SIZE_CHECKBOX"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FLASH_SCREEN"; echo $?`
+    case AX_FLASH_SCREEN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FLASH_SCREEN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FONT_SIZE"; echo $?`
+    case AX_FONT_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_FONT_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_HOLD_DURATION"; echo $?`
+    case AX_HEADPHONE_HOLD_DURATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_HOLD_DURATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_NOISE_CANCEL"; echo $?`
+    case AX_HEADPHONE_NOISE_CANCEL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_NOISE_CANCEL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_PRESS_SPEED"; echo $?`
+    case AX_HEADPHONE_PRESS_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_PRESS_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_TONE_VOLUME"; echo $?`
+    case AX_HEADPHONE_TONE_VOLUME = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEADPHONE_TONE_VOLUME"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE"; echo $?`
+    case AX_HEAD_MOUSE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_BUTTON"; echo $?`
+    case AX_HEAD_MOUSE_BUTTON = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_BUTTON"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_MODE"; echo $?`
+    case AX_HEAD_MOUSE_MODE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_MODE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_PAUSE_RESUME"; echo $?`
+    case AX_HEAD_MOUSE_PAUSE_RESUME = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_PAUSE_RESUME"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_RECALIBRATE"; echo $?`
+    case AX_HEAD_MOUSE_RECALIBRATE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_RECALIBRATE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_SENSITIVITY"; echo $?`
+    case AX_HEAD_MOUSE_SENSITIVITY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_SENSITIVITY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_TOLERANCE"; echo $?`
+    case AX_HEAD_MOUSE_TOLERANCE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HEAD_MOUSE_TOLERANCE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOME_PANEL_DWELL_ACTIONS"; echo $?`
+    case AX_HOME_PANEL_DWELL_ACTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOME_PANEL_DWELL_ACTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_ACTIVATION_LOCK_MODE"; echo $?`
+    case AX_HOVER_TEXT_ACTIVATION_LOCK_MODE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_ACTIVATION_LOCK_MODE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_BG_COLOR"; echo $?`
+    case AX_HOVER_TEXT_BG_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_BG_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_BORDER_COLOR"; echo $?`
+    case AX_HOVER_TEXT_BORDER_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_BORDER_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_ELEMENT_COLOR"; echo $?`
+    case AX_HOVER_TEXT_ELEMENT_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_ELEMENT_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_ENABLE"; echo $?`
+    case AX_HOVER_TEXT_ENABLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_ENABLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_FG_COLOR"; echo $?`
+    case AX_HOVER_TEXT_FG_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_FG_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_FONT_FAMILY"; echo $?`
+    case AX_HOVER_TEXT_FONT_FAMILY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_FONT_FAMILY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_FONT_SIZE"; echo $?`
+    case AX_HOVER_TEXT_FONT_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_FONT_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_MODIFIER"; echo $?`
+    case AX_HOVER_TEXT_MODIFIER = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TEXT_MODIFIER"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_BG_COLOR"; echo $?`
+    case AX_HOVER_TYPING_BG_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_BG_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_BORDER_COLOR"; echo $?`
+    case AX_HOVER_TYPING_BORDER_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_BORDER_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_ELEMENT_COLOR"; echo $?`
+    case AX_HOVER_TYPING_ELEMENT_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_ELEMENT_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_ENABLE"; echo $?`
+    case AX_HOVER_TYPING_ENABLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_ENABLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_ENTRY_LOCATION"; echo $?`
+    case AX_HOVER_TYPING_ENTRY_LOCATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_ENTRY_LOCATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_FG_COLOR"; echo $?`
+    case AX_HOVER_TYPING_FG_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_FG_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_FONT_FAMILY"; echo $?`
+    case AX_HOVER_TYPING_FONT_FAMILY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_FONT_FAMILY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_FONT_SIZE"; echo $?`
+    case AX_HOVER_TYPING_FONT_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_FONT_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_INSERTION_COLOR"; echo $?`
+    case AX_HOVER_TYPING_INSERTION_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_HOVER_TYPING_INSERTION_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_IGNORE_TRACKPAD"; echo $?`
+    case AX_IGNORE_TRACKPAD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_IGNORE_TRACKPAD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_INCREASE_CONTRAST"; echo $?`
+    case AX_INCREASE_CONTRAST = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_INCREASE_CONTRAST"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_INVERT_COLOR"; echo $?`
+    case AX_INVERT_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_INVERT_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_INVERT_COLOR_MODE"; echo $?`
+    case AX_INVERT_COLOR_MODE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_INVERT_COLOR_MODE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_IN_APP"; echo $?`
+    case AX_IN_APP = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_IN_APP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_APPEARANCE_TYPE"; echo $?`
+    case AX_KB_APPEARANCE_TYPE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_APPEARANCE_TYPE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_AUTO_CAPITALIZATION"; echo $?`
+    case AX_KB_AUTO_CAPITALIZATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_AUTO_CAPITALIZATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_AUTO_SPACING"; echo $?`
+    case AX_KB_AUTO_SPACING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_AUTO_SPACING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_HIDE"; echo $?`
+    case AX_KB_HIDE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_HIDE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_HIDE_STEPPER"; echo $?`
+    case AX_KB_HIDE_STEPPER = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_HIDE_STEPPER"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_HIDE_TRANSPARENCY"; echo $?`
+    case AX_KB_HIDE_TRANSPARENCY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_HIDE_TRANSPARENCY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_KEY_ACCEPTED_MOUSE"; echo $?`
+    case AX_KB_KEY_ACCEPTED_MOUSE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_KEY_ACCEPTED_MOUSE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_RIGHT_CLICK"; echo $?`
+    case AX_KB_RIGHT_CLICK = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_RIGHT_CLICK"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_USE_CLICK_SOUNDS"; echo $?`
+    case AX_KB_USE_CLICK_SOUNDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_KB_USE_CLICK_SOUNDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_ADD_CATEGORY"; echo $?`
+    case AX_LIVE_SPEECH_ADD_CATEGORY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_ADD_CATEGORY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_CATEGORY_DETAIL.Recent"; echo $?`
+    case AX_LIVE_SPEECH_CATEGORY_DETAIL.Recent = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_CATEGORY_DETAIL.Recent"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_CATEGORY_DETAIL.Saved"; echo $?`
+    case AX_LIVE_SPEECH_CATEGORY_DETAIL.Saved = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_CATEGORY_DETAIL.Saved"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_ENABLED"; echo $?`
+    case AX_LIVE_SPEECH_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_FONT_SIZE"; echo $?`
+    case AX_LIVE_SPEECH_FONT_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_FONT_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_PREFERRED_LANGUAGE"; echo $?`
+    case AX_LIVE_SPEECH_PREFERRED_LANGUAGE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_PREFERRED_LANGUAGE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_SAVED_PHRASES"; echo $?`
+    case AX_LIVE_SPEECH_SAVED_PHRASES = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_SAVED_PHRASES"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_VOICE_SELECTION"; echo $?`
+    case AX_LIVE_SPEECH_VOICE_SELECTION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_LIVE_SPEECH_VOICE_SELECTION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MENUBAR_DWELL_ACTIONS"; echo $?`
+    case AX_MENUBAR_DWELL_ACTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MENUBAR_DWELL_ACTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MENU_FONT_SIZE"; echo $?`
+    case AX_MENU_FONT_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MENU_FONT_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MONO_AUDIO"; echo $?`
+    case AX_MONO_AUDIO = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MONO_AUDIO"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_DOUBLE_CLICK_SPEED"; echo $?`
+    case AX_MOUSE_DOUBLE_CLICK_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_DOUBLE_CLICK_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS"; echo $?`
+    case AX_MOUSE_KEYS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_DELAY"; echo $?`
+    case AX_MOUSE_KEYS_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_IGNORE_TRACKPAD"; echo $?`
+    case AX_MOUSE_KEYS_IGNORE_TRACKPAD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_IGNORE_TRACKPAD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_SHORTCUT"; echo $?`
+    case AX_MOUSE_KEYS_SHORTCUT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_SHORTCUT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_SPEED"; echo $?`
+    case AX_MOUSE_KEYS_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_KEYS_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_OPTIONS"; echo $?`
+    case AX_MOUSE_OPTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_OPTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_SCROLL"; echo $?`
+    case AX_MOUSE_SCROLL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_SCROLL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_SCROLL_BEHAVIOR"; echo $?`
+    case AX_MOUSE_SCROLL_BEHAVIOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_SCROLL_BEHAVIOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_SCROLL_SPEED"; echo $?`
+    case AX_MOUSE_SCROLL_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_MOUSE_SCROLL_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_NAVIGATION_TIMING"; echo $?`
+    case AX_NAVIGATION_TIMING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_NAVIGATION_TIMING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PLAY_SYSTEM_SOUNDS"; echo $?`
+    case AX_PLAY_SYSTEM_SOUNDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PLAY_SYSTEM_SOUNDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_AMPLIFICATION"; echo $?`
+    case AX_PME_AMPLIFICATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_AMPLIFICATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_BALANCE"; echo $?`
+    case AX_PME_BALANCE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_BALANCE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_BEAM_FORMING"; echo $?`
+    case AX_PME_BEAM_FORMING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_BEAM_FORMING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_LEVEL"; echo $?`
+    case AX_PME_LEVEL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_LEVEL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_MEDIA"; echo $?`
+    case AX_PME_MEDIA = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_MEDIA"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_NOISE_SUPPRESSOR"; echo $?`
+    case AX_PME_NOISE_SUPPRESSOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_NOISE_SUPPRESSOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_PHONE"; echo $?`
+    case AX_PME_PHONE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_PHONE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_SAMPLE"; echo $?`
+    case AX_PME_SAMPLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_SAMPLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_SETUP"; echo $?`
+    case AX_PME_SETUP = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_SETUP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_SHAPE"; echo $?`
+    case AX_PME_SHAPE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_SHAPE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_TOGGLE"; echo $?`
+    case AX_PME_TOGGLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_TOGGLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_TONE"; echo $?`
+    case AX_PME_TONE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_TONE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_TRANSPARENCY"; echo $?`
+    case AX_PME_TRANSPARENCY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PME_TRANSPARENCY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_POINTER_FILL_COLOR"; echo $?`
+    case AX_POINTER_FILL_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_POINTER_FILL_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_POINTER_OUTLINE_COLOR"; echo $?`
+    case AX_POINTER_OUTLINE_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_POINTER_OUTLINE_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_POINTER_RESET_COLOR"; echo $?`
+    case AX_POINTER_RESET_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_POINTER_RESET_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PREFERS_HORIZ_TEXT_LAYOUT"; echo $?`
+    case AX_PREFERS_HORIZ_TEXT_LAYOUT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_PREFERS_HORIZ_TEXT_LAYOUT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_REDUCE_MOTION"; echo $?`
+    case AX_REDUCE_MOTION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_REDUCE_MOTION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_REDUCE_TRANSPARENCY"; echo $?`
+    case AX_REDUCE_TRANSPARENCY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_REDUCE_TRANSPARENCY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_RTT_ENABLE"; echo $?`
+    case AX_RTT_ENABLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_RTT_ENABLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_RTT_RELAY_NUMBER"; echo $?`
+    case AX_RTT_RELAY_NUMBER = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_RTT_RELAY_NUMBER"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_RTT_SEND_IMMEDIATELY"; echo $?`
+    case AX_RTT_SEND_IMMEDIATELY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_RTT_SEND_IMMEDIATELY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SHOW_TOOLBAR_BUTTON_SHAPES"; echo $?`
+    case AX_SHOW_TOOLBAR_BUTTON_SHAPES = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SHOW_TOOLBAR_BUTTON_SHAPES"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SHOW_WINDOW_TITLEBAR_ICONS"; echo $?`
+    case AX_SHOW_WINDOW_TITLEBAR_ICONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SHOW_WINDOW_TITLEBAR_ICONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SIRI_ATYPICAL_SPEECH"; echo $?`
+    case AX_SIRI_ATYPICAL_SPEECH = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SIRI_ATYPICAL_SPEECH"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SLOW_KEYS"; echo $?`
+    case AX_SLOW_KEYS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SLOW_KEYS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SLOW_KEYS_DELAY"; echo $?`
+    case AX_SLOW_KEYS_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SLOW_KEYS_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SLOW_KEYS_SOUND"; echo $?`
+    case AX_SLOW_KEYS_SOUND = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SLOW_KEYS_SOUND"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.BrownNoise"; echo $?`
+    case AX_SOUND.BrownNoise = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.BrownNoise"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Fire"; echo $?`
+    case AX_SOUND.Fire = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Fire"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Night"; echo $?`
+    case AX_SOUND.Night = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Night"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Ocean"; echo $?`
+    case AX_SOUND.Ocean = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Ocean"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.PinkNoise"; echo $?`
+    case AX_SOUND.PinkNoise = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.PinkNoise"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Rain"; echo $?`
+    case AX_SOUND.Rain = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Rain"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Stream"; echo $?`
+    case AX_SOUND.Stream = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.Stream"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.WhiteNoise"; echo $?`
+    case AX_SOUND.WhiteNoise = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SOUND.WhiteNoise"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPATIAL_AUDIO_FOLLOWS_HEAD"; echo $?`
+    case AX_SPATIAL_AUDIO_FOLLOWS_HEAD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPATIAL_AUDIO_FOLLOWS_HEAD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_DELAY"; echo $?`
+    case AX_SPEECH_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_PHRASE"; echo $?`
+    case AX_SPEECH_PHRASE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_PHRASE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_TEST"; echo $?`
+    case AX_SPEECH_TEST = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_TEST"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_VOICES"; echo $?`
+    case AX_SPEECH_VOICES = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPEECH_VOICES"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_ALERTS"; echo $?`
+    case AX_SPOKEN_ALERTS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_ALERTS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_DETECT_LANGUAGES"; echo $?`
+    case AX_SPOKEN_DETECT_LANGUAGES = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_DETECT_LANGUAGES"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_HOTKEY"; echo $?`
+    case AX_SPOKEN_HOTKEY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_HOTKEY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_LANGUAGE"; echo $?`
+    case AX_SPOKEN_LANGUAGE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_LANGUAGE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT"; echo $?`
+    case AX_SPOKEN_POINTER_ELEMENT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT_DELAY"; echo $?`
+    case AX_SPOKEN_POINTER_ELEMENT_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT_MODE"; echo $?`
+    case AX_SPOKEN_POINTER_ELEMENT_MODE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT_MODE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT_VERBOSITY"; echo $?`
+    case AX_SPOKEN_POINTER_ELEMENT_VERBOSITY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_POINTER_ELEMENT_VERBOSITY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_PRONUNCIATIONS"; echo $?`
+    case AX_SPOKEN_PRONUNCIATIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_PRONUNCIATIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_PRONUNCIATIONS_EDIT"; echo $?`
+    case AX_SPOKEN_PRONUNCIATIONS_EDIT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_PRONUNCIATIONS_EDIT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_CONTENT"; echo $?`
+    case AX_SPOKEN_SELECTION_HIGHLIGHT_CONTENT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_CONTENT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_SENTENCE_COLOR"; echo $?`
+    case AX_SPOKEN_SELECTION_HIGHLIGHT_SENTENCE_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_SENTENCE_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_SENTENCE_STYLE"; echo $?`
+    case AX_SPOKEN_SELECTION_HIGHLIGHT_SENTENCE_STYLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_SENTENCE_STYLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_WORD_COLOR"; echo $?`
+    case AX_SPOKEN_SELECTION_HIGHLIGHT_WORD_COLOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HIGHLIGHT_WORD_COLOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HOTKEY"; echo $?`
+    case AX_SPOKEN_SELECTION_HOTKEY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_HOTKEY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_SHOW_CONTROLLER"; echo $?`
+    case AX_SPOKEN_SELECTION_SHOW_CONTROLLER = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_SELECTION_SHOW_CONTROLLER"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO"; echo $?`
+    case AX_SPOKEN_TYPING_ECHO = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_CHARS"; echo $?`
+    case AX_SPOKEN_TYPING_ECHO_CHARS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_CHARS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_MODIFIER_KEYS"; echo $?`
+    case AX_SPOKEN_TYPING_ECHO_MODIFIER_KEYS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_MODIFIER_KEYS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_SELECTION"; echo $?`
+    case AX_SPOKEN_TYPING_ECHO_SELECTION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_SELECTION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_WORDS"; echo $?`
+    case AX_SPOKEN_TYPING_ECHO_WORDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_TYPING_ECHO_WORDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_VOICE"; echo $?`
+    case AX_SPOKEN_VOICE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPOKEN_VOICE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPRING_LOADING"; echo $?`
+    case AX_SPRING_LOADING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPRING_LOADING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPRING_LOADING_DELAY"; echo $?`
+    case AX_SPRING_LOADING_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SPRING_LOADING_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS"; echo $?`
+    case AX_STICKY_KEYS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_BEEP"; echo $?`
+    case AX_STICKY_KEYS_BEEP = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_BEEP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_DISPLAY"; echo $?`
+    case AX_STICKY_KEYS_DISPLAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_DISPLAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_DISPLAY_LOCATION"; echo $?`
+    case AX_STICKY_KEYS_DISPLAY_LOCATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_DISPLAY_LOCATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_SHORTCUT"; echo $?`
+    case AX_STICKY_KEYS_SHORTCUT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_STICKY_KEYS_SHORTCUT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_AUTOSCAN"; echo $?`
+    case AX_SWITCH_AUTOSCAN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_AUTOSCAN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_AUTO_CAPITALIZATION"; echo $?`
+    case AX_SWITCH_AUTO_CAPITALIZATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_AUTO_CAPITALIZATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_AUTO_SPACING"; echo $?`
+    case AX_SWITCH_AUTO_SPACING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_AUTO_SPACING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_COALESCE"; echo $?`
+    case AX_SWITCH_COALESCE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_COALESCE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CONTROL_APPEARANCE_TYPE"; echo $?`
+    case AX_SWITCH_CONTROL_APPEARANCE_TYPE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CONTROL_APPEARANCE_TYPE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CONTROL_ENABLE"; echo $?`
+    case AX_SWITCH_CONTROL_ENABLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CONTROL_ENABLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CONTROL_PLATFORM_SWITCHING"; echo $?`
+    case AX_SWITCH_CONTROL_PLATFORM_SWITCHING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CONTROL_PLATFORM_SWITCHING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CURSOR_SIZE"; echo $?`
+    case AX_SWITCH_CURSOR_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CURSOR_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CURSOR_SPEED"; echo $?`
+    case AX_SWITCH_CURSOR_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_CURSOR_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_ELEMENT_SPEED"; echo $?`
+    case AX_SWITCH_ELEMENT_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_ELEMENT_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_FIRST_ITEM_DELAY"; echo $?`
+    case AX_SWITCH_FIRST_ITEM_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_FIRST_ITEM_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_HIDE_AFTER_DELAY"; echo $?`
+    case AX_SWITCH_HIDE_AFTER_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_HIDE_AFTER_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_HIDE_AFTER_DELAY_AMOUNT"; echo $?`
+    case AX_SWITCH_HIDE_AFTER_DELAY_AMOUNT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_HIDE_AFTER_DELAY_AMOUNT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_HOVER_TEXT_TOOLBAR"; echo $?`
+    case AX_SWITCH_HOVER_TEXT_TOOLBAR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_HOVER_TEXT_TOOLBAR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_MIN_DURATION"; echo $?`
+    case AX_SWITCH_MIN_DURATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_MIN_DURATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_MOUSE_CURSOR_EDGE"; echo $?`
+    case AX_SWITCH_MOUSE_CURSOR_EDGE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_MOUSE_CURSOR_EDGE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_MOUSE_MOVE_STYLE"; echo $?`
+    case AX_SWITCH_MOUSE_MOVE_STYLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_MOUSE_MOVE_STYLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_NAV_FEEDBACK"; echo $?`
+    case AX_SWITCH_NAV_FEEDBACK = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_NAV_FEEDBACK"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_PANEL_EDITOR"; echo $?`
+    case AX_SWITCH_PANEL_EDITOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_PANEL_EDITOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_REPEAT_HOLD"; echo $?`
+    case AX_SWITCH_REPEAT_HOLD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_REPEAT_HOLD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_RESUME_AUTO_SCANNING"; echo $?`
+    case AX_SWITCH_RESUME_AUTO_SCANNING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_RESUME_AUTO_SCANNING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_SCAN_CYCLE"; echo $?`
+    case AX_SWITCH_SCAN_CYCLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_SCAN_CYCLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_SCAN_RESTART"; echo $?`
+    case AX_SWITCH_SCAN_RESTART = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_SCAN_RESTART"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_SCAN_SPEED"; echo $?`
+    case AX_SWITCH_SCAN_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_SCAN_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_TIMING"; echo $?`
+    case AX_SWITCH_TIMING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SWITCH_TIMING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_BACKGROUND_COLOR_MAIN"; echo $?`
+    case AX_SYSTEM_TRANSCRIPTION_BACKGROUND_COLOR_MAIN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_BACKGROUND_COLOR_MAIN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_ENABLED"; echo $?`
+    case AX_SYSTEM_TRANSCRIPTION_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_TEXT_COLOR_MAIN"; echo $?`
+    case AX_SYSTEM_TRANSCRIPTION_TEXT_COLOR_MAIN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_TEXT_COLOR_MAIN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_TEXT_FONT_FAMILY_MAIN"; echo $?`
+    case AX_SYSTEM_TRANSCRIPTION_TEXT_FONT_FAMILY_MAIN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_TEXT_FONT_FAMILY_MAIN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_TEXT_FONT_SIZE_MAIN"; echo $?`
+    case AX_SYSTEM_TRANSCRIPTION_TEXT_FONT_SIZE_MAIN = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_SYSTEM_TRANSCRIPTION_TEXT_FONT_SIZE_MAIN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TOUCH_BAR_ZOOM_ENABLE"; echo $?`
+    case AX_TOUCH_BAR_ZOOM_ENABLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TOUCH_BAR_ZOOM_ENABLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_DRAGGING"; echo $?`
+    case AX_TRACKPAD_DRAGGING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_DRAGGING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_DRAGGING_BEHAVIOR"; echo $?`
+    case AX_TRACKPAD_DRAGGING_BEHAVIOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_DRAGGING_BEHAVIOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_OPTIONS"; echo $?`
+    case AX_TRACKPAD_OPTIONS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_OPTIONS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_SCROLL"; echo $?`
+    case AX_TRACKPAD_SCROLL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_SCROLL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_SCROLL_BEHAVIOR"; echo $?`
+    case AX_TRACKPAD_SCROLL_BEHAVIOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_SCROLL_BEHAVIOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_SCROLL_SPEED"; echo $?`
+    case AX_TRACKPAD_SCROLL_SPEED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TRACKPAD_SCROLL_SPEED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TYPE_TO_SIRI_ENABLED"; echo $?`
+    case AX_TYPE_TO_SIRI_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_TYPE_TO_SIRI_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VIRTUAL_KEYBOARD"; echo $?`
+    case AX_VIRTUAL_KEYBOARD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VIRTUAL_KEYBOARD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VIRTUAL_KEYBOARD_PANEL_EDITOR"; echo $?`
+    case AX_VIRTUAL_KEYBOARD_PANEL_EDITOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VIRTUAL_KEYBOARD_PANEL_EDITOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICEOVER_ENABLED"; echo $?`
+    case AX_VOICEOVER_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICEOVER_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_AUDIO_DONATION_ENABLED"; echo $?`
+    case AX_VOICE_CONTROL_AUDIO_DONATION_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_AUDIO_DONATION_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_COMMANDS"; echo $?`
+    case AX_VOICE_CONTROL_COMMANDS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_COMMANDS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_ENABLED"; echo $?`
+    case AX_VOICE_CONTROL_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_LANGUAGE"; echo $?`
+    case AX_VOICE_CONTROL_LANGUAGE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_LANGUAGE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_MIC"; echo $?`
+    case AX_VOICE_CONTROL_MIC = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_MIC"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_OPEN_TRAINING"; echo $?`
+    case AX_VOICE_CONTROL_OPEN_TRAINING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_OPEN_TRAINING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_OVERLAY"; echo $?`
+    case AX_VOICE_CONTROL_OVERLAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_OVERLAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_OVERLAY_FADING_ENABLED"; echo $?`
+    case AX_VOICE_CONTROL_OVERLAY_FADING_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_OVERLAY_FADING_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_PLAY_SOUND_ENABLED"; echo $?`
+    case AX_VOICE_CONTROL_PLAY_SOUND_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_PLAY_SOUND_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_SHOW_HINTS_ENABLED"; echo $?`
+    case AX_VOICE_CONTROL_SHOW_HINTS_ENABLED = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_SHOW_HINTS_ENABLED"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_VOCABULARY"; echo $?`
+    case AX_VOICE_CONTROL_VOCABULARY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_CONTROL_VOCABULARY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_COMMANDS_DELETE_ALL"; echo $?`
+    case AX_VOICE_OPTION_COMMANDS_DELETE_ALL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_COMMANDS_DELETE_ALL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_COMMANDS_EXPORT"; echo $?`
+    case AX_VOICE_OPTION_COMMANDS_EXPORT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_COMMANDS_EXPORT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_COMMANDS_IMPORT"; echo $?`
+    case AX_VOICE_OPTION_COMMANDS_IMPORT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_COMMANDS_IMPORT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_VOCAB_DELETE_ALL"; echo $?`
+    case AX_VOICE_OPTION_VOCAB_DELETE_ALL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_VOCAB_DELETE_ALL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_VOCAB_EXPORT"; echo $?`
+    case AX_VOICE_OPTION_VOCAB_EXPORT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_VOCAB_EXPORT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_VOCAB_IMPORT"; echo $?`
+    case AX_VOICE_OPTION_VOCAB_IMPORT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VOICE_OPTION_VOCAB_IMPORT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VO_OPEN_TRAINING"; echo $?`
+    case AX_VO_OPEN_TRAINING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VO_OPEN_TRAINING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VO_OPEN_UTILITY"; echo $?`
+    case AX_VO_OPEN_UTILITY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_VO_OPEN_UTILITY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_ADJUST_SIZE"; echo $?`
+    case AX_ZOOM_ADJUST_SIZE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_ADJUST_SIZE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_CHOOSE_DISPLAY"; echo $?`
+    case AX_ZOOM_CHOOSE_DISPLAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_CHOOSE_DISPLAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_DISABLE_UNIVERSAL_CONTROL"; echo $?`
+    case AX_ZOOM_DISABLE_UNIVERSAL_CONTROL = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_DISABLE_UNIVERSAL_CONTROL"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_ENABLE_GESTURE"; echo $?`
+    case AX_ZOOM_ENABLE_GESTURE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_ENABLE_GESTURE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_ENABLE_HOTKEYS"; echo $?`
+    case AX_ZOOM_ENABLE_HOTKEYS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_ENABLE_HOTKEYS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FLASH"; echo $?`
+    case AX_ZOOM_FLASH = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FLASH"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOCUS_MOVEMENT"; echo $?`
+    case AX_ZOOM_FOCUS_MOVEMENT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOCUS_MOVEMENT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOCUS_MOVEMENT_DELAY"; echo $?`
+    case AX_ZOOM_FOCUS_MOVEMENT_DELAY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOCUS_MOVEMENT_DELAY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOLLOW_FOCUS_ACTIVATION"; echo $?`
+    case AX_ZOOM_FOLLOW_FOCUS_ACTIVATION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOLLOW_FOCUS_ACTIVATION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOLLOW_FOCUS_MODE"; echo $?`
+    case AX_ZOOM_FOLLOW_FOCUS_MODE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FOLLOW_FOCUS_MODE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FREEZE_PANNING"; echo $?`
+    case AX_ZOOM_FREEZE_PANNING = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_FREEZE_PANNING"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_GESTURE_FIELD"; echo $?`
+    case AX_ZOOM_GESTURE_FIELD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_GESTURE_FIELD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_INVERT"; echo $?`
+    case AX_ZOOM_INVERT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_INVERT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_KEEP_STATIONARY"; echo $?`
+    case AX_ZOOM_KEEP_STATIONARY = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_KEEP_STATIONARY"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MAX_FACTOR"; echo $?`
+    case AX_ZOOM_MAX_FACTOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MAX_FACTOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MIN_FACTOR"; echo $?`
+    case AX_ZOOM_MIN_FACTOR = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MIN_FACTOR"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MONITOR_SELECTION"; echo $?`
+    case AX_ZOOM_MONITOR_SELECTION = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MONITOR_SELECTION"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MONITOR_SELECTION_TRACKPAD"; echo $?`
+    case AX_ZOOM_MONITOR_SELECTION_TRACKPAD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MONITOR_SELECTION_TRACKPAD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MOVE"; echo $?`
+    case AX_ZOOM_MOVE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_MOVE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RAPID"; echo $?`
+    case AX_ZOOM_RAPID = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RAPID"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RESIZE_SHORTCUTS"; echo $?`
+    case AX_ZOOM_RESIZE_SHORTCUTS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RESIZE_SHORTCUTS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RESTORE"; echo $?`
+    case AX_ZOOM_RESTORE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RESTORE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RESTORE_SHORTCUT"; echo $?`
+    case AX_ZOOM_RESTORE_SHORTCUT = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_RESTORE_SHORTCUT"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_SMOOTH"; echo $?`
+    case AX_ZOOM_SMOOTH = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_SMOOTH"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_STYLE_POPUP"; echo $?`
+    case AX_ZOOM_STYLE_POPUP = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_STYLE_POPUP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TEMP_DETACH"; echo $?`
+    case AX_ZOOM_TEMP_DETACH = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TEMP_DETACH"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TEMP_TOGGLE"; echo $?`
+    case AX_ZOOM_TEMP_TOGGLE = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TEMP_TOGGLE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TOGGLE_FS_AND_PIP"; echo $?`
+    case AX_ZOOM_TOGGLE_FS_AND_PIP = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TOGGLE_FS_AND_PIP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TRACKPAD"; echo $?`
+    case AX_ZOOM_TRACKPAD = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_ZOOM_TRACKPAD"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.alternateMouseButtons"; echo $?`
+    case AX_feature.alternateMouseButtons = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.alternateMouseButtons"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.displayFilters"; echo $?`
+    case AX_feature.displayFilters = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.displayFilters"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.fullKeyboardAccess"; echo $?`
+    case AX_feature.fullKeyboardAccess = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.fullKeyboardAccess"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.headMouse"; echo $?`
+    case AX_feature.headMouse = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.headMouse"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.hoverText"; echo $?`
+    case AX_feature.hoverText = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.hoverText"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.hoverTyping"; echo $?`
+    case AX_feature.hoverTyping = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.hoverTyping"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.increaseContrast"; echo $?`
+    case AX_feature.increaseContrast = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.increaseContrast"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.invertDisplayColor"; echo $?`
+    case AX_feature.invertDisplayColor = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.invertDisplayColor"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.liveSpeech"; echo $?`
+    case AX_feature.liveSpeech = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.liveSpeech"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.mouseKeys"; echo $?`
+    case AX_feature.mouseKeys = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.mouseKeys"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.reduceTransparency"; echo $?`
+    case AX_feature.reduceTransparency = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.reduceTransparency"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.slowKeys"; echo $?`
+    case AX_feature.slowKeys = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.slowKeys"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.stickyKeys"; echo $?`
+    case AX_feature.stickyKeys = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.stickyKeys"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.switchControl"; echo $?`
+    case AX_feature.switchControl = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.switchControl"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.systemTranscriptions"; echo $?`
+    case AX_feature.systemTranscriptions = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.systemTranscriptions"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.virtualKeyboard"; echo $?`
+    case AX_feature.virtualKeyboard = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.virtualKeyboard"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.voiceControl"; echo $?`
+    case AX_feature.voiceControl = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.voiceControl"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.voiceOver"; echo $?`
+    case AX_feature.voiceOver = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.voiceOver"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.zoom"; echo $?`
+    case AX_feature.zoom = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AX_feature.zoom"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AZ_ZOOM_INDIVIDUAL_DISPLAYS"; echo $?`
+    case AZ_ZOOM_INDIVIDUAL_DISPLAYS = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&AZ_ZOOM_INDIVIDUAL_DISPLAYS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&alternateControlMethods"; echo $?`
+    case alternateControlMethods = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&alternateControlMethods"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&display"; echo $?`
+    case display = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&display"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&fullKeyboardAccessOptions"; echo $?`
+    case fullKeyboardAccessOptions = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&fullKeyboardAccessOptions"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&headphones"; echo $?`
+    case headphones = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&headphones"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTextColors"; echo $?`
+    case hoverTextColors = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTextColors"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTextSettings"; echo $?`
+    case hoverTextSettings = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTextSettings"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTypingColors"; echo $?`
+    case hoverTypingColors = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTypingColors"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTypingSettings"; echo $?`
+    case hoverTypingSettings = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&hoverTypingSettings"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&mouseAndTrackpad"; echo $?`
+    case mouseAndTrackpad = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&mouseAndTrackpad"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&pointer"; echo $?`
+    case pointer = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&pointer"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&switchControlNavigation"; echo $?`
+    case switchControlNavigation = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&switchControlNavigation"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&switchControlSwitches"; echo $?`
+    case switchControlSwitches = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&switchControlSwitches"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&switchControlTyping"; echo $?`
+    case switchControlTyping = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&switchControlTyping"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&text"; echo $?`
+    case text = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&text"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&virtualKeyboardDwell"; echo $?`
+    case virtualKeyboardDwell = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&virtualKeyboardDwell"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&virtualKeyboardHotCorners"; echo $?`
+    case virtualKeyboardHotCorners = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&virtualKeyboardHotCorners"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomAppearance"; echo $?`
+    case zoomAppearance = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomAppearance"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomControls"; echo $?`
+    case zoomControls = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomControls"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomFollowFocus"; echo $?`
+    case zoomFollowFocus = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomFollowFocus"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomHotkeyConfig"; echo $?`
+    case zoomHotkeyConfig = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomHotkeyConfig"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomTempModifiersConfig"; echo $?`
+    case zoomTempModifiersConfig = "x-apple.systempreferences:com.apple.Accessibility-Settings.extension&zoomTempModifiersConfig"
+
+    }
+panes[25]
+  name: Notifications
+  id: com.apple.Notifications-Settings.extension
+  swift enums: 
+    enum Notifications: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Notifications-Settings.extension&Notifications"; echo $?`
+    case Notifications = "x-apple.systempreferences:com.apple.Notifications-Settings.extension&Notifications"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Notifications-Settings.extension&RemoteNotifications"; echo $?`
+    case RemoteNotifications = "x-apple.systempreferences:com.apple.Notifications-Settings.extension&RemoteNotifications"
+
+    }
+panes[26]
+  name: Network
+  id: com.apple.Network-Settings.extension
+  swift enums: 
+    enum Network: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&6to4"; echo $?`
+    case 6to4 = "x-apple.systempreferences:com.apple.Network-Settings.extension&6to4"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&802.1X"; echo $?`
+    case 802.1X = "x-apple.systempreferences:com.apple.Network-Settings.extension&802.1X"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced Ethernet"; echo $?`
+    case Advanced Ethernet = "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced Ethernet"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced Modem"; echo $?`
+    case Advanced Modem = "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced Modem"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced VPN"; echo $?`
+    case Advanced VPN = "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced VPN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced Wi-Fi"; echo $?`
+    case Advanced Wi-Fi = "x-apple.systempreferences:com.apple.Network-Settings.extension&Advanced Wi-Fi"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Bluetooth"; echo $?`
+    case Bluetooth = "x-apple.systempreferences:com.apple.Network-Settings.extension&Bluetooth"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Bond"; echo $?`
+    case Bond = "x-apple.systempreferences:com.apple.Network-Settings.extension&Bond"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&DNS"; echo $?`
+    case DNS = "x-apple.systempreferences:com.apple.Network-Settings.extension&DNS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Ethernet"; echo $?`
+    case Ethernet = "x-apple.systempreferences:com.apple.Network-Settings.extension&Ethernet"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Firewall"; echo $?`
+    case Firewall = "x-apple.systempreferences:com.apple.Network-Settings.extension&Firewall"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Modem"; echo $?`
+    case Modem = "x-apple.systempreferences:com.apple.Network-Settings.extension&Modem"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Network"; echo $?`
+    case Network = "x-apple.systempreferences:com.apple.Network-Settings.extension&Network"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&PPP"; echo $?`
+    case PPP = "x-apple.systempreferences:com.apple.Network-Settings.extension&PPP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&PPPoE"; echo $?`
+    case PPPoE = "x-apple.systempreferences:com.apple.Network-Settings.extension&PPPoE"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Proxies"; echo $?`
+    case Proxies = "x-apple.systempreferences:com.apple.Network-Settings.extension&Proxies"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&TCP/IP"; echo $?`
+    case TCP/IP = "x-apple.systempreferences:com.apple.Network-Settings.extension&TCP/IP"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&Thunderbolt"; echo $?`
+    case Thunderbolt = "x-apple.systempreferences:com.apple.Network-Settings.extension&Thunderbolt"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&VLAN"; echo $?`
+    case VLAN = "x-apple.systempreferences:com.apple.Network-Settings.extension&VLAN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&VPN"; echo $?`
+    case VPN = "x-apple.systempreferences:com.apple.Network-Settings.extension&VPN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&VPN on Demand"; echo $?`
+    case VPN on Demand = "x-apple.systempreferences:com.apple.Network-Settings.extension&VPN on Demand"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&VirtualInterfaces"; echo $?`
+    case VirtualInterfaces = "x-apple.systempreferences:com.apple.Network-Settings.extension&VirtualInterfaces"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&WINS"; echo $?`
+    case WINS = "x-apple.systempreferences:com.apple.Network-Settings.extension&WINS"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Network-Settings.extension&WWAN"; echo $?`
+    case WWAN = "x-apple.systempreferences:com.apple.Network-Settings.extension&WWAN"
+
+    }
+panes[27]
+  name: Sound
+  id: com.apple.Sound-Settings.extension
+  swift enums: 
+    enum Sound: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sound-Settings.extension&balance"; echo $?`
+    case balance = "x-apple.systempreferences:com.apple.Sound-Settings.extension&balance"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sound-Settings.extension&effects"; echo $?`
+    case effects = "x-apple.systempreferences:com.apple.Sound-Settings.extension&effects"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sound-Settings.extension&input"; echo $?`
+    case input = "x-apple.systempreferences:com.apple.Sound-Settings.extension&input"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sound-Settings.extension&mute"; echo $?`
+    case mute = "x-apple.systempreferences:com.apple.Sound-Settings.extension&mute"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sound-Settings.extension&output"; echo $?`
+    case output = "x-apple.systempreferences:com.apple.Sound-Settings.extension&output"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Sound-Settings.extension&volume"; echo $?`
+    case volume = "x-apple.systempreferences:com.apple.Sound-Settings.extension&volume"
+
+    }
+panes[28]
+  name: Desktop & Dock
+  id: com.apple.Desktop-Settings.extension
+  swift enums: 
+    enum Desktop & Dock: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Applications"; echo $?`
+    case Applications = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Applications"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Desktop"; echo $?`
+    case Desktop = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Desktop"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Dock"; echo $?`
+    case Dock = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Dock"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&HotCorners"; echo $?`
+    case HotCorners = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&HotCorners"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&MissionControl"; echo $?`
+    case MissionControl = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&MissionControl"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Shortcuts"; echo $?`
+    case Shortcuts = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Shortcuts"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&StageManager"; echo $?`
+    case StageManager = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&StageManager"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Widgets"; echo $?`
+    case Widgets = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Widgets"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&WindowTiling"; echo $?`
+    case WindowTiling = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&WindowTiling"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Windows"; echo $?`
+    case Windows = "x-apple.systempreferences:com.apple.Desktop-Settings.extension&Windows"
+
+    }
+panes[29]
+  name: Game Center
+  id: com.apple.Game-Center-Settings.extension
+  swift enums: 
+    enum Game Center: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Game-Center-Settings.extension&GameCenterPane"; echo $?`
+    case GameCenterPane = "x-apple.systempreferences:com.apple.Game-Center-Settings.extension&GameCenterPane"
+
+    }
+panes[30]
+  name: Users & Groups
+  id: com.apple.Users-Groups-Settings.extension
+  swift enums: 
+    enum Users & Groups: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Users-Groups-Settings.extension&loginOptionsPref"; echo $?`
+    case loginOptionsPref = "x-apple.systempreferences:com.apple.Users-Groups-Settings.extension&loginOptionsPref"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Users-Groups-Settings.extension&passwordPref"; echo $?`
+    case passwordPref = "x-apple.systempreferences:com.apple.Users-Groups-Settings.extension&passwordPref"
+
+    }
+panes[31]
+  name: Internet Accounts
+  id: com.apple.Internet-Accounts-Settings.extension
+  swift enums: 
+    enum Internet Accounts: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&InternetAccounts"; echo $?`
+    case InternetAccounts = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&InternetAccounts"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.126"; echo $?`
+    case com.apple.account.126 = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.126"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.163"; echo $?`
+    case com.apple.account.163 = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.163"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.Exchange"; echo $?`
+    case com.apple.account.Exchange = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.Exchange"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.Google"; echo $?`
+    case com.apple.account.Google = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.Google"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.Yahoo"; echo $?`
+    case com.apple.account.Yahoo = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.Yahoo"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.aol"; echo $?`
+    case com.apple.account.aol = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.aol"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.qq"; echo $?`
+    case com.apple.account.qq = "x-apple.systempreferences:com.apple.Internet-Accounts-Settings.extension&com.apple.account.qq"
+
+    }
+panes[32]
+  name: Privacy & Security
+  id: com.apple.settings.PrivacySecurity.extension
+  swift enums: 
+    enum Privacy & Security: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Advanced"; echo $?`
+    case Advanced = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Advanced"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&FileVault"; echo $?`
+    case FileVault = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&FileVault"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&LockdownMode"; echo $?`
+    case LockdownMode = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&LockdownMode"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Accessibility"; echo $?`
+    case Privacy_Accessibility = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Accessibility"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Advertising"; echo $?`
+    case Privacy_Advertising = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Advertising"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_AllFiles"; echo $?`
+    case Privacy_AllFiles = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_AllFiles"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Analytics"; echo $?`
+    case Privacy_Analytics = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Analytics"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_AppBundles"; echo $?`
+    case Privacy_AppBundles = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_AppBundles"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_AudioCapture"; echo $?`
+    case Privacy_AudioCapture = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_AudioCapture"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Automation"; echo $?`
+    case Privacy_Automation = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Automation"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Bluetooth"; echo $?`
+    case Privacy_Bluetooth = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Bluetooth"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Calendars"; echo $?`
+    case Privacy_Calendars = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Calendars"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Camera"; echo $?`
+    case Privacy_Camera = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Camera"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Contacts"; echo $?`
+    case Privacy_Contacts = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Contacts"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_DevTools"; echo $?`
+    case Privacy_DevTools = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_DevTools"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_FilesAndFolders"; echo $?`
+    case Privacy_FilesAndFolders = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_FilesAndFolders"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Focus"; echo $?`
+    case Privacy_Focus = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Focus"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_HomeKit"; echo $?`
+    case Privacy_HomeKit = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_HomeKit"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_ListenEvent"; echo $?`
+    case Privacy_ListenEvent = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_ListenEvent"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_LocationServices"; echo $?`
+    case Privacy_LocationServices = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_LocationServices"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Media"; echo $?`
+    case Privacy_Media = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Media"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Microphone"; echo $?`
+    case Privacy_Microphone = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Microphone"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Motion"; echo $?`
+    case Privacy_Motion = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Motion"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_NudityDetection"; echo $?`
+    case Privacy_NudityDetection = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_NudityDetection"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_PasskeyAccess"; echo $?`
+    case Privacy_PasskeyAccess = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_PasskeyAccess"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Photos"; echo $?`
+    case Privacy_Photos = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Photos"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Reminders"; echo $?`
+    case Privacy_Reminders = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_Reminders"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_RemoteDesktop"; echo $?`
+    case Privacy_RemoteDesktop = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_RemoteDesktop"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_ScreenCapture"; echo $?`
+    case Privacy_ScreenCapture = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_ScreenCapture"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_SpeechRecognition"; echo $?`
+    case Privacy_SpeechRecognition = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_SpeechRecognition"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_SystemServices"; echo $?`
+    case Privacy_SystemServices = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Privacy_SystemServices"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Security"; echo $?`
+    case Security = "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension&Security"
+
+    }
+panes[33]
+  name: Appearance
+  id: com.apple.Appearance-Settings.extension
+  swift enums: 
+    enum Appearance: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Appearance-Settings.extension&Main"; echo $?`
+    case Main = "x-apple.systempreferences:com.apple.Appearance-Settings.extension&Main"
+
+    }
+panes[34]
+  name: Keyboard
+  id: com.apple.Keyboard-Settings.extension
+  swift enums: 
+    enum Keyboard: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&CapsLockInputSources"; echo $?`
+    case CapsLockInputSources = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&CapsLockInputSources"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&CustomizeModifierKeys"; echo $?`
+    case CustomizeModifierKeys = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&CustomizeModifierKeys"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Dictation"; echo $?`
+    case Dictation = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Dictation"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&FunctionKeys"; echo $?`
+    case FunctionKeys = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&FunctionKeys"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&InputSources"; echo $?`
+    case InputSources = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&InputSources"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Keyboard"; echo $?`
+    case Keyboard = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Keyboard"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&LanguageInputMethods"; echo $?`
+    case LanguageInputMethods = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&LanguageInputMethods"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&ModifierKeys"; echo $?`
+    case ModifierKeys = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&ModifierKeys"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Shortcuts"; echo $?`
+    case Shortcuts = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Shortcuts"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Spelling"; echo $?`
+    case Spelling = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&Spelling"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&TextReplacements"; echo $?`
+    case TextReplacements = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&TextReplacements"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&TouchBarSettings"; echo $?`
+    case TouchBarSettings = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&TouchBarSettings"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&UseSmartQuotes"; echo $?`
+    case UseSmartQuotes = "x-apple.systempreferences:com.apple.Keyboard-Settings.extension&UseSmartQuotes"
+
+    }
+panes[35]
+  name: Screen Time
+  id: com.apple.Screen-Time-Settings.extension
+  swift enums: 
+    enum Screen Time: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=always-allowed"; echo $?`
+    case path=always-allowed = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=always-allowed"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=app-limits"; echo $?`
+    case path=app-limits = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=app-limits"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=app-usage"; echo $?`
+    case path=app-usage = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=app-usage"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=communication-limits"; echo $?`
+    case path=communication-limits = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=communication-limits"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=content-and-privacy"; echo $?`
+    case path=content-and-privacy = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=content-and-privacy"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=downtime"; echo $?`
+    case path=downtime = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=downtime"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=notifications"; echo $?`
+    case path=notifications = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=notifications"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=pickups"; echo $?`
+    case path=pickups = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=pickups"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=requests"; echo $?`
+    case path=requests = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=requests"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=screen-distance"; echo $?`
+    case path=screen-distance = "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension&path=screen-distance"
+
+    }
+panes[36]
+  name: Screen Saver
+  id: com.apple.ScreenSaver-Settings.extension
+  swift enums: 
+    enum Screen Saver: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ScreenSaver-Settings.extension&ScreenSaverPref"; echo $?`
+    case ScreenSaverPref = "x-apple.systempreferences:com.apple.ScreenSaver-Settings.extension&ScreenSaverPref"
+
+    }
+panes[37]
+  name: Control Center
+  id: com.apple.ControlCenter-Settings.extension
+  swift enums: 
+    enum Control Center: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&AccessibilityShortcuts"; echo $?`
+    case AccessibilityShortcuts = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&AccessibilityShortcuts"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&AirDrop"; echo $?`
+    case AirDrop = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&AirDrop"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Battery"; echo $?`
+    case Battery = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Battery"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Bluetooth"; echo $?`
+    case Bluetooth = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Bluetooth"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Clock"; echo $?`
+    case Clock = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Clock"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Display"; echo $?`
+    case Display = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Display"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&DoNotDisturb"; echo $?`
+    case DoNotDisturb = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&DoNotDisturb"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&FocusModes"; echo $?`
+    case FocusModes = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&FocusModes"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Hearing"; echo $?`
+    case Hearing = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Hearing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&KeyboardBrightness"; echo $?`
+    case KeyboardBrightness = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&KeyboardBrightness"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&MenuBar"; echo $?`
+    case MenuBar = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&MenuBar"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&MusicRecognition"; echo $?`
+    case MusicRecognition = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&MusicRecognition"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&NowPlaying"; echo $?`
+    case NowPlaying = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&NowPlaying"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&ScreenMirroring"; echo $?`
+    case ScreenMirroring = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&ScreenMirroring"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Siri"; echo $?`
+    case Siri = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Siri"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Sound"; echo $?`
+    case Sound = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Sound"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Spotlight"; echo $?`
+    case Spotlight = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&Spotlight"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&StageManager"; echo $?`
+    case StageManager = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&StageManager"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&TimeMachine"; echo $?`
+    case TimeMachine = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&TimeMachine"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&UserSwitcher"; echo $?`
+    case UserSwitcher = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&UserSwitcher"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&VPN"; echo $?`
+    case VPN = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&VPN"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&WiFi"; echo $?`
+    case WiFi = "x-apple.systempreferences:com.apple.ControlCenter-Settings.extension&WiFi"
+
+    }
+panes[38]
+  name: Bluetooth
+  id: com.apple.BluetoothSettings
+  swift enums: 
+    enum Bluetooth: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.BluetoothSettings&Main"; echo $?`
+    case Main = "x-apple.systempreferences:com.apple.BluetoothSettings&Main"
+
+    }
+panes[39]
+  name: Lock Screen
+  id: com.apple.Lock-Screen-Settings.extension
+  swift enums: 
+    enum Lock Screen: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&DisplayOff"; echo $?`
+    case DisplayOff = "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&DisplayOff"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&LargeClock"; echo $?`
+    case LargeClock = "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&LargeClock"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&LockScreenMessage"; echo $?`
+    case LockScreenMessage = "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&LockScreenMessage"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&LoginWindow"; echo $?`
+    case LoginWindow = "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&LoginWindow"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&Password"; echo $?`
+    case Password = "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&Password"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&ScreenSaver"; echo $?`
+    case ScreenSaver = "x-apple.systempreferences:com.apple.Lock-Screen-Settings.extension&ScreenSaver"
+
+    }
+panes[40]
+  name: Focus
+  id: com.apple.Focus-Settings.extension
+  swift enums: 
+    enum Focus: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Focus-Settings.extension&Focus"; echo $?`
+    case Focus = "x-apple.systempreferences:com.apple.Focus-Settings.extension&Focus"
+
+    }
+panes[41]
+  name: Wallet & Apple Pay
+  id: com.apple.WalletSettingsExtension
+  swift enums: 
+    enum Wallet & Apple Pay: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.WalletSettingsExtension&Wallet"; echo $?`
+    case Wallet = "x-apple.systempreferences:com.apple.WalletSettingsExtension&Wallet"
+
+    }
+panes[42]
+  name: Game Controllers
+  id: com.apple.Game-Controller-Settings.extension
+  swift enums: 
+    enum Game Controllers: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Game-Controller-Settings.extension&Game Controllers"; echo $?`
+    case Game Controllers = "x-apple.systempreferences:com.apple.Game-Controller-Settings.extension&Game Controllers"
+
+    }
+panes[43]
+  name: iCloud
+  id: com.apple.systempreferences.AppleIDSettings:icloud
+  swift enums: 
+    enum iCloud: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud&AppleAccount"; echo $?`
+    case AppleAccount = "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud&AppleAccount"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud&com.apple.AppleMediaServicesUI.SpyglassPurchases"; echo $?`
+    case com.apple.AppleMediaServicesUI.SpyglassPurchases = "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud&com.apple.AppleMediaServicesUI.SpyglassPurchases"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud&iCloud"; echo $?`
+    case iCloud = "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings:icloud&iCloud"
+
+    }
+panes[44]
+  name: Zakk Hoyt
+  id: com.apple.systempreferences.AppleIDSettings*AppleIDSettings
+  swift enums: 
+    enum Zakk Hoyt: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings*AppleIDSettings&AppleAccount"; echo $?`
+    case AppleAccount = "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings*AppleIDSettings&AppleAccount"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings*AppleIDSettings&com.apple.AppleMediaServicesUI.SpyglassPurchases"; echo $?`
+    case com.apple.AppleMediaServicesUI.SpyglassPurchases = "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings*AppleIDSettings&com.apple.AppleMediaServicesUI.SpyglassPurchases"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings*AppleIDSettings&iCloud"; echo $?`
+    case iCloud = "x-apple.systempreferences:com.apple.systempreferences.AppleIDSettings*AppleIDSettings&iCloud"
+
+    }
+panes[45]
+  name: Family
+  id: com.apple.Family-Settings.extension*Family
+  swift enums: 
+    enum Family: String {
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&LocationSharing"; echo $?`
+    case LocationSharing = "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&LocationSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&PurchaseSharing"; echo $?`
+    case PurchaseSharing = "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&PurchaseSharing"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&Subscriptions"; echo $?`
+    case Subscriptions = "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&Subscriptions"
+
+    /// Shell command: `open "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&iCloud"; echo $?`
+    case iCloud = "x-apple.systempreferences:com.apple.Family-Settings.extension*Family&iCloud"
+
+    }
+panes[46]
+  name: Network Link Conditioner
+  id: com.apple.Network-Link-Conditioner
+  swift enums: 
+    enum Network Link Conditioner: String {
+    }
