@@ -78,7 +78,10 @@ let package = Package(
                 )
             ],
             exclude: [
-                //                "SystemSettings/View/"
+                "SystemSettings/README.md",
+                "SystemSettings/applescript/images/alert_panel_url.png",
+                "SystemSettings/applescript/images/alert_panel_urls.png",
+                "SystemSettings/applescript/settings_preference_panes.applescript",
             ],
             swiftSettings: swiftSettings,
             plugins: []
