@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+<meta name="keywords" content="YMCK, 8-bit, 8bit, famicom, family music, family racing, pop, electro, techno, yokemura, midori, nakamura, Chiptune,  dot's">
+<meta name="description" content="YMCK official web site">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>YMCK</title>
+<style type="text/css">
+<!--
+BODY, TD { 
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666666;
+	line-height: 160%;}
+strong { 
+	font-size: 15px;
+	letter-spacing:1px;
+	font-weight: bold; color: #666666;
+}
+p {
+	margin: 10px 0 10px 0;
+}
+.caption {
+	padding: 3px;
+}
+.small_text {
+	color: #666666;
+	font-size: 10px;
+	letter-spacing:2px;
+}
+-->
+</style>
+</head>
+<body leftmargin="0" topmargin="40" marginwidth="0" marginheight="40" bgcolor="#f7f7f7">
+<center>
+  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td align="center" valign="middle" bgcolor="#f7f7f7"> <table width="600" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td bgcolor="#cccccc"> <table width="600" border="0" cellspacing="1" cellpadding="20">
+                <tr> 
+                  <td align="center" bgcolor="#FFFFFF"> <table width="560" border="0" cellspacing="0" cellpadding="0">
+                      <tr> 
+                        <td bgcolor="#FFFFFF"><img src="logo.gif" width="99" height="58" style="float:left; margin-right:20px;"><strong>Magical 
+                          8bit Plug Audio Units Ver.</strong><br>
+                          by Yokemura(YMCK) <a href="http://www.ymck.net/" target="_blank">http://www.ymck.net/</a> 
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"> <div class="caption"><b>About Magical 
+                            8bit Plug:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">Magical 8bit Plug is a plug-in style 
+                          software-synthesizer for producing primitive electronic 
+                          sounds like the old 8bit game consoles. In Macintosh 
+                          environment, it runs with AU (Audio Units)-supporting 
+                          applications: ex. Logic, Digital Performer, Garageband. 
+                          In Windows environment it runs with VSTi supporting 
+                          applications: ex. Cubase. Most of the software/hardware 
+                          synthesizers include the most primitive waveform: square 
+                          wave and pulse wave. But almost none of them include 
+                          the pseudo-triangle or the low-resolution noise, which 
+                          will most characterize the 8bit sound's unique taste. 
+                          Magical 8bit Plug will help you producing the old 8bit 
+                          sounds by providing those unique waveforms.</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"> <div class="caption"><b>Features:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF"> <ul>
+                            <li>Includes 5 waveforms (square, pulse (2 kinds), 
+                              pseudo-triangle, low-resolution noise) 
+                            <li>ADSR envelope assignment for volume 
+                            <li>Supports pitch bending, bend range variable 
+                            <li>Frequency sweep function </ul></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"><div class="caption"><b>Files Included:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF"> <ul>
+                            <li>readme-e.html: This file. 
+                            <li>magical8bitPlug3.dll: Plug-in program. 
+                            <li>Logo.gif, waves.gif, ADSR.gif: Image files used 
+                              in readme-e.html 
+                            <li>magical8bitPlugSample.mp3: mp3 audio of the sample 
+                              song 
+                            <li>magical8bitPlugSample.mid: midi data source of 
+                              the sample song </ul></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"><div class="caption"><b>Install:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">Put magical8bitPlug.component into 
+                          the certain folder. 
+                          <p>The destination folder is:<br>
+                            - in case you want all users can use<br>
+                            Macintosh HD &gt; Libraries &gt; Audio &gt; Plug-Ins 
+                            &gt; Components<br>
+                            - in case you want only you can use<br>
+                            <br>
+                            Uninstall:<br>
+                            Delete magical8bitPlug.component from the folder you 
+                            installed.</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"><div class="caption"><b>How To Use:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF"><b> Getting started</b> <br>
+                          Launch your host application. Then assign Magical 8bit 
+                          Plug to a certain software-instrument track.<br>
+                          See your manuals of your application for details. 
+                          <p> <b> Setting parameters</b> <br>
+                            You can control the parameters below from the plugin's 
+                            window. 
+                          <ul>
+                            <li>OscKind: select the waveform from the pull down 
+                              menu 
+                            <li>square: The most primitive digital waveform made 
+                              by only low/high of the voltage 
+                            <li>25%pulse/12.5%pulse: Also primitive waveforms 
+                              made by only low/high's. But the time ratio of low's 
+                              and high's are different: 1:3 for 25%pulse , 1:7 
+                              for 12.5%pulse 
+                            <li>triangle: The pseudo-triangle waveform. Includes 
+                              lots of anti-aliasing noise due to the low control 
+                              resolution of 8bit machines. 
+                            <li>noise: The low-resolution noise. A kind of white 
+                              noise, but much more rougher than ordinary white 
+                              noise because of the low control resolution of 8bit 
+                              machines </ul></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td align="center" bgcolor="#FFFFFF"><img src="waves.gif" alt="OscKind image" width="505" height="441"></td>
+                      </tr>
+                      <tr> 
+                        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF"> <b>Volume: The volume control.</b><br>
+                          This plugin may sound louder than other plugins, especially 
+                          when playing in polyphony. In such cases, assign the 
+                          suitable volume with this control. 
+                          <p> <b>Attack, Decay, SusLevel, Release: The volume 
+                            envelope assignment.</b><br>
+                            Attack: the time period from a key is pressed to the 
+                            volume gets to 100%<br>
+                            De cay: the time period the volume gets from 100% 
+                            to suslevel<br>
+                            SusLevel: the volume sustained until the key is released<br>
+                            Release: the time period from key is released to the 
+                            volume gets to 0 
+                          <p><b> Bend Range: Assign the range of bending</b><br>
+                            2.0 for 1 whole tone , 12.0 for 1 octave. 
+                          <p><b> Sweep Switch: Assign the behavior of the sweep 
+                            function</b><br>
+                            off: no sweep<br>
+                            negative: the frequency goes down as time elapses<br>
+                            positive: the frequency goes up as time elapses 
+                          <p><b> Sweep Time: The speed of sweeping</b><br>
+                            1.0 means 1 second for 1 octave.</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td align="center" bgcolor="#FFFFFF"><img src="ADSR.gif" width="392" height="176"></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"><div class="caption"><b>How to make 
+                            it "sound real":</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">You may need some tips if you want 
+                          to make your songs sound more like 8bit.<br>
+                          For example, the following may be useful for making 
+                          the sound of the N-lettered console. Of course, if you 
+                          don't like to make it so, please ignore ;)<br> <br> 
+                          <b> Tips of song arrangement<br>
+                          </b>- Number of polyphonic<br>
+                          square and pulse waves use common 2 channels.<br>
+                          triangle and noise have 1 channel each.<br>
+                          So, as summary, keep the following.<br>
+                          square / 25%pulse / 12.5% -&gt; 2 polys as total.<br>
+                          triangle -&gt; mono<br>
+                          noise -&gt; mono 
+                          <p> - Velocity<br>
+                            Make velocity constant will sound more like 8bit.<br>
+                            Most of the old games didn't use velocity, because<br>
+                            it was a bit bothering to assign the vel value one 
+                            by one at that time. 
+                          <p><b> Tips of plugin settings<br>
+                            </b>- N-console's triangle channel does not designed 
+                            to handle volume envelope.<br>
+                            (using very special technique, it'll be possible, 
+                            though)<br>
+                            So, keep Suslevel=1.0 will be better.<br>
+                            <br>
+                            - Please note the notes in release phase also occupy 
+                            the oscillator channel.<br>
+                            That is, Setting a long release time may increase 
+                            the polyphony without notice, <br>
+                            which makes the sound not like 8bit.<br>
+                            So, it's better to set the release to 0. Or, place 
+                            the next note after the<br>
+                            previous note is completely faded away.<br>
+                            <br>
+                            - However, using pseudo-triangle waveform with release=0 
+                            will cause the click noise when releasing. To avoid 
+                            it, set the Release=0.01.</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"><div class="caption"><b>About The 
+                            Sample Song:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">For your information, we included 
+                          .mid source file besides .mp3 file.<br>
+                          Try importing it to your application and see how it 
+                          works. 
+                          <p>As .mid file does not include the information of 
+                            plugin settings,<br>
+                            please set the parameters of each tracks by yourself 
+                            to play the same sound as .mp3 sample.<br>
+                            * This song does not use sweep function, so leave 
+                            SweepSwitch off for each tracks. 
+                          <p>Track1:<br>
+                            OscKind = square<br>
+                            Volume = 0.30<br>
+                            Attack = 0.00<br>
+                            Decay = 0.00<br>
+                            SusLevel = 1.00<br>
+                            Release = 0.00<br>
+                            BendRange = 8.4 
+                          <p>Track2:<br>
+                            OscKind = triangle<br>
+                            Volume = 0.50<br>
+                            Attack = 0.00<br>
+                            Decay = 0.00<br>
+                            SusLevel = 1.00<br>
+                            Release = 0.01<br>
+                            BendRange = 2.0 
+                          <p>Track3:<br>
+                            OscKind = noise<br>
+                            Volume = 0.25<br>
+                            Attack = 0.00<br>
+                            Decay = 0.05<br>
+                            SusLevel = 0.51<br>
+                            Release = 0.00<br>
+                            BendRange = 2.0 
+                          <p>Track4:<br>
+                            OscKind = noise<br>
+                            Volume = 0.25<br>
+                            Attack = 0.00<br>
+                            Decay = 0.06<br>
+                            SusLevel = 0.00<br>
+                            Release = 0.00<br>
+                            BendRange = 2.0</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#eeeeee"><div class="caption"><b>Copyrights:</b></div></td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="#FFFFFF">This plugin is free software.<br>
+                          Yokemura(YMCK) owns the copyright.<br>
+                          Redistribution and sales for commercial use is prohibited.<br>
+                          Please consult us about non-commercial distribution.<br>
+                          Copyright 2005 Yokemura (YMCK) all rights reserved.</td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>
