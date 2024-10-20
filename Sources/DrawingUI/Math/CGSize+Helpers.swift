@@ -8,6 +8,48 @@
 
 import CoreGraphics
 
+
+extension CGSize {
+    public func contract(
+        size: CGSize
+    ) -> CGSize {
+        
+        let out = CGSize(
+            width: width.contract(max: size.width),
+            height: height.contract(max: size.height)
+        )
+        logger.debug("CGSize.contact. width: \(width) / \(size.width) = \(out.width)")
+        logger.debug("CGSize.contact. height: \(height) / \(size.height) = \(out.height)")
+        return out
+    }
+    
+    public func expand(
+        size: CGSize
+    ) -> CGSize {
+        CGSize(
+            width: width * size.width,
+            height: height * size.height
+        )
+    }
+
+}
+
+extension CGSize {
+    public static func * (lhs: CGSize, rhs: CGFloat) -> CGPoint {
+        CGPoint(
+            x: lhs.width * rhs,
+            y: lhs.height * rhs
+        )
+    }
+    
+    public static func / (lhs: CGSize, rhs: CGFloat) -> CGPoint {
+        CGPoint(
+            x: lhs.width / rhs,
+            y: lhs.height / rhs
+        )
+    }
+}
+
 extension CGSize {
     public static func / (lhs: CGSize, rhs: Int) -> CGSize {
         CGSize(width: lhs.width / CGFloat(rhs), height: lhs.height / CGFloat(rhs))
@@ -59,11 +101,13 @@ extension CGSize {
 }
 
 extension CGSize {
-    // FIXME: Better name. Normalized? Normal? Unit?
-    public static let one = CGSize(
-        width: CGFloat(1),
-        height: CGFloat(1)
+    public static let unit = CGSize(
+        width: 1,
+        height: 1
     )
+    
+    @available(*, unavailable, renamed: "unit")
+    public static let one = unit
 }
 
 extension CGSize {
