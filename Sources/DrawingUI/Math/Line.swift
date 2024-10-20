@@ -14,7 +14,7 @@ public struct Line: Identifiable {
     }
     
     /// An alternative to our `id` property which can certainly have duplicates.
-    var uuid: UUID {
+    public var uuid: UUID {
         UUID()
     }
     

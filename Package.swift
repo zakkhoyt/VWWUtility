@@ -4,13 +4,13 @@
 import PackageDescription
 
 let swiftSettings: [SwiftSetting] = [
-    .enableUpcomingFeature("BareSlashRegexLiterals"),
-    .enableUpcomingFeature("ConciseMagicFile"),
-    .enableUpcomingFeature("ExistentialAny"),
-    .enableUpcomingFeature("ForwardTrailingClosures"),
-    .enableUpcomingFeature("ImplicitOpenExistentials"),
-    .enableUpcomingFeature("StrictConcurrency"),
-    .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"])
+//    .enableUpcomingFeature("BareSlashRegexLiterals"),
+//    .enableUpcomingFeature("ConciseMagicFile"),
+//    .enableUpcomingFeature("ExistentialAny"),
+//    .enableUpcomingFeature("ForwardTrailingClosures"),
+//    .enableUpcomingFeature("ImplicitOpenExistentials"),
+//    .enableUpcomingFeature("StrictConcurrency"),
+//    .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"])
 ]
 
 #warning("TODO: @zakkhoyt - Update iOS/MacOS")
@@ -78,13 +78,19 @@ let package = Package(
                 )
             ],
             exclude: [
-                //                "SystemSettings/View/"
+                "SystemSettings/README.md",
+                "SystemSettings/applescript/*",
             ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
         .testTarget(
-            name: "BaseUtilityTests",
+            name: "BaseUtilityUnitTests",
+            dependencies: ["BaseUtility"],
+            swiftSettings: swiftSettings
+        ),
+        .testTarget(
+            name: "BaseUtilityIntegrationTests",
             dependencies: ["BaseUtility"],
             swiftSettings: swiftSettings
         ),

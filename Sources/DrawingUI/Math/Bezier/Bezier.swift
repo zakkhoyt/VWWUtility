@@ -14,8 +14,8 @@
 import CoreGraphics
 import Foundation
 
-enum Bezier {
-    static let defaultControlPoints = [
+public enum Bezier {
+    public static let defaultControlPoints = [
         CGPoint(x: 0, y: 1),
         CGPoint(x: 0, y: 0),
         CGPoint(x: 1, y: 1),
@@ -36,7 +36,7 @@ enum Bezier {
     /// - Throws: Errors if any points or 1 is out of bounds.
     /// - Returns: tuple. .0 is a point along the bezier curve where x/y in 0...1), .1 and .2 are the start/end points of the tangent line (derivative)
     /// - Returns: An instance of `Bezier.Solution`
-    static func solve(
+    public static func solve(
         points controlPoints: [CGPoint],
         t: CGFloat
     ) throws -> Solution {
@@ -136,7 +136,7 @@ enum Bezier {
 }
 
 extension Bezier {
-    static func solveForPoint(
+    public static func solveForPoint(
         polynomials: [Polynomial],
         t: CGFloat,
         controlPoints: [CGPoint]
