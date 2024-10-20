@@ -51,9 +51,9 @@ extension Line {
 }
 
 extension Line {
-    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... 2*CGFloat.pi
+    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... .tau
     public var angle: CGFloat {
-        CGFloat.project(
+        .modulo(
             angle: atan2(
                 point1.y - point0.y,
                 point1.x - point0.x
@@ -62,7 +62,7 @@ extension Line {
     }
 
     public var reverseAngle: CGFloat {
-        CGFloat.project(angle: angle - CGFloat.pi)
+        .modulo(angle: angle - .pi)
     }
 
     /// - Returns: Length of the line using pythagorean theorem

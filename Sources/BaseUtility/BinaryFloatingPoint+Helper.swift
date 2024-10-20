@@ -21,6 +21,7 @@ extension BinaryFloatingPoint {
     /// v.round(nearest: 0.01) // 1.12
     /// v.round(nearest: 0.15) // 1.15
     /// ```
+    @available(*, deprecated, message: "moved to DrawingUI")
     public func round(
         nearest: Self
     ) -> Self {
@@ -31,24 +32,29 @@ extension BinaryFloatingPoint {
 }
 
 extension BinaryFloatingPoint {
+    @available(*, deprecated, message: "moved to DrawingUI")
     public var d: Double {
         Double(self)
     }
 
+    @available(*, deprecated, message: "moved to DrawingUI")
     public var f: Float {
         Float(self)
     }
 }
 
 extension BinaryFloatingPoint {
+    @available(*, deprecated, message: "moved to DrawingUI")
     @inlinable public static var tau: Self { 2.0 * .pi }
 }
 
 extension BinaryInteger {
+    @available(*, deprecated, message: "moved to DrawingUI")
     public var d: Double {
         Double(self)
     }
     
+    @available(*, deprecated, message: "moved to DrawingUI")
     public var f: Float {
         Float(self)
     }

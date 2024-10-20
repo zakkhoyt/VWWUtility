@@ -308,3 +308,45 @@ extension [Polynomial] {
         }
     }
 }
+
+extension Polynomial {
+    public struct Term: CustomStringConvertible {
+        public let coefficient: Int
+        // TODO: Make this array of chars
+        public let variable: String
+        public let exponent: Int
+        
+        public init() {
+            self.coefficient = 0
+            self.variable = "t"
+            self.exponent = 0
+        }
+        
+        public init(
+            coefficient: Int,
+            variable: String,
+            exponent: Int
+        ) {
+            self.coefficient = coefficient
+            self.variable = variable
+            self.exponent = exponent
+        }
+        
+        public var sign: String {
+            coefficient < 0 ? "-" : "+"
+        }
+        
+        public var description: String {
+            [
+                "\(coefficient)",
+                "\(variable)^\(exponent)"
+            ]
+                .compactMap { $0 }
+                .joined(separator: "*")
+        }
+        
+        public func solve(v: CGFloat) -> CGFloat {
+            CGFloat(coefficient) * pow(v, CGFloat(exponent))
+        }
+    }
+}
