@@ -1,4 +1,6 @@
-#!/usr/bin/osascript
+#!/usr/bin/env -S osascript
+
+# # #!/usr/bin/osascript
 
 set indent to "  "
 set urlBase to "x-apple.systempreferences:"
@@ -66,8 +68,8 @@ tell application "System Settings"
 		set currentPaneName to the name of currentPane
 		set currentPaneID to the id of currentPane
 		log "panes[" & i & "]"
-		log indent & "name: " & currentPaneName
-		log indent & "id: " & currentPaneID
+		log indent & "name: " & "'" & currentPaneName & "'"
+		log indent & "id: " & "'" & currentPaneID & "'"
 
 		set anchorNames to get the name of every anchor of pane id currentPaneID
 		
