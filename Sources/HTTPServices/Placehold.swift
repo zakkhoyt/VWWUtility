@@ -8,7 +8,12 @@
 import os.log
 import Foundation
 import SwiftUI
+
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 public struct Placehold {
     /// Returns a URL pointing to a `placeholder image`
@@ -161,7 +166,15 @@ extension Color {
     }
     
     public var rgbHexString: String {
+        
+#if os(iOS)
         let uiColor = UIColor(self)
+#elseif os(macOS)
+        let uiColor = NSColor(self)
+#endif
+
+        
+        
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
