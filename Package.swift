@@ -40,6 +40,10 @@ let package = Package(
             targets: ["HIDMonitor"]
         ),
         .library(
+            name: "HTTPServices",
+            targets: ["HTTPServices"]
+        ),
+        .library(
             name: "MultipeerEngine",
             targets: ["MultipeerEngine"]
         ),
@@ -113,6 +117,21 @@ let package = Package(
             ],
             swiftSettings: swiftSettings,
             plugins: []
+        ),
+        .target(
+            name: "HTTPServices",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [
+            ],
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .testTarget(
+            name: "HTTPServiceTests",
+            dependencies: ["BaseUtility"],
+            swiftSettings: swiftSettings
         ),
         .target(
             name: "MultipeerEngine",
