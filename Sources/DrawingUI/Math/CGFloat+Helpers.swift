@@ -117,9 +117,22 @@ extension FloatingPoint {
 
     public static func interpolate(
         percent: Self,
-        lower: Self,
-        upper: Self
+        lower: Self = 0.0,
+        upper: Self = 1.0
     ) -> Self {
-        lower + percent * (upper - lower)
+#warning("FIXME: zakkhoyt - Clean up or revert")
+        let legacy = lower + percent * (upper - lower)
+                
+        let new = Self.project(
+            value: percent,
+            lowerBoundIn: lower,
+            upperBoundIn: upper,
+            lowerBoundOut: lower,
+            upperBoundOut: upper
+        )
+        
+        assertionFailure("legacy != new")
+        
+        return new
     }
 }

@@ -185,3 +185,31 @@ extension RGBA: ColorString {
         }
     }
 }
+
+extension RGBA {
+    /// Interpolates between `color1` and `color2` using `portion` which
+    /// is a `Double` in `0.0...1.0`
+    public static func interpolate(
+        portion: Double,
+        rgba1: RGBA,
+        rgba2: RGBA,
+        includeAlpha: Bool = false
+    ) -> RGBA {
+        RGBA(
+            red: Double.interpolate(percent: portion, lower: rgba1.red, upper: rgba2.red),
+            green: Double.interpolate(percent: portion, lower: rgba1.green, upper: rgba2.green),
+            blue: Double.interpolate(percent: portion, lower: rgba1.blue, upper: rgba2.blue),
+            alpha: includeAlpha ? Double.interpolate(percent: portion, lower: rgba1.alpha, upper: rgba2.alpha) : 1.0
+        )
+    }
+    
+    /// Interpolates between `color1` and `color2` using `portion` which
+    /// is a `Double` in `0.0...1.0`
+    public func interpolating(
+        portion: Double,
+        rgba: RGBA,
+        includeAlpha: Bool = false
+    ) -> RGBA {
+        RGBA.interpolate(portion: portion, rgba1: self, rgba2: rgba, includeAlpha: includeAlpha)
+    }
+}

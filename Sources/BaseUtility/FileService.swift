@@ -120,8 +120,9 @@ public enum FileService {
 }
 
 extension String {
+//    @available(iOS 16.0, *)
     var fileURL: URL {
-        if #available(macOS 13.0, *) {
+        if #available(macOS 13.0, iOS 16.0, *) {
             URL(filePath: self, directoryHint: URL.DirectoryHint.checkFileSystem, relativeTo: nil)
         } else {
             URL(fileURLWithPath: self)
@@ -154,12 +155,17 @@ extension FileService {
     public static func expand(path: String) -> String {
         NSString(string: path).expandingTildeInPath
     }
-    
+
+#if os(macOS) 
+//    @available(macOS 14.0, *) {
+    @available(macOS 14.0, *)
     private static var homeDirectoryOfCurrentUser: String {
+
         FileManager.default.homeDirectoryForCurrentUser.absoluteString
             .replacingOccurrences(of: "file://", with: "")
             .trimSuffix(text: "/")
     }
+#endif
 }
 
 extension String {
@@ -181,7 +187,7 @@ extension URL {
         let betterURL: URL = {
             if path.contains("~") {
                 let expandedPath = NSString(string: path).expandingTildeInPath
-                if #available(macOS 13.0, *) {
+                if #available(macOS 13.0, iOS 16.0, *) {
                     return URL(
                         filePath: expandedPath,
                         directoryHint: URL.DirectoryHint.checkFileSystem,
@@ -208,11 +214,19 @@ extension URL {
         
         // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
         // https://stackoverflow.com/a/40401137
-        let url = URL(fileURLWithPath: betterURL.path())
-        guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-            return url
+        let url: URL = if #available(iOS 16.0, *) {
+            URL(fileURLWithPath: betterURL.path())
+        } else {
+            URL(fileURLWithPath: betterURL.path)
         }
         
-        return URL(filePath: canonicalPath)
+        if #available(macOS 13.0, iOS 16.0, *) {
+            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+                return url
+            }
+            return URL(filePath: canonicalPath)
+        } else {
+            return url
+        }
     }
 }
