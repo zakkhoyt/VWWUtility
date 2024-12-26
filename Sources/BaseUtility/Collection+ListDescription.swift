@@ -73,4 +73,13 @@ extension [String: any CustomStringConvertible] {
     }
 }
 
-
+//extension [String: (any CustomStringConvertible)?] {
+//    public func listDescription(
+//        keyValueSeparator: String = ": ",
+//        separator: String = ", ",
+//        endcaps: (Character, Character) = ("[", "]")
+//    ) -> String {
+//        compactMapValues { String(describing: $0) }
+//            .listDescription(separator: separator, endcaps: endcaps)
+//    }
+//}
