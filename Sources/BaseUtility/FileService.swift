@@ -122,7 +122,7 @@ public enum FileService {
 extension String {
 //    @available(iOS 16.0, *)
     var fileURL: URL {
-        if #available(macOS 13.0, iOS 16.0, *) {
+        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
             URL(filePath: self, directoryHint: URL.DirectoryHint.checkFileSystem, relativeTo: nil)
         } else {
             URL(fileURLWithPath: self)
@@ -187,7 +187,7 @@ extension URL {
         let betterURL: URL = {
             if path.contains("~") {
                 let expandedPath = NSString(string: path).expandingTildeInPath
-                if #available(macOS 13.0, iOS 16.0, *) {
+                if #available(macOS 13.0,macCatalyst 16.0, iOS 16.0, *) {
                     return URL(
                         filePath: expandedPath,
                         directoryHint: URL.DirectoryHint.checkFileSystem,
@@ -214,13 +214,13 @@ extension URL {
         
         // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
         // https://stackoverflow.com/a/40401137
-        let url: URL = if #available(iOS 16.0, *) {
+        let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
             URL(fileURLWithPath: betterURL.path())
         } else {
             URL(fileURLWithPath: betterURL.path)
         }
         
-        if #available(macOS 13.0, iOS 16.0, *) {
+        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
             guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
                 return url
             }
