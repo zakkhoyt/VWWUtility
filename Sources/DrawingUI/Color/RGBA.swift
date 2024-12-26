@@ -196,9 +196,52 @@ extension RGBA {
         includeAlpha: Bool = false
     ) -> RGBA {
         RGBA(
-            red: Double.interpolate(percent: portion, lower: rgba1.red, upper: rgba2.red),
-            green: Double.interpolate(percent: portion, lower: rgba1.green, upper: rgba2.green),
-            blue: Double.interpolate(percent: portion, lower: rgba1.blue, upper: rgba2.blue),
+//            red: Double.interpolate(percent: portion, lower: rgba1.red, upper: rgba2.red),
+//            green: Double.interpolate(percent: portion, lower: rgba1.green, upper: rgba2.green),
+//            blue: Double.interpolate(percent: portion, lower: rgba1.blue, upper: rgba2.blue),
+//            red: Double.project(
+//                value: portion,
+//                lowerBoundIn: 0.0,
+//                upperBoundIn: 1.0,
+//                lowerBoundOut: rgba1.red,
+//                upperBoundOut: rgba2.red
+//            ),
+//            green: Double.project(
+//                value: portion,
+//                lowerBoundIn: 0.0,
+//                upperBoundIn: 1.0,
+//                lowerBoundOut: rgba1.green,
+//                upperBoundOut: rgba2.green
+//            ),
+//            blue: Double.project(
+//                value: portion,
+//                lowerBoundIn: 0.0,
+//                upperBoundIn: 1.0,
+//                lowerBoundOut: rgba1.blue,
+//                upperBoundOut: rgba2.blue
+//            ),
+            red: Double.project(
+                value: portion,
+                lowerBoundIn: 0.0,
+                upperBoundIn: 1.0,
+                lowerBoundOut: rgba1.red,
+                upperBoundOut: rgba2.red
+            ),
+            green: Double.project(
+                value: portion,
+                lowerBoundIn: 0.0,
+                upperBoundIn: 1.0,
+                lowerBoundOut: rgba1.green,
+                upperBoundOut: rgba2.green
+            ),
+            blue: Double.project(
+                value: portion,
+                lowerBoundIn: 0.0,
+                upperBoundIn: 1.0,
+                lowerBoundOut: rgba1.blue,
+                upperBoundOut: rgba2.blue
+            ),
+
             alpha: includeAlpha ? Double.interpolate(percent: portion, lower: rgba1.alpha, upper: rgba2.alpha) : 1.0
         )
     }
@@ -213,3 +256,4 @@ extension RGBA {
         RGBA.interpolate(portion: portion, rgba1: self, rgba2: rgba, includeAlpha: includeAlpha)
     }
 }
+//

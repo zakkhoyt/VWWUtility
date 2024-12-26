@@ -117,8 +117,8 @@ extension FloatingPoint {
 
     public static func interpolate(
         percent: Self,
-        lower: Self = 0.0,
-        upper: Self = 1.0
+        lower: Self,
+        upper: Self
     ) -> Self {
 #warning("FIXME: zakkhoyt - Clean up or revert")
         let legacy = lower + percent * (upper - lower)

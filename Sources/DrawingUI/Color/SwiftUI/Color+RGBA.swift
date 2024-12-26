@@ -50,18 +50,19 @@ extension Color {
 
 extension Color {
     public var rgba: RGBA {
-        @Environment(\.self) var environment
-        if #available(macOS 14.0, iOS 17.0, *) {
-            let resolved = resolve(in: environment)
-            return RGBA(
-                red: Double(resolved.linearRed),
-                green: Double(resolved.linearGreen),
-                blue: Double(resolved.linearBlue),
-                alpha: Double(resolved.opacity)
-            )
-
-        } else {
-            return NativeColor.rgba(color: self)
-        }
+#warning("TODO: zakkhoyt - This newer way that required environment only work in SwiftUI, and will not work in code like this")
+//        @Environment(\.self) var environment
+//        if #available(macOS 14.0, iOS 17.0, *) {
+//            let resolved = resolve(in: environment)
+//            return RGBA(
+//                red: Double(resolved.linearRed),
+//                green: Double(resolved.linearGreen),
+//                blue: Double(resolved.linearBlue),
+//                alpha: Double(resolved.opacity)
+//            )
+//
+//        } else {
+        return NativeColor.rgba(color: self)
+//        }
     }
 }
