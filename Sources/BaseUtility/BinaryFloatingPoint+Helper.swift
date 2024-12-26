@@ -9,6 +9,14 @@
 import Foundation
 
 extension BinaryFloatingPoint {
+    public func clamped(
+        to range: ClosedRange<Self> = 0.0...1.0
+    ) -> Self {
+        min(max(self, range.lowerBound), range.upperBound)
+    }
+}
+
+extension BinaryFloatingPoint {
     /// Rounds a floating point number to some multiple of the given value `nearest`
     /// - Parameter nearest: A fractionating value to round to. Think of this like tick marks on a slider or knob.
     /// - Returns: `self`, but rounded to the nearest multiple of `nearest`
@@ -33,6 +41,11 @@ extension BinaryFloatingPoint {
 
 extension BinaryFloatingPoint {
     @available(*, deprecated, message: "moved to DrawingUI")
+    @inlinable public static var tau: Self { 2.0 * .pi }
+}
+
+extension BinaryFloatingPoint {
+    @available(*, deprecated, message: "moved to DrawingUI")
     public var d: Double {
         Double(self)
     }
@@ -41,11 +54,6 @@ extension BinaryFloatingPoint {
     public var f: Float {
         Float(self)
     }
-}
-
-extension BinaryFloatingPoint {
-    @available(*, deprecated, message: "moved to DrawingUI")
-    @inlinable public static var tau: Self { 2.0 * .pi }
 }
 
 extension BinaryInteger {

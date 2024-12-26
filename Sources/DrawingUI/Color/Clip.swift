@@ -8,6 +8,7 @@
 
 import CoreGraphics
 
+#warning("FIXME: zakkhoyt - move these to protocols")
 func clip(_ value: CGFloat) -> CGFloat {
     max(0.0, min(1.0, value))
 }
