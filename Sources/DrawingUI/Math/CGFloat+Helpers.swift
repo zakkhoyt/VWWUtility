@@ -120,6 +120,19 @@ extension FloatingPoint {
         lower: Self,
         upper: Self
     ) -> Self {
-        lower + percent * (upper - lower)
+#warning("FIXME: zakkhoyt - Clean up or revert")
+        let legacy = lower + percent * (upper - lower)
+                
+        let new = Self.project(
+            value: percent,
+            lowerBoundIn: lower,
+            upperBoundIn: upper,
+            lowerBoundOut: lower,
+            upperBoundOut: upper
+        )
+        
+        assertionFailure("legacy != new")
+        
+        return new
     }
 }
