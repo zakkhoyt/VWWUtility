@@ -7,10 +7,6 @@
 
 
 extension String {
+    public static let `nil` = "<nil>"
     public static let nilString = "<nil>"
-    public static let yoString = "<nil>"
-    
 }
-
-public static let pubNilString = "<nil>"
-asdf
