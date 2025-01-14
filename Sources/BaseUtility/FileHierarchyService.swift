@@ -270,10 +270,31 @@ extension FileHierarchyService {
             }
         }
         
-//        /// Returns the path component of the URL if present, otherwise returns an empty string.
-//        public var path: String {
-//            url.path
-//        }
+        /// Returns the path component of the URLformatted for use in a shell without quoating.
+        public var shellPath: String {
+            [
+                " ",
+                ";",
+                "!",
+                "'",
+                #"""#,
+                "(",
+                ")",
+                "[",
+                "]",
+                "{",
+                "}",
+                "*",
+                "&",
+                "#",
+                "`",
+                "^",
+                "|",
+                "$"
+            ].reduce(into: url.path) { // partialResult, String in
+                $0 = $0.replacingOccurrences(of: $1, with: #"\\\#($1)"#)
+            }
+        }
         
         /// Returns the path component of the URL if present, otherwise returns an empty string.
         /// - note: This function will resolve against the base `URL`.
