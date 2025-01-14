@@ -7,19 +7,16 @@
 
 import Foundation
 
-
-
 public struct FileHierarchyService {
     public init() {}
     
-    #warning("TODO: zakkhoyt - return a list of URLs or FileHierarchyItems")
     public func walkFileHierarchy(
         directoryURL: URL,
-        recursive: Bool,
+        isRecursive: Bool,
         asAbsolutePath: Bool = true,
         level: Int = 0,
-        format: FileHierarchyItem.DisplayFormat = .find
-    ) throws -> [FileHierarchyItem] {
+        format: DisplayFormat = .find
+    ) throws -> [Item] {
         let baseDirectoryPath = directoryURL.path.removingPercentEncoding ?? directoryURL.path
         // Avoid having `//` in urls later
         let directoryPath = (baseDirectoryPath + "/").replacingOccurrences(of: "//", with: "/")
@@ -31,7 +28,7 @@ public struct FileHierarchyService {
             )
         }
         
-        let fileHierarchyItems: [FileHierarchyItem] = try retrieveContentItem(
+        let fileHierarchyItems: [Item] = try retrieveContentItem(
             directoryURL: directoryURL,
             asAbsolutePath: asAbsolutePath,
             level: level
@@ -40,7 +37,7 @@ public struct FileHierarchyService {
 //        try fileHierarchyItems.enumerated().forEach {
         return try fileHierarchyItems.enumerated().reduce(
             into: []
-        ) { partialResult, iter /*EnumeratedSequence<[FileHierarchyItem]>.Iterator.Element*/ in
+        ) { partialResult, iter /*EnumeratedSequence<[Item]>.Iterator.Element*/ in
 
             let index = iter.offset
             
@@ -105,11 +102,11 @@ public struct FileHierarchyService {
             
             partialResult.append(fileHierarchyItem)
             
-            if fileHierarchyItem.isDirectory, recursive {
+            if fileHierarchyItem.isDirectory, isRecursive {
                 let relativePath = url.path.replacingOccurrences(of: "\(directoryPath)", with: "")
-                let recursiveItems: [FileHierarchyItem] = try walkFileHierarchy(
+                let recursiveItems: [Item] = try walkFileHierarchy(
                     directoryURL: directoryURL.appendingPathComponent(relativePath),
-                    recursive: recursive,
+                    isRecursive: isRecursive,
                     asAbsolutePath: asAbsolutePath,
                     level: level + 1
                 )
@@ -134,12 +131,12 @@ public struct FileHierarchyService {
         directoryURL: URL,
         asAbsolutePath: Bool = true,
         level: Int
-    ) throws -> [FileHierarchyItem] {
+    ) throws -> [Item] {
         do {
             // Get the directory contents urls (including subfolders urls)
             return try FileManager.default.contentsOfDirectory(
                 at: directoryURL,
-                includingPropertiesForKeys: FileHierarchyItem.resourceKeys,
+                includingPropertiesForKeys: Item.resourceKeys,
                 options: [
                     .skipsSubdirectoryDescendants, // Want manual control here
                     .producesRelativePathURLs
@@ -154,7 +151,7 @@ public struct FileHierarchyService {
             }
             .compactMap { url in
                 do {
-                    return try FileHierarchyItem(
+                    return try Item(
                         name: url.deletingPathExtension().lastPathComponent,
                         url: url
                     )
@@ -178,31 +175,32 @@ public struct FileHierarchyService {
 }
 
 extension FileHierarchyService {
-    public struct FileHierarchyItem {
+    public enum DisplayFormat: CustomStringConvertible {
+        case eza
+        case find
+        //            case lsOne
+        
+        public var description: String {
+            switch self {
+            case .eza: "eza"
+            case .find: "find * -type f"
+                //                case .lsOne: "ls -1"
+            }
+        }
+    }
+}
+
+extension FileHierarchyService {
+    public struct Item {
         public enum Error: Swift.Error {
             case missingURLResource(URL, URLResourceKey)
             case missingURLResources(URL, [URLResourceKey])
         }
         
-        public enum DisplayFormat: CustomStringConvertible {
-            case eza
-            case find
-//            case lsOne
-            
-            public var description: String {
-                switch self {
-                case .eza: "eza"
-                case .find: "find * -type f"
-//                case .lsOne: "ls -1"
-                }
-            }
-        }
-        
         public enum FileKind {
             case directory(isSymbolicLink: Bool)
-            case regularFile(sizeInBytes: UInt64, isAliasFile: Bool)
+            case regularFile(sizeInBytes: UInt64, isAliasFile: Bool, fileExtension: String)
         }
-
 
         static let fileKindSystemResourceKeys: [URLResourceKey] = [
             .isDirectoryKey,
@@ -272,14 +270,45 @@ extension FileHierarchyService {
             }
         }
         
-        public var isRegularFile: Bool {
-            switch fileKind {
-            case .directory:
-                false
-            case .regularFile:
-                true
-            }
+//        /// Returns the path component of the URL if present, otherwise returns an empty string.
+//        public var path: String {
+//            url.path
+//        }
+        
+        /// Returns the path component of the URL if present, otherwise returns an empty string.
+        /// - note: This function will resolve against the base `URL`.
+        /// - Parameter percentEncoded: Whether the path should be percent encoded,
+        /// - Returns: The path component of the URL.
+        public func path(percentEncoded: Bool) -> String {
+            url.path(percentEncoded: false)
         }
+        
+        /// Returns the path components of the URL, or an empty array if the path is an empty string.
+        public var pathComponents: [String] {
+            url.pathComponents
+        }
+
+        /// Returns the last path component of the URL, or an empty string if the path is an empty string.
+        public var lastPathComponent: String {
+            url.lastPathComponent
+        }
+
+        
+        /// Returns the path extension of the URL, or an empty string if the path is an empty string.
+        public var fileExtension: String {
+            url.pathExtension
+        }
+        
+        /// Returns the file name without extension
+        public var fileBasename: String {
+            url.deletingPathExtension().lastPathComponent
+        }
+        
+#warning("FIXME: zakkhoyt - return Item")
+        public var parentDirectoryURL: URL {
+            url.deletingLastPathComponent()
+        }
+
         
     //        public var isAlias: Bool? {
     //            url.resourceValue(
@@ -308,7 +337,6 @@ extension FileHierarchyService {
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
-                
                 self.fileKind = .directory(
                     isSymbolicLink: isSymbolicLink
                 )
@@ -328,7 +356,8 @@ extension FileHierarchyService {
 
                 self.fileKind = .regularFile(
                     sizeInBytes: fileSizeNumber.uint64Value,
-                    isAliasFile: isAliasFile
+                    isAliasFile: isAliasFile,
+                    fileExtension: url.pathExtension
                 )
             } else {
                 let error = Error.missingURLResources(url, [.isDirectoryKey, .isRegularFileKey])
