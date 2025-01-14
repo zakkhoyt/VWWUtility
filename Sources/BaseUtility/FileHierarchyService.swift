@@ -19,7 +19,7 @@ public struct FileHierarchyService {
         asAbsolutePath: Bool = true,
         level: Int = 0,
         format: FileHierarchyItem.DisplayFormat = .find
-    ) throws {
+    ) throws -> [FileHierarchyItem] {
         let baseDirectoryPath = directoryURL.path.removingPercentEncoding ?? directoryURL.path
         // Avoid having `//` in urls later
         let directoryPath = (baseDirectoryPath + "/").replacingOccurrences(of: "//", with: "/")
@@ -37,11 +37,20 @@ public struct FileHierarchyService {
             level: level
         )
         
-        try fileHierarchyItems.enumerated().forEach {
-            let index = $0
-            let fileHierarchyItem = $1
+//        try fileHierarchyItems.enumerated().forEach {
+        return try fileHierarchyItems.enumerated().reduce(
+            into: []
+        ) { partialResult, iter /*EnumeratedSequence<[FileHierarchyItem]>.Iterator.Element*/ in
+
+            let index = iter.offset
+            
+            let fileHierarchyItem = iter.element
             let directoryPath = directoryURL.path()
             let url = fileHierarchyItem.url
+            
+#warning("TODO: zakkhoyt - add `.` or initial absolute")
+            let commonPrefix = "[L:\("\(level)".padded(length: 2, character: "0"))] "
+            
 
             // ```sh
             //     .
@@ -58,59 +67,66 @@ public struct FileHierarchyService {
             // │  └── 240825_144910.txt
             // └── FILE_PROVIDER.md
             // ```
+        
+//            switch format {
+//            case .eza:
+//                let displayName = url.lastPathComponent
+//                
+//                let dirIndentPrefix = level > 0 ? "│  " : ""
+//                let fileIndentPrefix = level > 0 ? "│  " : ""
+//                
+//                let dirIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
+//                let fileIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
+//                let isLastElement = index == fileHierarchyItems.count - 1
+//                let dirIndentPostfix = isLastElement ? "└── " : "├── "
+//                let fileIndentPostfix = dirIndentPostfix
+//                let dirIndent = [dirIndentPrefix, dirIndentCore, dirIndentPostfix].joined()
+//                let fileIndent = [fileIndentPrefix, fileIndentCore, fileIndentPostfix].joined()
+//                
+//                if fileHierarchyItem.isDirectory {
+//                    let line = "\(dirIndent)\(displayName)    **** D:\(commonPrefix)"
+//                    print(line)
+//                    
+//                } else {
+//                    let line = "\(fileIndent)\(displayName)    **** f:\(commonPrefix)"
+//                    print(line)
+//                }
+//            case .find:
+//                let displayName = url.path
+//                if fileHierarchyItem.isDirectory {
+//                    let line = "\(displayName)/    **** D:\(commonPrefix)"
+//                    print(line)
+//                    
+//                } else {
+//                    let line = "\(displayName)    **** f:\(commonPrefix)"
+//                    print(line)
+//                }
+//            }
             
-            #warning("TODO: zakkhoyt - add `.` or initial absolute")
-            let commonPrefix = "[L:\("\(level)".padded(length: 2, character: "0"))] "
+            partialResult.append(fileHierarchyItem)
             
-            switch format {
-            case .eza:
-                let displayName = url.lastPathComponent
+            if fileHierarchyItem.isDirectory, recursive {
+                let relativePath = url.path.replacingOccurrences(of: "\(directoryPath)", with: "")
+                let recursiveItems: [FileHierarchyItem] = try walkFileHierarchy(
+                    directoryURL: directoryURL.appendingPathComponent(relativePath),
+                    recursive: recursive,
+                    asAbsolutePath: asAbsolutePath,
+                    level: level + 1
+                )
                 
-                let dirIndentPrefix = level > 0 ? "│  " : ""
-                let fileIndentPrefix = level > 0 ? "│  " : ""
-                
-                let dirIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
-                let fileIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
-                let isLastElement = index == fileHierarchyItems.count - 1
-                let dirIndentPostfix = isLastElement ? "└── " : "├── "
-                let fileIndentPostfix = dirIndentPostfix
-                let dirIndent = [dirIndentPrefix, dirIndentCore, dirIndentPostfix].joined()
-                let fileIndent = [fileIndentPrefix, fileIndentCore, fileIndentPostfix].joined()
-                
-                if fileHierarchyItem.isDirectory {
-                    let line = "\(dirIndent)\(displayName)    **** D:\(commonPrefix)"
-                    print(line)
-                    
-                } else {
-                    let line = "\(fileIndent)\(displayName)    **** f:\(commonPrefix)"
-                    print(line)
-                }
-            case .find:
-                let displayName = url.path
-                if fileHierarchyItem.isDirectory {
-                    let line = "\(displayName)/    **** D:\(commonPrefix)"
-                    print(line)
-                    
-                } else {
-                    let line = "\(displayName)    **** f:\(commonPrefix)"
-                    print(line)
-                }
-            }
-            
-            
-            if fileHierarchyItem.isDirectory {
-                if recursive {
-                    let relativePath = url.path.replacingOccurrences(of: "\(directoryPath)", with: "")
-                    try walkFileHierarchy(
-                        directoryURL: directoryURL.appendingPathComponent(relativePath),
-                        recursive: recursive,
-                        asAbsolutePath: asAbsolutePath,
-                        level: level + 1
-                    )
-                }
+                //                    partialResult += fileHierarchyItems + recursiveItems
+//                                    partialResult.append(contentsOf: fileHierarchyItems + recursiveItems)
+                partialResult.append(contentsOf: recursiveItems)
+//                partialResult = recursiveItems
+                return
             } else {
-                // Done
+                // Done with this dir
+//                partialResult.append(contentsOf: fileHierarchyItems)
+                
             }
+            //            partialResult += fileHierarchyItems
+            
+            //            return fileHierarchyItems
         }
     }
     
