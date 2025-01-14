@@ -42,7 +42,7 @@ public struct FileHierarchyService {
             let index = iter.offset
             
             let fileHierarchyItem = iter.element
-            let directoryPath = directoryURL.path()
+            let directoryPath = directoryURL.path
             let url = fileHierarchyItem.url
             
 #warning("TODO: zakkhoyt - add `.` or initial absolute")
