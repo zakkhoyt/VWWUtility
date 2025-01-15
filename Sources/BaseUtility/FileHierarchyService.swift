@@ -409,21 +409,3 @@ extension FileHierarchyService {
 //
 //}
 
-/// ## References
-///
-/// * [StackOverflow](https://stackoverflow.com/questions/33337721/check-if-file-is-alias-swift)
-///
-extension URL {
-    func resourceValue<T: Any>(
-        key: URLResourceKey
-    ) -> T? {
-        do {
-            return try (self as NSURL).resourceValues(forKeys: [key])[key] as? T
-        } catch {
-            logger.fault("\(error.localizedDescription)")
-            return nil
-        }
-    }
-}
-
-
