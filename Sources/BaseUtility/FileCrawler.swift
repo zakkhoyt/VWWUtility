@@ -10,6 +10,61 @@ import Foundation
 public struct FileCrawler {
     public init() {}
     
+//    public static func findSwiftPackagesDirect(
+//        directoryURL: URL
+//    ) throws -> [URL] {
+//        let urls: [URL] = FileManager.default.enumerator(
+//            at: directoryURL,
+//            includingPropertiesForKeys: nil,
+//            options: [
+//                .skipsHiddenFiles
+//                //                .skipsPackageDescendants,
+//                //                .skipsSubdirectoryDescendants
+//            ]
+//        )?.compactMap {
+//            guard let url = $0 as? URL else {
+//                return nil
+//            }
+//            
+//            // Reduce to Package.swift
+//            let filename: String = url.lastPathComponent
+//            guard filename.contains(/.*Package.swift$/) else {
+//                return nil
+//            }
+//            
+//            // Exclude this package
+//            guard !filename.contains("SwiftPackageGrapher") else {
+//                return nil
+//            }
+//            
+//            return url
+//        } ?? []
+//        
+//        let sortedURLs = urls.sorted {
+//            let relativePath0 = $0.path(percentEncoded: false).replacingOccurrences(
+//                of: directoryURL.path(percentEncoded: false),
+//                with: ""
+//            )
+//            let relativePath1 = $1.path(percentEncoded: false).replacingOccurrences(
+//                of: directoryURL.path(percentEncoded: false),
+//                with: ""
+//            )
+//            return relativePath0 < relativePath1
+//        }
+//        
+//        logger.debug("Listing \(urls.count) urls:")
+//        
+//        sortedURLs.forEach {
+//            let relativePath = $0.path(percentEncoded: false).replacingOccurrences(
+//                of: directoryURL.path(percentEncoded: false),
+//                with: ""
+//            )
+//            logger.debug("\(relativePath)")
+//        }
+//        
+//        return []
+//    }
+    
     public func walkFileHierarchy(
         directoryURL: URL,
         isRecursive: Bool,
@@ -78,7 +133,7 @@ public struct FileCrawler {
             
             if let passedFilter = fileFilter?(url) {
                 if passedFilter == false {
-                    logger.warning("Exclude fileURL because it failed the fileFilter: \(url.path(percentEncoded: false))")
+//                    logger.warning("Exclude fileURL because it failed the fileFilter: \(url.path(percentEncoded: false))")
                     return nil
                 } else {
                     logger.debug("Included fileURL because it passes the fileFilter: \(url.path(percentEncoded: false))")
@@ -566,6 +621,34 @@ extension FileCrawler {
     }
 }
 
+extension [FileCrawler.Item] {
+    ///    let urls: [URL] = flattenToURLs(items: items)
+    ///    urls.forEach {
+    ///        let relativePath = $0.path(percentEncoded: false).replacingOccurrences(
+    ///            of: directoryURL.path(percentEncoded: false),
+    ///            with: ""
+    ///        )
+    ///        logger.debug("\(relativePath)")
+    ///    }
+    ///    let packageURLs: [URL] = []
+    ///    return packageURLs
+    public func flattenToURLs(
+        items: [FileCrawler.Item]
+    ) -> [URL] {
+        return items.flatMap {
+            switch $0 {
+            case .directory(let url, _, let directoryItems, let fileItems):
+                return [$0.url] + flattenToURLs(items: directoryItems) + flattenToURLs(items: fileItems)
+            case .regularFile/*(let url, let sizeInBytes, let isAliasFile, let fileExtension)*/:
+                return [$0.url]
+            }
+        }
+    }
+}
+
+
+
+
 
 //ext
 //public struct DirectoryContentFormatter {
@@ -581,3 +664,69 @@ extension FileCrawler {
 //
 //}
 
+
+
+extension URLResourceKey {
+    public static let fileKindSystemResourceKeys: [URLResourceKey] = [
+        .isDirectoryKey,
+        .isRegularFileKey
+    ]
+    
+    public static let directoryResourceKeys: [URLResourceKey] = [
+        .isSymbolicLinkKey
+    ]
+    
+    public static let regularFileResourceKeys: [URLResourceKey] = [
+        .isAliasFileKey,
+        .fileSizeKey // bytes
+    ]
+    
+    public static let commonRequiredResourceKeys: [URLResourceKey] = [
+        .pathKey,
+        .canonicalPathKey,
+        .addedToDirectoryDateKey,
+        .contentModificationDateKey,
+        .creationDateKey,
+    ]
+    
+    public static let privacyResourceKeys: [URLResourceKey] = [
+        .isExcludedFromBackupKey,
+        .isHiddenKey
+    ]
+    
+    public static let otherResourceKeys: [URLResourceKey] = [
+        .isPurgeableKey,
+        .fileProtectionKey,
+        .fileSecurityKey,
+        .isPackageKey,
+        .ubiquitousItemIsExcludedFromSyncKey,
+    ]
+    
+    public static let directoryRsourceKeys: [URLResourceKey] = [
+        commonRequiredResourceKeys,
+        privacyResourceKeys,
+        otherResourceKeys,
+        directoryResourceKeys
+    ].flatMap {
+        $0
+    }
+    
+    public static let fileResourceKeys: [URLResourceKey] =  [
+        commonRequiredResourceKeys,
+        privacyResourceKeys,
+        otherResourceKeys,
+        fileKindSystemResourceKeys
+    ].flatMap {
+        $0
+    }
+    
+    
+    public static let allResourceKeys: [URLResourceKey] = [
+        commonRequiredResourceKeys,
+        privacyResourceKeys,
+        otherResourceKeys,
+        directoryResourceKeys
+    ].flatMap {
+        $0
+    }
+}
