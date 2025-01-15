@@ -103,27 +103,17 @@ public struct FileHierarchyService {
             partialResult.append(fileHierarchyItem)
             
             if fileHierarchyItem.isDirectory, isRecursive {
-                let relativePath = url.path.replacingOccurrences(of: "\(directoryPath)", with: "")
                 let recursiveItems: [Item] = try walkFileHierarchy(
-                    directoryURL: directoryURL.appendingPathComponent(relativePath),
+                    directoryURL: fileHierarchyItem.url,
                     isRecursive: isRecursive,
                     asAbsolutePath: asAbsolutePath,
                     level: level + 1
                 )
-                
-                //                    partialResult += fileHierarchyItems + recursiveItems
-//                                    partialResult.append(contentsOf: fileHierarchyItems + recursiveItems)
                 partialResult.append(contentsOf: recursiveItems)
-//                partialResult = recursiveItems
                 return
             } else {
                 // Done with this dir
-//                partialResult.append(contentsOf: fileHierarchyItems)
-                
             }
-            //            partialResult += fileHierarchyItems
-            
-            //            return fileHierarchyItems
         }
     }
     
@@ -269,33 +259,7 @@ extension FileHierarchyService {
                 false
             }
         }
-        
-        /// Returns the path component of the URLformatted for use in a shell without quoating.
-        public var shellPath: String {
-            [
-                " ",
-                ";",
-                "!",
-                "'",
-                #"""#,
-                "(",
-                ")",
-                "[",
-                "]",
-                "{",
-                "}",
-                "*",
-                "&",
-                "#",
-                "`",
-                "^",
-                "|",
-                "$"
-            ].reduce(into: url.path) { // partialResult, String in
-                $0 = $0.replacingOccurrences(of: $1, with: #"\\\#($1)"#)
-            }
-        }
-        
+                
         /// Returns the path component of the URL if present, otherwise returns an empty string.
         /// - note: This function will resolve against the base `URL`.
         /// - Parameter percentEncoded: Whether the path should be percent encoded,
