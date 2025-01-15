@@ -31,6 +31,10 @@ let package = Package(
             targets: ["BaseUtility"]
         ),
         .library(
+            name: "CodableUtilities",
+            targets: ["CodableUtilities"]
+        ),
+        .library(
             name: "DrawingUI",
             targets: ["DrawingUI"]
         ),
@@ -96,6 +100,17 @@ let package = Package(
             name: "BaseUtilityIntegrationTests",
             dependencies: ["BaseUtility"],
             swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "CodableUtilities",
+            dependencies: [],
+            resources: []
+        ),
+        .testTarget(
+            name: "CodableUtilitiesTests",
+            dependencies: [
+                "CodableUtilities"
+            ]
         ),
         .target(
             name: "DrawingUI",

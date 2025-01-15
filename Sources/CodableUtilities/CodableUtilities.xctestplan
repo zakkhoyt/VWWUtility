@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "821A9A9D-A2B2-4DBC-9FF5-51030C5B7EC6",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "HatchCodableUtilitiesTests",
+        "name" : "HatchCodableUtilitiesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
