@@ -1,0 +1,64 @@
+extension URLResourceKey {
+    public static let fileKindSystemResourceKeys: [URLResourceKey] = [
+        .isDirectoryKey,
+        .isRegularFileKey
+    ]
+    
+    public static let directoryResourceKeys: [URLResourceKey] = [
+        .isSymbolicLinkKey
+    ]
+    
+    public static let regularFileResourceKeys: [URLResourceKey] = [
+        .isAliasFileKey,
+        .fileSizeKey // bytes
+    ]
+    
+    public static let commonRequiredResourceKeys: [URLResourceKey] = [
+        .pathKey,
+        .canonicalPathKey,
+        .addedToDirectoryDateKey,
+        .contentModificationDateKey,
+        .creationDateKey,
+    ]
+    
+    public static let privacyResourceKeys: [URLResourceKey] = [
+        .isExcludedFromBackupKey,
+        .isHiddenKey
+    ]
+    
+    public static let otherResourceKeys: [URLResourceKey] = [
+        .isPurgeableKey,
+        .fileProtectionKey,
+        .fileSecurityKey,
+        .isPackageKey,
+        .ubiquitousItemIsExcludedFromSyncKey,
+    ]
+    
+    public static let directoryRsourceKeys: [URLResourceKey] = [
+        commonRequiredResourceKeys,
+        privacyResourceKeys,
+        otherResourceKeys,
+        directoryResourceKeys
+    ].flatMap {
+        $0
+    }
+    
+    public static let fileResourceKeys: [URLResourceKey] =  [
+        commonRequiredResourceKeys,
+        privacyResourceKeys,
+        otherResourceKeys,
+        fileKindSystemResourceKeys
+    ].flatMap {
+        $0
+    }
+    
+    
+    public static let allResourceKeys: [URLResourceKey] = [
+        commonRequiredResourceKeys,
+        privacyResourceKeys,
+        otherResourceKeys,
+        directoryResourceKeys
+    ].flatMap {
+        $0
+    }
+}

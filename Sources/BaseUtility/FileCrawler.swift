@@ -65,9 +65,19 @@ public struct FileCrawler {
 //        return []
 //    }
     
+    /// Walks through directory hierarchy of `directoryURL` building a representation of the contents
+    /// represented as a `tree` of ``FileCrawler.Item``
+    /// - Parameters:
+    ///   - directoryURL: <#directoryURL description#>
+    ///   - isRecursive: <#isRecursive description#>
+    ///   - directoryFilter: <#directoryFilter description#>
+    ///   - fileFilter: <#fileFilter description#>
+    ///   - level: <#level description#>
+    /// - Returns: <#description#>
     public func walkFileHierarchy(
         directoryURL: URL,
         isRecursive: Bool,
+        directoryFilter: ((URL) -> Bool)? = nil,
         fileFilter: ((URL) -> Bool)? = nil,
         level: Int = 0
     ) throws -> [Item] {
@@ -210,6 +220,7 @@ FIXME: zakkhoyt - renamame to subdirectoryURL
                 let subdirectoryItems: [Item] = try walkFileHierarchy(
                     directoryURL: subdirectoryURL,
                     isRecursive: isRecursive,
+                    directoryFilter: directoryFilter,
                     fileFilter: fileFilter,
                     level: level + 1
                 )
