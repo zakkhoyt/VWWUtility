@@ -4,7 +4,7 @@
 import PackageDescription
 
 let swiftSettings: [SwiftSetting] = [
-//    .enableUpcomingFeature("BareSlashRegexLiterals"),
+    .enableUpcomingFeature("BareSlashRegexLiterals")
 //    .enableUpcomingFeature("ConciseMagicFile"),
 //    .enableUpcomingFeature("ExistentialAny"),
 //    .enableUpcomingFeature("ForwardTrailingClosures"),
@@ -104,13 +104,15 @@ let package = Package(
         .target(
             name: "CodableUtilities",
             dependencies: [],
-            resources: []
+            resources: [],
+            swiftSettings: swiftSettings
         ),
         .testTarget(
             name: "CodableUtilitiesTests",
             dependencies: [
                 "CodableUtilities"
-            ]
+            ],
+            swiftSettings: swiftSettings
         ),
         .target(
             name: "DrawingUI",

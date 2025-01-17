@@ -10,10 +10,152 @@ import Foundation
 public struct FileCrawler {
     public init() {}
     
-//    public static func findSwiftPackagesDirect(
-//        directoryURL: URL
-//    ) throws -> [URL] {
-//        let urls: [URL] = FileManager.default.enumerator(
+    public static func contentsOfDirectory(
+        directoryURL: URL,
+        directoryFilter: ((URL) -> Bool)? = nil,
+        fileFilter: ((URL) -> Bool)? = nil
+    ) throws -> [URL] {
+        let resourceKeys = Set<URLResourceKey>([.nameKey, .isDirectoryKey])
+        guard let directoryEnumerator = FileManager().enumerator(
+            at: directoryURL,
+            includingPropertiesForKeys: Array(resourceKeys),
+            options: .skipsHiddenFiles
+        ) else {
+            return []
+        }
+        
+        let fileURLs: [URL] = directoryEnumerator.reduce(
+            into: []
+        ) { // partialResult, NSEnumerator.Element in
+            guard case let url as URL = $1 else { return }
+            
+            guard let resourceValues: URLResourceValues = {
+                do {
+                    return try url.resourceValues(
+                        forKeys: .allResourceKeys
+                    )
+                } catch {
+                    logger.warning(
+                        "Failed to fetch resourceKeys for url: \(url.absoluteString) with error: \(error.localizedDescription)"
+                    )
+                    return nil
+                }
+            }() else { return }
+            
+            guard let isDirectory = resourceValues.isDirectory else {
+                logger.warning("Failed to fetch resourceKey: .isDirectory for url: \(url.absoluteString)")
+                return
+            }
+            guard let isRegularFile = resourceValues.isRegularFile else {
+                logger.warning("Failed to fetch resourceKey: .isRegularFile for url: \(url.absoluteString)")
+                return
+            }
+            
+            if isDirectory {
+                if directoryFilter?(url) ?? true {
+                    $0.append(url)
+                } else {
+                    logger.warning("Exclude dirURL because it failed the dirFilter: \(url.path(percentEncoded: false))")
+                }
+            } else if isRegularFile {
+                if fileFilter?(url) ?? true {
+                    $0.append(url)
+                } else {
+                    logger.warning("Exclude fileURL because it failed the fileFilter: \(url.path(percentEncoded: false))")
+                }
+            } else {
+                logger.warning("Exclude url which is neither a directory or a regular file: \(url.absoluteString)")
+            }
+            
+//            guard let isDirectory = resourceValues.isDirectory else {
+//                logger.warning("Failed to fetch resourceKey: .isDirectory for url: \(url.absoluteString)")
+//                return
+//            }
+//            guard !isDirectory else {
+//                let includeDirectory = directoryFilter?(url) ?? true
+//                if includeDirectory {
+//                    $0.append(url)
+//                }
+//                return
+//            }
+//            guard let isRegularFile = resourceValues.isRegularFile else {
+//                logger.warning("Failed to fetch resourceKey: .isRegularFile for url: \(url.absoluteString)")
+//                return
+//            }
+//            guard !isRegularFile else {
+//                let includeFile = fileFilter?(url) ?? true
+//                if includeFile {
+//                    $0.append(url)
+//                }
+//                return
+//            }
+            
+
+            
+
+            
+//
+//            
+//            switch $1 {
+//            case let url as URL:
+//                do {
+//                    let resourceValues = try url.resourceValues(
+//                        forKeys: .allResourceKeys
+//                    )
+//                    guard let isDirectory = resourceValues.isDirectory else {
+//                        logger.warning("Failed to fetch resourceKey: .isDirectory for url: \(url.absoluteString)")
+//                        return
+//                    }
+//                    guard !isDirectory else {
+//                        let includeDirectory = directoryFilter?(url) ?? true
+//                        if includeDirectory {
+//                            $0.append(url)
+//                        }
+//                        return
+//                    }
+//                    guard let isRegularFile = resourceValues.isRegularFile else {
+//                        logger.warning("Failed to fetch resourceKey: .isRegularFile for url: \(url.absoluteString)")
+//                        return
+//                    }
+//                    guard !isRegularFile else {
+//                        let includeFile = fileFilter?(url) ?? true
+//                        if includeFile {
+//                            $0.append(url)
+//                        }
+//                        return
+//                    }
+//                } catch {
+//                    logger.warning("Failed to fetch resourceKeys for url: \(url.absoluteString)")
+//                }
+//            default:
+//                return
+//            }
+        }
+        
+//        var fileURLs: [URL] = []
+//        for case let fileURL as URL in directoryEnumerator {
+//            guard let resourceValues = try? fileURL.resourceValues(forKeys: resourceKeys),
+//                  let isDirectory = resourceValues.isDirectory,
+//                  let name = resourceValues.name
+//            else {
+//                continue
+//            }
+//            
+//            if isDirectory {
+//                if name == "_extras" {
+//                    directoryEnumerator.skipDescendants()
+//                }
+//            } else {
+//                fileURLs.append(fileURL)
+//            }
+//        }
+        
+        print(fileURLs)
+
+        
+        
+        
+//        guard let directoryEnumerator = FileManager.default.enumerator(
 //            at: directoryURL,
 //            includingPropertiesForKeys: nil,
 //            options: [
@@ -21,24 +163,23 @@ public struct FileCrawler {
 //                //                .skipsPackageDescendants,
 //                //                .skipsSubdirectoryDescendants
 //            ]
-//        )?.compactMap {
+//        ) else {
+//            return []
+//        }
+//        
+//        let urls: [URL] = directoryEnumerator.compactMap {
 //            guard let url = $0 as? URL else {
 //                return nil
 //            }
-//            
-//            // Reduce to Package.swift
-//            let filename: String = url.lastPathComponent
-//            guard filename.contains(/.*Package.swift$/) else {
-//                return nil
-//            }
-//            
-//            // Exclude this package
-//            guard !filename.contains("SwiftPackageGrapher") else {
-//                return nil
-//            }
-//            
-//            return url
+//            return $0
 //        } ?? []
+//            .filter {
+//                if $0.hasDirectoryPath {
+//                    return directoryFilter?($0) ?? true
+//                } else {
+//                    return fileFilter?($0) ?? true
+//                }
+//            }
 //        
 //        let sortedURLs = urls.sorted {
 //            let relativePath0 = $0.path(percentEncoded: false).replacingOccurrences(
@@ -61,18 +202,18 @@ public struct FileCrawler {
 //            )
 //            logger.debug("\(relativePath)")
 //        }
-//        
-//        return []
-//    }
+        
+        return []
+    }
     
     /// Walks through directory hierarchy of `directoryURL` building a representation of the contents
     /// represented as a `tree` of ``FileCrawler.Item``
     /// - Parameters:
-    ///   - directoryURL: <#directoryURL description#>
-    ///   - isRecursive: <#isRecursive description#>
-    ///   - directoryFilter: <#directoryFilter description#>
-    ///   - fileFilter: <#fileFilter description#>
-    ///   - level: <#level description#>
+    ///   - directoryURL: The root directory to start walking from
+    ///   - isRecursive: Descends into subdirectories to form at tree (if true)
+    ///   - directoryFilter: A closure used to include/exclude directories
+    ///   - fileFilter: A closure used to include/exclude files
+    ///   - level: The recursion level (should only be specified by private callers)
     /// - Returns: <#description#>
     public func walkFileHierarchy(
         directoryURL: URL,
@@ -81,19 +222,9 @@ public struct FileCrawler {
         fileFilter: ((URL) -> Bool)? = nil,
         level: Int = 0
     ) throws -> [Item] {
-//        let directoryURL: URL
-//        switch item {
-//        case .regularFile/*(let url, let sizeInBytes, let isAliasFile, let fileExtension)*/:
-//            return []
-//
-//        case .directory(let url, let isSymbolicLink, let directoryItems, let fileItems):
-//            directoryURL = url
-//        }
-        
         let baseDirectoryPath = directoryURL.path.removingPercentEncoding ?? directoryURL.path
         // Avoid having `//` in urls later
         let directoryPath = (baseDirectoryPath + "/").replacingOccurrences(of: "//", with: "/")
-
         
         if level == 0 {
             logger.debug(
@@ -159,76 +290,24 @@ public struct FileCrawler {
                 fileExtension: url.pathExtension
             )
         }
-            
-            
-//        let fileItems: [Item] = try fileURLs.map { url in
-//            
-//            
-//            
-//            guard let isDirectory: Bool = url.resourceValue(key: .isDirectoryKey),
-//                    isDirectory == true
-//            else {
-//                logger.error("")
-//                return nil
-//            }
-//                guard let isSymbolicLink: Bool = url.resourceValue(key: .isSymbolicLinkKey) else {
-//                    let error = Error.missingURLResource(url, .isSymbolicLinkKey)
-//                    logger.error("\(error.localizedDescription)")
-//                    throw error
-//                }
-////                self.fileKind = .directory(
-////                    isSymbolicLink: isSymbolicLink
-////                )
-//                self = .directory(
-//                    url: url,
-//                    isSymbolicLink: isSymbolicLink,
-//                    directoryItems: [],
-//                    fileItems: []
-//                )
-//
-//                
-//            try Item(url: $0)
-//        }
         
-//        let dirItems: [Item] = try fileURLs.map {
-//            try Item(url: $0)
-//        }
-        
-        
-//        try fileHierarchyItems.enumerated().forEach {
         let subdirectoryItems: [Item] = try directoryURLs.enumerated().reduce(
             into: []
         ) { partialResult, iter /*EnumeratedSequence<[Item]>.Iterator.Element*/ in
-
             let index = iter.offset
-            
-//            let fileHierarchyItem = iter.element
-            //            let url = fileHierarchyItem.url
-#warning("""
-FIXME: zakkhoyt - renamame to subdirectoryURL
-""")
-//            let directoryPath = directoryURL.path
             let subdirectoryURL = iter.element
-            
-
-            
-//#warning("TODO: zakkhoyt - add `.` or initial absolute")
-//            let commonPrefix = "[L:\("\(level)".padded(length: 2, character: "0"))] "
-
-//            if fileHierarchyItem.isDirectory, isRecursive {
-            if isRecursive {
-                let subdirectoryItems: [Item] = try walkFileHierarchy(
-                    directoryURL: subdirectoryURL,
-                    isRecursive: isRecursive,
-                    directoryFilter: directoryFilter,
-                    fileFilter: fileFilter,
-                    level: level + 1
-                )
-                partialResult.append(contentsOf: subdirectoryItems)
-                return
-            } else {
+            guard isRecursive else {
                 // Done with this dir
+                return
             }
+            let subdirectoryItems: [Item] = try walkFileHierarchy(
+                directoryURL: subdirectoryURL,
+                isRecursive: isRecursive,
+                directoryFilter: directoryFilter,
+                fileFilter: fileFilter,
+                level: level + 1
+            )
+            partialResult.append(contentsOf: subdirectoryItems)
         }
         
         guard let isDirectory: Bool = directoryURL.resourceValue(key: .isDirectoryKey), isDirectory == true else {
@@ -261,34 +340,9 @@ FIXME: zakkhoyt - renamame to subdirectoryURL
                 .producesRelativePathURLs
             ]
             
-            // Get the directory contents urls (including subfolders urls)
-//            let directoryURLs = try FileManager.default.contentsOfDirectory(
-//                at: directoryURL,
-//                includingPropertiesForKeys: Item.directoryRsourceKeys,
-//                options: options
-//            )
-//                .sorted {
-//                    // Default order for `eza -T`
-//                    $0.lastPathComponent.caseInsensitiveCompare($1.lastPathComponent) == .orderedAscending
-//                }
-//            
-//            
-//            let fileURLs = try FileManager.default.contentsOfDirectory(
-//                at: directoryURL,
-//                includingPropertiesForKeys: Item.fileResourceKeys,
-//                options: options
-//            )
-//                .sorted {
-//                    // Default order for `eza -T`
-//                    $0.lastPathComponent.caseInsensitiveCompare($1.lastPathComponent) == .orderedAscending
-//                }
-//            
-//            return (directoryURLs: directoryURLs, fileURLs: fileURLs)
-            
-            
             let urls = try FileManager.default.contentsOfDirectory(
                 at: directoryURL,
-                includingPropertiesForKeys: Item.allResourceKeys,
+                includingPropertiesForKeys: URLResourceKey.allResourceKeys,
                 options: options
             )
                 .sorted {
@@ -320,6 +374,9 @@ FIXME: zakkhoyt - renamame to subdirectoryURL
                 return true
             }
 
+            //        let sortedByCreateDate = output.sorted { item1, item2 -> Bool in
+            //            item1.createDate > item2.createDate
+            //        }
 
             return (directoryURLs: directoryURLs, fileURLs: fileURLs)
         } catch {
@@ -327,9 +384,6 @@ FIXME: zakkhoyt - renamame to subdirectoryURL
             throw error
         }
         
-        //        let sortedByCreateDate = output.sorted { item1, item2 -> Bool in
-        //            item1.createDate > item2.createDate
-        //        }
         //
     }
 }
@@ -364,92 +418,7 @@ extension FileCrawler {
     public enum Item {
         case directory(url: URL, isSymbolicLink: Bool, subdirectoryItems: [Item], fileItems: [Item])
         case regularFile(url: URL, sizeInBytes: UInt64, isAliasFile: Bool, fileExtension: String)
-        
-        //        public enum FileKind {
-        //            case directory(isSymbolicLink: Bool, subdirs: [Item], files: [Item])
-        //            case regularFile(sizeInBytes: UInt64, isAliasFile: Bool, fileExtension: String)
-        //        }
-        
-        static let fileKindSystemResourceKeys: [URLResourceKey] = [
-            .isDirectoryKey,
-            .isRegularFileKey
-        ]
-        
-        static let directoryResourceKeys: [URLResourceKey] = [
-            .isSymbolicLinkKey
-        ]
-        
-        static let regularFileResourceKeys: [URLResourceKey] = [
-            .isAliasFileKey,
-            .fileSizeKey // bytes
-        ]
-        
-        static let commonRequiredResourceKeys: [URLResourceKey] = [
-            .pathKey,
-            .canonicalPathKey,
-            .addedToDirectoryDateKey,
-            .contentModificationDateKey,
-            .creationDateKey,
-        ]
-        
-        static let privacyResourceKeys: [URLResourceKey] = [
-            .isExcludedFromBackupKey,
-            .isHiddenKey
-        ]
-        
-        static let otherResourceKeys: [URLResourceKey] = [
-            .isPurgeableKey,
-            .fileProtectionKey,
-            .fileSecurityKey,
-            .isPackageKey,
-            .ubiquitousItemIsExcludedFromSyncKey,
-        ]
-        
-        static let directoryRsourceKeys: [URLResourceKey] = [
-            commonRequiredResourceKeys,
-            privacyResourceKeys,
-            otherResourceKeys,
-            directoryResourceKeys
-        ].flatMap {
-            $0
-        }
-        
-        static let fileResourceKeys: [URLResourceKey] =  [
-            commonRequiredResourceKeys,
-            privacyResourceKeys,
-            otherResourceKeys,
-            fileKindSystemResourceKeys
-        ].flatMap {
-            $0
-        }
 
-        
-        static let allResourceKeys: [URLResourceKey] = [
-            commonRequiredResourceKeys,
-            privacyResourceKeys,
-            otherResourceKeys,
-            directoryResourceKeys
-        ].flatMap {
-            $0
-        }
-
-        //        public let name: String
-        //        public let url: URL
-        
-        
-        //        // File Kind
-        //        public let fileKind: FileKind
-        
-        // Common
-        
-        //        public let dateAddedToDirectory: Date
-        //        public let dateCreated: Date
-        //        public let dateModified: Date
-        
-        //        public let path: String
-        //        public let canonicalPath: String
-        //
-        
         public var isDirectory: Bool {
             switch self {
             case .directory:
@@ -474,7 +443,6 @@ extension FileCrawler {
                     let error = Error.missingURLResource(url, .pathKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
-                    //                    return url.path(percentEncoded: false)
                 }
                 return path
             }
@@ -553,82 +521,17 @@ extension FileCrawler {
             url.deletingPathExtension().lastPathComponent
         }
         
-#warning("FIXME: zakkhoyt - return Item")
         public var parentDirectoryURL: URL {
-            url.deletingLastPathComponent()
+            url.deletingLastPathComponent().deletingPathExtension()
         }
         
         public var urlResourcesDescription: String {
-            let keys = Self.fileKindSystemResourceKeys + Self.privacyResourceKeys
+            let keys = URLResourceKey.fileKindSystemResourceKeys + URLResourceKey.privacyResourceKeys
             let dict: [String: any CustomStringConvertible] = keys.reduce(into: [:]) {
                 $0[$1.rawValue] = url.resourceValue(key: $1) ?? "NOPE!"
             }
             return dict.listDescription(separator: "\n\t")
         }
-        
-//        public static func directory(
-//            url: URL
-//        ) throws -> FileCrawler {
-//        
-//        }
-//
-//        init(
-////            name: String,
-//            url: URL
-//        ) throws {
-////            self.name = name
-////            self.url = url
-//            
-//            if let isDirectory: Bool = url.resourceValue(key: .isDirectoryKey), isDirectory == true {
-//                guard let isSymbolicLink: Bool = url.resourceValue(key: .isSymbolicLinkKey) else {
-//                    let error = FileCrawler.Error.missingURLResource(url, .isSymbolicLinkKey)
-//                    logger.error("\(error.localizedDescription)")
-//                    throw error
-//                }
-////                self.fileKind = .directory(
-////                    isSymbolicLink: isSymbolicLink
-////                )
-//                self = .directory(
-//                    url: url,
-//                    isSymbolicLink: isSymbolicLink,
-//                    subdirectoryItems: [],
-//                    fileItems: []
-//                )
-//            } else if let isRegularFile: Bool = url.resourceValue(key: .isRegularFileKey), isRegularFile == true {
-//                // Dirs dont' have a fileSize
-//                guard let fileSizeNumber: NSNumber = url.resourceValue(key: .fileSizeKey) else {
-//                    let error = FileCrawler.Error.missingURLResource(url, .fileSizeKey)
-//                    logger.error("\(error.localizedDescription)")
-//                    throw error
-//                }
-//                
-//                guard let isAliasFile: Bool = url.resourceValue(key: .isAliasFileKey) else {
-//                    let error = FileCrawler.Error.missingURLResource(url, .isAliasFileKey)
-//                    logger.error("\(error.localizedDescription)")
-//                    throw error
-//                }
-//
-////                self.fileKind = .regularFile(
-////                    sizeInBytes: fileSizeNumber.uint64Value,
-////                    isAliasFile: isAliasFile,
-////                    fileExtension: url.pathExtension
-////                )
-//                
-//                self = .regularFile(
-//                    url: url,
-//                    sizeInBytes: fileSizeNumber.uint64Value,
-//                    isAliasFile: isAliasFile,
-//                    fileExtension: url.pathExtension
-//                )
-//            } else {
-//                let error = Error.missingURLResources(url, [.isDirectoryKey, .isRegularFileKey])
-//                logger.error("\(error.localizedDescription)")
-//                throw error
-//            }
-//
-//            // common
-//
-//        }
     }
 }
 
@@ -654,90 +557,5 @@ extension [FileCrawler.Item] {
                 return [$0.url]
             }
         }
-    }
-}
-
-
-
-
-
-//ext
-//public struct DirectoryContentFormatter {
-//    public enum DisplayFormat: CustomStringConvertible {
-//        case eza
-//        
-//        public var description: String {
-//            switch self {
-//            case .eza: "eza"
-//            }
-//        }
-//    }
-//
-//}
-
-
-
-extension URLResourceKey {
-    public static let fileKindSystemResourceKeys: [URLResourceKey] = [
-        .isDirectoryKey,
-        .isRegularFileKey
-    ]
-    
-    public static let directoryResourceKeys: [URLResourceKey] = [
-        .isSymbolicLinkKey
-    ]
-    
-    public static let regularFileResourceKeys: [URLResourceKey] = [
-        .isAliasFileKey,
-        .fileSizeKey // bytes
-    ]
-    
-    public static let commonRequiredResourceKeys: [URLResourceKey] = [
-        .pathKey,
-        .canonicalPathKey,
-        .addedToDirectoryDateKey,
-        .contentModificationDateKey,
-        .creationDateKey,
-    ]
-    
-    public static let privacyResourceKeys: [URLResourceKey] = [
-        .isExcludedFromBackupKey,
-        .isHiddenKey
-    ]
-    
-    public static let otherResourceKeys: [URLResourceKey] = [
-        .isPurgeableKey,
-        .fileProtectionKey,
-        .fileSecurityKey,
-        .isPackageKey,
-        .ubiquitousItemIsExcludedFromSyncKey,
-    ]
-    
-    public static let directoryRsourceKeys: [URLResourceKey] = [
-        commonRequiredResourceKeys,
-        privacyResourceKeys,
-        otherResourceKeys,
-        directoryResourceKeys
-    ].flatMap {
-        $0
-    }
-    
-    public static let fileResourceKeys: [URLResourceKey] =  [
-        commonRequiredResourceKeys,
-        privacyResourceKeys,
-        otherResourceKeys,
-        fileKindSystemResourceKeys
-    ].flatMap {
-        $0
-    }
-    
-    
-    public static let allResourceKeys: [URLResourceKey] = [
-        commonRequiredResourceKeys,
-        privacyResourceKeys,
-        otherResourceKeys,
-        directoryResourceKeys
-    ].flatMap {
-        $0
     }
 }
