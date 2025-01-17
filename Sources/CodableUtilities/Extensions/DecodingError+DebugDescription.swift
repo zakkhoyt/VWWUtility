@@ -9,6 +9,21 @@
 import Foundation
 
 extension DecodingError: @retroactive CustomDebugStringConvertible {
+    public func debugDescription<Key : CodingKey>(
+        decoder: any Decoder,
+        container: KeyedDecodingContainer<Key>
+    ) -> String {
+        guard let jsonSourceURL = decoder.jsonSourceURL else {
+            return debugDescription
+        }
+        return """
+        \(debugDescription)
+        jsonSourceURL: \(jsonSourceURL.path())
+        \(decoder.inspectJsonSourceFileShellCommand(container: container))
+        """
+    }
+
+    
 #warning("""
 FIXME: zakkhoyt - after porting `func inspectJsonSourceFile` into this package from HatchSwiftPackageGrapher
 * add support for CodingUserInfoKey.jsonSourceURLKey to debugDescription
