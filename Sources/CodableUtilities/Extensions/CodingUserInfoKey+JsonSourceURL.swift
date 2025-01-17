@@ -97,13 +97,26 @@ extension Decoder {
     /// # To view json value from the source file, run this command in a shell:
     /// cat /Users/zakkhoyt/code/repositories/hatch/hatch_sleep/0/HatchAssets/.gitignored/SwiftPackageGrapher/Package.json | jq '.dependencies[1].sourceControl[0].requirement'
     /// ```
-    public func inspectJsonSourceFile<Key : CodingKey> (
+    public func inspectJsonSourceFileShellCommand<Key : CodingKey> (
         container: KeyedDecodingContainer<Key>
     ) ->  String {
-        let shellCommand = "cat \(jsonSourceURL?.path() ?? "") | jq '.\(container.codingPath.absoluteCodingPath)'"
-        return """
-        # To view json value from the source file, run this command in a shell:
-        \(shellCommand)
-        """
+        "cat \(jsonSourceURL?.path() ?? "") | jq '.\(container.codingPath.absoluteCodingPath)'"
     }
+
+//    /// Call this function to obtain a shell command that will print the portion of the file that the Decoder is handling.
+//    ///
+//    /// Returns a shell script command to look at the portion of the JSON file
+//    /// ```sh
+//    /// # To view json value from the source file, run this command in a shell:
+//    /// cat /Users/zakkhoyt/code/repositories/hatch/hatch_sleep/0/HatchAssets/.gitignored/SwiftPackageGrapher/Package.json | jq '.dependencies[1].sourceControl[0].requirement'
+//    /// ```
+//    public func inspectJsonSourceFile<Key : CodingKey> (
+//        container: KeyedDecodingContainer<Key>
+//    ) ->  String {
+//        let shellCommand = "cat \(jsonSourceURL?.path() ?? "") | jq '.\(container.codingPath.absoluteCodingPath)'"
+//        return """
+//        # To view json value from the source file, run this command in a shell:
+//        \(shellCommand)
+//        """
+//    }
 }
