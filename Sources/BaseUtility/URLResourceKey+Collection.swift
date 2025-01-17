@@ -1,4 +1,8 @@
+import Foundation
+
 extension URLResourceKey {
+    
+#warning("FIXME: zakkhoyt - remove these arrays")
     public static let fileKindSystemResourceKeys: [URLResourceKey] = [
         .isDirectoryKey,
         .isRegularFileKey
@@ -61,4 +65,16 @@ extension URLResourceKey {
     ].flatMap {
         $0
     }
+}
+    
+extension Set<URLResourceKey> {
+    public static let fileKindSystemResourceKeys = Set<URLResourceKey>(URLResourceKey.fileKindSystemResourceKeys)
+    public static let directoryResourceKeys = Set<URLResourceKey>(URLResourceKey.directoryResourceKeys)
+    public static let regularFileResourceKeys = Set<URLResourceKey>(URLResourceKey.regularFileResourceKeys)
+    public static let commonRequiredResourceKeys = Set<URLResourceKey>(URLResourceKey.commonRequiredResourceKeys)
+    public static let privacyResourceKeys = Set<URLResourceKey>(URLResourceKey.privacyResourceKeys)
+    public static let otherResourceKeys = Set<URLResourceKey>(URLResourceKey.otherResourceKeys)
+    public static let directoryRsourceKeys = Set<URLResourceKey>(URLResourceKey.directoryRsourceKeys)
+    public static let fileResourceKeys = Set<URLResourceKey>(URLResourceKey.fileResourceKeys)
+    public static let allResourceKeys = Set<URLResourceKey>(URLResourceKey.allResourceKeys)
 }

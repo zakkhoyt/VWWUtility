@@ -75,7 +75,7 @@ public struct FileHierarchyService {
             // Get the directory contents urls (including subfolders urls)
             return try FileManager.default.contentsOfDirectory(
                 at: directoryURL,
-                includingPropertiesForKeys: Item.resourceKeys,
+                includingPropertiesForKeys: URLResourceKey.allResourceKeys,
                 options: [
                     .skipsSubdirectoryDescendants, // Want manual control here
                     .producesRelativePathURLs
@@ -140,48 +140,6 @@ extension FileHierarchyService {
             case directory(isSymbolicLink: Bool)
             case regularFile(sizeInBytes: UInt64, isAliasFile: Bool, fileExtension: String)
         }
-
-        static let fileKindSystemResourceKeys: [URLResourceKey] = [
-            .isDirectoryKey,
-            .isRegularFileKey
-        ]
-        
-        static let directoryResourceKeys: [URLResourceKey] = [
-            .isSymbolicLinkKey
-        ]
-        
-        static let regularFileResourceKeys: [URLResourceKey] = [
-            .isAliasFileKey,
-            .fileSizeKey // bytes
-        ]
-            
-        static let commonRequiredResourceKeys: [URLResourceKey] = [
-            .pathKey,
-            .canonicalPathKey,
-            .addedToDirectoryDateKey,
-            .contentModificationDateKey,
-            .creationDateKey,
-        ]
-        
-        static let privacyResourceKeys: [URLResourceKey] = [
-            .isExcludedFromBackupKey,
-            .isHiddenKey
-        ]
-
-        static let otherResourceKeys: [URLResourceKey] = [
-            .isPurgeableKey,
-            .fileProtectionKey,
-            .fileSecurityKey,
-            .isPackageKey,
-            .ubiquitousItemIsExcludedFromSyncKey,
-        ]
-
-        static let resourceKeys: [URLResourceKey] = fileKindSystemResourceKeys
-            + commonRequiredResourceKeys
-            + directoryResourceKeys
-            + fileKindSystemResourceKeys
-            + privacyResourceKeys
-            + otherResourceKeys
 
         public let name: String
         public let url: URL
@@ -251,7 +209,7 @@ extension FileHierarchyService {
     //        }
 
         public var urlResourcesDescription: String {
-            let keys = Self.fileKindSystemResourceKeys + Self.privacyResourceKeys
+            let keys = URLResourceKey.fileKindSystemResourceKeys + URLResourceKey.privacyResourceKeys
             let dict: [String: any CustomStringConvertible] = keys.reduce(into: [:]) {
                 $0[$1.rawValue] = url.resourceValue(key: $1) ?? "NOPE!"
             }

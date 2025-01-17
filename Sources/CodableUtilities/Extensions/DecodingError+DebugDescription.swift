@@ -9,6 +9,11 @@
 import Foundation
 
 extension DecodingError: @retroactive CustomDebugStringConvertible {
+#warning("""
+FIXME: zakkhoyt - after porting `func inspectJsonSourceFile` into this package from HatchSwiftPackageGrapher
+* add support for CodingUserInfoKey.jsonSourceURLKey to debugDescription
+* add support for func inspectJsonSourceFile to debugDescription
+""")
     /// Returns a `String` describing why the `DecodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var debugDescription: String {
