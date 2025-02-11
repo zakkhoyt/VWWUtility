@@ -9,62 +9,85 @@ import UIKit
 import AVFoundation
 import Vision
 
-//class ViewController: UIViewController {
-class CaptureSession: NSObject {
+// caller needs to
+//        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+//        previewLayer.frame = previewView.layer.bounds
+//        previewView.layer.addSublayer(previewLayer)
+
+public class CaptureSession: NSObject {
+    public struct Observation {
+        /// capture device dimensions
+        public let bufferSize: CGSize
+        
+//        /// UIView with layer: AVCaptureVideoPreviewLayer
+//        public let previewView: UIView
+        
+        /// A list of observations
+        public let detections: [VNObservation]
+    }
     
-    var drawer = DetetctionDrawer(bufferSize: .zero)
-    
-    var bufferSize: CGSize = .zero
-//    var rootLayer: CALayer! = nil
+    public private(set) var bufferSize: CGSize = .zero
     
     
     private let session = AVCaptureSession()
     private let videoDataOutput = AVCaptureVideoDataOutput()
-    
     private let videoDataOutputQueue = DispatchQueue(
         label: "VideoDataOutput",
         qos: .userInitiated, attributes: [],
         autoreleaseFrequency: .workItem
     )
     
-    @IBOutlet weak private var previewView: UIView!
-    private var previewLayer: AVCaptureVideoPreviewLayer! = nil
+    
+//    private var previewView: UIView
+    public private(set) var previewLayer: AVCaptureVideoPreviewLayer?
 
     private var requests = [VNRequest]()
-    
-    private var detectionOverlay: CALayer! = nil
+//    private var detectionOverlay: CALayer! = nil
     private let model: MLModel
     
-    init(model: MLModel) {
+    private var detection: (Observation) -> Void = { _ in }
+    
+    public init(
+        model: MLModel
+    ) {
+        logger.debug("\(#file) \(#function) \(#line)")
         self.model = model
         super.init()
         setupAVCapture()
     }
     
     deinit {
+        logger.debug("\(#file) \(#function) \(#line)")
         stop()
         teardownAVCapture()
     }
+    
 
-    public func start() {
+    public func start(
+        detection: @escaping (Observation) -> Void
+    ) {
+        logger.debug("\(#file) \(#function) \(#line)")
+//    ) async -> UIView {
+        self.detection = detection
+        
         DispatchQueue.global().async {
+//        Task {
             self.session.startRunning()
         }
+            
+//        }
     }
     
     public func stop() {
+        logger.debug("\(#file) \(#function) \(#line)")
         self.session.stopRunning()
     }
     
-#warning(
-    """
-    FIXME: zakkhoyt - Outputs:
-    bufferSize (capture device dimensions)
-    previewView or previewLayer: UIView/AVCaptureVideoPreviewLayer
-    callback to provide Vision results (for caller to render)
-    """
-    )
+    //        bufferSize (capture device dimensions)
+    //        previewView or previewLayer: UIView/AVCaptureVideoPreviewLayer
+    //        callback to provide Vision results (for caller to render)
     private func setupAVCapture() {
+        logger.debug("\(#file) \(#function) \(#line)")
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
@@ -122,22 +145,27 @@ class CaptureSession: NSObject {
             print(error)
         }
         session.commitConfiguration()
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        previewLayer.frame = previewView.layer.bounds
-        previewView.layer.addSublayer(previewLayer)
+        
+        self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        
+//        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+//        previewLayer.frame = previewView.layer.bounds
+//        previewView.layer.addSublayer(previewLayer)
+        
+//        self.previewLayer = previewLayer
         
         // ---------------
 
         #warning("FIXME: zakkhoyt - Move to caller")
-        drawer = DetetctionDrawer(bufferSize: bufferSize)
+//        drawer = DetetctionDrawer(bufferSize: bufferSize)
         do {
-            drawer.setupLayers(rootLayer: previewView.layer)
-            drawer.updateLayerGeometry()
+//            drawer.setupLayers(rootLayer: previewView.layer)
+//            drawer.updateLayerGeometry()
             try setupVision(model: model)
             
 //            // start the capture
 //            startCaptureSession()
+            logger.debug("\(#file) \(#function) \(#line) did return normally")
         } catch {
             logger.error("\(error.localizedDescription)")
         }
@@ -146,6 +174,7 @@ class CaptureSession: NSObject {
     private func setupVision(
         model: MLModel
     ) throws {
+        logger.debug("\(#file) \(#function) \(#line)")
         self.requests = [
             VNCoreMLRequest(
                 model: try VNCoreMLModel(
@@ -153,23 +182,39 @@ class CaptureSession: NSObject {
                 )
             ) { [weak self] request, error in
                 guard let self else { return }
+//                logger.debug("\(#file) \(#function) \(#line) VNCoreMLRequest callback")
                 if let error {
                     logger.fault("\(error.localizedDescription)")
                 }
                 
                 DispatchQueue.main.async {
-                    guard let results = request.results else { return }
+                    guard let results = request.results, !results.isEmpty else {
+//                        logger.debug("\(#file) \(#function) \(#line) processing 0 results")
+                        return
+                    }
                     
+                    
+                    logger.debug("\(#file) \(#function) \(#line) processing \(results.count) results")
                     #warning("FIXME: zakkhoyt - request vs results")
                     // Log output from
                     if let classificationObservations = self.requests as? [VNClassificationObservation] {
                         classificationObservations.logHighestConfidence()
                         return
                     }
+                    
                 
                     #warning("FIXME: zakkhoyt - callback to caller where rendering should occur")
-                    self.drawer.drawVisionRequestResults(
-                        objectObservations: results.compactMap { $0 as? VNRecognizedObjectObservation }
+//                    self.drawer.drawVisionRequestResults(
+//                        objectObservations: results.compactMap { $0 as? VNRecognizedObjectObservation }
+//                    )
+                    
+                    logger.debug("\(#file) \(#function) \(#line) calling into callback for self.detection")
+                    self.detection(
+                        Observation(
+                            bufferSize: self.bufferSize,
+//                            previewView: self.previewView,
+                            detections: results
+                        )
                     )
                 }
             }
@@ -178,13 +223,13 @@ class CaptureSession: NSObject {
     
     // Clean up capture setup
     private func teardownAVCapture() {
-        previewLayer.removeFromSuperlayer()
+        previewLayer?.removeFromSuperlayer()
         previewLayer = nil
     }
 }
 
 extension CaptureSession: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(
+    public func captureOutput(
         _ captureOutput: AVCaptureOutput,
         didDrop didDropSampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
@@ -192,7 +237,7 @@ extension CaptureSession: AVCaptureVideoDataOutputSampleBufferDelegate {
         // print("frame dropped")
     }
     
-    func captureOutput(
+    public func captureOutput(
         _ output: AVCaptureOutput,
         didOutput sampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
@@ -208,7 +253,7 @@ extension CaptureSession: AVCaptureVideoDataOutputSampleBufferDelegate {
                 options: [:]
             ).perform(self.requests)
         } catch {
-            print(error)
+            logger.error("\(error)")
         }
     }
 }
