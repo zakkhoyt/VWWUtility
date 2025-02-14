@@ -8,6 +8,13 @@ Contains the view controller for the Breakfast Finder.
 import AVFoundation
 import SwiftUI
 
+public protocol VideoDataOutputObservable {
+    var videoDataOutput: AVCaptureVideoDataOutput { get }
+    var videoDataOutputQueue: DispatchQueue  { get }
+    var videoDataOutputDelegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)? { get }
+}
+
+
 /// ## References
 ///
 /// * [Apple: AVCam building a camera app](https://developer.apple.com/documentation/avfoundation/capture_setup/avcam_building_a_camera_app)
@@ -45,23 +52,23 @@ public actor CaptureService: NSObject {
     private var currentDeviceInput: AVCaptureDeviceInput?
     
     
-    private let videoDataOutput = AVCaptureVideoDataOutput()
-    private let videoDataOutputQueue = DispatchQueue(
-        label: "VideoDataOutput",
-        qos: .userInitiated, attributes: [],
-        autoreleaseFrequency: .workItem
-    )
-    private var videoDataOutputDelegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?
+//    private let videoDataOutput = AVCaptureVideoDataOutput()
+//    private let videoDataOutputQueue = DispatchQueue(
+//        label: "VideoDataOutput",
+//        qos: .userInitiated, attributes: [],
+//        autoreleaseFrequency: .workItem
+//    )
+//    private var videoDataOutputDelegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?
     
 //    class ComputerVisionBufferDelegate: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    private func getVideoDataOutputDelegate() -> (any AVCaptureVideoDataOutputSampleBufferDelegate)? {
-        videoDataOutputDelegate
-    }
-    
-    private func setVideoDataOutputDelegate(_ delegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?) {
-        videoDataOutputDelegate = delegate
-    }
+//    private func getVideoDataOutputDelegate() -> (any AVCaptureVideoDataOutputSampleBufferDelegate)? {
+//        videoDataOutputDelegate
+//    }
+//    
+//    private func setVideoDataOutputDelegate(_ delegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?) {
+//        videoDataOutputDelegate = delegate
+//    }
     
     override public init() {
         logger.debug("\(#file) \(#function) \(#line)")
@@ -138,6 +145,20 @@ public actor CaptureService: NSObject {
         }
     }
     
+    public func addVideoDataOutput(
+        observer: any VideoDataOutputObservable
+    ) throws {
+        try addOutput(captureOutput: observer.videoDataOutput)
+        observer.videoDataOutput.alwaysDiscardsLateVideoFrames = true
+        let format: FourCharCode = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
+        observer.videoDataOutput.videoSettings = [
+            kCVPixelBufferPixelFormatTypeKey as String: format
+        ]
+        logger.debug("Configured videoDataOutput: \(format.stringRepresentation)")
+        observer.videoDataOutput.setSampleBufferDelegate(observer.videoDataOutputDelegate, queue: observer.videoDataOutputQueue)
+        logger.debug("Did set setSampleBufferDelegate for videoDataOutput to \(String(describing: observer.videoDataOutputDelegate))")
+    }
+    
     @available(macCatalyst 17.0, *)
     private func setupAVCapture() throws {
         logger.debug("\(#file) \(#function) \(#line)")
@@ -159,17 +180,6 @@ public actor CaptureService: NSObject {
         } else {
             logger.debug("Skpped adding audio input: (no devices found)")
         }
-
-        
-        try addOutput(captureOutput: videoDataOutput)
-        videoDataOutput.alwaysDiscardsLateVideoFrames = true
-        let format: FourCharCode = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
-        videoDataOutput.videoSettings = [
-            kCVPixelBufferPixelFormatTypeKey as String: format
-        ]
-        logger.debug("Configured videoDataOutput: \(format.stringRepresentation)")
-        videoDataOutput.setSampleBufferDelegate(videoDataOutputDelegate, queue: videoDataOutputQueue)
-        logger.debug("Did set setSampleBufferDelegate for videoDataOutput to \(String(describing: self.videoDataOutputDelegate))")
         
         logger.debug("setupAVCapture finished")
     }
