@@ -7,7 +7,7 @@
 
 import AVFoundation
 import SwiftUI
-import UIKit
+//import UIKit
 
 @available(macCatalyst 17.0, *)
 public struct CameraView: View {

@@ -181,8 +181,6 @@ extension Color {
         // Sending it to other objects raises an exception.
         if let uiColor = startColor.usingColorSpace(.deviceRGB) {
             uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        } else if let uiColor = startColor.usingColorSpace(.calibratedRGB) {
-            uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         } else {
             assertionFailure("failed to convert color to rgb. Try another color space?")
         }

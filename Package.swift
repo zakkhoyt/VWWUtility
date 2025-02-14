@@ -144,7 +144,7 @@ let swiftSettings: [SwiftSetting] = [
 let package = Package(
     name: "VWWUtility",
     platforms: [
-        .iOS(.v16),
+        .iOS(.v17),
         .macOS(.v14)
     ],
     products: [
@@ -229,7 +229,8 @@ let package = Package(
                 )
             ],
             resources: [
-                .copy("Placeholder.txt")
+                // Causes SPM to generate Bundle.module
+                .copy("Resources/Placeholder.txt")
             ],
             swiftSettings: swiftSettings,
             plugins: []
@@ -365,6 +366,10 @@ let package = Package(
             exclude: [
                 "README.md",
                 "applescript/",
+            ],
+            resources: [
+                // Causes SPM to generate Bundle.module
+                .copy("Resources/Placeholder.txt")
             ],
             swiftSettings: swiftSettings,
             plugins: []

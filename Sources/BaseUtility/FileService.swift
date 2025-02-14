@@ -124,7 +124,7 @@ public enum FileService {
 extension String {
 //    @available(iOS 16.0, *)
     var fileURL: URL {
-        if #available(macOS 13.0, iOS 16.0, *) {
+        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
             URL(filePath: self, directoryHint: URL.DirectoryHint.checkFileSystem, relativeTo: nil)
         } else {
             URL(fileURLWithPath: self)
@@ -235,7 +235,7 @@ extension URL {
                 if path.contains("~") {
                     // Replace ~ with Home dir where possible
                     let expandedPath = NSString(string: path).expandingTildeInPath
-                    if #available(macOS 13.0, iOS 16.0, *) {
+                    if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
                         return URL(
                             filePath: expandedPath,
                             directoryHint: URL.DirectoryHint.checkFileSystem,
@@ -273,17 +273,66 @@ extension URL {
         
         #warning("FIXME: zakkhoyt - Handle `//` in URL/path")
 
-        return betterURL.canonicalURL ?? betterURL
-    }
-    
-    public var canonicalURL: URL? {
+        // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
         // https://stackoverflow.com/a/40401137
-        guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-            return nil
+        // https://stackoverflow.com/a/40401137
+        let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
+            URL(fileURLWithPath: betterURL.path())
+        } else {
+            URL(fileURLWithPath: betterURL.path)
         }
         
-        return URL(filePath: canonicalPath)
+        
+        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+                return url
+            }
+            return URL(filePath: canonicalPath)
+        } else {
+            return url
+        }
     }
+    
+//        if #available(macOS 13.0, iOS 16.0, *) {
+//            if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+//                guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+//                    guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+//                        return url
+//                        return url
+//                    }
+//                }
+//    }
+    
+//    // https://stackoverflow.com/a/40401137
+//    let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
+//        URL(fileURLWithPath: betterURL.path())
+//    } else {
+//        URL(fileURLWithPath: betterURL.path)
+//    }
+
+    
+
+
+
+    #warning(
+        """
+        FIXME: zakkhoyt - new function, cleanURL
+        * removes "//" from middle of path (filePath)
+        * appendingPathComponent("Preferences")
+        """
+    )
+    
+//    public var canonicalURL: URL? {
+//        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+//            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+//                return url
+//            }
+//            return URL(filePath: canonicalPath)
+//        } else {
+//            return url
+//            
+//        }
+//    }
     
     public var preferCanonicalURL: URL {
         // https://stackoverflow.com/a/40401137
@@ -293,14 +342,6 @@ extension URL {
         
         return URL(filePath: canonicalPath)
     }
-
-    #warning(
-        """
-        FIXME: zakkhoyt - new function, cleanURL
-        * removes "//" from middle of path (filePath)
-        * appendingPathComponent("Preferences")
-        """
-    )
 }
 
 

@@ -7,7 +7,7 @@ Contains the view controller for the Breakfast Finder.
 
 import AVFoundation
 import SwiftUI
-import UIKit
+//import UIKit
 import Vision
 
 /// ## References
