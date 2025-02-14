@@ -9,9 +9,49 @@ import AVFoundation
 import SwiftUI
 import Vision
 
-
-class ComputerVisionBufferDelegate: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+public final class ComputerVisionBufferHandler: VideoDataOutputObservable {
+    public let videoDataOutput = AVCaptureVideoDataOutput()
+    public let videoDataOutputDelegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?
+    public let videoDataOutputQueue = DispatchQueue(
+        label: "VideoDataOutput",
+        qos: .userInitiated, attributes: [],
+        autoreleaseFrequency: .workItem
+    )
+    
+    private let bufferProvider = ComputerVisionBufferProvider()
+    
+#warning("TODO: zakkhoyt - Pass in vision request, then emit detected data")
+    public init() {
+        videoDataOutputDelegate = bufferProvider
+    }
+    
     private var requests = [VNRequest]()
+    
+    func start() {
+        bufferProvider.frameCaptured = { pixelBuffer in
+            do {
+#warning("FIXME: zakkhoyt - use convert to normalized coornidates")
+#if os(iOS)
+                let orientation = UIDevice.current.orientation.exifOrientation
+#elseif os(macOS)
+                let orientation = CGImagePropertyOrientation.up
+#endif
+                try VNImageRequestHandler(
+                    cvPixelBuffer: pixelBuffer,
+                    orientation: orientation,
+                    options: [:]
+                ).perform(self.requests)
+            } catch {
+                logger.error("\(error)")
+            }
+        }
+    }
+}
+
+
+class ComputerVisionBufferProvider: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    var frameCaptured: ((CVPixelBuffer) -> Void) = { _ in }
+
     public func captureOutput(
         _ captureOutput: AVCaptureOutput,
         didDrop didDropSampleBuffer: CMSampleBuffer,
@@ -28,21 +68,7 @@ class ComputerVisionBufferDelegate: NSObject, AVCaptureVideoDataOutputSampleBuff
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
-        
-        do {
-#if os(iOS)
-            let orientation = UIDevice.current.orientation.exifOrientation
-#elseif os(macOS)
-            let orientation = CGImagePropertyOrientation.up
-#endif
-            try VNImageRequestHandler(
-                cvPixelBuffer: pixelBuffer,
-                orientation: orientation,
-                options: [:]
-            ).perform(self.requests)
-        } catch {
-            logger.error("\(error)")
-        }
+        frameCaptured(pixelBuffer)
     }
 }
 
