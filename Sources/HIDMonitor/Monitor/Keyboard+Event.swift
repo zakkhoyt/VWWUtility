@@ -1,8 +1,8 @@
 //
-//  Keyboard+Event.swift
-//  WaveSynthesizerSPM_multiplatform_app
+// Keyboard+Event.swift
+// WaveSynthesizerSPM_multiplatform_app
 //
-//  Created by Zakk Hoyt on 6/23/23.
+// Created by Zakk Hoyt on 6/23/23.
 //
 
 #if os(macOS)

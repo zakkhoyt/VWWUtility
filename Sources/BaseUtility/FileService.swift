@@ -49,6 +49,8 @@ public enum FileService {
             withIntermediateDirectories: true,
             attributes: [:]
         )
+        
+        logger.debug("\(LogHelper.callerData()) - Did create directory at \(url.path)")
     }
     
     public static func createFile(
@@ -134,6 +136,7 @@ extension FileService {
     public static func isDirectoryEmpty(
         directory: String
     ) throws -> Bool {
+        // TODO: zakkhoyt: use or delete
         let safeDir = expand(path: directory)
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: directory)
@@ -178,47 +181,107 @@ extension String {
 }
 
 extension URL {
-    /// Returns a file URL from path of type tilde (home dir), absolute (path starts with /), relative (to current dir)
+    /// A wrapper init which helps convert a `path` to an optimized `URL` of `fileURL`variety.
+    ///
+    /// - SeeAlso: ``URL/easyFileUrl(path:isDirectory:)``
+    public init(safeFileURLFromPath path: String) {
+        self = URL.easyFileUrl(path: path)
+    }
+    
+    /// A wrapper init which helps convert a `url.path` to an optimized `URL` of `fileURL`variety.
+    ///
+    /// - SeeAlso: ``URL/easyFileUrl(path:isDirectory:)``
+    public init(makeSafeFileURLFromURL url: URL) {
+        self = URL.easyFileUrl(url: url)
+    }
+
+    /// A wrapper function which helps convert a `url.path` to an optimized `URL` of `fileURL`variety.
+    ///
+    /// - SeeAlso: ``URL/easyFileUrl(path:isDirectory:)``
+    public static func easyFileUrl(
+        url: URL,
+        isDirectory: Bool = false
+    ) -> URL {
+        easyFileUrl(path: url.path, isDirectory: isDirectory)
+    }
+    
+    /// A wrapper function which helps convert a `path` to a `URL` of file URL variety.
+    ///
+    /// - SeeAlso: ``URL/easyFileUrl(path:isDirectory:)``
+    /// * Replaces tilde (`~`) with (User's HomeDir),
+    /// * Autodetects absolute paths (starts with `/`),
+    /// * Converts relative path to absolution
+    /// * Shortens the number of dirs where possible
+    ///
     /// - Parameter path: The file path
+    ///
+    /// The computation of `betterURL` does a lot to condition the URL into a fileSystem URL,
+    /// Then the `canonicalPath` step does some additional conditioning.
+    /// ```swift
+    /// let beforeURL = ".../somepath/1/2/../../subdir` -> `.../somepath/subdir
+    /// ```
+    /// And also some redundancy which can be good).
+    ///
+    /// ## References
+    ///
+    /// * [StackOverflow](https://stackoverflow.com/a/40401137)
+    ///
     public static func easyFileUrl(
         path: String,
         isDirectory: Bool = false
     ) -> URL {
-        let betterURL: URL = {
-            if path.contains("~") {
-                let expandedPath = NSString(string: path).expandingTildeInPath
-                if #available(macOS 13.0,macCatalyst 16.0, iOS 16.0, *) {
+        let betterURL = URL(
+            fileURLWithPath: {
+                if path.contains("~") {
+                    // Replace ~ with Home dir where possible
+                    let expandedPath = NSString(string: path).expandingTildeInPath
+                    if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+                        return URL(
+                            filePath: expandedPath,
+                            directoryHint: URL.DirectoryHint.checkFileSystem,
+                            relativeTo: nil
+                        )
+                    } else {
+                        return URL(
+                            fileURLWithPath: expandedPath,
+                            isDirectory: isDirectory
+                        )
+                    }
+                } else if path.prefix(1) == "/" {
+                    // AutoDetect if we should cast using fileURL
                     return URL(
-                        filePath: expandedPath,
-                        directoryHint: URL.DirectoryHint.checkFileSystem,
-                        relativeTo: nil
-                    )
-                } else {
-                    return URL(
-                        fileURLWithPath: expandedPath,
+                        fileURLWithPath: path,
                         isDirectory: isDirectory
                     )
+                } else {
+                    // Treat incoming path as relative to PWD
+                    return URL(
+                        fileURLWithPath: FileManager.default.currentDirectoryPath,
+                        isDirectory: isDirectory
+                    ).appendingPathComponent(path)
                 }
-            } else if path.prefix(1) == "/" {
-                return URL(
-                    fileURLWithPath: path,
-                    isDirectory: isDirectory
-                )
-            } else {
-                return URL(
-                    fileURLWithPath: FileManager.default.currentDirectoryPath,
-                    isDirectory: isDirectory
-                ).appendingPathComponent(path)
-            }
-        }()
+            }().path
+        )
         
+        #warning(
+            """
+            FIXME: zakkhoyt - Add step to unwind symbolic links.
+            * EX: /var vs /private/var on iPhone
+            * maybe canonicalURL includes?
+            """
+        )
+        
+        #warning("FIXME: zakkhoyt - Handle `//` in URL/path")
+
         // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
+        // https://stackoverflow.com/a/40401137
         // https://stackoverflow.com/a/40401137
         let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
             URL(fileURLWithPath: betterURL.path())
         } else {
             URL(fileURLWithPath: betterURL.path)
         }
+        
         
         if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
             guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
@@ -227,6 +290,74 @@ extension URL {
             return URL(filePath: canonicalPath)
         } else {
             return url
+        }
+    }
+    
+//        if #available(macOS 13.0, iOS 16.0, *) {
+//            if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+//                guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+//                    guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+//                        return url
+//                        return url
+//                    }
+//                }
+//    }
+    
+//    // https://stackoverflow.com/a/40401137
+//    let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
+//        URL(fileURLWithPath: betterURL.path())
+//    } else {
+//        URL(fileURLWithPath: betterURL.path)
+//    }
+
+    
+
+
+
+    #warning(
+        """
+        FIXME: zakkhoyt - new function, cleanURL
+        * removes "//" from middle of path (filePath)
+        * appendingPathComponent("Preferences")
+        """
+    )
+    
+//    public var canonicalURL: URL? {
+//        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+//            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+//                return url
+//            }
+//            return URL(filePath: canonicalPath)
+//        } else {
+//            return url
+//            
+//        }
+//    }
+    
+    public var preferCanonicalURL: URL {
+        // https://stackoverflow.com/a/40401137
+        guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+            return self
+        }
+        
+        return URL(filePath: canonicalPath)
+    }
+}
+
+
+/// ## References
+///
+/// * [StackOverflow](https://stackoverflow.com/questions/33337721/check-if-file-is-alias-swift)
+///
+extension URL {
+    func resourceValue<T: Any>(
+        key: URLResourceKey
+    ) -> T? {
+        do {
+            return try (self as NSURL).resourceValues(forKeys: [key])[key] as? T
+        } catch {
+            logger.fault("\(error.localizedDescription)")
+            return nil
         }
     }
 }

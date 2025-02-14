@@ -1,7 +1,7 @@
 //
-//  EncodingErrorTests.swift
+// EncodingErrorTests.swift
 //
-//  Created by Zakk Hoyt on 11/7/23.
+// Created by Zakk Hoyt on 11/7/23.
 //
 
 import BaseUtility

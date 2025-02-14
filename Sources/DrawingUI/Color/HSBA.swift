@@ -1,8 +1,8 @@
 //
-//  HSBA.swift
+// HSBA.swift
 //
-//  Created by Zakk Hoyt on 10/22/16.
-//  Copyright © 2016 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 10/22/16.
+// Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
 import CoreGraphics

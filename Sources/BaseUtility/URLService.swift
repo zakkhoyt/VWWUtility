@@ -1,9 +1,9 @@
 //
-//  URLService.swift
-//  BaseUtility
+// URLService.swift
+// BaseUtility
 //
-//  Created by Zakk Hoyt 2023
-//  Copyright © 2023 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt 2023
+// Copyright © 2023 Zakk Hoyt. All rights reserved.
 //
 
 import Foundation
@@ -18,7 +18,24 @@ public enum URLService {
     // MARK: Public static vars
     
     public static let applicationDirURL: URL = documentsDirURL.deletingLastPathComponent()
-    
+
+//    /// Returns a `URL` pointing to the shared app group directory.
+//    /// - Remark: Return value will vary depending on the current build configuration.
+//    ///
+//    /// ## SeeAlso
+//    ///
+//    /// `AppGroupIdentifier.hatchSleepApp.appGroupIdentifier`
+//    ///
+//    public static var appGroupDirUrl: URL = {
+//        guard let url = FileManager.default.containerURL(
+//            forSecurityApplicationGroupIdentifier: AppGroupIdentifier.hatchSleepApp.appGroupIdentifier
+//        ) else {
+//            preconditionFailure("Failed to get URL for app group \(AppGroupIdentifier.hatchSleepApp.appGroupIdentifier)")
+//        }
+//        return url
+//    }()
+    public static let bundleModuleURL: URL = Bundle.module.bundleURL
+        
     /// Returns the `Documents` directory in the application sandbox.
     public static let documentsDirURL: URL = {
         guard let path = NSSearchPathForDirectoriesInDomains(
@@ -26,7 +43,7 @@ public enum URLService {
         ).first else {
             preconditionFailure("Failed to get path for .documentDirectory")
         }
-        return URL(fileURLWithPath: path)
+        return URL(fileURLWithPath: path).preferCanonicalURL
     }()
     
     /// Returns the `Library` directory in the application sandbox.
@@ -36,7 +53,7 @@ public enum URLService {
         ).first else {
             preconditionFailure("Failed to get path for .libraryDirectory")
         }
-        return URL(fileURLWithPath: path)
+        return URL(fileURLWithPath: path).preferCanonicalURL
     }()
     
     /// Returns the `Library/Preferences` directory in the application sandbox.
@@ -50,6 +67,7 @@ public enum URLService {
         return preferencesDirUrl
             .appendingPathComponent(mainBundleIdentifier)
             .appendingPathExtension("plist")
+            .preferCanonicalURL
     }()
     
     /// Returns a `URL` pointing to the backing `plist` file for `UserDefaults(suiteName:)`.
@@ -57,6 +75,7 @@ public enum URLService {
         preferencesDirUrl
             .appendingPathComponent(suiteName)
             .appendingPathExtension("plist")
+            .preferCanonicalURL
     }
     
     // MARK: Public static funcs
