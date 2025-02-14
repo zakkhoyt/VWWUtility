@@ -1,9 +1,9 @@
 //
-//  UIView+Helpers.swift
-//  Mathic
+// UIView+Helpers.swift
+// Mathic
 //
-//  Created by Zakk Hoyt on 5/9/20.
-//  Copyright © 2020 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 5/9/20.
+// Copyright © 2020 Zakk Hoyt. All rights reserved.
 //
 
 #if os(iOS)

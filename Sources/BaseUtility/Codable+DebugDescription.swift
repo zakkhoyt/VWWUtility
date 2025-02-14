@@ -1,7 +1,7 @@
 //
-//  Codable+DebugDescription.swift
+// Codable+DebugDescription.swift
 //
-//  Created by Zakk Hoyt on 11/7/23.
+// Created by Zakk Hoyt on 11/7/23.
 //
 
 import Foundation

@@ -1,8 +1,8 @@
 //
-//  File.swift
+// File.swift
 //
 //
-//  Created by Zakk Hoyt on 12/5/23.
+// Created by Zakk Hoyt on 12/5/23.
 //
 
 import Foundation

@@ -1,7 +1,7 @@
 //
-//  UIImage+FallbackTintColor.swift
+// UIImage+FallbackTintColor.swift
 //
-//  Created by Zakk Hoyt on 8/19/21.
+// Created by Zakk Hoyt on 8/19/21.
 //
 
 #if os(iOS)

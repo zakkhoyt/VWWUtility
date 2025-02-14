@@ -1,7 +1,7 @@
 //
-//  Task+Helpers.swift
+// Task+Helpers.swift
 //
-//  Created by Zakk Hoyt on 7/20/23.
+// Created by Zakk Hoyt on 7/20/23.
 //
 
 import Foundation

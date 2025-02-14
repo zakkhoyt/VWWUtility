@@ -1,4 +1,4 @@
-# ``HatchCodableUtilities``
+# ``CodableUtilities``
 
 ## Overview
 

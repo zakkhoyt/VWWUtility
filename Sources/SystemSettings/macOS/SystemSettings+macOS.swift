@@ -1,16 +1,18 @@
 //
-//  SystemSettings+macOS.swift
-//  HotkeyDecorator
+// SystemSettings+macOS.swift
+// HotkeyDecorator
 //
-//  Created by Zakk Hoyt on 1/31/24.
+// Created by Zakk Hoyt on 1/31/24.
 //
-//  https://apple.stackexchange.com/a/372303/270042
-//  https://developer.apple.com/documentation/devicemanagement/systempreferences
+// https://apple.stackexchange.com/a/372303/270042
+// https://developer.apple.com/documentation/devicemanagement/systempreferences
 
 #if os(macOS)
 import AppKit
 import ApplicationServices
 import Foundation
+
+// swiftlint:disable line_length
 
 public enum SystemSettings: SystemSettingsURLParticipant {
     @MainActor
@@ -837,7 +839,10 @@ extension SystemSettings {
     public enum Error: Swift.Error {
         case noGlobalAuthorization
     }
-    
+
+    /// `NSEvent.addGlobalMonitorForEvents` will not work unless `AXIsProcessTrusted()` returns true
+    /// `AXIsProcessTrusted()` will not return true unless the user adds this app to `Accessibilty` privacy list
+    /// Finally `NSEvent.addGlobalMonitorForEvents` also needs the user to add this app to `Input Monitorying` privacy list.
     static func validateGlobalInputCapturable() throws {
         logger.debug("AXIsProcessTrusted: \(AXIsProcessTrusted())")
         guard AXIsProcessTrusted() else {
@@ -862,16 +867,11 @@ extension SystemSettings {
         // #warning("TODO: zakkhoyt - https://stackoverflow.com/questions/65355696/how-to-programatically-open-settings-preferences-window-in-a-macos-swiftui-app/72803389#72803389")
         //                    // https://support.apple.com/guide/mac-help/change-privacy-security-settings-on-mac-mchl211c911f/mac
         //                }
-        
-        /// `NSEvent.addGlobalMonitorForEvents` will not work unless `AXIsProcessTrusted()` returns true
-        /// `AXIsProcessTrusted()` will not return true unless the user adds this app to `Accessibilty` privacy list
-        /// Finally `NSEvent.addGlobalMonitorForEvents` also needs the user to add this app to `Input Monitorying` privacy list.
     }
 
     //
     // #import "MJAccessibilityUtils.h"
     // #import "HSLogger.h"
-//
     // extern Boolean AXIsProcessTrustedWithOptions(CFDictionaryRef options) __attribute__((weak_import));
     // extern CFStringRef kAXTrustedCheckOptionPrompt __attribute__((weak_import));
 //
@@ -900,4 +900,7 @@ extension SystemSettings {
 //    }
     // }
 }
+
+// swiftlint:enable line_length
+
 #endif

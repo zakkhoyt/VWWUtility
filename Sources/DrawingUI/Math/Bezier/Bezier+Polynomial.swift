@@ -1,10 +1,10 @@
 //
-//  Bezier+Polynomial.swift
-//  Bezier+Polynomial
+// Bezier+Polynomial.swift
+// Bezier+Polynomial
 //
-//  Created by Zakk Hoyt on 9/9/21.
+// Created by Zakk Hoyt on 9/9/21.
 //
-//  https://pomax.github.io/bezierinfo/#explanation
+// https://pomax.github.io/bezierinfo/#explanation
 
 import CoreGraphics
 import Foundation

@@ -62,7 +62,7 @@ enum CURLLog {
         style: CurlStyle = .compact,
         task: URLSessionTask,
         data: Data?,
-        error: Error? = nil,
+        error: (any Error)? = nil,
         metrics: URLSessionTaskMetrics? = nil
     ) throws -> String {
         guard let request = task.originalRequest else {

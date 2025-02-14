@@ -15,8 +15,8 @@
     {
       "target" : {
         "containerPath" : "container:",
-        "identifier" : "HatchCodableUtilitiesTests",
-        "name" : "HatchCodableUtilitiesTests"
+        "identifier" : "CodableUtilitiesTests",
+        "name" : "CodableUtilitiesTests"
       }
     }
   ],

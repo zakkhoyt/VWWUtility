@@ -1,8 +1,8 @@
 //
-//  PascalTriangle.swift
-//  PascalTriangle
+// PascalTriangle.swift
+// PascalTriangle
 //
-//  Created by Zakk Hoyt on 9/9/21.
+// Created by Zakk Hoyt on 9/9/21.
 //
 
 import Foundation
