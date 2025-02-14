@@ -1,7 +1,7 @@
 //
-//  Color+Utilities.swift
+// Color+Utilities.swift
 //
-//  Created by Zakk Hoyt on 6/27/23.
+// Created by Zakk Hoyt on 6/27/23.
 //
 
 import SwiftUI
