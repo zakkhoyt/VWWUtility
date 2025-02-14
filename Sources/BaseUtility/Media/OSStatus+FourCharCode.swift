@@ -170,7 +170,7 @@ extension OSStatus {
             [
                 "osStatus": "\(osStatus) \(osStatus.hexString)",
                 "fourCharCode": string
-            ].varDescription
+            ].listDescription()
         }
     }
 }

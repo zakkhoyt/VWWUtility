@@ -1,8 +1,8 @@
 //
-// FileService.swift
+//  FileService.swift
 //
 //
-// Created by Zakk Hoyt on 10/14/21.
+//  Created by Zakk Hoyt on 10/14/21.
 //
 
 import Foundation
@@ -122,8 +122,9 @@ public enum FileService {
 }
 
 extension String {
+//    @available(iOS 16.0, *)
     var fileURL: URL {
-        if #available(macOS 13.0, *) {
+        if #available(macOS 13.0, iOS 16.0, *) {
             URL(filePath: self, directoryHint: URL.DirectoryHint.checkFileSystem, relativeTo: nil)
         } else {
             URL(fileURLWithPath: self)
@@ -135,6 +136,8 @@ extension FileService {
     public static func isDirectoryEmpty(
         directory: String
     ) throws -> Bool {
+        // TODO: zakkhoyt: use or delete
+        let safeDir = expand(path: directory)
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: directory)
             if contents.isEmpty { return true }
@@ -155,17 +158,18 @@ extension FileService {
     public static func expand(path: String) -> String {
         NSString(string: path).expandingTildeInPath
     }
-}
 
-#if os(macOS)
-extension FileService {
+#if os(macOS) 
+//    @available(macOS 14.0, *) {
+    @available(macOS 14.0, *)
     private static var homeDirectoryOfCurrentUser: String {
+
         FileManager.default.homeDirectoryForCurrentUser.absoluteString
             .replacingOccurrences(of: "file://", with: "")
             .trimSuffix(text: "/")
     }
-}
 #endif
+}
 
 extension String {
     func trimSuffix(text: String) -> String {
@@ -231,7 +235,7 @@ extension URL {
                 if path.contains("~") {
                     // Replace ~ with Home dir where possible
                     let expandedPath = NSString(string: path).expandingTildeInPath
-                    if #available(macOS 13.0, *) {
+                    if #available(macOS 13.0, iOS 16.0, *) {
                         return URL(
                             filePath: expandedPath,
                             directoryHint: URL.DirectoryHint.checkFileSystem,
@@ -297,4 +301,22 @@ extension URL {
         * appendingPathComponent("Preferences")
         """
     )
+}
+
+
+/// ## References
+///
+/// * [StackOverflow](https://stackoverflow.com/questions/33337721/check-if-file-is-alias-swift)
+///
+extension URL {
+    func resourceValue<T: Any>(
+        key: URLResourceKey
+    ) -> T? {
+        do {
+            return try (self as NSURL).resourceValues(forKeys: [key])[key] as? T
+        } catch {
+            logger.fault("\(error.localizedDescription)")
+            return nil
+        }
+    }
 }

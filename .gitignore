@@ -1,5 +1,5 @@
-### Swiftlint
-**/benchmark_*.txt
+
+
 
 # Xcode
 #
@@ -230,3 +230,19 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+## ---- Begin Custom section
+
+.gitignored/*
+_gitignored/*
+benchmark_.txt # swiftlint Files
+*.log
+*.temp
+*.tmp
+
+### Swiftlint
+**/benchmark_*.txt
+
+
+## ---- End Custom section
