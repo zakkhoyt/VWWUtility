@@ -1,64 +1,38 @@
 //
-//  CameraPreview.swift
-//  FileVault
+//  CaptureVideoPreviewView.swift
+//  VWWUtility
 //
-//  Created by Zakk Hoyt on 2024-10-06.
+//  Created by Zakk Hoyt on 2/14/25.
 //
 
+
+//#if canImport(AppKit)
+#if os(macOS)
 @preconcurrency import AVFoundation
 import SwiftUI
-import UIKit
+import AppKit
 
-/// A protocol that enables a preview source to connect to a preview target.
-///
-/// The app provides an instance of this type to the client tier so it can connect
-/// the capture session to the `PreviewView` view. It uses these protocols
-/// to prevent explicitly exposing the capture objects to the UI layer.
-///
-protocol PreviewSource: Sendable {
-    // Connects a preview destination to this source.
-    func connect(to target: any PreviewTarget)
-}
 
-/// A protocol that passes the app's capture session to the `CameraPreview` view.
-protocol PreviewTarget {
-    // Sets the capture session on the destination.
-    func setSession(_ session: AVCaptureSession)
-}
-
-/// The app's default `PreviewSource` implementation.
-struct DefaultPreviewSource: PreviewSource {
-    private let session: AVCaptureSession
-    
-    init(session: AVCaptureSession) {
-        self.session = session
-    }
-    
-    func connect(to target: any PreviewTarget) {
-        target.setSession(session)
-    }
-}
-
-public struct CaptureVideoPreviewView: UIViewRepresentable {
-    public typealias UIViewType = CaptureView
+public struct CaptureVideoPreviewView: NSViewRepresentable {
+    public typealias NSViewType = CaptureView
     private let source: any PreviewSource
     
     init(source: any PreviewSource) {
         self.source = source
     }
     
-    public func makeUIView(context: Context) -> UIViewType {
+    public func makeNSView(context: Context) -> NSViewType {
         let preview = CaptureView()
         source.connect(to: preview)
         return preview
     }
-    
-    public func updateUIView(_ uiView: UIViewType, context: Context) {
+
+    public func updateNSView(_ nsView: NSViewType, context: Context) {
         logger.debug("\(#file) \(#function) \(#line)")
     }
     
     /// A `UIView` with layer of type `AVCaptureVideoPreviewLayer`which renders camera preview
-    public class CaptureView: UIView, PreviewTarget {
+    public class CaptureView: NSView, PreviewTarget {
         init() {
             super.init(frame: .zero)
 #if targetEnvironment(simulator)
@@ -76,27 +50,41 @@ public struct CaptureVideoPreviewView: UIViewRepresentable {
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
+
+        public override func viewDidEndLiveResize() {
+            super.viewDidEndLiveResize()
+            resizePreviewLayer()
+        }
         
-        public override func layoutSubviews() {
-            super.layoutSubviews()
+        public override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            resizePreviewLayer()
+        }
+        
+        private func resizePreviewLayer() {
             if let previewLayer = layer as? AVCaptureVideoPreviewLayer {
                 previewLayer.frame = bounds
                 logger.debug("did resize previewLayer \(self.bounds.debugDescription) \(previewLayer.bounds.debugDescription)")
                 logger.debug("did resize previewLayer \(self.frame.debugDescription) \(previewLayer.frame.debugDescription)")
             }
-            layer.sublayers?.compactMap {
+            layer?.sublayers?.compactMap {
                 $0 as? AVCaptureVideoPreviewLayer
             }.forEach { previewLayer in
                 previewLayer.frame = bounds
                 logger.debug("did resize previewLayer (sublayer) \(self.bounds.debugDescription) \(previewLayer.bounds.debugDescription)")
                 logger.debug("did resize previewLayer (sublayer) \(self.frame.debugDescription) \(previewLayer.frame.debugDescription)")
             }
+
         }
-        
-        // Use the preview layer as the view's backing layer.
-        public override class var layerClass: AnyClass {
-            AVCaptureVideoPreviewLayer.self
-        }
+#warning("FIXME: zakkhoyt - support NSView")
+//        override public var layer: CALayer? {
+//            layer as! AVCaptureVideoPreviewLayer
+//        }
+
+//        // Use the preview layer as the view's backing layer.
+//        public override class var layerClass: AnyClass {
+//            AVCaptureVideoPreviewLayer.self
+//        }
         
         var previewLayer: AVCaptureVideoPreviewLayer {
             layer as! AVCaptureVideoPreviewLayer
@@ -113,3 +101,4 @@ public struct CaptureVideoPreviewView: UIViewRepresentable {
     }
 }
 
+#endif
