@@ -228,10 +228,6 @@ let package = Package(
                     package: "swift-collections"
                 )
             ],
-            exclude: [
-                "SystemSettings/README.md",
-                "SystemSettings/applescript/",
-            ],
             resources: [
                 .copy("Placeholder.txt")
             ],
@@ -366,7 +362,10 @@ let package = Package(
             dependencies: [
                 "BaseUtility"
             ],
-            exclude: [],
+            exclude: [
+                "README.md",
+                "applescript/",
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
