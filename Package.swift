@@ -32,6 +32,10 @@ let package = Package(
             targets: ["BaseUtility"]
         ),
         .library(
+            name: "AVToolbox",
+            targets: ["AVToolbox"]
+        ),
+        .library(
             name: "DrawingUI",
             targets: ["DrawingUI"]
         ),
@@ -69,6 +73,23 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "AVToolbox",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [],
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .testTarget(
+            name: "AVToolboxTests",
+            dependencies: [
+                "BaseUtility",
+                "AVToolbox"
+            ],
+            swiftSettings: swiftSettings
+        ),
         .target(
             name: "BaseUtility",
             dependencies: [
@@ -175,6 +196,24 @@ let package = Package(
             ],
             swiftSettings: swiftSettings
         ),
+        .target(
+            name: "SystemSettings",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [],
+            swiftSettings: swiftSettings,
+            plugins: []
+        ),
+        .testTarget(
+            name: "SystemSettingsTests",
+            dependencies: [
+                "BaseUtility",
+                "SystemSettings"
+            ],
+            swiftSettings: swiftSettings
+        ),
+
         .target(
             name: "TerminalUtility",
             dependencies: [
