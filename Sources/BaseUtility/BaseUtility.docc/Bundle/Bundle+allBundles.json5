@@ -1,0 +1,331 @@
+[
+  {
+    "bundleIdentifier": "com.apple.WebKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/WebKit.axbundle",
+    "name": "WebKit.axbundle",
+    "original_index": 0,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.ShareSheet.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/ShareSheet.axbundle",
+    "name": "ShareSheet.axbundle",
+    "original_index": 1,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "<nil>",
+    "description": "/usr/lib",
+    "name": "usr/lib",
+    "original_index": 2,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.SwiftUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/SwiftUI.axbundle",
+    "name": "SwiftUI.axbundle",
+    "original_index": 3,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreGlyphsPrivate",
+    "description": "/System/Library/PrivateFrameworks/SFSymbols.framework/Versions/A/Resources/CoreGlyphsPrivate.bundle",
+    "name": "CoreGlyphsPrivate.bundle",
+    "original_index": 4,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "co.hatch.WalkingSkeletonApp",
+    "description": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app",
+    "name": "WalkingSkeletonApp.app",
+    "original_index": 5,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.WebUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/WebUI.axbundle",
+    "name": "WebUI.axbundle",
+    "original_index": 6,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.GeoServices.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/GeoServices.axbundle",
+    "name": "GeoServices.axbundle",
+    "original_index": 7,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AccessibilitySettingsLoader",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/AccessibilitySettingsLoader.bundle",
+    "name": "AccessibilitySettingsLoader.bundle",
+    "original_index": 8,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.DocumentManager.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/DocumentManager.axbundle",
+    "name": "DocumentManager.axbundle",
+    "original_index": 9,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.PencilKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/PencilKit.axbundle",
+    "name": "PencilKit.axbundle",
+    "original_index": 10,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.SafariSharedUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/SafariSharedUI.axbundle",
+    "name": "SafariSharedUI.axbundle",
+    "original_index": 11,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AuthKitUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/AuthKitUI.axbundle",
+    "name": "AuthKitUI.axbundle",
+    "original_index": 12,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.MessageUIFramework.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/MessageUIFramework.axbundle",
+    "name": "MessageUIFramework.axbundle",
+    "original_index": 13,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.IntentsUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/IntentsUI.axbundle",
+    "name": "IntentsUI.axbundle",
+    "original_index": 14,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.PressAndHold",
+    "description": "/System/Library/Input Methods/PressAndHold.app/Contents/PlugIns/PAH_Extension.appex",
+    "name": "PAH_Extension.appex",
+    "original_index": 15,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.MapKitFramework.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/MapKitFramework.axbundle",
+    "name": "MapKitFramework.axbundle",
+    "original_index": 16,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.MobileSafariFramework.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/MobileSafariFramework.axbundle",
+    "name": "MobileSafariFramework.axbundle",
+    "original_index": 17,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.QuickLook.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/QuickLook.axbundle",
+    "name": "QuickLook.axbundle",
+    "original_index": 18,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.InputAlternatives",
+    "description": "/Library/Apple/Library/Bundles/InputAlternatives.bundle",
+    "name": "InputAlternatives.bundle",
+    "original_index": 19,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreGlyphs",
+    "description": "/System/Library/PrivateFrameworks/SFSymbols.framework/Versions/A/Resources/CoreGlyphs.bundle",
+    "name": "CoreGlyphs.bundle",
+    "original_index": 20,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotosFramework.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/PhotosFramework.axbundle",
+    "name": "PhotosFramework.axbundle",
+    "original_index": 21,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.UIKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/UIKit.axbundle",
+    "name": "UIKit.axbundle",
+    "original_index": 22,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.SceneKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/SceneKit.axbundle",
+    "name": "SceneKit.axbundle",
+    "original_index": 23,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.systemappearance",
+    "description": "/System/Library/CoreServices/SystemAppearance.bundle",
+    "name": "SystemAppearance.bundle",
+    "original_index": 24,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.ContactsUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/ContactsUI.axbundle",
+    "name": "ContactsUI.axbundle",
+    "original_index": 25,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.UIKitMacHelper.axbundle",
+    "description": "/System/Library/Accessibility/BundlesBase/com.apple.UIKitMacHelper.axbundle",
+    "name": "UIKitMacHelper.axbundle",
+    "original_index": 26,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "<nil>",
+    "description": "/usr/lib/swift",
+    "name": "lib/swift",
+    "original_index": 27,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.uikit.Artwork",
+    "description": "/System/iOSSupport/System/Library/PrivateFrameworks/UIKitCore.framework/Versions/A/Resources/Artwork.bundle",
+    "name": "Artwork.bundle",
+    "original_index": 28,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AGXMetalG14X",
+    "description": "/System/Library/Extensions/AGXMetalG14X.bundle",
+    "name": "AGXMetalG14X.bundle",
+    "original_index": 29,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.OnBoardingKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/OnBoardingKit.axbundle",
+    "name": "OnBoardingKit.axbundle",
+    "original_index": 30,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.WebCore.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/WebCore.axbundle",
+    "name": "WebCore.axbundle",
+    "original_index": 31,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.MarkupUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/MarkupUI.axbundle",
+    "name": "MarkupUI.axbundle",
+    "original_index": 32,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.SearchFoundation.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/SearchFoundation.axbundle",
+    "name": "SearchFoundation.axbundle",
+    "original_index": 33,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AnnotationKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/AnnotationKit.axbundle",
+    "name": "AnnotationKit.axbundle",
+    "original_index": 34,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.VisionKitCore.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/VisionKitCore.axbundle",
+    "name": "VisionKitCore.axbundle",
+    "original_index": 35,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AVKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/AVKit.axbundle",
+    "name": "AVKit.axbundle",
+    "original_index": 36,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.BaseBoardUI.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/BaseBoardUI.axbundle",
+    "name": "BaseBoardUI.axbundle",
+    "original_index": 37,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AVFoundation.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/AVFoundation.axbundle",
+    "name": "AVFoundation.axbundle",
+    "original_index": 38,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.AccessibilitySettingsLoader",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/AccessibilitySettingsLoader.bundle/Versions/A",
+    "name": "Versions/A",
+    "original_index": 39,
+    "status": "not yet loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.PDFKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/PDFKit.axbundle",
+    "name": "PDFKit.axbundle",
+    "original_index": 40,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.VectorKit.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/VectorKit.axbundle",
+    "name": "VectorKit.axbundle",
+    "original_index": 41,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.SafariServices.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/SafariServices.axbundle",
+    "name": "SafariServices.axbundle",
+    "original_index": 42,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.WebKitLegacy.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/WebKitLegacy.axbundle",
+    "name": "WebKitLegacy.axbundle",
+    "original_index": 43,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.LinkPresentation.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/LinkPresentation.axbundle",
+    "name": "LinkPresentation.axbundle",
+    "original_index": 44,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaPlayerFramework.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/MediaPlayerFramework.axbundle",
+    "name": "MediaPlayerFramework.axbundle",
+    "original_index": 45,
+    "status": "loaded"
+  },
+  {
+    "bundleIdentifier": "com.apple.SocialLayer.axbundle",
+    "description": "/System/iOSSupport/System/Library/AccessibilityBundles/SocialLayer.axbundle",
+    "name": "SocialLayer.axbundle",
+    "original_index": 46,
+    "status": "loaded"
+  }
+]

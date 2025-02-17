@@ -242,7 +242,7 @@ public struct FileCrawler {
         
         let fileItems: [FileCrawler.Item] = try fileURLs.compactMap { url in
             guard let isHidden: NSNumber = url.resourceValue(key: .isHiddenKey) else {
-                let error = Error.missingURLResource(url, .isHiddenKey)
+                let error = Error.urlMissingResource(url: url, resourceKey: .isHiddenKey)
                 logger.error("\(error.localizedDescription)")
                 throw error
             }
@@ -261,13 +261,13 @@ public struct FileCrawler {
             
             // Dirs dont' have a fileSize
             guard let fileSizeNumber: NSNumber = url.resourceValue(key: .fileSizeKey) else {
-                let error = Error.missingURLResource(url, .fileSizeKey)
+                let error = Error.urlMissingResource(url: url, resourceKey: .fileSizeKey)
                 logger.error("\(error.localizedDescription)")
                 throw error
             }
             
             guard let isAliasFile: Bool = url.resourceValue(key: .isAliasFileKey) else {
-                let error = Error.missingURLResource(url, .isAliasFileKey)
+                let error = Error.urlMissingResource(url: url, resourceKey: .isAliasFileKey)
                 logger.error("\(error.localizedDescription)")
                 throw error
             }
@@ -317,7 +317,7 @@ public struct FileCrawler {
         }
         
         guard let isSymbolicLink: Bool = directoryURL.resourceValue(key: .isSymbolicLinkKey) else {
-            let error = FileCrawler.Error.missingURLResource(directoryURL, .isSymbolicLinkKey)
+            let error = FileCrawler.Error.urlMissingResource(url: directoryURL, resourceKey: .isSymbolicLinkKey)
             logger.error("\(error.localizedDescription)")
             throw error
         }
@@ -389,27 +389,24 @@ public struct FileCrawler {
 }
 
 extension FileCrawler {
-    public enum DisplayFormat: CustomStringConvertible {
-        case eza
-        case find
-        //            case lsOne
-        
-        public var description: String {
-            switch self {
-            case .eza: "eza"
-            case .find: "find * -type f"
-                //                case .lsOne: "ls -1"
-            }
-        }
-    }
-}
-
-extension FileCrawler {
-    public enum Error: Swift.Error {
-        case missingURLResource(URL, URLResourceKey)
-        case missingURLResources(URL, [URLResourceKey])
+    public enum Error: LocalizedError {
+        case urlMissingResource(url: URL, resourceKey: URLResourceKey)
+        case urlMissingResources(url: URL, resourceKeys: [URLResourceKey])
         case expectedDirectoryURL(URL)
         case expectedFileURL(URL)
+        
+        public var errorDescription: String? {
+            switch self {
+            case .urlMissingResource(let url, let resourceKey):
+                "urlMissingResourceKey(url: \(url.absoluteString), resourceKey: \(resourceKey.debugDescription))"
+            case .urlMissingResources(let url, let resourceKeys):
+                "urlMissingResourceKey(url: \(url.absoluteString), resourceKeys: \(resourceKeys.debugDescription))"
+            case .expectedDirectoryURL(let url):
+                "expectedDirectoryURL(url: \(url.absoluteString)"
+            case .expectedFileURL(let url):
+                "expectedFileURL(url: \(url.absoluteString)"
+            }
+        }
     }
 }
 
@@ -440,7 +437,7 @@ extension FileCrawler {
         public var path: String {
             get throws {
                 guard let path: String = url.resourceValue(key: .pathKey) else {
-                    let error = Error.missingURLResource(url, .pathKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .pathKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -451,7 +448,7 @@ extension FileCrawler {
         public var canonicalPath: String {
             get throws {
                 guard let canonicalPath: String = url.resourceValue(key: .canonicalPathKey) else {
-                    let error = Error.missingURLResource(url, .canonicalPathKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .canonicalPathKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -462,7 +459,7 @@ extension FileCrawler {
         public var addedToDirectoryDate: Date {
             get throws {
                 guard let addedToDirectoryDate: Date = url.resourceValue(key: .addedToDirectoryDateKey) else {
-                    let error = Error.missingURLResource(url, .addedToDirectoryDateKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .addedToDirectoryDateKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -473,7 +470,7 @@ extension FileCrawler {
         public var createdDate: Date {
             get throws {
                 guard let createdDate: Date = url.resourceValue(key: .creationDateKey) else {
-                    let error = Error.missingURLResource(url, .creationDateKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .creationDateKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -484,7 +481,7 @@ extension FileCrawler {
         public var modifiedDate: Date {
             get throws {
                 guard let modifiedDate: Date = url.resourceValue(key: .contentModificationDateKey) else {
-                    let error = Error.missingURLResource(url, .contentModificationDateKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .contentModificationDateKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -559,3 +556,46 @@ extension [FileCrawler.Item] {
         }
     }
 }
+
+
+extension FileCrawler {
+    public enum DisplayFormat: CustomStringConvertible {
+        case eza
+        case find
+        //            case lsOne
+        
+        public var description: String {
+            switch self {
+            case .eza: "eza"
+            case .find: "find * -type f"
+                //                case .lsOne: "ls -1"
+            }
+        }
+    }
+
+    /// ```sh
+    ///     .
+    /// ├── 240825_141507.txt
+    /// ├── 240825_142707.txt
+    /// ├── 240825_143038.txt
+    /// ├── 240825_144910
+    /// │  ├── 240825_144910.txt
+    /// │  └── _240825_144910
+    /// │     ├── 240825_144910.txt
+    /// │     └── _240825_144910
+    /// │        └── 240825_144910.txt
+    /// ├── _240825_144910
+    /// │  └── 240825_144910.txt
+    /// └── FILE_PROVIDER.md
+    /// ```
+    public func directoryTreeString(
+        items: [Item],
+        format: DisplayFormat = .eza,
+        level: Int,
+    ) -> [String] {
+        
+    }
+    
+    
+}
+
