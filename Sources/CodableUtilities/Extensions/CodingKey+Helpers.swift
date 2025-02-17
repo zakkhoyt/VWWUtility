@@ -2,7 +2,6 @@
 //  CodingKey+Helpers.swift
 //
 //  Created by Zakk Hoyt on 2025-01-06.
-//  Copyright hatch.co, 2025.
 //
 
 import Foundation

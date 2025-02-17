@@ -2,11 +2,10 @@
 //  PowerOfTwoTests.swift
 //
 //  Created by Zakk Hoyt on 2024-12-04.
-//  Copyright hatch.co, 2024.
 //
 
 import Foundation
-@testable import HatchRadixUtilities
+@testable import RadixUtilities
 import XCTest
 
 class PowerOfTwoTests: XCTestCase {

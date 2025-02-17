@@ -6,14 +6,15 @@
 //
 
 import Foundation
-@testable import DoccSandbox
-
+@testable import HTTPServices
+//import UIKit
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
-
-
-
-
+import SwiftUI
 
 import Testing
 
@@ -25,15 +26,16 @@ struct PlaceholdTests {
         Complexity: O(n^2) 
         """,
         .serialized,
-        arguments: Placehold.Font.allCases,
-        Placehold.Format.allCases
+//        arguments: HTTPServices.Placehold.Font.allCases,
+        arguments: HTTPServices.Placehold.Font.allCases,
+        HTTPServices.Placehold.Format.allCases
     )
     func testFontFormatPermutation(
-        font: Placehold.Font,
-        format: Placehold.Format
+        font: HTTPServices.Placehold.Font,
+        format: HTTPServices.Placehold.Format
     ) async throws {
         let url = try #require(
-            Placehold.url(
+            HTTPServices.Placehold.url(
                 size: .init(width: 150, height: 150),
                 backgroundColor: .red,
                 foregroundColor: .cyan,
@@ -53,19 +55,45 @@ struct PlaceholdTests {
         
         """)
         
-        try await DoccSandbox.URLOpener.open(url: url)
+//        try await URLOpener.open(url: url)
     }
 }
     
+//struct URLOpener {
+//    enum Error: LocalizedError {
+//        case failedToOpen(url: URL)
+//        var errorDescription: String? {
+//            switch self {
+//            case .failedToOpen(url: let url):
+//                return "Failed to open urL: \(url.absoluteString)"
+//            }
+//        }
+//    }
+//    
+//    @MainActor
+//    static func open(url: URL) async throws {
+//        try await withCheckedThrowingContinuation { continuation in
+//            UIApplication.shared.open(url) { success in
+//                switch success {
+//                case true:
+//                    continuation.resume()
+//                case false:
+//                    continuation.resume(throwing: Error.failedToOpen(url: url))
+//                }
+//            }
+//        }
+//    }
+//}
+
     
 //    @Test(
 //        "Test all fonts",
 //        .serialized,
-//        arguments: Placehold.Font.allCases
+//        arguments: HTTPServices.Placehold.Font.allCases
 //    )
-//    func testFonts(font: Placehold.Font) async throws {
+//    func testFonts(font: HTTPServices.Placehold.Font) async throws {
 //        let url = try #require(
-//            Placehold.url(
+//            HTTPServices.Placehold.url(
 //                size: .init(width: 100, height: 150),
 //                backgroundColor: .red,
 //                foregroundColor: .green,
@@ -81,11 +109,11 @@ struct PlaceholdTests {
 //    @Test(
 //        "Test all formats",
 //        .serialized,
-//        arguments: Placehold.Format.allCases
+//        arguments: HTTPServices.Placehold.Format.allCases
 //    )
-//    func testFormats(format: Placehold.Format) async throws {
+//    func testFormats(format: HTTPServices.Placehold.Format) async throws {
 //        let url = try #require(
-//            Placehold.url(
+//            HTTPServices.Placehold.url(
 //                size: .init(width: 100, height: 150),
 //                backgroundColor: .red,
 //                foregroundColor: .green,

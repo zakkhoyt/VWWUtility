@@ -1,4 +1,4 @@
-# ``HatchCodableUtilities``
+# ``CodableUtilities``
 
 ## Overview
 
@@ -39,6 +39,3 @@ do {
 }
 ```
 
-## Dependencies
-
-For an overview of our modules and how they relate to each other, see [here](https://hatchbaby.atlassian.net/wiki/spaces/iosDevelopers/pages/591036417/Hatch+Sleep+Dependencies+iOS)

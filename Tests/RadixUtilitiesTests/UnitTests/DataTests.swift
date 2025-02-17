@@ -2,11 +2,10 @@
 //  DataTests.swift
 //
 //  Created by Zakk Hoyt on 2024.
-//  Copyright hatch.co, 2024.
 //
 
 import Foundation
-@testable import HatchRadixUtilities
+@testable import RadixUtilities
 import XCTest
 
 final class DataTests: XCTestCase {

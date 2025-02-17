@@ -1,8 +1,8 @@
 //
-//  HammerspoonEventTap.swift
-//  HotkeyDecorator
+// HammerspoonEventTap.swift
+// HotkeyDecorator
 //
-//  Created by Zakk Hoyt on 1/31/24.
+// Created by Zakk Hoyt on 1/31/24.
 //
 #if os(macOS)
 import AppKit

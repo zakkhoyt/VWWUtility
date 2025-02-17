@@ -31,7 +31,7 @@ extension [any CustomStringConvertible] {
     /// print(
     ///     array.listDescription(
     ///         separator: ",",
-    ///         endcaps: ("", ",")
+    ///         endcaps: ("", "")
     ///     )
     /// )
     /// // a,b,c,
@@ -45,6 +45,11 @@ extension [any CustomStringConvertible] {
     /// )
     /// // |a|b|c|
     /// ```
+    /// - Parameters:
+    ///   `String.nil`. If `false` they will be omitted.
+    ///   - separator: The `String` to use as a separator. Defaults to `", "`.
+    ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
+    /// - Returns: A legible `String` description of `self`
     public func listDescription(
         separator: String = ", ",
         endcaps: (Character, Character) = ("[", "]")
@@ -54,105 +59,75 @@ extension [any CustomStringConvertible] {
     }
 }
 
+extension [(any CustomStringConvertible)?] {
+    /// Tranlastes `nil` values before forwarcing to `[any CustomStringConvertible].listDescription(separator:endcaps:)`
+    /// - Parameters:
+    ///   - includeNilValues: If `true`, then `nil` elements will be replaced with
+    ///   `String.nil`. If `false` they will be omitted.
+    ///   - separator: The `String` to use as a separator. Defaults to `", "`.
+    ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
+    /// - Returns: A legible `String` description of `self`
+    public func listDescription(
+        includeNilValues: Bool = true,
+        separator: String = ", ",
+        endcaps: (Character, Character) = ("[", "]")
+    ) -> String {
+        compactMap {
+            guard let element = $0 else {
+                return includeNilValues ? String.nil : nil
+            }
+            return element
+        }
+        .listDescription(separator: separator, endcaps: endcaps)
+    }
+}
+
 extension [String: any CustomStringConvertible] {
     /// Converts any `[String: any CustomStringConvertible]` to a list by joining all `Key` & `Value` to `[String]`
     /// then joining that array and finally wrapping in encaps.
     ///
-    /// - SeeAlso: `[any CustomStringConvertible].listDescription(separator:endcaps:)`
+    /// - Parameters:
+    ///   `String.nil`. If `false` that key/value pair will be omitted.
+    ///   - separator: The `String` to use as a separator. Defaults to `", "`.
+    ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
+    /// - Returns: A legible `String` description of `self`
+    /// - SeeAlso: `[String: (any CustomStringConvertible)?].listDescription(separator:endcaps:)`
+    /// is a variant that handles optionals automatically
     public func listDescription(
         keyValueSeparator: String = ": ",
         separator: String = ", ",
         endcaps: (Character, Character) = ("[", "]")
     ) -> String {
         compactMapValues { String(describing: $0) }
-        .map {
-            [#""\#($0.key)""#, #""\#($0.value)""#].joined(separator: keyValueSeparator)
-        }
-        .sorted()
-        .joined(separator: separator)
+            .map {
+                [#""\#($0.key)""#, #""\#($0.value)""#].joined(separator: keyValueSeparator)
+            }
+            .sorted()
+            .joined(separator: separator)
     }
 }
 
-
-
-
-
-
-
-
-
-//extension [String: String?] {
-//    public func listDescription(
-//        //        keyValueSeparator: String = ": ",
-//        //        separator: String = ", ",
-//        //        endcaps: (String, String) = ("[", "]"),
-//        //        level: Int = 0
-//        keyValueSeparator: String = ": ",
-//        //        separator: String = ", ",
-//        separator: String = ",\n",
-//        //        endcaps: (String, String) = ("[", "]"),
-//        endcaps: (String, String) = ("[\n", "\n]"),
-//        level: Int = 0
-//    ) -> String {
-//        (compactMapValues { $0 } as [String: String])
-//            .listDescription(
-//                keyValueSeparator: keyValueSeparator,
-//                separator: separator,
-//                endcaps: endcaps,
-//                level: level
-//            )
-//    }
-//}
-
-//
-//    //#warning("FIXME: zakkhoyt - support nested, indented lists")
-//    #warning(#"""
-//    FIXME: zakkhoyt - support nested, indented lists
-//    """
-//    [
-//        "name": "abe",
-//        "children": [
-//            "buck": "son",
-//            "casie": "daughter
-//        ]
-//    ]
-//    """
-//    """#)
-
-//#warning("FIXME: zakkhoyt - support StringProtocol, CustomStringConvertible, etc...")
-////extension [String: any StringProtocol] {
-//extension [String: String] {
-//    /// Converts any `[String: any CustomStringConvertible]` to a list by joining all `Key` & `Value` to `[String]`
-//    /// then joining that array and finally wrapping in encaps.
-//    ///
-//    /// - SeeAlso: `[any CustomStringConvertible].listDescription(separator:endcaps:)`
-//    public func listDescription(
-//        keyValueSeparator: String = ": ",
-//        //        separator: String = ", ",
-//        separator: String = ",\n",
-//        //        endcaps: (String, String) = ("[", "]"),
-//        endcaps: (String, String) = ("[\n", "\n]"),
-//        level: Int = 0
-//    ) -> String {
-//        //        (separator: ",\n", endcaps: ("[\n", "\n]"))
-//        
-//        let contentIndent = String(repeating: "    ", count: level + 1)
-//        
-//        let content = compactMapValues { String(describing: $0) }
-//            .map {
-//                [#""\#($0.key)""#, #""\#($0.value)""#].joined(separator: keyValueSeparator)
-//            }
-//            .sorted()
-//            .map { contentIndent + $0 }
-//            .joined(separator: separator)
-//        
-//        let globalIndent = String(repeating: "    ", count: level)
-//        return [
-//            endcaps.0,
-//            content,
-//            endcaps.1
-//        ]
-//            .map { globalIndent + $0 }
-//            .joined()
-//    }
-//}
+extension [String: (any CustomStringConvertible)?] {
+    /// - Parameters:
+    ///   - includeNilValues: If `true`, then `nil` values will be replaced with
+    ///   `String.nil`. If `false` that key/value pair will be omitted.
+    ///   - separator: The `String` to use as a separator. Defaults to `", "`.
+    ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
+    /// - Returns: A legible `String` description of `self`
+    /// - SeeAlso: `[String: any CustomStringConvertible].listDescription(separator:endcaps:)`
+    /// is a variant for non-optional values
+    public func listDescription(
+        includeNilValues: Bool = true,
+        keyValueSeparator: String = ": ",
+        separator: String = ", ",
+        endcaps: (Character, Character) = ("[", "]")
+    ) -> String {
+        compactMapValues {
+            guard let value = $0 else {
+                return includeNilValues ? String.nil : nil
+            }
+            return value
+        }
+        .listDescription(separator: separator, endcaps: endcaps)
+    }
+}

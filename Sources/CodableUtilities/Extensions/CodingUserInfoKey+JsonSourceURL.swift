@@ -1,6 +1,5 @@
 //
 //  SwiftPackageJSONDecoder.swift
-//  HatchTerminal
 //
 //  Created by Zakk Hoyt on 2025-01-16.
 //

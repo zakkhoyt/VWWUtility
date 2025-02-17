@@ -1,7 +1,7 @@
 //
-//  Dictionary+Helper.swift
+// Dictionary+Helper.swift
 //
-//  Created by Zakk Hoyt on 6/23/23.
+// Created by Zakk Hoyt on 6/23/23.
 //
 
 import Collections

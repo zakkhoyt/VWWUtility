@@ -4,7 +4,7 @@
 //  Created by Zakk Hoyt 2024.
 //
 
-@testable import HatchRadixUtilities
+@testable import RadixUtilities
 import XCTest
 
 enum TestDataPoints {

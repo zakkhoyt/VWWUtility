@@ -1,8 +1,8 @@
 //
-//  FixedWidthInteger+String.swift
+// FixedWidthInteger+String.swift
 //
 //
-//  Created by Zakk Hoyt on 1/28/24.
+// Created by Zakk Hoyt on 1/28/24.
 //
 
 import Foundation

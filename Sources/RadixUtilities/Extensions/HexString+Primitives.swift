@@ -1,6 +1,6 @@
 //
 //  HexString+Primitives.swift
-//  HatchRadix
+//  RadixUtilities
 //
 //  Created by Zakk Hoyt on 8/26/16.
 //  Copyright © 2016 Zakk Hoyt. All rights reserved.
