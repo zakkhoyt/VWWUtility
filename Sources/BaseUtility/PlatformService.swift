@@ -5,12 +5,6 @@
 //  Created by Zakk Hoyt on 2/17/25.
 //
 
-//#if os(iOS)
-//import UIKit
-//#elseif os(macOS)
-//import AppKit
-//#endif
-
 #if canImport(UIKit)
 import UIKit
 #elseif canImport(AppKit)
@@ -18,15 +12,22 @@ import AppKit
 #endif
 
 public struct PlatformService {
-    
-    // * [ ] iOSDevice
-    // * [ ] iOSSimulator
-    // * [ ] macDesignedForIPhoneIPad
-    // * [ ] macCatalyst
-    // * [ ] macNative
-    public static func logPlatformVariants() {
+    /// "group.co.z2k.test"
+    public static func logImportantDirectories(
+        appGroupIdentifier: String
+    ) {
+        logger.debug("platform: \(PlatformService.Platform.infer().debugDescription)")
+        logger.debug("URLService.appSandboxDirectory: \(URLService.applicationDirURL.path)")
+        logger.debug("URLService.appGroupDirectory(appGroupIdentifier: \"\(appGroupIdentifier)\"): \(URLService.appGroupDirURL(appGroupIdentifier: appGroupIdentifier)?.path ?? "<nil>")")
+        logger.debug("Bundle.main.bundlePath: \(Bundle.main.bundlePath)")
+        logger.debug("Bundle.module.bundlePath: \(Bundle.module.bundlePath)")
+    }
 
+    /// Writes useful info to console.
+    public static func logPlatformVariants() {
         
+        logger.debug("PlatformService.Platform.infer: \(PlatformService.Platform.infer().debugDescription)")
+
 #if os(macOS)
         logger.debug("#if os(macOS): true")
 #else
@@ -91,41 +92,176 @@ public struct PlatformService {
         logger.debug("")
         
         logger.debug("URLService.applicationDirURL.path: \(URLService.applicationDirURL.path)")
-        logger.debug("URLService.applicationDirectoryURL.path: \(URLService.applicationDirectoryURL.path)")
         logger.debug("URLService.appGroupDirURL(appGroupIdentifier: \"group.co.z2k.test\").path: \(URLService.appGroupDirURL(appGroupIdentifier: "group.co.z2k.test")?.path ?? "<nil>")")
         logger.debug("")
         logger.debug("PlatformService.DirectorySearchPath.debugSummary for .userDomainMask:\n\(PlatformService.DirectorySearchPath.debugSummary)")
         logger.debug("")
         
-//        logger.debug("Bundle.main.bundlePath: \(Bundle.main.bundlePath)")
         logger.debug("Bundle.main.debugSummary:\n\(Bundle.main.debugSummary)")
-        
-        
-        
-//        logger.debug("Bundle.module.bundlePath: \(Bundle.module.bundlePath)")
         logger.debug("Bundle.module.debugSummary:\n\(Bundle.module.debugSummary)")
         logger.debug("")
     }
 }
 
+/// ##
+/// ## iPad/iPhone (device)
+/// ```sh
+/// Bundle.main.bundleURL -> ""
+/// ```
+///
+/// ## Designed for iPad/iPhone
+/// ```sh
+/// Bundle.main.bundleURL -> "file:///private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/8C0584F9-69A6-5E59-93F0-0643DD397318/d/Wrapper/WalkingSkeletonApp.app"
+/// ```
+///
+/// ## iOS Simulator
+/// ```sh
+/// Bundle.main.bundleURL -> "file:///$HOME/Library/Developer/CoreSimulator/Devices/43D5227F-BCA2-4663-B23E-8B0992ACDB89/data/Containers/Bundle/Application/A9A1A99E-3828-4D4C-BE23-0E7C0D8C518B/WalkingSkeletonApp.app"
+///
+/// ```
+/// # URL
+/// ## Designed for iPhone/iPad
+/// ```sh
+/// bundleURL -> "file:///System/iOSSupport/System/Library/AccessibilityBundles/SwiftUI.axbundle"
+/// resourceURL -> "$BUNDLE_BUNDLE_PATH/Contents/Resources"
+/// executableURL -> "$BUNDLE_BUNDLE_PATH/Contents/MacOS/SwiftUI"
+/// privateFrameworksURL -> "$BUNDLE_BUNDLE_PATH/Contents/Frameworks"
+/// sharedFrameworksURL -> "$BUNDLE_BUNDLE_PATH/Contents/SharedFrameworks"
+/// sharedSupportURL -> "$BUNDLE_BUNDLE_PATH/Contents/SharedSupport"
+/// builtInPlugInsURL -> "$BUNDLE_BUNDLE_PATH/Contents/PlugIns"
+/// appStoreReceiptURL ->
+/// ```
+
+/// ## Bundle.main
+///
+/// ## Bundle.module
+///
+/// ## BundleallBundles
+/// * Found `47` of them for `FileVault.app`
+///
+/// ## BundleallFrameworks
+/// * Found `636` of them for `FileVault.app`
+///
+extension Bundle {
+    public var debugSummary: String {
+        """
+            description: \(description)
+            bundleIdentifier: \(bundleIdentifier ?? "<nil>")
+            bundleURL \(bundleURL.path)
+            resourceURL: \(resourceURL?.path ?? "<nil>")
+            executableURL: \(executableURL?.path ?? "<nil>")
+            privateFrameworksURL: \(privateFrameworksURL?.path ?? "<nil>")
+            sharedFrameworksURL: \(sharedFrameworksURL?.path ?? "<nil>")
+            sharedSupportURL: \(sharedSupportURL?.path ?? "<nil>")
+            builtInPlugInsURL: \(builtInPlugInsURL?.path ?? "<nil>")
+            appStoreReceiptURL: \(appStoreReceiptURL?.path ?? "<nil>")
+            infoDictionary:\n\(infoDictionarySummary())
+        """
+    }
+    
+    public func infoDictionarySummary() -> String {
+        let infoDictionary: [String: Any] = infoDictionary ?? [:]
+        let keys = infoDictionary.keys.sorted()
+        let prefix = "        "
+        return keys.enumerated().map {
+            let (index, key) = $0
+            guard let value = infoDictionary [key] else {
+                return "\(prefix)[\(index)] infoDictionary[\(key)]: <nil>"
+            }
+            return "\(prefix)[\(index)] infoDictionary[\(key)]: \(String(describing: value).replacingOccurrences(of: "\n", with: "\n\(prefix)"))"
+        }.joined(separator: "\n")
+    }
+    
+    
+    public static var allBundlesDebugSummary: String {
+        //        class var allBundles: [Bundle]
+        //        class var allFrameworks: [Bundle]
+        
+        
+        let allBundles = Bundle.allBundles.enumerated().map {
+            [
+                "Bundle.allBundles[\($0.offset)]:\n\($0.element.debugSummary)"
+            ].joined(separator: "\n")
+        }
+        
+        let allFrameworks = Bundle.allFrameworks.enumerated().map {
+            [
+                "Bundle.allFrameworks[\($0.offset)]:\n\($0.element.debugSummary)"
+            ].joined(separator: "\n")
+        }
+        
+        
+        return """
+        Bundle.main:\n\(Bundle.main.debugSummary)
+        
+        Bundle.module:\n\(Bundle.module.debugSummary)
+        
+        Bundle.allBundles:\n\(allBundles)
+        
+        Bundle.allFrameworks:\n\(allFrameworks)
+        
+        """
+    }
+}
 
 extension PlatformService {
-    
-#warning(
-    """
-    TODO: zakkhoyt - Make an enum to supoort and logs these
-    Document for each
-    * iPhone/iPad
-    * iOS Sim
-    * Designed for iPhone/iPad
-    * Catalyst
-    * macOS
-    """
-)
-    
-    
+    public enum Platform: String {
+        case iOSDevice
+        case iOSSimulator
+        case macDesignedForIPhoneIPad
+        case macCatalyst
+        case macNative
+        case unknown
 
-    
+        public static func infer() -> Platform {
+#if os(iOS)
+#if targetEnvironment(simulator) && !targetEnvironment(macCatalyst)
+            return .iOSSimulator
+#else
+            switch (ProcessInfo.processInfo.isiOSAppOnMac, ProcessInfo.processInfo.isMacCatalystApp) {
+            case (false, false): return .iOSDevice
+            case (true, true): return.macDesignedForIPhoneIPad
+            case (false, true): return.macCatalyst
+            default: return.unknown
+            }
+#endif
+#elseif os(macOS)
+            return.macNative
+#else
+            return.unknown
+#endif
+        }
+    }
+}
+
+extension PlatformService.Platform: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .iOSDevice: "iOS - Device (iPhone/iPad/iPod)"
+        case .iOSSimulator: "iOS - Simulator"
+        case .macDesignedForIPhoneIPad: "macOS - Designed for iOS"
+        case .macCatalyst: "macOS - Catalyst"
+        case .macNative: "macOS - Native"
+        case .unknown: "Unkonwn platform"
+        }
+        
+    }
+}
+
+extension PlatformService.Platform: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        switch self {
+        case .iOSDevice: "\(description). An iOS app running on a physical iOS device."
+        case .iOSSimulator: "\(description). An iOS app running on an iOS Simulator on macOS."
+        case .macDesignedForIPhoneIPad: "\(description). An iOS app running in a window on macOS (comiled to run on iOS. No separate compile needed)."
+        case .macCatalyst: "\(description). An iOS app running in a window on macOS (but recompiled to run on macOS)."
+        case .macNative: "\(description). A macOS app running on macOS."
+        case .unknown: "\(description). Unknown platform."
+        }
+    }
+}
+
+extension PlatformService {
     /// Wrapper around  `FileManager.SearchPathDirectory`
     
     public enum DirectorySearchPath: UInt, @unchecked Sendable, CaseIterable, CustomStringConvertible, CustomDebugStringConvertible {
@@ -360,41 +496,6 @@ extension PlatformService {
 
 }
 
-extension PlatformService {
-    public enum Platform: String {
-        case iOSDevice
-        case iOSSimulator
-        case macDesignedForIPhoneIPad
-        case macCatalyst
-        case macNative
-        
-    }
-}
-
-extension PlatformService.Platform: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .iOSDevice: "An iOS app running on a physical iOS device"
-        case .iOSSimulator: "An iOS app running on an iOS Simulator on macOS"
-        case .macDesignedForIPhoneIPad: "An iOS app running in a window on macOS (comiled to run on iOS. No separate compile needed)"
-        case .macCatalyst: "An iOS app running in a window on macOS (but recompiled to run on macOS)"
-        case .macNative: "A macOS app running on macOS."
-        }
-    }
-}
-
-extension PlatformService.Platform: CustomDebugStringConvertible {
-    public var debugDescription: String {
-        switch self {
-        case .iOSDevice: "iPhone/iPad Device"
-        case .iOSSimulator: "iOS Simulator"
-        case .macDesignedForIPhoneIPad: "iPhone/iPad Device"
-        case .macCatalyst: "iOS Simulator"
-        case .macNative: "iPhone/iPad Device"
-        }
-    }
-}
-
 extension OperatingSystemVersion: @retroactive CustomStringConvertible {
     public var description: String {
         "\(majorVersion).\(minorVersion).\(patchVersion)"
@@ -452,15 +553,4 @@ extension FileManager.SearchPathDomainMask: CustomStringConvertible {
             }
         }.joined(separator: ", ")
     }
-//    public init(rawValue: UInt)
-//    
-//    public static var userDomainMask: FileManager.SearchPathDomainMask { get }
-//    
-//    public static var localDomainMask: FileManager.SearchPathDomainMask { get }
-//    
-//    public static var networkDomainMask: FileManager.SearchPathDomainMask { get }
-//    
-//    public static var systemDomainMask: FileManager.SearchPathDomainMask { get }
-//    
-//    public static var allDomainsMask: FileManager.SearchPathDomainMask { get }
 }
