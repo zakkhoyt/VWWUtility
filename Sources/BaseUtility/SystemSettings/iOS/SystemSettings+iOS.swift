@@ -13,6 +13,19 @@
 import Foundation
 import UIKit
 
+/// ```swift
+/// // THis config does work in WiFIProperies App
+/// func openAppSettings() {
+///     guard let bundleId = Bundle.main.bundleIdentifier else {
+///         preconditionFailure()
+///     }
+///     guard let url = URL(string: "\(UIApplication.openSettingsURLString)&prefs:root=WIFI/\(bundleId)") else {
+///         preconditionFailure()
+///     }
+///     UIApplication.shared.open(url)
+/// }
+// ```
+
 public enum SystemSettings: SystemSettingsURLParticipant {
     @MainActor
     public static func open(
