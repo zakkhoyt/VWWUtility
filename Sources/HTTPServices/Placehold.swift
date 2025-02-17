@@ -134,7 +134,7 @@ extension Placehold {
     }
 }
 
-// MARK: Below here originates from HatchUtilities
+// MARK: Below here originates from BaseUtilities
 
 extension Color {
     public init(

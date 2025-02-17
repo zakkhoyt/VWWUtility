@@ -99,11 +99,11 @@ extension [String: any CustomStringConvertible] {
         endcaps: (Character, Character) = ("[", "]")
     ) -> String {
         compactMapValues { String(describing: $0) }
-        .map {
-            [#""\#($0.key)""#, #""\#($0.value)""#].joined(separator: keyValueSeparator)
-        }
-        .sorted()
-        .joined(separator: separator)
+            .map {
+                [#""\#($0.key)""#, #""\#($0.value)""#].joined(separator: keyValueSeparator)
+            }
+            .sorted()
+            .joined(separator: separator)
     }
 }
 
@@ -128,6 +128,6 @@ extension [String: (any CustomStringConvertible)?] {
             }
             return value
         }
-            .listDescription(separator: separator, endcaps: endcaps)
+        .listDescription(separator: separator, endcaps: endcaps)
     }
 }

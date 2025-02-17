@@ -13,9 +13,8 @@ public struct FileHierarchyService {
     public func walkFileHierarchy(
         directoryURL: URL,
         isRecursive: Bool,
-        asAbsolutePath: Bool = true,
-        level: Int = 0,
-        format: DisplayFormat = .find
+        fileFilter: ((URL) -> Bool)? = nil,
+        level: Int = 0
     ) throws -> [Item] {
         let baseDirectoryPath = directoryURL.path.removingPercentEncoding ?? directoryURL.path
         // Avoid having `//` in urls later
@@ -30,11 +29,10 @@ public struct FileHierarchyService {
         
         let fileHierarchyItems: [Item] = try retrieveContentItem(
             directoryURL: directoryURL,
-            asAbsolutePath: asAbsolutePath,
+//            asAbsolutePath: asAbsolutePath,
             level: level
         )
         
-//        try fileHierarchyItems.enumerated().forEach {
         return try fileHierarchyItems.enumerated().reduce(
             into: []
         ) { partialResult, iter /*EnumeratedSequence<[Item]>.Iterator.Element*/ in
@@ -49,64 +47,15 @@ public struct FileHierarchyService {
             let commonPrefix = "[L:\("\(level)".padded(length: 2, character: "0"))] "
             
 
-            // ```sh
-            //     .
-            // ├── 240825_141507.txt
-            // ├── 240825_142707.txt
-            // ├── 240825_143038.txt
-            // ├── 240825_144910
-            // │  ├── 240825_144910.txt
-            // │  └── _240825_144910
-            // │     ├── 240825_144910.txt
-            // │     └── _240825_144910
-            // │        └── 240825_144910.txt
-            // ├── _240825_144910
-            // │  └── 240825_144910.txt
-            // └── FILE_PROVIDER.md
-            // ```
-        
-//            switch format {
-//            case .eza:
-//                let displayName = url.lastPathComponent
-//                
-//                let dirIndentPrefix = level > 0 ? "│  " : ""
-//                let fileIndentPrefix = level > 0 ? "│  " : ""
-//                
-//                let dirIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
-//                let fileIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
-//                let isLastElement = index == fileHierarchyItems.count - 1
-//                let dirIndentPostfix = isLastElement ? "└── " : "├── "
-//                let fileIndentPostfix = dirIndentPostfix
-//                let dirIndent = [dirIndentPrefix, dirIndentCore, dirIndentPostfix].joined()
-//                let fileIndent = [fileIndentPrefix, fileIndentCore, fileIndentPostfix].joined()
-//                
-//                if fileHierarchyItem.isDirectory {
-//                    let line = "\(dirIndent)\(displayName)    **** D:\(commonPrefix)"
-//                    print(line)
-//                    
-//                } else {
-//                    let line = "\(fileIndent)\(displayName)    **** f:\(commonPrefix)"
-//                    print(line)
-//                }
-//            case .find:
-//                let displayName = url.path
-//                if fileHierarchyItem.isDirectory {
-//                    let line = "\(displayName)/    **** D:\(commonPrefix)"
-//                    print(line)
-//                    
-//                } else {
-//                    let line = "\(displayName)    **** f:\(commonPrefix)"
-//                    print(line)
-//                }
-//            }
-            
             partialResult.append(fileHierarchyItem)
             
             if fileHierarchyItem.isDirectory, isRecursive {
                 let recursiveItems: [Item] = try walkFileHierarchy(
                     directoryURL: fileHierarchyItem.url,
                     isRecursive: isRecursive,
-                    asAbsolutePath: asAbsolutePath,
+//                    format: format,
+//                    asAbsolutePath: asAbsolutePath,
+                    fileFilter: fileFilter,
                     level: level + 1
                 )
                 partialResult.append(contentsOf: recursiveItems)
@@ -119,14 +68,14 @@ public struct FileHierarchyService {
     
     func retrieveContentItem(
         directoryURL: URL,
-        asAbsolutePath: Bool = true,
+//        asAbsolutePath: Bool = true,
         level: Int
     ) throws -> [Item] {
         do {
             // Get the directory contents urls (including subfolders urls)
             return try FileManager.default.contentsOfDirectory(
                 at: directoryURL,
-                includingPropertiesForKeys: Item.resourceKeys,
+                includingPropertiesForKeys: URLResourceKey.allResourceKeys,
                 options: [
                     .skipsSubdirectoryDescendants, // Want manual control here
                     .producesRelativePathURLs
@@ -191,48 +140,6 @@ extension FileHierarchyService {
             case directory(isSymbolicLink: Bool)
             case regularFile(sizeInBytes: UInt64, isAliasFile: Bool, fileExtension: String)
         }
-
-        static let fileKindSystemResourceKeys: [URLResourceKey] = [
-            .isDirectoryKey,
-            .isRegularFileKey
-        ]
-        
-        static let directoryResourceKeys: [URLResourceKey] = [
-            .isSymbolicLinkKey
-        ]
-        
-        static let regularFileResourceKeys: [URLResourceKey] = [
-            .isAliasFileKey,
-            .fileSizeKey // bytes
-        ]
-            
-        static let commonRequiredResourceKeys: [URLResourceKey] = [
-            .pathKey,
-            .canonicalPathKey,
-            .addedToDirectoryDateKey,
-            .contentModificationDateKey,
-            .creationDateKey,
-        ]
-        
-        static let privacyResourceKeys: [URLResourceKey] = [
-            .isExcludedFromBackupKey,
-            .isHiddenKey
-        ]
-
-        static let otherResourceKeys: [URLResourceKey] = [
-            .isPurgeableKey,
-            .fileProtectionKey,
-            .fileSecurityKey,
-            .isPackageKey,
-            .ubiquitousItemIsExcludedFromSyncKey,
-        ]
-
-        static let resourceKeys: [URLResourceKey] = fileKindSystemResourceKeys
-            + commonRequiredResourceKeys
-            + directoryResourceKeys
-            + fileKindSystemResourceKeys
-            + privacyResourceKeys
-            + otherResourceKeys
 
         public let name: String
         public let url: URL
@@ -302,7 +209,7 @@ extension FileHierarchyService {
     //        }
 
         public var urlResourcesDescription: String {
-            let keys = Self.fileKindSystemResourceKeys + Self.privacyResourceKeys
+            let keys = URLResourceKey.fileKindSystemResourceKeys + URLResourceKey.privacyResourceKeys
             let dict: [String: any CustomStringConvertible] = keys.reduce(into: [:]) {
                 $0[$1.rawValue] = url.resourceValue(key: $1) ?? "NOPE!"
             }

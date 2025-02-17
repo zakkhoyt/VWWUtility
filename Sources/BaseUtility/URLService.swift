@@ -24,13 +24,13 @@ public enum URLService {
 //    ///
 //    /// ## SeeAlso
 //    ///
-//    /// `AppGroupIdentifier.hatchSleepApp.appGroupIdentifier`
+//    /// `AppGroupIdentifier.myApp.appGroupIdentifier`
 //    ///
 //    public static var appGroupDirUrl: URL = {
 //        guard let url = FileManager.default.containerURL(
-//            forSecurityApplicationGroupIdentifier: AppGroupIdentifier.hatchSleepApp.appGroupIdentifier
+//            forSecurityApplicationGroupIdentifier: AppGroupIdentifier.myApp.appGroupIdentifier
 //        ) else {
-//            preconditionFailure("Failed to get URL for app group \(AppGroupIdentifier.hatchSleepApp.appGroupIdentifier)")
+//            preconditionFailure("Failed to get URL for app group \(AppGroupIdentifier.mhApp.appGroupIdentifier)")
 //        }
 //        return url
 //    }()
