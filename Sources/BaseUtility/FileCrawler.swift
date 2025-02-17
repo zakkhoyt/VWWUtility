@@ -558,44 +558,42 @@ extension [FileCrawler.Item] {
 }
 
 
-extension FileCrawler {
-    public enum DisplayFormat: CustomStringConvertible {
-        case eza
-        case find
-        //            case lsOne
-        
-        public var description: String {
-            switch self {
-            case .eza: "eza"
-            case .find: "find * -type f"
-                //                case .lsOne: "ls -1"
-            }
-        }
-    }
-
-    /// ```sh
-    ///     .
-    /// ├── 240825_141507.txt
-    /// ├── 240825_142707.txt
-    /// ├── 240825_143038.txt
-    /// ├── 240825_144910
-    /// │  ├── 240825_144910.txt
-    /// │  └── _240825_144910
-    /// │     ├── 240825_144910.txt
-    /// │     └── _240825_144910
-    /// │        └── 240825_144910.txt
-    /// ├── _240825_144910
-    /// │  └── 240825_144910.txt
-    /// └── FILE_PROVIDER.md
-    /// ```
-    public func directoryTreeString(
-        items: [Item],
-        format: DisplayFormat = .eza,
-        level: Int,
-    ) -> [String] {
-        
-    }
-    
-    
-}
-
+//extension FileCrawler {
+//    public enum DisplayFormat: CustomStringConvertible {
+//        case eza
+//        case find
+//        //            case lsOne
+//        
+//        public var description: String {
+//            switch self {
+//            case .eza: "eza"
+//            case .find: "find * -type f"
+//                //                case .lsOne: "ls -1"
+//            }
+//        }
+//    }
+//
+//    /// ```sh
+//    ///     .
+//    /// ├── 240825_141507.txt
+//    /// ├── 240825_142707.txt
+//    /// ├── 240825_143038.txt
+//    /// ├── 240825_144910
+//    /// │  ├── 240825_144910.txt
+//    /// │  └── _240825_144910
+//    /// │     ├── 240825_144910.txt
+//    /// │     └── _240825_144910
+//    /// │        └── 240825_144910.txt
+//    /// ├── _240825_144910
+//    /// │  └── 240825_144910.txt
+//    /// └── FILE_PROVIDER.md
+//    /// ```
+//    public func formatTree(
+//        items: [Item],
+//        format: DisplayFormat = .eza,
+//        level: Int
+//    ) -> [String] {
+//        return []
+//    }
+//}
+//
