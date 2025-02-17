@@ -4,7 +4,7 @@
 //  Created by Zakk Hoyt on 11/7/23.
 //
 
-@testable import HatchCodableUtilities
+@testable import CodableUtilities
 import XCTest
 
 final class DecodingErrorTests: XCTestCase {

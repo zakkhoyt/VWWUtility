@@ -1,8 +1,8 @@
 //
-//  DisplayLink.swift
-//  Bezier
+// DisplayLink.swift
+// Bezier
 //
-//  https://github.com/timdonnelly/DisplayLink
+// https://github.com/timdonnelly/DisplayLink
 //
 
 import Combine

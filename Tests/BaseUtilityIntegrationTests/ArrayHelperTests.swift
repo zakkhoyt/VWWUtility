@@ -69,7 +69,7 @@ final class ArrayHelperTests: XCTestCase {
                 "\(name) \(age)"
             }
         }
-        let str: String = "String"
+        let str = "String"
         let point = CGPoint(x: 1, y: 1)
         let thing = Thing(name: "me", age: 10)
         let dict: [String: any CustomStringConvertible] = [
@@ -84,8 +84,7 @@ final class ArrayHelperTests: XCTestCase {
     }
 }
 
-
-//extension Array where Element: CustomStringConvertible {
+// extension Array where Element: CustomStringConvertible {
 //    public func listDescription(
 //        separator: String = ", ",
 //        endcaps: (String, String) = ("[", "]")
@@ -93,21 +92,21 @@ final class ArrayHelperTests: XCTestCase {
 //        let insert = separator == "\n" ? "\n" : ""
 //        return "\(endcaps.0)\(insert)\(map { $0.description }.joined(separator: separator))\(insert)\(endcaps.1)"
 //    }
-//    
+//
 //    /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
 //    public var listDescription: String {
 //        map { $0.description }.listDescription
 //    }
-//}
+// }
 //
-//extension Array where Element: CustomDebugStringConvertible {
+// extension Array where Element: CustomDebugStringConvertible {
 //    /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
 //    public var listDescription: String {
 //        map { $0.debugDescription }.listDescription
 //    }
-//}
+// }
 //
-//extension [String: any CustomStringConvertible] {
+// extension [String: any CustomStringConvertible] {
 //    public var dictDescription: String {
 //        //        compactMapValues { $0 }
 //        compactMapValues {
@@ -120,11 +119,13 @@ final class ArrayHelperTests: XCTestCase {
 //            ].joined(separator: ": ")
 //        }
 //        .listDescription
-////        .sorted()
-////        .joined(separator: ", ")
+// //
+//         .sorted()
+// //
+//         .joined(separator: ", ")
 //    }
-//    
-//    
+//
+//
 //    public func listDescription(
 //        separator: String = ", ",
 //        endcaps: (String, String) = ("[", "]")
@@ -139,7 +140,7 @@ final class ArrayHelperTests: XCTestCase {
 //                $0.key, $0.value
 //            ].joined(separator: ": ")
 //        }.listDescription(separator: separator, endcaps: endcaps)
-//        
+//
 //    }
-//}
+// }
 //

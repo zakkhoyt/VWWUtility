@@ -1,9 +1,9 @@
 //
-//  UIView+Constraints.swift
-//  Constraints
+// UIView+Constraints.swift
+// Constraints
 //
-//  Created by Zakk Hoyt on 2/9/17.
-//  Copyright © 2017 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 2/9/17.
+// Copyright © 2017 Zakk Hoyt. All rights reserved.
 //
 
 #if os(iOS)

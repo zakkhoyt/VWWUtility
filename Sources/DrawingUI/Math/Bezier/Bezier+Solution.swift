@@ -1,8 +1,8 @@
 //
-//  Bezier+Solution.swift
-//  Bezier+Solution
+// Bezier+Solution.swift
+// Bezier+Solution
 //
-//  Created by Zakk Hoyt on 9/8/21.
+// Created by Zakk Hoyt on 9/8/21.
 //
 
 import CoreGraphics

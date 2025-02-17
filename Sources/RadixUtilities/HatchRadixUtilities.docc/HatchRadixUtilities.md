@@ -1,4 +1,4 @@
-# ``HatchRadixUtilities``
+# ``RadixUtilities``
 
 ## Overview
 
@@ -41,6 +41,3 @@ array.binaryString = "0b11111111111111111111111111...111"
 * `FixedWidthInteger/percentString`
 * `FixedWidthInteger/fractionOfMax(percent:)`
 
-## Dependencies
-
-For an overview of our modules and how they relate to each other, see [here](https://hatchbaby.atlassian.net/wiki/spaces/iosDevelopers/pages/591036417/Hatch+Sleep+Dependencies+iOS)

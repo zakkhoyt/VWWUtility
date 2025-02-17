@@ -1,8 +1,8 @@
 //
-//  Geometry+Helpers.swift
-//  Bezier
+// Geometry+Helpers.swift
+// Bezier
 //
-//  Created by Zakk Hoyt on 9/5/21.
+// Created by Zakk Hoyt on 9/5/21.
 //
 
 import Foundation

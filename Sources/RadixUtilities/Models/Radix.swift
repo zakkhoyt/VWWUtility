@@ -2,7 +2,6 @@
 //  Radix.swift
 //
 //  Created by Zakk Hoyt on 2024-12-04.
-//  Copyright hatch.co, 2024.
 //
 
 /// String form of Swift's integer literal prefixes

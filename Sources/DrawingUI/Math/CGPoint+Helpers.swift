@@ -1,9 +1,9 @@
 //
-//  CGPoint+Helpers.swift
-//  Mathic
+// CGPoint+Helpers.swift
+// Mathic
 //
-//  Created by Zakk Hoyt on 5/2/20.
-//  Copyright © 2020 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 5/2/20.
+// Copyright © 2020 Zakk Hoyt. All rights reserved.
 //
 
 import CoreGraphics

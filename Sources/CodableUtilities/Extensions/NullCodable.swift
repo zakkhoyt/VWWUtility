@@ -31,7 +31,7 @@ public struct NullCodable<Wrapped> {
 }
 
 extension NullCodable: Encodable where Wrapped: Encodable {
-    public func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         switch wrappedValue {
         case .some(let value): try container.encode(value)
@@ -41,7 +41,7 @@ extension NullCodable: Encodable where Wrapped: Encodable {
 }
 
 extension NullCodable: Decodable where Wrapped: Decodable {
-    public init(from decoder: Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
         if !container.decodeNil() {
             wrappedValue = try container.decode(Wrapped.self)
