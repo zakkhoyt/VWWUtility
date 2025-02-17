@@ -8,6 +8,9 @@
 
 import Foundation
 
+public struct AppTargetService {
+    
+}
 //
 //extension URL {
 //    /// ## Example:
@@ -31,7 +34,35 @@ import Foundation
 
 
 
-/// Running
+/// ##
+/// ## iPad/iPhone (device)
+/// ```sh
+/// Bundle.main.bundleURL -> ""
+/// ```
+///
+/// ## Designed for iPad/iPhone
+/// ```sh
+/// Bundle.main.bundleURL -> "file:///private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/8C0584F9-69A6-5E59-93F0-0643DD397318/d/Wrapper/WalkingSkeletonApp.app"
+/// ```
+///
+/// ## iOS Simulator
+/// ```sh
+/// Bundle.main.bundleURL -> "file:///$HOME/Library/Developer/CoreSimulator/Devices/43D5227F-BCA2-4663-B23E-8B0992ACDB89/data/Containers/Bundle/Application/A9A1A99E-3828-4D4C-BE23-0E7C0D8C518B/WalkingSkeletonApp.app"
+///
+/// ```
+/// # URL
+/// ## Designed for iPhone/iPad
+/// ```sh
+/// bundleURL -> "file:///System/iOSSupport/System/Library/AccessibilityBundles/SwiftUI.axbundle"
+/// resourceURL -> "$BUNDLE_BUNDLE_PATH/Contents/Resources"
+/// executableURL -> "$BUNDLE_BUNDLE_PATH/Contents/MacOS/SwiftUI"
+/// privateFrameworksURL -> "$BUNDLE_BUNDLE_PATH/Contents/Frameworks"
+/// sharedFrameworksURL -> "$BUNDLE_BUNDLE_PATH/Contents/SharedFrameworks"
+/// sharedSupportURL -> "$BUNDLE_BUNDLE_PATH/Contents/SharedSupport"
+/// builtInPlugInsURL -> "$BUNDLE_BUNDLE_PATH/Contents/PlugIns"
+/// appStoreReceiptURL ->
+/// ```
+
 /// ## Bundle.main
 ///
 /// ## Bundle.module
@@ -57,19 +88,32 @@ import Foundation
 extension Bundle {
     public var debugSummary: String {
         """
-          description: \(description)
-          bundleIdentifier: \(bundleIdentifier ?? "<nil>")
-          bundleURL \(bundleURL.absoluteString)
-          resourceURL? \(resourceURL?.absoluteString ?? "<nil>")
-          executableURL? \(executableURL?.absoluteString ?? "<nil>")
-          privateFrameworksURL? \(privateFrameworksURL?.absoluteString ?? "<nil>")
-          sharedFrameworksURL? \(sharedFrameworksURL?.absoluteString ?? "<nil>")
-          sharedSupportURL? \(sharedSupportURL?.absoluteString ?? "<nil>")
-          builtInPlugInsURL? \(builtInPlugInsURL?.absoluteString ?? "<nil>")
-          appStoreReceiptURL? \(appStoreReceiptURL?.absoluteString ?? "<nil>")
+            description: \(description)
+            bundleIdentifier: \(bundleIdentifier ?? "<nil>")
+            bundleURL \(bundleURL.absoluteString)
+            resourceURL? \(resourceURL?.absoluteString ?? "<nil>")
+            executableURL? \(executableURL?.absoluteString ?? "<nil>")
+            privateFrameworksURL? \(privateFrameworksURL?.absoluteString ?? "<nil>")
+            sharedFrameworksURL? \(sharedFrameworksURL?.absoluteString ?? "<nil>")
+            sharedSupportURL? \(sharedSupportURL?.absoluteString ?? "<nil>")
+            builtInPlugInsURL? \(builtInPlugInsURL?.absoluteString ?? "<nil>")
+            appStoreReceiptURL? \(appStoreReceiptURL?.absoluteString ?? "<nil>")
+            infoDictionary:\n\(infoDictionarySummary())
         """
     }
     
+    public func infoDictionarySummary() -> String {
+        let infoDictionary: [String: Any] = infoDictionary ?? [:]
+        let keys = infoDictionary.keys.sorted()
+        return keys.enumerated().map {
+            let (index, key) = $0
+            guard let value = infoDictionary [key] else {
+                return "        [\(index)] infoDictionary[\(key)]: <nil>"
+            }
+            return "        [\(index)] infoDictionary[\(key)]: \(String(describing: value))"
+        }.joined(separator: "\n")
+    }
+
     
     public static var allBundlesDebugSummary: String {
         //        class var allBundles: [Bundle]
@@ -105,6 +149,8 @@ extension Bundle {
         
         
     }
+    
+    
 }
 
 
@@ -117,65 +163,27 @@ extension Bundle {
 ///
 /// Read about the **application sandbox** and **shared app groups** in the article:  <doc:FilesOnIOS>
 public enum URLService {
-    //    /// Returns a `URL` pointing to the shared app group directory.
-    //    /// - Remark: Return value will vary depending on the current build configuration.
-    //    ///
-    //    /// ## SeeAlso
-    //    ///
-    //    /// `AppGroupIdentifier.myApp.appGroupIdentifier`
-    //    ///
-    //    public static var appGroupDirUrl: URL = {
-    //        guard let url = FileManager.default.containerURL(
-    //            forSecurityApplicationGroupIdentifier: AppGroupIdentifier.myApp.appGroupIdentifier
-    //        ) else {
-    //            preconditionFailure("Failed to get URL for app group \(AppGroupIdentifier.mhApp.appGroupIdentifier)")
-    //        }
-    //        return url
-    //    }()
+    /// Returns a `URL` pointing to the shared app group directory.
+    /// - Remark: Return value will vary depending on the current build configuration.
+    ///
+    /// ## SeeAlso
+    ///
+    /// `"group.co.z2k.test"`
+    public static func appGroupDirURL(
+        appGroupIdentifier: String
+    ) -> URL? {
+        guard let url = FileManager.default.containerURL(
+            forSecurityApplicationGroupIdentifier: appGroupIdentifier
+        ) else {
+            return nil
+        }
+        return url
+    }
 
 
 #warning("TODO: zakkhoyt - move to Bundle extension")
     public static let bundleModuleURL: URL = Bundle.module.bundleURL
     
-    
-#warning(
-    """
-    TODO: zakkhoyt - Make an enum to supoort and logs these
-    Document for each
-    * iPhone/iPad
-    * iOS Sim
-    * Designed for iPhone/iPad
-    * Catalyst
-    * macOS
-    """
-)
-//    adminApplicationDirectory // System and network administration applications.
-//    allApplicationsDirectory // All directories where applications can be stored.
-//    allLibrariesDirectory // All directories where resources can be stored.
-//    applicationDirectory // Supported applications (/Applications).
-//    applicationScriptsDirectory // The user scripts folder for the calling application (~/Library/Application Scripts/<code-signing-id>.
-//    applicationSupportDirectory // Application support files (Library/Application Support).
-//    autosavedInformationDirectory // The user’s autosaved documents (Library/Autosave Information).
-//    cachesDirectory // Discardable cache files (Library/Caches).
-//    coreServiceDirectory // Core services (System/Library/CoreServices).
-//    demoApplicationDirectory // Unsupported applications and demonstration versions.
-//    desktopDirectory // The user’s desktop directory.
-//    developerApplicationDirectory // Developer applications (/Developer/Applications).
-//    developerDirectory // Developer resources (/Developer).
-//    documentationDirectory // Documentation.
-//    documentDirectory // Document directory.
-//    downloadsDirectory // The user’s downloads directory.
-//    inputMethodsDirectory // Input Methods (Library/Input Methods).
-//    itemReplacementDirectory // The constant used to create a temporary directory.
-//    libraryDirectory // Various user-visible documentation, support, and configuration files (/Library).
-//    moviesDirectory // The user’s Movies directory (~/Movies).
-//    musicDirectory // The user’s Music directory (~/Music).
-//    picturesDirectory // The user’s Pictures directory (~/Pictures).
-//    preferencePanesDirectory // The PreferencePanes directory for use with System Preferences (Library/PreferencePanes).
-//    printerDescriptionDirectory // The system’s PPDs directory (Library/Printers/PPDs).
-//    sharedPublicDirectory // The user’s Public sharing directory (~/Public).
-//    trashDirectory // The trash directory.
-//    userDirectory // User home directories (/Users).
 
     
     
@@ -185,7 +193,32 @@ public enum URLService {
     
     // MARK: Public static vars
     
+#warning("FIXME: zakkhoyt - rename to applicationSandboxDirURL")
     /// Returns the directory of the application sandbox.
+    ///
+    /// ## Dirs
+    /// * `iOSDevice`: `/private/var/mobile/Containers/Data/Application/DE66ABF6-E995-4D44-8CFE-95820C32FA4D`
+    /// * `iOSSimulator`: `$HOME/Library/Developer/CoreSimulator/Devices/43D5227F-BCA2-4663-B23E-8B0992ACDB89/data/Containers/Data/Application/4931D44C-C9E6-4298-B41F-68929B9D47CD`
+    /// * `macDesignedForIPhoneIPad`: `$HOME/Library/Containers/co.z2k.CameraPreviewUI/Data`
+    /// * `macCatalyst`: `$HOME/Library/Containers/co.z2k.CameraPreviewUI/Data`
+    /// * `macNative`: `$HOME/Library/Containers/co.z2k.CameraPreviewUI/Data`
+    ///
+    /// ```sh
+    /// # iOSDevice
+    /// /private/var/mobile/Containers/Data/Application/DE66ABF6-E995-4D44-8CFE-95820C32FA4D
+    ///
+    /// # iOSSimulator
+    /// $HOME/Library/Developer/CoreSimulator/Devices/43D5227F-BCA2-4663-B23E-8B0992ACDB89/data/Containers/Data/Application/4931D44C-C9E6-4298-B41F-68929B9D47CD
+    ///
+    /// # macDesignedForIPhoneIPad
+    /// $HOME/Library/Containers/co.z2k.CameraPreviewUI/Data
+    ///
+    /// # macCatalyst
+    /// $HOME/Library/Containers/co.z2k.CameraPreviewUI/Data
+    ///
+    /// # macNative
+    /// $HOME/Library/Containers/co.z2k.CameraPreviewUI/Data
+    /// ```
     ///
     /// ## iPhone/iPad (Simulator)
     /// ```swift
@@ -226,6 +259,17 @@ public enum URLService {
     /// ```
     ///
     public static let applicationDirURL: URL = documentsDirURL.deletingLastPathComponent()
+    
+    public static let applicationDirectoryURL: URL = {
+        guard let path = NSSearchPathForDirectoriesInDomains(
+            .applicationDirectory, .userDomainMask, true
+        ).first else {
+            preconditionFailure("Failed to get path for .documentDirectory")
+        }
+        return URL(fileURLWithPath: path).preferCanonicalURL
+    }()
+
+    
 
     /// Returns the `Documents` directory in the application sandbox.
     ///
@@ -303,4 +347,6 @@ public enum URLService {
         return allKeys
     }
 }
+
+
 
