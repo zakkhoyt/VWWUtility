@@ -1,8 +1,6 @@
 # Platforms
 
-This artilce shows how properties differ for an app across platforms and targets. 
-
-
+This artilce shows how properties differ for an app across platforms and targets.
 
 ## iOSDevice
 An iOS app running on a physical iOS device
@@ -162,6 +160,25 @@ Bundle.module.debugSummary:
         [17] infoDictionary[UIRequiredDeviceCapabilities]: (
             arm64
         )
+```
+
+
+```sh
+
+$ find URLService.applicationDirURL.path -type d -maxdepth 3
+.
+./Library
+./Library/Saved Application State
+./Library/Saved Application State/com.vaporwarewolf.FileVault.savedState
+./Library/SplashBoard
+./Library/SplashBoard/Snapshots
+./Library/Caches
+./Library/Caches/com.apple.dyld
+./Documents
+./Documents/_240825_144910
+./Documents/_240825_144910/private_bundle
+./Documents/240825_144910
+./Documents/240825_144910/_240825_144910
 ```
 
 ## iOSSimulator

@@ -296,6 +296,9 @@ extension PlatformService {
         case trashDirectory // The trash directory.
 #endif
         
+#warning("""
+FIXME: zakkhoyt - iterate through domain masks
+""")
         static var debugSummary: String {
             Self.allCases.enumerated()
                 .map {
@@ -303,7 +306,7 @@ extension PlatformService {
                     let urls = dirSearchPath.urls(domainMask: .userDomainMask)
                     let pathsSummary: String = {
                         if urls.isEmpty {
-                            return "<nil>"
+                            return .nilString
                         } else if urls.count == 1 {
                             return urls.map { $0.path }.joined()
                         } else if urls.count > 1 {
