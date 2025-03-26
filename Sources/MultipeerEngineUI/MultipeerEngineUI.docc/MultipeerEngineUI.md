@@ -1,8 +1,8 @@
-# ``MultipeerEngine``
+# ``MultipeerEngineUI``
 
 ## Overview
 
-Wrappers around Apple's Multipeer framework to quickly fire up sessions.
+SwiftUI views to faciltate advertising/browsing, joining/requesting, accept/declining, then transferring data
 
 ## Topics
 
@@ -10,8 +10,8 @@ Wrappers around Apple's Multipeer framework to quickly fire up sessions.
 - See [Apple's Demo app here](https://developer.apple.com/documentation/nearbyinteraction/implementing-interactions-between-users-in-close-proximity)
 
 ### Info.Plist
-- See [app requirements here](https://developer.apple.com/documentation/nearbyinteraction/discovering-peers-with-multipeer-connectivity)
 
+- See [app requirements here](https://developer.apple.com/documentation/nearbyinteraction/discovering-peers-with-multipeer-connectivity)
 
 #### `NSBonjourServices`
 ```xml
