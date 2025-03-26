@@ -22,6 +22,7 @@ struct SessionView: View {
                             Button(
                                 action: {
                                     try? viewModel.engine.send(text: "\(UInt8.random(in: 0..<UInt8.max))")
+//                                    try? viewModel.engine.send(codable: User.testUser)
                                 },
                                 label: {
                                     Text("Send")

@@ -74,7 +74,7 @@ extension [(any CustomStringConvertible)?] {
     ) -> String {
         compactMap {
             guard let element = $0 else {
-                return includeNilValues ? String.nil : nil
+                return includeNilValues ? String.nilString : nil
             }
             return element
         }
@@ -124,7 +124,7 @@ extension [String: (any CustomStringConvertible)?] {
     ) -> String {
         compactMapValues {
             guard let value = $0 else {
-                return includeNilValues ? String.nil : nil
+                return includeNilValues ? String.nilString : nil
             }
             return value
         }
