@@ -1,13 +1,15 @@
 //
-//  CGRect+Helpers.swift
+// CGRect+Helpers.swift
 //
-//  Created by Zakk Hoyt on 7/21/23.
+// Created by Zakk Hoyt on 7/21/23.
 //
 
 import CoreGraphics
 
 extension CGRect {
-    public static let unitRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    public static let unit = CGRect(
+        origin: .zero, size: .unit
+    )
 }
 
 extension CGRect {
@@ -27,6 +29,26 @@ extension CGRect {
         CGPoint(
             x: origin.x + size.width * xPercent,
             y: origin.y + size.height * yPercent
+        )
+    }
+}
+
+extension CGRect {
+    public func contract(
+        size maxSize: CGSize
+    ) -> CGRect {
+        CGRect(
+            origin: origin.contract(size: maxSize),
+            size: size.contract(size: maxSize)
+        )
+    }
+    
+    public func expand(
+        size maxSize: CGSize
+    ) -> CGRect {
+        CGRect(
+            origin: origin.expand(size: maxSize),
+            size: size.expand(size: maxSize)
         )
     }
 }

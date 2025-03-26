@@ -1,8 +1,8 @@
 //
-//  Keyboard+Monitor.swift
-//  WaveSynthesizerSPM_multiplatform_app
+// Keyboard+Monitor.swift
+// WaveSynthesizerSPM_multiplatform_app
 //
-//  Created by Zakk Hoyt on 6/23/23.
+// Created by Zakk Hoyt on 6/23/23.
 //
 
 #if os(macOS)
@@ -40,7 +40,6 @@ extension Keyboard {
         /// will then be forwarded on to other responders. It is important to return `false` if you expect `cmd+q` to quit the app
         /// for example.
         public var pressUp: (Keyboard.Press) -> Bool = { _ in false }
-        
         
         public var flagsChanged: (Keyboard.Press) -> Bool = { _ in false }
 
@@ -145,7 +144,7 @@ extension Keyboard {
 //                guard !activePresses.contains(press) else {
 //                    return nil
 //                }
-//                
+//
 //                // This configuration ignores repeat "clunk" on keys we don't handle. Only the first clunk will be heard.
 //                // If you wish for repeat events to also clunk then move this line after the guard statement.
 //                activePresses.insert(press)

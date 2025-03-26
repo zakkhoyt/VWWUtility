@@ -1,8 +1,8 @@
 //
-//  File.swift
+// File.swift
 //
 //
-//  Created by Zakk Hoyt on 2/3/24.
+// Created by Zakk Hoyt on 2/3/24.
 //
 #if os(macOS)
 import AppKit
@@ -33,8 +33,8 @@ class HIDNSEventListener {
     }
     
     func stop() {
-        monitors.forEach {
-            NSEvent.removeMonitor($0)
+        for monitor in monitors {
+            NSEvent.removeMonitor(monitor)
         }
         monitors.removeAll()
     }

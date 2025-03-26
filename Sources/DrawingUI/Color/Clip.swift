@@ -1,13 +1,14 @@
 //
-//  Clip.swift
-//  ColorPicKitExample
+// Clip.swift
+// ColorPicKitExample
 //
-//  Created by Zakk Hoyt on 11/4/16.
-//  Copyright © 2016 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 11/4/16.
+// Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
 import CoreGraphics
 
+#warning("FIXME: zakkhoyt - move these to protocols")
 func clip(_ value: CGFloat) -> CGFloat {
     max(0.0, min(1.0, value))
 }

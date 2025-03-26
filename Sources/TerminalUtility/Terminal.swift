@@ -1,7 +1,7 @@
 //
-//  Terminal.swift
+// Terminal.swift
 //
-//  Created by Zakk Hoyt on 12/2/23.
+// Created by Zakk Hoyt on 12/2/23.
 //
 
 #warning("TODO: zakkhoyt - Port select tools from HTerminal")

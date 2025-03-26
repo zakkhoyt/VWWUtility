@@ -1,8 +1,8 @@
 //
-//  NSEvent+Helpers.swift
-//  HotkeyDecorator
+// NSEvent+Helpers.swift
+// HotkeyDecorator
 //
-//  Created by Zakk Hoyt on 1/31/24.
+// Created by Zakk Hoyt on 1/31/24.
 //
 
 #if os(macOS)
@@ -114,7 +114,7 @@ extension NSEvent.ModifierFlags: CustomStringConvertible, CustomDebugStringConve
             "numericPad": Self.numericPad,
             "help": Self.help,
             "function": Self.function,
-            "deviceIndependentFlagsMask": Self.deviceIndependentFlagsMask,
+            "deviceIndependentFlagsMask": Self.deviceIndependentFlagsMask
         ].compactMap {
             self.contains($0.1) ? $0 : nil
         }.map {

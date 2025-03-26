@@ -1,12 +1,52 @@
 //
-//  CGPoint+Helpers.swift
-//  Mathic
+// CGPoint+Helpers.swift
+// Mathic
 //
-//  Created by Zakk Hoyt on 5/2/20.
-//  Copyright © 2020 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 5/2/20.
+// Copyright © 2020 Zakk Hoyt. All rights reserved.
 //
 
 import CoreGraphics
+
+extension CGPoint {
+    public static let unit = CGPoint(x: 1, y: 1)
+}
+
+
+extension CGPoint {
+    /// Returns a `CGPoint` where `x` and `y` are
+    /// mapped to normalized range (`0.0 ... 1.0`)
+    public func contract(
+        size: CGSize
+    ) -> CGPoint {
+        CGPoint(
+            x: x.contract(max: size.width),
+            y: y.contract(max: size.height)
+        )
+    }
+
+    /// Returns a normalized `CGPoint` where `x` and `y` are
+    /// mapped from normalized range (`0.0 ... 1.0`) to `size`.
+    public func expand(
+        size: CGSize
+    ) -> CGPoint {
+        CGPoint(
+            x: x * size.width,
+            y: y * size.height
+        )
+    }
+}
+
+extension CGPoint {
+    public func invertY(
+        size: CGSize
+    ) -> CGPoint {
+        CGPoint(
+            x: x,
+            y: size.height - y
+        )
+    }
+}
 
 extension CGFloat {
     // TODO: For what ever reason, I can't use max/min here.
@@ -65,22 +105,6 @@ extension CGPoint {
     }
 }
 
-extension CGSize {
-    public static func * (lhs: CGSize, rhs: CGFloat) -> CGPoint {
-        CGPoint(
-            x: lhs.width * rhs,
-            y: lhs.height * rhs
-        )
-    }
-
-    public static func / (lhs: CGSize, rhs: CGFloat) -> CGPoint {
-        CGPoint(
-            x: lhs.width / rhs,
-            y: lhs.height / rhs
-        )
-    }
-}
-
 extension CGPoint {
     public static func - (lhs: CGPoint, rhs: CGSize) -> CGPoint {
         CGPoint(
@@ -90,59 +114,16 @@ extension CGPoint {
     }
 }
 
-extension CGFloat {
-    /// Adds or subtracts `2*pi` until  range `lowerBound ..< upperBound` contains `angle`.
-    /// - Parameter angle: Input angle
-    /// - Parameter into: The range to project `angle` in to.
-    /// - Returns: Output angle in the range `0 ..< 2*CGFloat.pi`
-    public static func project(
-        angle: CGFloat,
-        into range: Range<CGFloat> = (0 * CGFloat.pi)..<(2 * CGFloat.pi)
-    ) -> CGFloat {
-        let delta = range.upperBound - range.lowerBound
 
-        // A recursive function to move the angle within a certain range
-        func adjust(angle: CGFloat) -> CGFloat {
-            if angle < range.lowerBound {
-                adjust(angle: angle + delta)
-            } else if angle >= range.upperBound {
-                adjust(angle: angle - delta)
-            } else {
-                angle
-            }
-        }
-        return adjust(angle: angle)
-    }
-
-    /// Returns angle (in radians) of a line between two points
-    /// - Parameters:
-    ///   - point0: first point in a line
-    ///   - point1: second point in a line
-    /// - Returns: Angle (in radians) of a line between two points and in terms of 0 ... 2*CGFloat.pi
-    public static func angle(point0: CGPoint, point1: CGPoint) -> CGFloat {
-        CGFloat.project(
-            angle: atan2(
-                point1.y - point0.y,
-                point1.x - point0.x
-            )
-        )
-    }
-
-    /// given that self is an angle in radians, normal is that `self + 1 / 2 * CGFloat.pi` in terms of `0 ..< 2 * CGFloat.pi`
-    public var normal0: CGFloat {
-        CGFloat.project(
-            angle: CGFloat.project(angle: self + 1 / 2 * CGFloat.pi)
-        )
-    }
-    
-    public var normal1: CGFloat {
-        CGFloat.project(
-            angle: CGFloat.project(angle: self - 1 / 2 * CGFloat.pi)
-        )
-    }
-}
 
 extension CGPoint {
+    public static func * (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        CGPoint(
+            x: lhs.x * rhs.x,
+            y: lhs.y * rhs.y
+        )
+    }
+
     public static func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
         CGPoint(
             x: lhs.x * rhs,
@@ -159,7 +140,23 @@ extension CGPoint {
 }
 
 extension CGPoint {
-    public var invertY: CGPoint {
-        CGPoint(x: x, y: -y)
+    public enum Transform {
+        public enum Scale {
+            public static let mirrorX = CGPoint(x: -1, y: 1)
+            public static let mirrorY = CGPoint(x: 1, y: -1)
+            public static let mirrorXY = CGPoint(x: -1, y: -1)
+        }
+    }
+
+    public var mirrorX: CGPoint {
+        self * Transform.Scale.mirrorX
+    }
+
+    public var mirrorY: CGPoint {
+        self * Transform.Scale.mirrorY
+    }
+    
+    public var mirrorXY: CGPoint {
+        self * Transform.Scale.mirrorXY
     }
 }

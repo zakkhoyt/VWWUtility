@@ -86,10 +86,10 @@ struct App: ParsableCommand, Sendable {
                     .receive(on: DispatchQueue.main)
                     .sink { invitations in
                         print("did receive invitations: \(invitations)")
-                        invitations.forEach {
-                            switch $0.response {
+                        for item in invitations {
+                            switch item.response {
                             case .noResponse:
-                                engine.respond(invitation: $0, accept: true)
+                                engine.respond(invitation: item, accept: true)
                             default:
                                 break
                             }

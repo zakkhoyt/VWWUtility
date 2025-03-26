@@ -1,8 +1,8 @@
 //
-//  DisplayLink.swift
-//  Bezier
+// DisplayLink.swift
+// Bezier
 //
-//  https://github.com/timdonnelly/DisplayLink
+// https://github.com/timdonnelly/DisplayLink
 //
 
 import Combine
@@ -50,8 +50,8 @@ public final class DisplayLink: Publisher {
     private func send(frame: Frame) {
         dispatchPrecondition(condition: .onQueue(.main))
         let subscribers = subscribers.values
-        subscribers.forEach {
-            _ = $0.receive(frame) // Ignore demand
+        for subscriber in subscribers {
+            _ = subscriber.receive(frame) // Ignore demand
         }
     }
 }

@@ -1,13 +1,13 @@
 //
-//  Keyboard+Key.swift
+// Keyboard+Key.swift
 //
-//  Created by Zakk Hoyt
-//  Copyright © 2023 Zakk Hoyt.
+// Created by Zakk Hoyt
+// Copyright © 2023 Zakk Hoyt.
 //
 //
-//  These key code constants are wrappers around Carbon's
-//  <HIToolbox/Events.h> header file. This just provides
-//  swifty syntax sugar. Think of it as "NSKeyCodes".
+// These key code constants are wrappers around Carbon's
+// <HIToolbox/Events.h> header file. This just provides
+// swifty syntax sugar. Think of it as "NSKeyCodes".
 
 #if os(macOS)
 import AppKit
