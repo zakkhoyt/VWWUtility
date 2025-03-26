@@ -343,6 +343,9 @@ let package = Package(
                 .target(
                     name: "BaseUtility"
                 ),
+                .target(
+                    name: "CodableUtilities"
+                ),
                 .product(
                     name: "Collections",
                     package: "swift-collections"
@@ -384,6 +387,9 @@ let package = Package(
             dependencies: [
                 .target(
                     name: "BaseUtility"
+                ),
+                .target(
+                    name: "MultipeerEngine"
                 ),
             ],
             exclude: [],

@@ -9,6 +9,7 @@
 // https://www.kodeco.com/books/modern-concurrency-in-swift/v2.0/chapters/10-actors-in-a-distributed-system
 
 import BaseUtility
+import CodableUtilities
 import Collections
 import Combine
 import Foundation
@@ -330,6 +331,7 @@ public final class MPEngine: NSObject, Sendable {
             """
             \(#function, privacy: .public):#\(#line) - \
             Did send payload of \(data.count) bytes to recipients: \(peerIDs.map { $0.displayName })
+            \(data.utf8String ?? .nilString)
             """
         )
     }
@@ -352,6 +354,34 @@ public final class MPEngine: NSObject, Sendable {
             )
         }
     }
+    
+    public func send<C: Codable>(
+        codable: C,
+        jsonEncoder: JSONEncoder = JSONEncoder()
+    ) throws where C: Sendable {
+        jsonEncoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        
+        
+        let wrapper = PayloadWrapper(
+            payload: codable,
+            owner: "user"
+        )
+        let data = try jsonEncoder.encode(wrapper)
+        let text = data.utf8String ?? .nilString
+        
+        try send(data: data)
+        
+        Task {
+            await dataStore.prependPayload(
+                Payload(
+                    connectedPeer: Peer(peerID: peerID),
+                    text: text,
+                    date: .now
+                )
+            )
+        }
+    }
+
     
     // MARK: Private functions
     
