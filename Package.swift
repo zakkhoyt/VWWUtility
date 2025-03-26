@@ -138,6 +138,37 @@ let swiftSettings: [SwiftSetting] = [
             ]
         )
 ]
+
+// This should be a clone `swiftSettings` plus some additions
+// (A version of swiftSettings that is on the more daring/antsy
+// side of things)
+let swiftSettingsForTheAntsy: [SwiftSetting] = [
+    .enableUpcomingFeature("ConciseMagicFile"), // SE-0274
+    .enableUpcomingFeature("ForwardTrailingClosures"), // SE-0286
+    .enableUpcomingFeature("ExistentialAny"), // SE-0335
+    .enableUpcomingFeature("StrictConcurrency"), // SE-0337
+    .enableUpcomingFeature("ImplicitOpenExistentials"), // SE-0352
+    .enableUpcomingFeature("BareSlashRegexLiterals"), // SE-0354
+    //    .enableUpcomingFeature("DeprecateApplicationMain"), // SE-0383
+    //    .enableUpcomingFeature("ImportObjcForwardDeclarations"), // SE-0384
+    //    .enableUpcomingFeature("DisableOutwardActorInference"), // SE-0401
+        .enableUpcomingFeature("InternalImportsByDefault"), // SE-0409
+    //    .enableUpcomingFeature("IsolatedDefaultValues"), // SE-0411
+    //    .enableUpcomingFeature("GlobalConcurrency"), // SE-0412
+    //    .enableUpcomingFeature("RegionBasedIsolation"), // SE-0414
+    //    .enableUpcomingFeature("InferSendableFromCaptures"), // SE-0418
+    //    .enableUpcomingFeature("DynamicActorIsolation"), // SE-0423
+    //    .enableUpcomingFeature("GlobalActorIsolatedTypesUsability"), // SE-0434
+    //    .enableUpcomingFeature("MemberImportVisibility"), // SE-0444
+    //    .enableUpcomingFeature("NonescapableTypes"), // SE-0446
+        .unsafeFlags(
+            [
+                "-enable-actor-data-race-checks",
+                "-warn-concurrency"
+            ]
+        )
+]
+
 #warning("TODO: @zakkhoyt - Update iOS/MacOS")
 #warning("TODO: @zakkhoyt - Add TerminalUtils package")
 #warning("TODO: @zakkhoyt - Import utils from other code")
@@ -178,6 +209,10 @@ let package = Package(
         .library(
             name: "MultipeerEngine",
             targets: ["MultipeerEngine"]
+        ),
+        .library(
+            name: "MultipeerEngineUI",
+            targets: ["MultipeerEngineUI"]
         ),
         .library(
             name: "Nodes",
@@ -343,6 +378,17 @@ let package = Package(
                 )
             ],
             swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "MultipeerEngineUI",
+            dependencies: [
+                .target(
+                    name: "BaseUtility"
+                ),
+            ],
+            exclude: [],
+            swiftSettings: swiftSettingsForTheAntsy,
+            plugins: []
         ),
         .target(
             name: "Nodes",

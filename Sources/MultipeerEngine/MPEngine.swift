@@ -499,3 +499,11 @@ extension MPEngine: MCSessionDelegate {
 //        )
 //    }
 }
+
+extension MPEngine {
+#if os(iOS)
+    public static let preview = MPEngine(displayName: UIDevice.current.name)
+#elseif os(macOS)
+    public static let preview = MPEngine(displayName: "My Mac")
+#endif
+}
