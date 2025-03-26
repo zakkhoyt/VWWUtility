@@ -1,10 +1,8 @@
-# ``DrawingUI``
-
-A collection of tools to assist with the mathematics of vector graphics. Tools for CoreGraphics, UIKit, SwiftUI, etc...
+# ``MultipeerEngine``
 
 ## Overview
 
-A collection of tools to assist with the mathematics of vector graphics. Tools for CoreGraphics, UIKit, SwiftUI, etc...
+Wrappers around Apple's Multipeer framework to quickly fire up sessions.
 
 ## Topics
 
@@ -12,16 +10,22 @@ A collection of tools to assist with the mathematics of vector graphics. Tools f
 - See [Apple's Demo app here](https://developer.apple.com/documentation/nearbyinteraction/implementing-interactions-between-users-in-close-proximity)
 
 ### Info.Plist
-
 - See [app requirements here](https://developer.apple.com/documentation/nearbyinteraction/discovering-peers-with-multipeer-connectivity)
+
 
 #### `NSBonjourServices`
 ```xml
 <key>NSBonjourServices</key>
 <array>
-<string>_myAppName._tcp</string>
-<string>_myAppName._udp</string>
+<string>_vww-mpdev._tcp</string>
+<string>_vww-mpdev._udp</string>
+<string>_abc-temp._tcp</string>
+<string>_abc-temp._udp</string>
 </array>
 ```
 
 #### `NSLocalNetworkUsageDescription`
+```xml
+<key>NSLocalNetworkUsageDescription</key>
+<string>Multipeer Engine (usage string)</string>
+```
