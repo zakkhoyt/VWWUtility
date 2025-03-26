@@ -1,45 +1,45 @@
 //
-//  Polynomial.swift
-//  Polynomial
+// Polynomial.swift
+// Polynomial
 //
-//  Created by Zakk Hoyt on 9/8/21.
+// Created by Zakk Hoyt on 9/8/21.
 //
 
 import CoreGraphics
 import Foundation
 
-struct Polynomial: Identifiable, Hashable, CustomStringConvertible {
-    static func == (lhs: Polynomial, rhs: Polynomial) -> Bool {
+public struct Polynomial: Identifiable, Hashable, CustomStringConvertible {
+    public static func == (lhs: Polynomial, rhs: Polynomial) -> Bool {
         lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    var id: String { description }
+    public var id: String { description }
     
     private(set) var terms: [Term]
 
-    init() {
+    public init() {
         self.terms = [Polynomial.Term()]
     }
 
-    init(term: Term) {
+    public init(term: Term) {
         self.terms = [term]
     }
 
-    init(terms: [Term]) {
+    public init(terms: [Term]) {
         self.terms = terms
     }
 
-    var description: String {
+    public var description: String {
         terms
             .map(\.description)
             .joined(separator: " + ")
     }
 
-    func solve(_ v: CGFloat) -> CGFloat {
+    public func solve(_ v: CGFloat) -> CGFloat {
         terms.reduce(0) {
             switch $1.sign {
             case "+",
@@ -51,14 +51,14 @@ struct Polynomial: Identifiable, Hashable, CustomStringConvertible {
         }
     }
 
-    func solve(point: CGPoint) -> CGPoint {
+    public func solve(point: CGPoint) -> CGPoint {
         CGPoint(
             x: solve(point.x),
             y: solve(point.y)
         )
     }
 
-    func derivative() -> Polynomial {
+    public func derivative() -> Polynomial {
         Polynomial(
             terms: terms.map {
                 let derivedExponenet = $0.exponent - 1
@@ -71,33 +71,33 @@ struct Polynomial: Identifiable, Hashable, CustomStringConvertible {
         )
     }
 
-    func stripTermsWithNegativeExponents() -> Polynomial {
+    public func stripTermsWithNegativeExponents() -> Polynomial {
         Polynomial(
             terms: terms.filter { $0.exponent >= 0 }
         )
     }
 
-    func sortedTerms() -> Polynomial {
+    public func sortedTerms() -> Polynomial {
         Polynomial.sorted(polynomial: self)
     }
 
-    func paddedTerms() -> Polynomial {
+    public func paddedTerms() -> Polynomial {
         Polynomial.padded(polynomial: self)
     }
 
-    func reduceTerms() -> Polynomial {
+    public func reduceTerms() -> Polynomial {
         Polynomial.reduceTerms(polynomial: self)
     }
 }
 
 extension Polynomial {
-    static func sorted(polynomial: Polynomial) -> Polynomial {
+    public static func sorted(polynomial: Polynomial) -> Polynomial {
         Polynomial(
             terms: polynomial.terms.sorted { $0.exponent > $1.exponent }
         )
     }
 
-    static func padded(polynomial: Polynomial) -> Polynomial {
+    public static func padded(polynomial: Polynomial) -> Polynomial {
         guard let maxExponent = (polynomial.terms.max { $0.exponent > $1.exponent })?.exponent else {
             return polynomial
         }
@@ -106,9 +106,9 @@ extension Polynomial {
         }
 
         var terms = polynomial.terms
-        stride(from: maxExponent - 1, through: 0, by: -1).forEach { exponent in
+        for exponent in stride(from: maxExponent - 1, through: 0, by: -1) {
             guard !polynomial.terms.contains(where: { $0.exponent == exponent }) else {
-                return
+                continue
             }
             terms.append(
                 Term(
@@ -124,7 +124,7 @@ extension Polynomial {
         )
     }
 
-    static func reduceTerms(polynomial: Polynomial) -> Polynomial {
+    public static func reduceTerms(polynomial: Polynomial) -> Polynomial {
         var outputTerms: [Term] = []
         for term in polynomial.terms {
             if let index = (outputTerms.firstIndex { $0.variable == term.variable && $0.exponent == term.exponent }) {
@@ -302,9 +302,51 @@ extension Polynomial {
 }
 
 extension [Polynomial] {
-    func joined() -> Polynomial {
+    public func joined() -> Polynomial {
         reduce(Polynomial()) { // result, poly in
             $0 + $1
         }
     }
 }
+
+//extension Polynomial {
+//    public struct Term: CustomStringConvertible {
+//        public let coefficient: Int
+//        // TODO: Make this array of chars
+//        public let variable: String
+//        public let exponent: Int
+//        
+//        public init() {
+//            self.coefficient = 0
+//            self.variable = "t"
+//            self.exponent = 0
+//        }
+//        
+//        public init(
+//            coefficient: Int,
+//            variable: String,
+//            exponent: Int
+//        ) {
+//            self.coefficient = coefficient
+//            self.variable = variable
+//            self.exponent = exponent
+//        }
+//        
+//        public var sign: String {
+//            coefficient < 0 ? "-" : "+"
+//        }
+//        
+//        public var description: String {
+//            [
+//                "\(coefficient)",
+//                "\(variable)^\(exponent)"
+//            ]
+//                .compactMap { $0 }
+//                .joined(separator: "*")
+//        }
+//        
+//        public func solve(v: CGFloat) -> CGFloat {
+//            CGFloat(coefficient) * pow(v, CGFloat(exponent))
+//        }
+//    }
+//}

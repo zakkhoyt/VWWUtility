@@ -1,7 +1,7 @@
 //
-//  MPEngine.swift
+// MPEngine.swift
 //
-//  Created by Zakk Hoyt on 12/2/23.
+// Created by Zakk Hoyt on 12/2/23.
 //
 
 // https://www.hackingwithswift.com/example-code/networking/how-to-create-a-peer-to-peer-network-using-the-multipeer-connectivity-framework
@@ -49,7 +49,7 @@ public final class MPEngine: NSObject, Sendable {
             [
                 "id": id,
                 "name": name
-            ].varDescription
+            ].listDescription()
         }
         
         public static func == (
@@ -80,7 +80,7 @@ public final class MPEngine: NSObject, Sendable {
                 "id": id.uuidString,
                 "text": text,
                 "date": date.string(formatProvider: DateFormat.accurate)
-            ].varDescription
+            ].listDescription()
         }
         
         public static func == (
@@ -228,9 +228,9 @@ public final class MPEngine: NSObject, Sendable {
                 Task {
                     // Auto accept invitation if configuration supports it.
                     if ProcessInfo.processInfo.arguments.contains("--advertiser-auto-accept-invitataions") {
-                        invitations.forEach {
-                            if case .noResponse = $0.response {
-                                self.respond(invitation: $0, accept: true)
+                        for item in invitations {
+                            if case .noResponse = item.response {
+                                self.respond(invitation: item, accept: true)
                             }
                         }
                     }

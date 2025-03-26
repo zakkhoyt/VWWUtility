@@ -1,8 +1,8 @@
 //
-//  MPEngine+Browser.swift
+// MPEngine+Browser.swift
 //
 //
-//  Created by Zakk Hoyt on 12/2/23.
+// Created by Zakk Hoyt on 12/2/23.
 //
 
 import Combine
@@ -61,7 +61,9 @@ extension MPEngine {
                     "peerID": peerID.displayName,
                     "id": id.uuidString,
                     "discoveryInfo": discoveryInfo?.description
-                ].varDescription
+                ]
+                    .compactMapValues { $0 }
+                    .listDescription()
             }
             
             public static func == (

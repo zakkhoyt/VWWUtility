@@ -1,8 +1,8 @@
 //
-//  Bezier+Theme.swift
-//  Bezier+Theme
+// Bezier+Theme.swift
+// Bezier+Theme
 //
-//  Created by Zakk Hoyt on 9/8/21.
+// Created by Zakk Hoyt on 9/8/21.
 //
 
 #if os(iOS)

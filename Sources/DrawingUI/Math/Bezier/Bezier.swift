@@ -1,21 +1,21 @@
 //
-//  Bezier.swift
-//  Mathic
+// Bezier.swift
+// Mathic
 //
-//  Created by Zakk Hoyt on 5/22/20.
-//  Copyright © 2020 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 5/22/20.
+// Copyright © 2020 Zakk Hoyt. All rights reserved.
 //
-//  https://en.wikipedia.org/wiki/B%C3%A9zier_curve
-//  https://medium.com/@Acegikmo/the-ever-so-lovely-b%C3%A9zier-curve-eb27514da3bf
-//  UICubicTimingParameters
+// https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+// https://medium.com/@Acegikmo/the-ever-so-lovely-b%C3%A9zier-curve-eb27514da3bf
+// UICubicTimingParameters
 // @available(iOS 10.0, *)
 // open class UICubicTimingParameters : NSObject, UITimingCurveProvider {
 
 import CoreGraphics
 import Foundation
 
-class Bezier {
-    static let defaultControlPoints = [
+public enum Bezier {
+    public static let defaultControlPoints = [
         CGPoint(x: 0, y: 1),
         CGPoint(x: 0, y: 0),
         CGPoint(x: 1, y: 1),
@@ -24,10 +24,10 @@ class Bezier {
 //        CGPoint(x: 0.75, y: 0.25)
     ]
 
-    private static var d_minX: CGFloat = 100
-    private static var d_maxX: CGFloat = -100
-    private static var d_minY: CGFloat = 100
-    private static var d_maxY: CGFloat = -100
+//    private static var d_minX: CGFloat = 100
+//    private static var d_maxX: CGFloat = -100
+//    private static var d_minY: CGFloat = 100
+//    private static var d_maxY: CGFloat = -100
 
     /// Solves for a point on a bezier curve.
     /// - Parameters:
@@ -36,7 +36,7 @@ class Bezier {
     /// - Throws: Errors if any points or 1 is out of bounds.
     /// - Returns: tuple. .0 is a point along the bezier curve where x/y in 0...1), .1 and .2 are the start/end points of the tangent line (derivative)
     /// - Returns: An instance of `Bezier.Solution`
-    static func solve(
+    public static func solve(
         points controlPoints: [CGPoint],
         t: CGFloat
     ) throws -> Solution {
@@ -136,7 +136,7 @@ class Bezier {
 }
 
 extension Bezier {
-    static func solveForPoint(
+    public static func solveForPoint(
         polynomials: [Polynomial],
         t: CGFloat,
         controlPoints: [CGPoint]
