@@ -5,8 +5,6 @@
 //  https://github.com/g-mark/NullCodable
 //
 
-
-
 import Foundation
 
 /// Property wrapper that encodes `nil` optional values as `null`
@@ -22,7 +20,7 @@ import Foundation
 /// which is to omit the property from the encoded json, like: "{}".
 ///
 @propertyWrapper
-public struct NullCodable<Wrapped> {
+public struct NullCodable<Wrapped>: Hashable where Wrapped: Hashable {
     public var wrappedValue: Wrapped?
     
     public init(wrappedValue: Wrapped?) {
