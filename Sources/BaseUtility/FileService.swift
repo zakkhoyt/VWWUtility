@@ -194,7 +194,7 @@ extension URL {
     public init(makeSafeFileURLFromURL url: URL) {
         self = URL.easyFileUrl(url: url)
     }
-
+    
     /// A wrapper function which helps convert a `url.path` to an optimized `URL` of `fileURL`variety.
     ///
     /// - SeeAlso: ``URL/easyFileUrl(path:isDirectory:)``
@@ -263,7 +263,7 @@ extension URL {
             }().path
         )
         
-        #warning(
+#warning(
             """
             FIXME: zakkhoyt - Add step to unwind symbolic links.
             * EX: /var vs /private/var on iPhone
@@ -271,8 +271,8 @@ extension URL {
             """
         )
         
-        #warning("FIXME: zakkhoyt - Handle `//` in URL/path")
-
+#warning("FIXME: zakkhoyt - Handle `//` in URL/path")
+        
         // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
         // https://stackoverflow.com/a/40401137
         // https://stackoverflow.com/a/40401137
@@ -293,27 +293,71 @@ extension URL {
         }
     }
     
-//        if #available(macOS 13.0, iOS 16.0, *) {
-//            if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
-//                guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-//                    guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-//                        return url
-//                        return url
-//                    }
-//                }
-//    }
+    //        if #available(macOS 13.0, iOS 16.0, *) {
+    //            if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+    //                guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+    //                    guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+    //                        return url
+    //                        return url
+    //                    }
+    //                }
+    //    }
     
-//    // https://stackoverflow.com/a/40401137
-//    let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
-//        URL(fileURLWithPath: betterURL.path())
-//    } else {
-//        URL(fileURLWithPath: betterURL.path)
-//    }
-
+    //    // https://stackoverflow.com/a/40401137
+    //    let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
+    //        URL(fileURLWithPath: betterURL.path())
+    //    } else {
+    //        URL(fileURLWithPath: betterURL.path)
+    //    }
     
+}
+
+extension String {
+    public var easyFileURL: URL {
+        URL.easyFileUrl(path: self, isDirectory: false)
+    }
+    
+    public var easyDirURL: URL {
+        URL.easyFileUrl(path: self, isDirectory: true)
+    }
+}
+
+extension [String] {
+    public var easyFileURLs: [URL] {
+        map { $0.easyFileURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+    
+    public var easyDirURLs: [URL] {
+        map { $0.easyDirURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+}
+
+extension URL {
+    public var easyFileURL: URL {
+        URL.easyFileUrl(path: path, isDirectory: false)
+    }
+    
+    public var easyDirURL: URL {
+        URL.easyFileUrl(path: path, isDirectory: true)
+    }
+}
 
 
+extension [URL] {
+    public var easyFileURLs: [URL] {
+        map { $0.easyFileURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+    
+    public var easyDirURLs: [URL] {
+        map { $0.easyDirURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+}
 
+extension URL {
     #warning(
         """
         FIXME: zakkhoyt - new function, cleanURL
@@ -361,3 +405,12 @@ extension URL {
         }
     }
 }
+
+extension URL {
+    /// An alias for `path(percentEncoded: false)`
+    public var filePath: String {
+        path(percentEncoded: false)
+    }
+}
+
+

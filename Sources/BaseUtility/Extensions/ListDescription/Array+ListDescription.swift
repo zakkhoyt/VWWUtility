@@ -19,7 +19,7 @@ import Foundation
 /// let separator = "\t\n"
 /// let debugMessage: String = [
 ///     "rootDirectoryURL": rootDirectoryURL.path(),
-///     "swiftPackageURLs": "\n\t" + swiftPackageURLs.listDescription(separator: "\n\t\t", endcaps: ("[\n\t\t", "\n\t]")),
+///     "packageSwiftURLs": "\n\t" + packageSwiftURLs.listDescription(separator: "\n\t\t", endcaps: ("[\n\t\t", "\n\t]")),
 ///     "ignoreSwiftPackageURLs": ignoreSwiftPackageURLs.listDescription(separator: "\n\t\t", endcaps: ("[\n\t\t", "\n\t]")),
 ///     "skipJsonConversion": skipJsonConversion.boolString,
 ///     "outputDirectoryURL": outputDirectoryURL.path,
@@ -41,7 +41,7 @@ import Foundation
 /// "plantUMLRenderFormat": "svg"
 /// "rootDirectoryURL": "/Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2"
 /// "skipJsonConversion": "true"
-/// "swiftPackageURLs": "
+/// "packageSwiftURLs": "
 /// [
 ///     file:///Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/HatchLogger/Package.swift
 ///     file:///Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/HatchModels/Package.swift
