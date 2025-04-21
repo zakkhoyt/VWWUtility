@@ -12,7 +12,8 @@ public extension Array where Element: Any, Element: Hashable {
         indentLevel: Int = 0,
         elementSeparator: String = ",",
         lineSeparator: String = "\n",
-        endcaps: (String, String) = ("[", "]")
+        endcaps: (String, String) = ("[", "]"),
+        includeIndexes: Bool = false
     ) -> String {
         let outdent = String(repeating: "    ", count: indentLevel)
         let indent = String(repeating: "    ", count: indentLevel + 1)
@@ -24,10 +25,13 @@ public extension Array where Element: Any, Element: Hashable {
         return [
             [endcapIndent0, endcaps.0].joined(),
             insert,
-            map {
-                [
+            enumerated().map {
+                let element = $0.element
+                let i = $0.offset
+                return [
                     valueIndent,
-                    MultilineListDescription.describe(value: $0, indentLevel: indentLevel),
+                    includeIndexes ? "[\(i)]: " : "",
+                    MultilineListDescription.describe(value: element, indentLevel: indentLevel),
                     elementSeparator
                 ].joined()
             }.joined(separator: lineSeparator),

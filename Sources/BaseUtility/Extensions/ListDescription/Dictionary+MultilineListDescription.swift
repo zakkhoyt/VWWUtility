@@ -22,7 +22,8 @@ public extension Dictionary where Key == String, Value: Hashable {
         keyValueSeparator: String = ": ",
         keyValuePairSeparator: String = ",",
         lineSeparator: String = "\n",
-        endcaps: (String, String) = ("[", "]")
+        endcaps: (String, String) = ("[", "]"),
+        includeIndexes: Bool = false
     ) -> String {
         let baseIndent = "    "
         let outdent = String(repeating: baseIndent, count: indentLevel)
@@ -32,17 +33,20 @@ public extension Dictionary where Key == String, Value: Hashable {
         let endcapIndent1 = outdent
 
         return [
-            [[endcapIndent0, endcaps.0].joined()],
-            keys.sorted().compactMap { key in
-                [
+            ["\(endcapIndent0)\(endcaps.0)"],
+            keys.sorted().enumerated().compactMap {
+                let key = $0.element
+                let i = $0.offset
+                return [
                     valueIndent,
+                    includeIndexes ? "[\(i)]: " : "",
                     key,
                     keyValueSeparator,
                     MultilineListDescription.describe(value: self[key], indentLevel: indentLevel),
                     keyValuePairSeparator
                 ].joined()
             },
-            [[endcapIndent1, endcaps.1].joined()]
+            ["\(endcapIndent1)\(endcaps.1)"]
         ]
         .flatMap { $0 }
         .joined(separator: lineSeparator)
