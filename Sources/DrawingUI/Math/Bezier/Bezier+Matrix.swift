@@ -1,8 +1,8 @@
 //
-//  Bezier+Matrix.swift
-//  Bezier
+// Bezier+Matrix.swift
+// Bezier
 //
-//  Created by Zakk Hoyt on 9/12/21.
+// Created by Zakk Hoyt on 9/12/21.
 //
 
 import CoreGraphics

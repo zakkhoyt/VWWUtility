@@ -1,7 +1,7 @@
 //
-//  HexString+Data.swift
+// HexString+Data.swift
 //
-//  Created by Zakk Hoyt on 7/15/23.
+// Created by Zakk Hoyt on 7/15/23.
 //
 
 import Foundation

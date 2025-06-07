@@ -88,7 +88,7 @@ public struct Placehold {
 }
 
 extension Placehold {
-    public struct Size: CustomStringConvertible {
+    public struct Size: CustomStringConvertible, Sendable {
         public let width: UInt16
         public let height: UInt16?
         
@@ -104,7 +104,7 @@ extension Placehold {
         }
     }
     
-    public enum Format: String, CaseIterable {
+    public enum Format: String, Sendable, CaseIterable {
         case svg
         case png
         case jpeg
@@ -116,7 +116,7 @@ extension Placehold {
         }
     }
     
-    public enum Font: String, CaseIterable {
+    public enum Font: String, Sendable, CaseIterable {
         case lato
         case lora
         case montserrat
@@ -134,7 +134,7 @@ extension Placehold {
     }
 }
 
-// MARK: Below here originates from HatchUtilities
+// MARK: Below here originates from BaseUtilities
 
 extension Color {
     public init(
@@ -166,21 +166,25 @@ extension Color {
     }
     
     public var rgbHexString: String {
-        
-#if os(iOS)
-        let uiColor = UIColor(self)
-#elseif os(macOS)
-        let uiColor = NSColor(self)
-#endif
-
-        
-        
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
         var alpha: CGFloat = 0
+
+#if os(iOS)
+        let uiColor = UIColor(self)
         uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        
+#elseif os(macOS)
+        let startColor = NSColor(self)
+        // This method works only with objects representing colors
+        // in the calibratedRGB or deviceRGB color space.
+        // Sending it to other objects raises an exception.
+        if let uiColor = startColor.usingColorSpace(.deviceRGB) {
+            uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        } else {
+            assertionFailure("failed to convert color to rgb. Try another color space?")
+        }
+#endif
         return [ red, green, blue ]
             .map { UInt8($0) }
             .map { String(format: "%02X", $0) }

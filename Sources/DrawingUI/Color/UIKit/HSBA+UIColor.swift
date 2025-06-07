@@ -1,7 +1,7 @@
 //
-//  HSBA+UIColor.swift
+// HSBA+UIColor.swift
 //
-//  Created by Zakk Hoyt on 6/24/23.
+// Created by Zakk Hoyt on 6/24/23.
 //
 
 #if os(iOS)

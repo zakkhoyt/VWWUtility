@@ -1,14 +1,17 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
-//
-// Swift Argument Parser
-// https://swiftpackageindex.com/apple/swift-argument-parser/documentation
+// This target/file exist to facilitate the execution of unit tests
+// on macOS platform (no need to use an iOS sim or real iOS device).
+// Any test targets under VWWUtility should be able to run.
 
 import ArgumentParser
 import BaseUtility
 import Foundation
 import VWWUtility
 
+/// The Swift Programming Language
+/// https://docs.swift.org/swift-book
+///
+/// Swift Argument Parser
+/// https://swiftpackageindex.com/apple/swift-argument-parser/documentation
 struct App: ParsableCommand {
     static var configuration: CommandConfiguration {
         CommandConfiguration(

@@ -1,8 +1,8 @@
 //
-//  OptionalDescription.swift
+// OptionalDescription.swift
 //
 //
-//  Created by Zakk Hoyt on 6/7/24.
+// Created by Zakk Hoyt on 6/7/24.
 //
 
 extension Optional where Wrapped: TextOutputStreamable {

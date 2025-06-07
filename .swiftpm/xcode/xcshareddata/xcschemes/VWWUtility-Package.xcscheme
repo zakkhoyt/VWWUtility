@@ -216,6 +216,48 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CodableUtilities"
+               BuildableName = "CodableUtilities"
+               BlueprintName = "CodableUtilities"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CameraToolbox"
+               BuildableName = "CameraToolbox"
+               BlueprintName = "CameraToolbox"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RadixUtilities"
+               BuildableName = "RadixUtilities"
+               BlueprintName = "RadixUtilities"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -292,6 +334,56 @@
                BlueprintIdentifier = "HTTPServiceTests"
                BuildableName = "HTTPServiceTests"
                BlueprintName = "HTTPServiceTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AVToolboxTests"
+               BuildableName = "AVToolboxTests"
+               BlueprintName = "AVToolboxTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CodableUtilitiesTests"
+               BuildableName = "CodableUtilitiesTests"
+               BlueprintName = "CodableUtilitiesTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SystemSettingsTests"
+               BuildableName = "SystemSettingsTests"
+               BlueprintName = "SystemSettingsTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CameraToolboxTests"
+               BuildableName = "CameraToolboxTests"
+               BlueprintName = "CameraToolboxTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RadixUtilitiesTests"
+               BuildableName = "RadixUtilitiesTests"
+               BlueprintName = "RadixUtilitiesTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
