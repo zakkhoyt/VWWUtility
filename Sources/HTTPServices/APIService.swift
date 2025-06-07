@@ -63,7 +63,7 @@ open class APIService: NSObject {
         headers: [String: String] = ["Content-type": "application/json"],
         requestValues: [String: String] = [:],
         parameters: [String: Any] = [:],
-        completion: @escaping (Result<(Data, URLResponse), Swift.Error>) -> Void
+        completion: @escaping (Result<(Data, URLResponse), any Swift.Error>) -> Void
     ) {
         #warning("FIXME: @zakkhoyt convert optionals to not in a single place here")
         var request: URLRequest = {
@@ -175,7 +175,7 @@ extension APIService: URLSessionDataDelegate {
 extension APIService {
     public func dataToResult<T: Decodable>(
         from data: Data
-    ) -> Result<T, Swift.Error> {
+    ) -> Result<T, any Swift.Error> {
         do {
             let decoded = try JSONDecoder().decode(T.self, from: data)
             return .success(decoded)

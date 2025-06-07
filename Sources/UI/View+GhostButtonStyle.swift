@@ -1,7 +1,7 @@
 //
-//  GhostButtonStyle.swift
+// View+GhostButtonStyle.swift
 //
-//  Created by Zakk Hoyt on 5/6/24.
+// Created by Zakk Hoyt on 5/6/24.
 //
 
 import SwiftUI
@@ -60,8 +60,8 @@ extension View {
 
     VStack {
         Button("#G") {}
-        .tint(.green)
-        .ghostBorder(color: .yellow)
+            .tint(.green)
+            .ghostBorder(color: .yellow)
     }
 }
 
@@ -78,13 +78,16 @@ extension StrokeStyle {
     )
 }
 
-//// MARK: - Custom Button Style
+// //
+
+// MARK: - Custom Button Style
+
 //
-//struct GhostButtonStyle: ButtonStyle {
+// struct GhostButtonStyle: ButtonStyle {
 //    let cornerRadius: Double
 //    let borderColor: Color
 //    let strokeStyle: StrokeStyle
-//    
+//
 //    init(
 //        cornerRadius: Double = 8,
 //        borderColor: Color = .blue,
@@ -94,7 +97,7 @@ extension StrokeStyle {
 //        self.borderColor = borderColor
 //        self.strokeStyle = strokeStyle
 //    }
-//    
+//
 //    func makeBody(
 //        configuration: Configuration
 //    ) -> some View {
@@ -112,14 +115,14 @@ extension StrokeStyle {
 //                )
 //            )
 //    }
-//}
+// }
 //
-//extension ButtonStyle where Self == GhostButtonStyle {
+// extension ButtonStyle where Self == GhostButtonStyle {
 //    static var ghost: Self {
 //        .init()
 //    }
-//    
-//#warning("FIXME: zakkhoyt - can we read/use .tint color instead of defaulting to .clear?")
+//
+// #warning("FIXME: zakkhoyt - can we read/use .tint color instead of defaulting to .clear?")
 //    static func ghost(
 //        cornerRadius: Double = 8,
 //        borderColor: Color = .clear,
@@ -131,15 +134,15 @@ extension StrokeStyle {
 //            strokeStyle: strokeStyle
 //        )
 //    }
-//}
+// }
 //
 //
-//struct GhostButton: View {
+// struct GhostButton: View {
 //    let title: String
 //    let borderColor: Color
 //    let cornerRadius: Double
 //    let action: () -> Void
-//    
+//
 //    init(
 //        title: String,
 //        borderColor: Color = .clear,
@@ -151,8 +154,8 @@ extension StrokeStyle {
 //        self.cornerRadius = cornerRadius
 //        self.action = action
 //    }
-//    
-//    
+//
+//
 //    var body: some View {
 //        Button(title, action: action)
 //            .buttonStyle(
@@ -166,15 +169,15 @@ extension StrokeStyle {
 //            .padding(0)
 //            .font(.custom("ArcadeClassic", size: 20))
 //    }
-//}
+// }
 //
-//#Preview(
+// #Preview(
 //    "GhostButton",
 //    traits: .defaultLayout,
 //    .landscapeLeft
-//) {
+// ) {
 //    VStack {
-//        
+//
 //        GhostButton(
 //            title: "#P",
 //            borderColor: .orange,
@@ -184,5 +187,4 @@ extension StrokeStyle {
 //        }
 //        .tint(.green)
 //    }
-//}
-
+// }

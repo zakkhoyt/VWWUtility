@@ -1,8 +1,8 @@
 //
-//  CGRay.swift
+// CGRay.swift
 //
 //
-//  Created by Zakk Hoyt on 7/23/23.
+// Created by Zakk Hoyt on 7/23/23.
 //
 
 import Foundation

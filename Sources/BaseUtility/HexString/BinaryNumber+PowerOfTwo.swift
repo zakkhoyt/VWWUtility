@@ -1,7 +1,7 @@
 //
-//  BinaryNumber+PowerOfTwo.swift
+// BinaryNumber+PowerOfTwo.swift
 //
-//  Created by Zakk Hoyt on 6/26/23.
+// Created by Zakk Hoyt on 6/26/23.
 //
 
 extension BinaryInteger {

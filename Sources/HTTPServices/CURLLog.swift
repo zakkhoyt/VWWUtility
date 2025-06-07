@@ -1,6 +1,5 @@
 //
 //  CURLLog.swift
-//  HatchBrain
 //
 //  Created by Zakk Hoyt on 11/11/16.
 //  Copyright © 2016 Zakk Hoyt. All rights reserved.
@@ -62,7 +61,7 @@ enum CURLLog {
         style: CurlStyle = .compact,
         task: URLSessionTask,
         data: Data?,
-        error: Error? = nil,
+        error: (any Error)? = nil,
         metrics: URLSessionTaskMetrics? = nil
     ) throws -> String {
         guard let request = task.originalRequest else {
@@ -129,7 +128,7 @@ enum CURLLog {
                 .compactMap { key, value in
                     guard let sKey = key as? String, let sValue = value as? String else { return nil }
                     if !verbose {
-                        guard sKey == "x-hatch-request-id" else { return nil }
+                        guard sKey == "x-request-id" else { return nil }
                     }
                     return String(format: CurlArgs.header, sKey, sValue)
                 }
@@ -319,7 +318,7 @@ extension [String: String] {
     private func redactHeaderValues() -> [Key: Value] {
         reduce([:]) { result, tuple in
             let (key, value) = tuple
-            let safeValue = ["X-HatchBaby-Auth"].contains(key) ? CURLLog.redactedString : value
+            let safeValue = ["X-Auth"].contains(key) ? CURLLog.redactedString : value
             let d2: [String: String] = [key: safeValue]
             return result.merging(d2) { $1 }
         }

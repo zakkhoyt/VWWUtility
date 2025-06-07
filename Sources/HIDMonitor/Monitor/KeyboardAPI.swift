@@ -1,8 +1,8 @@
 //
-//  KeyboardAPI.swift
-//  HotkeyDecorator
+// KeyboardAPI.swift
+// HotkeyDecorator
 //
-//  Created by Zakk Hoyt on 1/22/24.
+// Created by Zakk Hoyt on 1/22/24.
 //
 
 import Foundation

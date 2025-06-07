@@ -1,9 +1,9 @@
 //
-//  UIImage+Utilities.swift
-//  ColorBlind
+// UIImage+Utilities.swift
+// ColorBlind
 //
-//  Created by Zakk Hoyt on 9/24/16.
-//  Copyright © 2016 Zakk Hoyt. All rights reserved.
+// Created by Zakk Hoyt on 9/24/16.
+// Copyright © 2016 Zakk Hoyt. All rights reserved.
 //
 
 #if os(iOS)

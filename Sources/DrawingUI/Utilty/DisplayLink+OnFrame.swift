@@ -1,8 +1,8 @@
 //
-//  DisplayLink+OnFrame.swift
-//  Bezier
+// DisplayLink+OnFrame.swift
+// Bezier
 //
-//  https://github.com/timdonnelly/DisplayLink
+// https://github.com/timdonnelly/DisplayLink
 //
 
 import Combine
