@@ -140,6 +140,9 @@ extension ColorPalette {
             ColorPalette.KeyColor(offset: 0.0, color: Color(hexString: "000000"))
         ]
     )
+    
+    
+    public static let dev = ColorPalette.medical
 }
 
 extension ColorPalette: CaseIterable {
@@ -167,6 +170,12 @@ extension ColorPalette: CaseIterable {
 /// a few key-colors.
 public struct ColorPalette {
     public struct KeyColor {
+        
+#warning("""
+FIXME: zakkhoyt - ColorPaletteView: Due to issues converting Color to rgba on macOS, 
+consider using hexstrings here instead of Color
+""")
+
         public init(offset: Double, color: Color) {
             self.offset = offset
             self.color = color
@@ -179,26 +188,67 @@ public struct ColorPalette {
     }
     
     public let keyColors: [KeyColor]
+    private let offsets: [Double]
+    
+    
+    public let lutSize: Int
+    private let lutKeys: [Double]
+    private var lutColors: [Color] = []
    
     public static let defaultColor = Color.black
 
     /// At least 2 colors should be passed in. If only 1 color is passed in, that value
     /// willl be returned for all inputs. If 0 colors are passed in, black will be returned
     /// for all inputs.
-    public init(keyColors: [KeyColor]) {
+    public init(
+        keyColors: [KeyColor],
+        lutSize: Int = 256
+    ) {
+        
         self.keyColors = keyColors
+        self.offsets = keyColors
+            .map{ $0.offset }
+            .sorted { $0 < $1 }
+        
+        self.lutSize = lutSize
+        
+        self.lutKeys = (0..<lutSize).map {
+            Double($0) / Double(255) // 0.0 ... 1.0
+        }
+        
+        self.lutColors = (0..<lutSize).map {
+            let f = Double($0) / Double(255) // 0.0 ... 1.0
+            return self.color(value: f)
+        }
     }
     
-    /// Returns a `Color` that liest between two key-colors.
+    public func lutColor(
+        value v: Double
+    ) -> Color {
+        let keys = self.lutKeys
+//        guard let index = binarySearch(keys, key: v, range: 0..<lutSize) else {
+//            assertionFailure("failed to look up item in binary tree")
+//            return Self.defaultColor
+//        }
+        guard let index = keys.binarySearch(key: v, range: 0..<lutSize) else {
+            assertionFailure("failed to look up item in binary tree")
+            return Self.defaultColor
+        }
+        return lutColors[min(index, lutSize - 1)]
+    }
+    
+    /// Returns a `Color` that lies between two key-colors.
     /// The value is computed using linear interpolation.
-    public func color(
+    /// - Parameter value: A `Double` between `0.0 ... 1.0`. It will be clampe internallly
+    /// - Returns: The `Color` that corresponds to `value`
+    private func color(
         value v: Double
     ) -> Color {
         let value = v.clamped(to: 0...1)
         
-        let offsets = keyColors
-            .map{ $0.offset }
-            .sorted { $0 < $1 }
+//        let offsets = keyColors
+//            .map{ $0.offset }
+//            .sorted { $0 < $1 }
     
         guard keyColors.count > 0 else {
             // No keyColors defined to interpolate with.
@@ -220,6 +270,24 @@ public struct ColorPalette {
         )
         // We have >= 2 keyCcolors. Now ensure that `value` lies between
         // two of them
+        
+        
+
+        
+        
+        
+//        guard let prevIndex = (offsets.lastIndex { value >= $0 }),
+//              let nextIndex = (offsets.firstIndex { value <= $0 }) else {
+//            logger.warning("value does not lie between previous and next indexes")
+//            return ColorPalette.defaultColor
+//        }
+        
+//        let prevIndex = 0
+//        let nextIndex = 1
+        
+        //        if let index = binarySearch(frequencies, key: frequency, range: 0..<frequencies.count) {
+        //            return frequencies[index]
+        //        }
         guard let prevIndex = (offsets.lastIndex { value >= $0 }),
               let nextIndex = (offsets.firstIndex { value <= $0 }) else {
             logger.warning("value does not lie between previous and next indexes")
@@ -251,6 +319,7 @@ public struct ColorPalette {
         
         
         
+//        return Color.green
         return Color.interpolate(
             portion: portion,
             color1: prevKeyColor.color,
@@ -259,4 +328,19 @@ public struct ColorPalette {
     }
 }
 
-
+//extension Array where Element: Comparable {
+//    func binarySearch(key: Element, range: Range<Int>) -> Int? {
+//        if range.lowerBound >= range.upperBound {
+//            return range.upperBound
+//        } else {
+//            let midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+//            if self[midIndex] > key {
+//                return binarySearch(key: key, range: range.lowerBound..<midIndex)
+//            } else if self[midIndex] < key {
+//                return binarySearch(key: key, range: midIndex + 1..<range.upperBound)
+//            } else {
+//                return midIndex
+//            }
+//        }
+//    }
+//}

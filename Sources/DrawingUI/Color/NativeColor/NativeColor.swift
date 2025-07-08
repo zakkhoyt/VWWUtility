@@ -44,6 +44,27 @@ to avoide collision with the function below
         var blue: CGFloat = 0
         var alpha: CGFloat = 0
         
+        
+#warning("""
+FIXME: zakkhoyt - ColorPaletteView: (fft heatmap): apply colorPalette for stroke color here
+* macOS has real performance lag working wtih Colors on this thread. iOS seems more tolerant. 
+* this is significant with SwiftUI's Color (rgba) as well as NSColor's getRedGreenBlue and colorspaces
+""")
+        
+
+        
+        
+#if canImport(UIKit)
+//        typealias NativeColor = UIColor
+#elseif canImport(AppKit)
+//        typealias NativeColor = NSColor
+//        colorUsingColorSpace
+//        self.usingColorSpace(.deviceRGB)?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+#endif
+
+        
+        
+        
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         return RGBA(red: red, green: green, blue: blue, alpha: alpha)
     }
