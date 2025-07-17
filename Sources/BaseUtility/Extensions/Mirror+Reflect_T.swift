@@ -9,9 +9,8 @@
 import Foundation
 
 extension Mirror {
-    
-#warning("TODO: zakkhoyt - Try using generic '<S: StringProtocol>")
-    //@inlinable public init?<S>(_ text: S, radix: Int = 10) where S : StringProtocol
+    #warning("TODO: zakkhoyt - Try using generic '<S: StringProtocol>")
+    // @inlinable public init?<S>(_ text: S, radix: Int = 10) where S : StringProtocol
     /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
     /// - Parameters:
     ///   - target: The instance to inspect/reflect.
@@ -20,7 +19,7 @@ extension Mirror {
     /// - Remark: This does not apply to computed properties.
     public static func reflectProperties<T>(
         of target: Any,
-        matchingType type: T.Type = T.self
+        matchingType _: T.Type = T.self
     ) -> [(name: String, value: T)] {
         Mirror(reflecting: target)
             .children
@@ -31,8 +30,7 @@ extension Mirror {
                 return (label, value)
             }
     }
-    
-    
+
     /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
     /// represented as a dictionary.
     /// - Parameters:
@@ -52,7 +50,7 @@ extension Mirror {
             $0[$1.name] = $1.value
         }
     }
-    
+
     /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
     /// - Parameters:
     ///   - target: The instance to inspect/reflect.
@@ -80,13 +78,12 @@ extension Mirror {
                     return (label, "\(value)")
                 } else if let value = $0.value as? Bool {
                     return (label, "\(value ? "true" : "false")")
-                }  else {
+                } else {
                     return (label, String(describing: $0.value))
                 }
             }
     }
-    
-    
+
     /// Inspects the properties of the instance of `target` to distill a list of all property instances of `matchingType`.
     /// Very similar to `reflectProperties(...)`, but returns only the property values.
     /// - Parameters:
@@ -96,7 +93,7 @@ extension Mirror {
     /// - Remark: This does not apply to computed properties.
     public static func reflectInstances<T>(
         of target: Any,
-        matchingType type: T.Type = T.self
+        matchingType _: T.Type = T.self
     ) -> [T] {
         Mirror(reflecting: target)
             .children
@@ -107,7 +104,7 @@ extension Mirror {
                 return value
             }
     }
-    
+
     /// Inspects the properties of the instance of `target` to distill a list of propertyDescriptions
     /// of the format `"\(child.label): \(child.value)"`
     /// - Parameters:
@@ -123,7 +120,7 @@ extension Mirror {
         logger.debug("MIRROR reflecting \(String(describing: target))")
         let children = Mirror(reflecting: target)
             .children
-        
+
         logger.debug("MIRROR children.count: \(children.count)")
         let propertyDescriptions: [String] = children.compactMap { child in
             //                        guard let label = $0.label, let value = $0.value as? any CustomStringConvertible else {
@@ -133,7 +130,7 @@ extension Mirror {
                 logger.error("MIRROR Child has no label: \(String(describing: child))")
                 return nil
             }
-            
+
             logger.debug("MIRROR label: \(label)")
             guard let valueString: String = {
                 if let value = child.value as? Bool {
@@ -166,12 +163,10 @@ extension Mirror {
             logger.debug("MIRROR Did compute propertyDescription: \(propertyDescription)")
             return propertyDescription
         }
-        
+
         return propertyDescriptions
     }
 }
-
-
 
 ////
 ////  Mirror+Reflect_T.swift
@@ -181,11 +176,11 @@ extension Mirror {
 ////  Copyright © 2019 Zakk Hoyt. All rights reserved.
 ////
 //
-//import Foundation
+// import Foundation
 //
-//extension Mirror {
-//    
-//#warning("TODO: zakkhoyt - Try using generic '<S: StringProtocol>")
+// extension Mirror {
+//
+// #warning("TODO: zakkhoyt - Try using generic '<S: StringProtocol>")
 //    //@inlinable public init?<S>(_ text: S, radix: Int = 10) where S : StringProtocol
 //    /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
 //    /// - Parameters:
@@ -206,7 +201,7 @@ extension Mirror {
 //                return (label, value)
 //            }
 //    }
-//    
+//
 //    /// Inspects the properties of the instance of `target` to distill a list of all properties of `matchingType`
 //    /// - Parameters:
 //    ///   - target: The instance to inspect/reflect.
@@ -240,7 +235,7 @@ extension Mirror {
 //            }
 //    }
 //
-//    
+//
 //    /// Inspects the properties of the instance of `target` to distill a list of all property instances of `matchingType`.
 //    /// Very similar to `reflectProperties(...)`, but returns only the property values.
 //    /// - Parameters:
@@ -261,7 +256,7 @@ extension Mirror {
 //                return value
 //            }
 //    }
-//}
+// }
 //
 ////    //
 ////    //  Mirror+Properties.swift
