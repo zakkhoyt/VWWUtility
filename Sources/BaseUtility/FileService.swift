@@ -414,25 +414,27 @@ extension [URL] {
         """
 )
 
-//    public var canonicalURL: URL? {
-//        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
-//            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-//                return url
-//            }
-//            return URL(filePath: canonicalPath)
-//        } else {
-//            return url
-//
-//        }
-//    }
-
-public var preferCanonicalURL: URL {
-    // https://stackoverflow.com/a/40401137
-    guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-        return self
-    }
+extension URL {
+    //    public var canonicalURL: URL? {
+    //        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+    //            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+    //                return url
+    //            }
+    //            return URL(filePath: canonicalPath)
+    //        } else {
+    //            return url
+    //
+    //        }
+    //    }
     
-    return URL(filePath: canonicalPath)
+    public var preferCanonicalURL: URL {
+        // https://stackoverflow.com/a/40401137
+        guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+            return self
+        }
+        
+        return URL(filePath: canonicalPath)
+    }
 }
 
 

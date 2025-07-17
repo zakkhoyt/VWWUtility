@@ -49,6 +49,7 @@ extension NullCodable: Decodable where Wrapped: Decodable {
     }
 }
 
+extension NullCodable: Hashable where Wrapped: Hashable { }
 extension NullCodable: Equatable where Wrapped: Equatable { }
 extension NullCodable: Sendable where Wrapped: Sendable { }
 
