@@ -1,8 +1,8 @@
-//
-//  Array+ListDescription.swift
-//
-//  Created by Zakk Hoyt on 6/23/23.
-//
+////
+////  Array+ListDescription.swift
+////
+////  Created by Zakk Hoyt on 6/23/23.
+////
 
 import Foundation
 
@@ -134,24 +134,24 @@ extension [(any CustomStringConvertible)?] {
         .listDescription(separator: separator, endcaps: endcaps)
     }
 }
-
-#warning(
-    """
-    TODO: zakkhoyt - Better support for types (not strictly [String: String]
-    * Only include quotes around values if type is String
-    """
-)
-
-extension Array where Element: CustomStringConvertible {
-    /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
-    public var listDescription: String {
-        map { $0.description }.listDescription
-    }
-}
-
-extension Array where Element: CustomDebugStringConvertible {
-    /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
-    public var listDescription: String {
-        map { $0.debugDescription }.listDescription
-    }
-}
+//
+//#warning(
+//    """
+//    TODO: zakkhoyt - Better support for types (not strictly [String: String]
+//    * Only include quotes around values if type is String
+//    """
+//)
+//
+//extension Array where Element: CustomStringConvertible {
+//    /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
+//    public var listDescription: String {
+//        map { $0.description }.listDescription
+//    }
+//}
+//
+//extension Array where Element: CustomDebugStringConvertible {
+//    /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
+//    public var listDescription: String {
+//        map { $0.debugDescription }.listDescription
+//    }
+//}
