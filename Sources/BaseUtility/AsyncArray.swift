@@ -94,26 +94,3 @@ extension Array where Element == String {
     }
 }
 
-extension Array where Element: CustomStringConvertible {
-    
-    public func listDescription(
-        separator: String = ", ",
-        endcaps: (String, String) = ("[", "]")
-    ) -> String {
-        let insert = separator == "\n" ? "\n" : ""
-        return "\(endcaps.0)\(insert)\(self.map{ $0.description }.joined(separator: separator))\(insert)\(endcaps.1)"
-    }
-
-    /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
-    public var listDescription: String {
-        map{ $0.description }.listDescription
-    }
-}
-
-extension Array where Element: CustomDebugStringConvertible {
-    /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
-    public var listDescription: String {
-        map{ $0.debugDescription }.listDescription
-    }
-}
-
