@@ -13,7 +13,7 @@ public enum FileService {
         
         public var errorDescription: String? {
             switch self {
-            // case .custom(let message):
+                // case .custom(let message):
             case .purgeDirectory(let message, let url):
                 "\(message): \(url.path)"
             }
@@ -99,7 +99,7 @@ public enum FileService {
             attributes: nil
         )
     }
-
+    
     public static func deleteFile(
         path: String
     ) throws {
@@ -109,20 +109,75 @@ public enum FileService {
     public static func deleteFile(
         url: URL
     ) throws {
+        guard fileExists(url: url) == true else {
+            return
+        }
         try FileManager.default.removeItem(at: url)
     }
-
+    
+    /// Calls delete on the file if it exists. Otherwise, no-op
+    public static func deleteFileIfNeeded(
+        url: URL
+    ) throws {
+        guard fileExists(url: url) == true else {
+            return
+        }
+        try FileManager.default.removeItem(at: url)
+    }
+    
+    @available(*, deprecated, renamed: "copy(sourceUrl:destinationUrl:)", message: "Plese use new name")
     public static func copyFile(
         source sourceUrl: URL,
         dest destUrl: URL
     ) throws {
-//        try FileManager.default.removeItem(at: destUrl)
         try FileManager.default.copyItem(at: sourceUrl, to: destUrl)
     }
+    
+    public static func copy(
+        source sourceUrl: URL,
+        dest destUrl: URL
+    ) throws {
+        try FileManager.default.copyItem(at: sourceUrl, to: destUrl)
+    }
+    
+    /// Copies a file to another directory.
+    /// - Parameters:
+    ///   - sourceURL: The `URL` of the file to be copied
+    ///   - directoryURL: The `URL` of the directory to copy to
+    /// - Note: The same filename of `sourceURL` will be re-used by appending to `directoryURL`
+    public static func copy(
+        sourceUrl: URL,
+        directoryUrl: URL
+    ) throws {
+        let destinationUrl = directoryUrl.appendingPathComponent(
+            sourceUrl.lastPathComponent
+        )
+        try FileManager.default.copyItem(
+            at: sourceUrl,
+            to: destinationUrl
+        )
+    }
+    
+    /// Craetes a symbolic link. If a link file already exists, it wil be deleted.
+    /// - Parameters:
+    ///   - pointeeURL: The URL that we are making a shortcut from
+    ///   - pointerURL: The new shortcut URL
+    ///
+    public static func createSymbolicLink(
+        pointeeURL: URL,
+        pointerURL: URL
+    ) throws {
+        try deleteFileIfNeeded(url: pointerURL)
+        try FileManager.default.createSymbolicLink(
+            at: pointerURL,
+            withDestinationURL: pointeeURL
+        )
+    }
+    
 }
 
 extension String {
-//    @available(iOS 16.0, *)
+    //    @available(iOS 16.0, *)
     var fileURL: URL {
         if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
             URL(filePath: self, directoryHint: URL.DirectoryHint.checkFileSystem, relativeTo: nil)
@@ -143,8 +198,8 @@ extension FileService {
             if contents.isEmpty { return true }
             
             logger.debug("Found \(contents.count) items in directory: \(directory)")
-            contents.forEach {
-                logger.debug("  \($0)")
+            for content in contents {
+                logger.debug("  \(content)")
             }
             return false
         } catch {
@@ -158,12 +213,11 @@ extension FileService {
     public static func expand(path: String) -> String {
         NSString(string: path).expandingTildeInPath
     }
-
-#if os(macOS) 
-//    @available(macOS 14.0, *) {
+    
+#if os(macOS)
+    //    @available(macOS 14.0, *) {
     @available(macOS 14.0, *)
     private static var homeDirectoryOfCurrentUser: String {
-
         FileManager.default.homeDirectoryForCurrentUser.absoluteString
             .replacingOccurrences(of: "file://", with: "")
             .trimSuffix(text: "/")
@@ -194,7 +248,7 @@ extension URL {
     public init(makeSafeFileURLFromURL url: URL) {
         self = URL.easyFileUrl(url: url)
     }
-
+    
     /// A wrapper function which helps convert a `url.path` to an optimized `URL` of `fileURL`variety.
     ///
     /// - SeeAlso: ``URL/easyFileUrl(path:isDirectory:)``
@@ -262,26 +316,23 @@ extension URL {
                 }
             }().path
         )
-        
-        #warning(
+#warning(
             """
             FIXME: zakkhoyt - Add step to unwind symbolic links.
             * EX: /var vs /private/var on iPhone
             * maybe canonicalURL includes?
             """
         )
+#warning("FIXME: zakkhoyt - Handle `//` in URL/path")
         
-        #warning("FIXME: zakkhoyt - Handle `//` in URL/path")
-
         // This step gets rid of somepath/1/2/../../subdir -> somepath/subdir
         // https://stackoverflow.com/a/40401137
         // https://stackoverflow.com/a/40401137
-        let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
+        let url = if #available(macCatalyst 16.0, iOS 16.0, *) {
             URL(fileURLWithPath: betterURL.path())
         } else {
             URL(fileURLWithPath: betterURL.path)
         }
-        
         
         if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
             guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
@@ -293,35 +344,76 @@ extension URL {
         }
     }
     
-//        if #available(macOS 13.0, iOS 16.0, *) {
-//            if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
-//                guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-//                    guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-//                        return url
-//                        return url
-//                    }
-//                }
-//    }
+    //        if #available(macOS 13.0, iOS 16.0, *) {
+    //            if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
+    //                guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+    //                    guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+    //                        return url
+    //                        return url
+    //                    }
+    //                }
+    //    }
     
-//    // https://stackoverflow.com/a/40401137
-//    let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
-//        URL(fileURLWithPath: betterURL.path())
-//    } else {
-//        URL(fileURLWithPath: betterURL.path)
-//    }
+    //    // https://stackoverflow.com/a/40401137
+    //    let url: URL = if #available(macCatalyst 16.0, iOS 16.0, *) {
+    //        URL(fileURLWithPath: betterURL.path())
+    //    } else {
+    //        URL(fileURLWithPath: betterURL.path)
+    //    }
+}
 
+extension String {
+    public var easyFileURL: URL {
+        URL.easyFileUrl(path: self, isDirectory: false)
+    }
     
+    public var easyDirURL: URL {
+        URL.easyFileUrl(path: self, isDirectory: true)
+    }
+}
 
+extension [String] {
+    public var easyFileURLs: [URL] {
+        map { $0.easyFileURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+    
+    public var easyDirURLs: [URL] {
+        map { $0.easyDirURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+}
 
+extension URL {
+    public var easyFileURL: URL {
+        URL.easyFileUrl(path: path, isDirectory: false)
+    }
+    
+    public var easyDirURL: URL {
+        URL.easyFileUrl(path: path, isDirectory: true)
+    }
+}
 
-    #warning(
+extension [URL] {
+    public var easyFileURLs: [URL] {
+        map { $0.easyFileURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+    
+    public var easyDirURLs: [URL] {
+        map { $0.easyDirURL }
+            .sorted { $0.filePath < $1.filePath }
+    }
+}
+
+#warning(
         """
         FIXME: zakkhoyt - new function, cleanURL
         * removes "//" from middle of path (filePath)
         * appendingPathComponent("Preferences")
         """
-    )
-    
+)
+
 //    public var canonicalURL: URL? {
 //        if #available(macOS 13.0, macCatalyst 16.0, iOS 16.0, *) {
 //            guard let canonicalPath = (try? url.resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
@@ -330,18 +422,17 @@ extension URL {
 //            return URL(filePath: canonicalPath)
 //        } else {
 //            return url
-//            
+//
 //        }
 //    }
-    
-    public var preferCanonicalURL: URL {
-        // https://stackoverflow.com/a/40401137
-        guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
-            return self
-        }
-        
-        return URL(filePath: canonicalPath)
+
+public var preferCanonicalURL: URL {
+    // https://stackoverflow.com/a/40401137
+    guard let canonicalPath = (try? resourceValues(forKeys: [.canonicalPathKey]))?.canonicalPath else {
+        return self
     }
+    
+    return URL(filePath: canonicalPath)
 }
 
 
@@ -359,5 +450,12 @@ extension URL {
             logger.fault("\(error.localizedDescription)")
             return nil
         }
+    }
+}
+
+extension URL {
+    /// An alias for `path(percentEncoded: false)`
+    public var filePath: String {
+        path(percentEncoded: false)
     }
 }
