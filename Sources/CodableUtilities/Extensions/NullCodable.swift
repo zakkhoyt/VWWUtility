@@ -47,7 +47,7 @@ extension NullCodable: Decodable where Wrapped: Decodable {
             wrappedValue = try container.decode(Wrapped.self)
         }
     }
-}
+}   
 
 extension NullCodable: Hashable where Wrapped: Hashable { }
 extension NullCodable: Equatable where Wrapped: Equatable { }
