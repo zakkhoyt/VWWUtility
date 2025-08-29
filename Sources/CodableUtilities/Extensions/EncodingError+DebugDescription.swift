@@ -1,6 +1,6 @@
 //
 //  Codable+DebugDescription
-//  HatchUtilities
+//  CodableUtilities
 //
 //  Created by Zakk Hoyt on 7/7/21.
 //  Copyright © 2021 Zakk Hoyt. All rights reserved.

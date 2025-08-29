@@ -244,6 +244,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RadixUtilities"
+               BuildableName = "RadixUtilities"
+               BlueprintName = "RadixUtilities"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -360,6 +374,16 @@
                BlueprintIdentifier = "CameraToolboxTests"
                BuildableName = "CameraToolboxTests"
                BlueprintName = "CameraToolboxTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RadixUtilitiesTests"
+               BuildableName = "RadixUtilitiesTests"
+               BlueprintName = "RadixUtilitiesTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
