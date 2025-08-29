@@ -8,7 +8,17 @@ import PackageDescription
 /// Upcoming features are listed on the [Swift Evolutions Dashboard](https://www.swift.org/swift-evolution/#?upcoming=true).
 /// Each feature flag is defined in the header list with details down in the body (typically in the `Source Compatibility` section).
 ///
-/// ## Enabling Feature Flags
+/// ## Enabling Swift Flags (Swift Package Manager)
+/// Just pass into the `swiftSettings` parameter:
+/// ```swift
+/// .target(
+///     name: "MyTarget",
+///     path: "...",
+///     swiftSettings: swiftSettings
+/// )
+/// ```
+///
+/// ### References
 /// * Xcode: See the [In Xcode](https://www.swift.org/blog/using-upcoming-feature-flags/) section
 /// * Swift Package Manager: See the [In SwiftPM Packages](https://www.swift.org/blog/using-upcoming-feature-flags/) section
 ///
@@ -26,6 +36,7 @@ import PackageDescription
 /// ```
 ///
 /// ## Feature Flags
+
 /// * [(SE-0274) ConciseMagicFile](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0274-magic-file.md)
 ///     * Changes `#file` to contain `<module-name>/<file-name>` and adds `#filePath` to contain the full path (former #file behavior)
 ///     * Implemented Swift 5.8, but dark until Swift 6.0 where it becomes a compiler error.
@@ -62,7 +73,7 @@ import PackageDescription
 ///     Removing this inferrance will lead to more explicit code (less ambiguity).
 ///     * Implemented in Swift 5.9. Dark until Swift 6
 /// * [(SE-0409) InternalImportsByDefault](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0409-access-level-on-imports.md)
-///     * Access-level modifiers on import declarations. EX: `private import HatchCBCentralManagerClient`
+///     * Access-level modifiers on import declarations. EX: `private import BLEManagerClient`
 ///     * Implemented in Swift 5.9, but dark until Swift 6.0
 /// * [(SE-0411) IsolatedDefaultValues](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0411-isolated-default-values.md)
 ///     * Isolated default value expressions. The current actor isolation rules for initial values of stored properties admit data races.
@@ -100,16 +111,7 @@ import PackageDescription
 /// * [-warn-concurrency](https://forums.swift.org/t/concurrency-in-swift-5-and-6/49337)
 ///     * Warns about Swift 5 code that will be invalid under the Swift 6 rules.
 ///     * EX: Sendable will be checked but missing Sendable conformances will produce a warning (rather than an error).
-///
-/// ## Enabling Swift Flags (Swift Package Manager)
-/// Just pass into the `swiftSettings` parameter:
-/// ```swift
-/// .target(
-///     name: "MyTarget",
-///     path: "...",
-///     swiftSettings: swiftSettings
-/// )
-/// ```
+
 let swiftSettings: [SwiftSetting] = [
     .enableUpcomingFeature("ConciseMagicFile"), // SE-0274
     .enableUpcomingFeature("ForwardTrailingClosures"), // SE-0286
@@ -182,6 +184,10 @@ let package = Package(
             targets: ["Nodes"]
         ),
         .library(
+            name: "RadixUtilities",
+            targets: ["RadixUtilities"]
+        ),
+        .library(
             name: "TerminalUtility",
             targets: ["TerminalUtility"]
         ),
@@ -250,13 +256,15 @@ let package = Package(
         .target(
             name: "CodableUtilities",
             dependencies: [],
-            resources: []
+            resources: [],
+            swiftSettings: swiftSettings
         ),
         .testTarget(
             name: "CodableUtilitiesTests",
             dependencies: [
                 "CodableUtilities"
-            ]
+            ],
+            swiftSettings: swiftSettings
         ),
         .target(
             name: "DrawingUI",
@@ -361,6 +369,22 @@ let package = Package(
             swiftSettings: swiftSettings
         ),
         .target(
+            name: "RadixUtilities",
+            dependencies: [],
+            exclude: [],
+            resources: [],
+            swiftSettings: swiftSettings
+        ),
+        .testTarget(
+            name: "RadixUtilitiesTests",
+            dependencies: [
+                "RadixUtilities"
+            ],
+            exclude: [],
+            resources: [],
+            swiftSettings: swiftSettings
+        ),
+        .target(
             name: "SystemSettings",
             dependencies: [
                 "BaseUtility"
@@ -384,7 +408,6 @@ let package = Package(
             ],
             swiftSettings: swiftSettings
         ),
-
         .target(
             name: "TerminalUtility",
             dependencies: [

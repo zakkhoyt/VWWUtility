@@ -2,7 +2,6 @@
 //  UnifiedLogger.swift
 //
 //  Created by Zakk Hoyt on 7/11/23.
-//  Copyright hatch.co, 2023.
 //
 
 import os.log

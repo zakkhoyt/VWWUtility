@@ -1,7 +1,7 @@
 //
 //  UnifiedLogger.swift
 //
-//  Created by Zakk Hoyt on 7/11/23.
+//  Created by main 2.2.6.
 //
 
 import os.log
@@ -9,6 +9,6 @@ import os.log
 // swiftlint:disable prefixed_toplevel_constant
 let logger = os.Logger(
     subsystem: "com.vaporwarewolf",
-    category: "HTTPServices"
+    category: "RadixUtilities"
 )
 // swiftlint:enable prefixed_toplevel_constant

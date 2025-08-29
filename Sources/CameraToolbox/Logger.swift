@@ -15,9 +15,9 @@ extension os.Logger {
     /// Composes the function arguments into a useful string for logging the location of a line of code.
     ///
     /// - Parameters:
-    ///   - file: Example: `$SRCROOT/HatchBrain/Sources/HatchBrain/HatchBLE/Scanner/BLEScanner.swift`
-    ///   - fileID: Example: `HatchBrain/BLEScanner.swift`
-    ///   - filePath: Example: `$SRCROOT/HatchBrain/Sources/HatchBrain/HatchBLE/Scanner/BLEScanner.swift`
+    ///   - file: Example: `$SRCROOT/Package/Sources/Package/BLE/Scanner/BLEScanner.swift`
+    ///   - fileID: Example: `Package/BLEScanner.swift`
+    ///   - filePath: Example: `$SRCROOT/Package/Sources/Package/BLE/Scanner/BLEScanner.swift`
     ///   - function: Example: `disconnect(from:)`
     ///   - line: Example: `377`
     /// - Returns: Returns a String with formatted file, line, function.

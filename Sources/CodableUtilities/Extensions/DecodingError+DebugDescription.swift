@@ -1,6 +1,6 @@
 //
 //  Codable+DebugDescription
-//  HatchUtilities
+//  CodableUtilities
 //
 //  Created by Zakk Hoyt on 7/7/21.
 //  Copyright © 2021 Zakk Hoyt. All rights reserved.
@@ -9,6 +9,26 @@
 import Foundation
 
 extension DecodingError: @retroactive CustomDebugStringConvertible {
+    public func debugDescription<Key : CodingKey>(
+        decoder: any Decoder,
+        container: KeyedDecodingContainer<Key>
+    ) -> String {
+        guard let jsonSourceURL = decoder.jsonSourceURL else {
+            return debugDescription
+        }
+        return """
+        \(debugDescription)
+        jsonSourceURL: \(jsonSourceURL.path())
+        \(decoder.inspectJsonSourceFileShellCommand(container: container))
+        """
+    }
+
+    
+#warning("""
+FIXME: zakkhoyt - after porting `func inspectJsonSourceFile` into this package from HatchSwiftPackageGrapher
+* add support for CodingUserInfoKey.jsonSourceURLKey to debugDescription
+* add support for func inspectJsonSourceFile to debugDescription
+""")
     /// Returns a `String` describing why the `DecodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var debugDescription: String {
