@@ -1,7 +1,7 @@
 {
   "configurations": [
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -9,11 +9,12 @@
       "args": [],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Debug NodesTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/debug/NodesTerminalApp",
-      "preLaunchTask": "swift: Build Debug NodesTerminalApp"
+      "preLaunchTask": "swift: Build Debug NodesTerminalApp",
+      "target": "NodesTerminalApp",
+      "configuration": "debug"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -21,11 +22,12 @@
       "args": [],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Release NodesTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/release/NodesTerminalApp",
-      "preLaunchTask": "swift: Build Release NodesTerminalApp"
+      "preLaunchTask": "swift: Build Release NodesTerminalApp",
+      "target": "NodesTerminalApp",
+      "configuration": "release"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -33,11 +35,12 @@
       "args": [],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Debug VWWUtilityTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/debug/VWWUtilityTerminalApp",
-      "preLaunchTask": "swift: Build Debug VWWUtilityTerminalApp"
+      "preLaunchTask": "swift: Build Debug VWWUtilityTerminalApp",
+      "target": "VWWUtilityTerminalApp",
+      "configuration": "debug"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -45,11 +48,12 @@
       "args": [],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Release VWWUtilityTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/release/VWWUtilityTerminalApp",
-      "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp"
+      "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp",
+      "target": "VWWUtilityTerminalApp",
+      "configuration": "release"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -64,11 +68,12 @@
       ],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Debug MultipeerEngineTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/debug/MultipeerEngineTerminalApp",
-      "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp"
+      "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp",
+      "target": "MultipeerEngineTerminalApp",
+      "configuration": "debug"
     },
     {
-      "type": "lldb",
+      "type": "swift",
       "request": "launch",
       "sourceLanguages": [
         "swift"
@@ -76,8 +81,9 @@
       "args": [],
       "cwd": "${workspaceFolder:VWWUtility}",
       "name": "Release MultipeerEngineTerminalApp",
-      "program": "${workspaceFolder:VWWUtility}/.build/release/MultipeerEngineTerminalApp",
-      "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp"
+      "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp",
+      "target": "MultipeerEngineTerminalApp",
+      "configuration": "release"
     }
   ]
 }
