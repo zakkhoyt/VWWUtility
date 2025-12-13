@@ -234,6 +234,9 @@ let package = Package(
                     package: "swift-collections"
                 )
             ],
+            exclude: [
+                "Extensions/ignored"
+            ],
             resources: [
                 // Causes SPM to generate Bundle.module
                 .copy("Resources/Placeholder.txt")
