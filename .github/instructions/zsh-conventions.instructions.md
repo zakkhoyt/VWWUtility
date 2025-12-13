@@ -1,0 +1,1 @@
+/Users/username/.ai/instructions/zsh/zsh-conventions.instructions.md
