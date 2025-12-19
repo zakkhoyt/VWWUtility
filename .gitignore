@@ -234,8 +234,9 @@ Temporary Items
 
 ## ---- Begin Custom section
 
-.gitignored/*
-_gitignored/*
+.gitignored/
+_gitignored/
+
 benchmark_.txt # swiftlint Files
 *.log
 *.temp
