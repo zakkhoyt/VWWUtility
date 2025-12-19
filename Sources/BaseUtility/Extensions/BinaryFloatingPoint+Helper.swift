@@ -61,7 +61,7 @@ extension BinaryInteger {
     public var d: Double {
         Double(self)
     }
-    
+
     @available(*, deprecated, message: "moved to DrawingUI")
     public var f: Float {
         Float(self)
