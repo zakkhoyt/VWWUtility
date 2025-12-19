@@ -17,7 +17,7 @@ extension OrderedDictionary {
     public init(dictionary: [Key: Value]) {
         self.init(uniqueKeys: dictionary.keys, values: dictionary.values)
     }
-    
+
     public init(_ dictionary: [Key: Value]) {
         self.init(uniqueKeys: dictionary.keys, values: dictionary.values)
     }

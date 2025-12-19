@@ -59,28 +59,28 @@ extension [any CustomStringConvertible] {
     }
 }
 
-extension [(any CustomStringConvertible)?] {
-    /// Tranlastes `nil` values before forwarcing to `[any CustomStringConvertible].listDescription(separator:endcaps:)`
-    /// - Parameters:
-    ///   - includeNilValues: If `true`, then `nil` elements will be replaced with
-    ///   `String.nil`. If `false` they will be omitted.
-    ///   - separator: The `String` to use as a separator. Defaults to `", "`.
-    ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
-    /// - Returns: A legible `String` description of `self`
-    public func listDescription(
-        includeNilValues: Bool = true,
-        separator: String = ", ",
-        endcaps: (Character, Character) = ("[", "]")
-    ) -> String {
-        compactMap {
-            guard let element = $0 else {
-                return includeNilValues ? String.nil : nil
-            }
-            return element
-        }
-        .listDescription(separator: separator, endcaps: endcaps)
-    }
-}
+//extension [(any CustomStringConvertible)?] {
+//    /// Tranlastes `nil` values before forwarcing to `[any CustomStringConvertible].listDescription(separator:endcaps:)`
+//    /// - Parameters:
+//    ///   - includeNilValues: If `true`, then `nil` elements will be replaced with
+//    ///   `String.nil`. If `false` they will be omitted.
+//    ///   - separator: The `String` to use as a separator. Defaults to `", "`.
+//    ///   - endcaps: Two `String` to surround the joined `Element`s in. Default: `("[", "]")`
+//    /// - Returns: A legible `String` description of `self`
+//    public func listDescription(
+//        includeNilValues: Bool = true,
+//        separator: String = ", ",
+//        endcaps: (Character, Character) = ("[", "]")
+//    ) -> String {
+//        compactMap {
+//            guard let element = $0 else {
+//                return includeNilValues ? String.nil : nil
+//            }
+//            return element
+//        }
+//        .listDescription(separator: separator, endcaps: endcaps)
+//    }
+//}
 
 extension [String: any CustomStringConvertible] {
     /// Converts any `[String: any CustomStringConvertible]` to a list by joining all `Key` & `Value` to `[String]`
