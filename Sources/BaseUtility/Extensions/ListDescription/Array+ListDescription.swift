@@ -134,21 +134,21 @@ extension [(any CustomStringConvertible)?] {
         .listDescription(separator: separator, endcaps: endcaps)
     }
 }
-
-#warning(
-    """
-    TODO: zakkhoyt - Better support for types (not strictly [String: String]
-    * Only include quotes around values if type is String
-    """
-)
-
-extension Array where Element: CustomStringConvertible {
-    /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
-    public var listDescription: String {
-        map { $0.description }.listDescription
-    }
-}
-
+//
+//#warning(
+//    """
+//    TODO: zakkhoyt - Better support for types (not strictly [String: String]
+//    * Only include quotes around values if type is String
+//    """
+//)
+//
+//extension Array where Element: CustomStringConvertible {
+//    /// Converts any `[CustomStringConvertible]` to a comma delimited list (`String` ).
+//    public var listDescription: String {
+//        map { $0.description }.listDescription
+//    }
+//}
+//
 //extension Array where Element: CustomDebugStringConvertible {
 //    /// Converts any `[CustomDebugStringConvertible]` to a comma delimited list (`String` ).
 //    public var listDescription: String {

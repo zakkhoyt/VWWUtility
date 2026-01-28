@@ -11,7 +11,7 @@ extension String {
         case prefix
         case suffix
     }
-    
+
     /// Pads a `String` to be a certain length
     ///
     /// - Parameters:
@@ -33,7 +33,7 @@ extension String {
         case .suffix: return "\(self)\(padding)"
         }
     }
-    
+
     public mutating
     func pad(
         length: Int,

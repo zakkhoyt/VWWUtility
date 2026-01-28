@@ -1,0 +1,1 @@
+/Users/username/.ai/instructions/agent/agent-terminal-conventions.instructions.md

@@ -34,4 +34,3 @@ public struct AsyncArray<T>: AsyncSequence, AsyncIteratorProtocol {
         self
     }
 }
-
