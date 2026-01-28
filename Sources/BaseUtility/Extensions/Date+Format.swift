@@ -18,7 +18,7 @@ public enum DateFormat: DateFormatProvider {
     case http
     case httpLocalAccurate
     case custom(format: String)
-    
+
     public var format: String {
         switch self {
         case .logFile: "yyyyMMddHHmmss"
@@ -35,23 +35,23 @@ public class DateFormatCache {
     // MARK: Public variables
 
     public static let shared = DateFormatCache()
-    
+
     // MARK: Private variables
 
     private var mainCache = NSCache<NSString, DateFormatter>()
     private var backgroundCache = NSCache<NSString, DateFormatter>()
-    
+
     // MARK: Inits
-    
+
     public init() {}
-    
+
     // MARK: Public methods
-    
+
     public func formatter(
         dateFormat: String
     ) -> DateFormatter {
         let cache = Thread.isMainThread ? mainCache : backgroundCache
-        
+
         if let formatter = cache.object(forKey: dateFormat as NSString) {
             return formatter
         } else {
@@ -65,7 +65,7 @@ public class DateFormatCache {
             return formatter
         }
     }
-    
+
     public func formatterFrom(
         formatProvider: any DateFormatProvider
     ) -> DateFormatter {

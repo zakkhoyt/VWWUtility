@@ -6,6 +6,14 @@
 
 import Foundation
 
+
+#warning(
+    """
+    TODO: zakkhoyt AI - Replace this file with near duplicate
+    at: Sources/BaseUtility/Extensions/String+Padding.swift
+    which has `func padded` vs this `func padding`
+    """
+)
 extension String {
     public enum EndFix {
         case prefix

@@ -7,7 +7,7 @@
 import Foundation
 
 extension String {
-    var hexStringValue: UInt32 {
+    public var hexStringValue: UInt32 {
         let scanner = Scanner(string: self)
         scanner.charactersToBeSkipped = CharacterSet(arrayLiteral: "#")
         var color: UInt64 = 0
