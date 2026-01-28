@@ -98,7 +98,7 @@ extension OSStatus {
             switch self {
             case .fourCharCode(let fourCharCode, _, let context):
                 if let context {
-                    "context: \"\(context)\", \(fourCharCode.debugDescription)"
+                    #"context: "\#(context)", \(fourCharCode.debugDescription)"#
                 } else {
                     "\(fourCharCode.debugDescription)"
                 }
@@ -112,7 +112,7 @@ extension OSStatus {
     /// - Returns: An instance of `OSStatus.Error`.
     public func error(
         context: String? = nil
-    ) -> any Swift.Error {
+    ) -> Error {
         let fourCharCode = FourCharCode(osStatus: self)
         return Error.fourCharCode(
             fourCharCode: fourCharCode,

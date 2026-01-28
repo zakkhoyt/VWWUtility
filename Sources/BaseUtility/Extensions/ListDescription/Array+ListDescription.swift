@@ -1,8 +1,8 @@
-////
-////  Array+ListDescription.swift
-////
-////  Created by Zakk Hoyt on 6/23/23.
-////
+//
+//  Array+ListDescription.swift
+//
+//  Created by Zakk Hoyt on 6/23/23.
+//
 
 import Foundation
 
