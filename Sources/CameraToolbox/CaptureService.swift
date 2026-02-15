@@ -7,14 +7,18 @@ Contains the view controller for the Breakfast Finder.
 
 import AVFoundation
 import SwiftUI
-//import UIKit
-import Vision
+
+public protocol VideoDataOutputObservable {
+    var videoDataOutput: AVCaptureVideoDataOutput { get }
+    var videoDataOutputQueue: DispatchQueue  { get }
+    var videoDataOutputDelegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)? { get }
+}
+
 
 /// ## References
 ///
 /// * [Apple: AVCam building a camera app](https://developer.apple.com/documentation/avfoundation/capture_setup/avcam_building_a_camera_app)
 ///
-@available(macCatalyst 17.0, *)
 @available(macCatalyst 17.0, *)
 public actor CaptureService: NSObject {
     enum Error: LocalizedError {
@@ -46,6 +50,25 @@ public actor CaptureService: NSObject {
     private let captureSession = AVCaptureSession()
     private let captureDeviceExplorer = CaptureDeviceExplorer()
     private var currentDeviceInput: AVCaptureDeviceInput?
+    
+    
+//    private let videoDataOutput = AVCaptureVideoDataOutput()
+//    private let videoDataOutputQueue = DispatchQueue(
+//        label: "VideoDataOutput",
+//        qos: .userInitiated, attributes: [],
+//        autoreleaseFrequency: .workItem
+//    )
+//    private var videoDataOutputDelegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?
+    
+//    class ComputerVisionBufferDelegate: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+//    private func getVideoDataOutputDelegate() -> (any AVCaptureVideoDataOutputSampleBufferDelegate)? {
+//        videoDataOutputDelegate
+//    }
+//    
+//    private func setVideoDataOutputDelegate(_ delegate: (any AVCaptureVideoDataOutputSampleBufferDelegate)?) {
+//        videoDataOutputDelegate = delegate
+//    }
     
     override public init() {
         logger.debug("\(#file) \(#function) \(#line)")
@@ -122,10 +145,24 @@ public actor CaptureService: NSObject {
         }
     }
     
+    public func addVideoDataOutput(
+        observer: any VideoDataOutputObservable
+    ) throws {
+        try addOutput(captureOutput: observer.videoDataOutput)
+        observer.videoDataOutput.alwaysDiscardsLateVideoFrames = true
+        let format: FourCharCode = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange
+        observer.videoDataOutput.videoSettings = [
+            kCVPixelBufferPixelFormatTypeKey as String: format
+        ]
+        logger.debug("Configured videoDataOutput: \(format.stringRepresentation)")
+        observer.videoDataOutput.setSampleBufferDelegate(observer.videoDataOutputDelegate, queue: observer.videoDataOutputQueue)
+        logger.debug("Did set setSampleBufferDelegate for videoDataOutput to \(String(describing: observer.videoDataOutputDelegate))")
+    }
+    
     @available(macCatalyst 17.0, *)
     private func setupAVCapture() throws {
         logger.debug("\(#file) \(#function) \(#line)")
-        logger.debug("CaptureService: Did start setupAVCapture")
+        logger.debug("setupAVCapture begin")
         
         guard let videoDevice = CaptureDeviceExplorer().defaultVideoCamera() else {
             throw Error.custom("CaptureService: Could not find a video device")
@@ -135,10 +172,17 @@ public actor CaptureService: NSObject {
         defer { captureSession.commitConfiguration() }
         
         try addInput(captureDevice: videoDevice)
+        logger.debug("Did add video input: \(videoDevice)")
+                        
         if let audioDevice = captureDeviceExplorer.defaultMirophone() {
             try addInput(captureDevice: audioDevice)
+            logger.debug("Did add audio input: \(audioDevice)")
+        } else {
+            logger.debug("Skpped adding audio input: (no devices found)")
         }
-    }   
+        
+        logger.debug("setupAVCapture finished")
+    }
     
     // Adds an input to the capture session to connect the specified capture device.
     @discardableResult
@@ -155,13 +199,12 @@ public actor CaptureService: NSObject {
     }
     
     private func addOutput(
-        _ output: AVCaptureOutput
+        captureOutput: AVCaptureOutput
     ) throws {
-        guard captureSession.canAddOutput(output) else {
-            throw Error.addOutputFailed(message: "Failed to add output: \(output.description)")
+        guard captureSession.canAddOutput(captureOutput) else {
+            throw Error.addOutputFailed(message: "Failed to add output: \(captureOutput.description)")
         }
-        
-        captureSession.addOutput(output)
+        captureSession.addOutput(captureOutput)
     }
     
     /// - Requires: `NSCameraUsageDescription`.
@@ -236,11 +279,4 @@ public actor CaptureService: NSObject {
         return previewLayer
     }
 }
-
-
-
-
-
-
-
 

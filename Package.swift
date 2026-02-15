@@ -214,7 +214,9 @@ let package = Package(
             dependencies: [
                 "BaseUtility"
             ],
-            exclude: [],
+            exclude: [
+                "ComputerVision/"
+            ],
             swiftSettings: swiftSettings,
             plugins: []
         ),
