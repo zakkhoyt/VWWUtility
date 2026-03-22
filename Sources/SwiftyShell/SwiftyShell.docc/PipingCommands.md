@@ -9,7 +9,7 @@ replicates this by passing the stdout `Pipe` of one `Shell.Response` as the `std
 of the next `Shell.Command`. Two overloads of ``SwiftShell/process(commands:)`` handle the
 plumbing automatically.
 
-## Using process(commands:)
+## Running a Pipeline
 
 Pass an `[Shell.Command]` array to run the commands in sequence, with each command's stdout
 automatically wired to the next command's stdin:
