@@ -17,7 +17,7 @@ The structured API (`ZShell.process(command:)`) throws a ``Shell/Error-swift.str
 occur. The simple string APIs (`run` and `execute`) absorb errors and signal failure
 through `nil` output or a non-zero `terminationStatus` integer instead of throwing.
 
-## Shell.Error
+## The Error Type
 
 ``Shell/Error-swift.struct`` conforms to `LocalizedError` and carries three pieces of information:
 
@@ -43,11 +43,11 @@ do {
 }
 ```
 
-## Shell.Error.Cause
+## Error Cause Cases
 
 ``Shell/Error-swift.struct/Cause-swift.enum`` is an `enum` with four cases:
 
-### nonZeroTerminationStatus(_:)
+### Non-Zero Exit Code
 
 The most common case. The process ran to completion but exited with a non-zero status code.
 The associated `Int32` value is the exact exit code.
@@ -64,7 +64,7 @@ do {
 }
 ```
 
-### processRun(_:)
+### Launch Failure
 
 The `Process.run()` call itself threw — the executable was not found, the file was not
 executable, or a sandbox restriction prevented the launch. The associated value is the
@@ -84,7 +84,7 @@ do {
 }
 ```
 
-### failedToDecodePipe(_:)
+### Pipe Decode Failure
 
 The bytes written to stdout could not be decoded as UTF-8. The associated `Data?` value
 contains the raw bytes that failed decoding, or `nil` if the pipe was empty.
@@ -97,7 +97,7 @@ catch let error as Shell.Error {
 }
 ```
 
-### emptyCommandList
+### Empty Command List
 
 Thrown by `process(commands:)` when the caller passes an empty array. This is a
 programmer error and should not occur in production code.
