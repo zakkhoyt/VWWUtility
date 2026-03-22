@@ -192,6 +192,10 @@ let package = Package(
             targets: ["TerminalUtility"]
         ),
         .library(
+            name: "SwiftyShell",
+            targets: ["SwiftyShell"]
+        ),
+        .library(
             name: "VWWUtility",
             targets: ["VWWUtility"]
         )
@@ -204,7 +208,14 @@ let package = Package(
         .package(
             url: "https://github.com/apple/swift-collections.git",
             from: "1.0.5"
-        )
+        ),
+        .package(
+            // swift-docc-plugin
+            // See scripts/build-documentation.zsh
+            // https://github.com/swiftlang/swift-docc-plugin/releases
+            url: "https://github.com/swiftlang/swift-docc-plugin",
+            from: Version(1, 4, 6)
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -449,6 +460,35 @@ let package = Package(
             name: "NodesTests",
             dependencies: ["Nodes"],
             swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "SwiftyShell",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [
+                "README.md"
+            ],
+            resources: [],
+            swiftSettings: swiftSettings
+        ),
+        .executableTarget(
+            name: "SwiftyShellExample",
+            dependencies: [
+                .target(name: "SwiftyShell")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny")
+            ]
+        ),
+        .testTarget(
+            name: "SwiftyShellTests",
+            dependencies: ["SwiftyShell"],
+            exclude: [],
+            resources: [],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny")
+            ]
         )
     ]
 )
