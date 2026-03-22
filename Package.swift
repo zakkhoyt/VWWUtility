@@ -192,6 +192,10 @@ let package = Package(
             targets: ["TerminalUtility"]
         ),
         .library(
+            name: "SwiftyShell",
+            targets: ["SwiftyShell"]
+        ),
+        .library(
             name: "VWWUtility",
             targets: ["VWWUtility"]
         )
@@ -449,6 +453,35 @@ let package = Package(
             name: "NodesTests",
             dependencies: ["Nodes"],
             swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "SwiftyShell",
+            dependencies: [
+                "BaseUtility"
+            ],
+            exclude: [
+                "README.md"
+            ],
+            resources: [],
+            swiftSettings: swiftSettings
+        ),
+        .executableTarget(
+            name: "SwiftyShellExample",
+            dependencies: [
+                .target(name: "SwiftyShell")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny")
+            ]
+        ),
+        .testTarget(
+            name: "SwiftyShellTests",
+            dependencies: ["SwiftyShell"],
+            exclude: [],
+            resources: [],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny")
+            ]
         )
     ]
 )
