@@ -1,5 +1,29 @@
 # About
 
+
+
+# Documentation
+
+```zsh
+# Generate and check for warnings (no Xcode required)
+swift package \
+  --disable-sandbox \
+  generate-documentation \
+  --target SwiftyShell
+
+# Archive is written to:
+# .build/plugins/Swift-DocC/outputs/SwiftyShell.doccarchive
+
+# Preview in a browser (serves at localhost:8080)
+swift package \
+  --disable-sandbox \
+  preview-documentation \
+  --target SwiftyShell
+```
+
+
+
+
 # TODO
 * Rename DrawingUI -> Math
   * Package.swift
