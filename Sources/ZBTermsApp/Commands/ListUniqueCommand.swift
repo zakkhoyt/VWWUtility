@@ -9,42 +9,52 @@ struct ListUniqueCommand: AsyncParsableCommand {
         commandName: "list-unique",
         abstract: "List all unique terms found in the hierarchy, sorted by occurrence count.",
         discussion: """
-        Outputs a JSON array of unique term objects. Each entry contains:
+        Outputs a JSON array of unique term objects, sorted by count descending. Each entry:
           • term        — the term string (without surrounding underscores)
           • count       — number of path items that contain this term
           • path_items  — list of path items containing the term (lex sorted)
 
-        Accepts the same --dir, --exclude, --include, --max-depth, and --debug options
-        as the `report` command. --exclude and --include may each be repeated.
-        """
+        Examples:
+          zbterms list-unique --dir ~/videos
+          zbterms list-unique --dir ~/videos --include shoe
+          zbterms list-unique --dir ~/videos --exclude "*[clip]*" --max-depth 2
+        """,
+        version: ZBTermsVersion.string
     )
 
-    @OptionGroup
-    var shared: SharedOptions
+    @OptionGroup var crawl: CrawlOptions
+    @OptionGroup var filter: FilterOptions
+    @OptionGroup var developer: DeveloperOptions
 
     @Argument(
-        help: "What to mine: file (default), dir, or all."
+        help: ArgumentHelp(
+            "Scope of items to mine: file (default), dir, or all.",
+            valueName: "file|dir|all"
+        )
     )
     var container: TermContainer = .file
 
     @Flag(
         name: .customLong("include-empty"),
-        help: "Include path items that contain zero terms."
+        help: ArgumentHelp(
+            "Include path items that contain zero terms.",
+            discussion: "By default, items with no extractable terms are omitted from the report."
+        )
     )
     var includeEmpty: Bool = false
 
     init() {}
 
     func run() async throws {
-        try shared.validateDir()
-        SlogBridge.shared.isDebug = shared.debug
+        try crawl.validateDir()
+        SlogBridge.shared.isDebug = developer.debug
         await SlogBridge.shared.probe()
 
-        let options = shared.crawlerOptions(container: container)
+        let options = crawl.crawlerOptions(container: container, filter: filter, developer: developer)
         let pathItems = try await FileCrawler.crawl(options: options)
 
         let report = TermsReportBuilder.build(
-            rootDir: shared.resolvedDir,
+            rootDir: crawl.resolvedDir,
             pathItems: pathItems,
             includeEmpty: includeEmpty
         )

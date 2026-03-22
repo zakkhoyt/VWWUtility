@@ -11,51 +11,60 @@ struct RenameCommand: AsyncParsableCommand {
         commandName: "rename",
         abstract: "Rename files or directories matching a glob pattern.",
         discussion: """
-        Finds entries whose name matches --old (glob, same as find -name) and renames them
-        so that the matched portion becomes --new.  The --old and --new patterns support * wildcards.
+        Finds entries whose name matches --old (glob, same as find -name) and renames \
+        them so that the matched literal portion becomes --new. Wildcards * are stripped \
+        to derive the literal core; the core is replaced with the literal from --new.
 
-        Use --dry-run to preview what would be renamed without making changes.
-
-        Filtering (applied on top of --old matching):
-          --exclude <pattern>  Drop entries whose basename matches a glob. May be repeated.
-          --include <term>     Keep only entries whose basename contains this substring.
-                               May be repeated. Applied after --exclude patterns.
+        Use --dry-run to preview renames without making changes.
 
         Examples:
           zbterms rename --old "*_test_*" --new "*_demo_*" --dir ~/videos
           zbterms rename --old "*_shoe_*" --new "*_sneaker_*" --dry-run
           zbterms rename --old "*_shoe_*" --new "*_sneaker_*" --exclude "*tmp*" --include dunk
-        """
+        """,
+        version: ZBTermsVersion.string
     )
 
-    @OptionGroup
-    var shared: SharedOptions
+    @OptionGroup var crawl: CrawlOptions
+    @OptionGroup var filter: FilterOptions
+    @OptionGroup var developer: DeveloperOptions
 
     @Argument(
-        help: "What to rename: file (default), dir, or all."
+        help: ArgumentHelp(
+            "Scope of entries to rename: file (default), dir, or all.",
+            valueName: "file|dir|all"
+        )
     )
     var container: TermContainer = .file
 
     @Option(
         name: .customLong("old"),
-        help: "Glob pattern that selects entries to rename (matched against basename)."
+        help: ArgumentHelp(
+            "Glob pattern that selects entries to rename (matched against basename).",
+            discussion: "Same semantics as find -name. Example: \"*_shoe_*\"",
+            valueName: "glob"
+        )
     )
     var old: String
 
     @Option(
         name: .customLong("new"),
-        help: "Replacement pattern for the new basename."
+        help: ArgumentHelp(
+            "Replacement pattern for the new basename.",
+            discussion: "The literal core of --old is replaced with the literal core of --new. Example: \"*_sneaker_*\"",
+            valueName: "glob"
+        )
     )
     var new: String
 
     init() {}
 
     func run() async throws {
-        try shared.validateDir()
-        SlogBridge.shared.isDebug = shared.debug
+        try crawl.validateDir()
+        SlogBridge.shared.isDebug = developer.debug
         await SlogBridge.shared.probe()
 
-        let rootDir = shared.resolvedDir
+        let rootDir = crawl.resolvedDir
         let findCmd = buildFindCommand(rootDir: rootDir)
 
         // Find matching paths
@@ -67,10 +76,10 @@ struct RenameCommand: AsyncParsableCommand {
         )
 
         // Post-filter: keep only entries whose basename contains at least one include term.
-        if !shared.includes.isEmpty {
+        if !filter.includes.isEmpty {
             matchingPaths = matchingPaths.filter { path in
                 let basename = URL(fileURLWithPath: path).lastPathComponent
-                return shared.includes.contains { basename.localizedCaseInsensitiveContains($0) }
+                return filter.includes.contains { basename.localizedCaseInsensitiveContains($0) }
             }
         }
 
@@ -91,7 +100,7 @@ struct RenameCommand: AsyncParsableCommand {
             try await SlogBridge.shared.runStep(
                 will: "rename '\(basename)' → '\(newBasename)'",
                 command: mvCmd,
-                isDryRun: shared.dryRun
+                isDryRun: developer.dryRun
             )
         }
     }
@@ -101,14 +110,14 @@ struct RenameCommand: AsyncParsableCommand {
     private func buildFindCommand(rootDir: String) -> String {
         var parts = ["find"]
 
-        if shared.followSymlinks {
+        if crawl.followSymlinks {
             parts.append("-L")
         }
 
         parts.append(shellQuote(rootDir))
 
-        if shared.maxDepth > 0 {
-            parts += ["-maxdepth", "\(shared.maxDepth)"]
+        if crawl.maxDepth > 0 {
+            parts += ["-maxdepth", "\(crawl.maxDepth)"]
         }
 
         switch container {
@@ -122,7 +131,7 @@ struct RenameCommand: AsyncParsableCommand {
 
         parts += ["-name", shellQuote(old)]
 
-        for exclude in shared.excludes {
+        for exclude in filter.excludes {
             parts += ["!", "-name", shellQuote(exclude)]
         }
 

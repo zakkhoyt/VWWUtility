@@ -13,50 +13,49 @@ struct FindCommand: AsyncParsableCommand {
         abstract: "Find files/dirs that contain _terms_, printing one relative path per line.",
         discussion: """
         Runs the same pipeline as `report` but formats output as plain text:
-          • One relative file path per line (relative to --dir)
-          • Sorted by path
+          • One relative path per line (relative to --dir), sorted
+          • Pipeline-friendly: output can be piped to xargs, fzf, etc.
 
-        When --debug is set, the full JSON report is printed instead (identical to `report`).
-
-        Filtering:
-          --exclude <pattern>  Drop items whose extractable_path matches a glob.
-                               May be repeated. Uses find -not -name semantics.
-          --include <term>     Keep only items whose extractable_path contains this
-                               substring. May be repeated; item passes if it matches
-                               any include term. Applied after all --exclude patterns.
+        When --debug is set, the full JSON report is printed instead (same as `report`).
 
         Examples:
           zbterms find --dir ~/videos
           zbterms find --dir ~/videos --include shoe
           zbterms find --dir ~/videos --include shoe --include dunk
           zbterms find --dir ~/videos --exclude "*[clip]*" --include shoe
+          zbterms find --dir ~/videos | fzf
           zbterms find --dir ~/videos --debug   # full JSON report
-        """
+        """,
+        version: ZBTermsVersion.string
     )
 
-    @OptionGroup
-    var shared: SharedOptions
+    @OptionGroup var crawl: CrawlOptions
+    @OptionGroup var filter: FilterOptions
+    @OptionGroup var developer: DeveloperOptions
 
     @Argument(
-        help: "What to mine: file (default), dir, or all."
+        help: ArgumentHelp(
+            "Scope of items to mine: file (default), dir, or all.",
+            valueName: "file|dir|all"
+        )
     )
     var container: TermContainer = .file
 
     init() {}
 
     func run() async throws {
-        try shared.validateDir()
-        SlogBridge.shared.isDebug = shared.debug
+        try crawl.validateDir()
+        SlogBridge.shared.isDebug = developer.debug
         await SlogBridge.shared.probe()
 
-        let options = shared.crawlerOptions(container: container)
+        let options = crawl.crawlerOptions(container: container, filter: filter, developer: developer)
         let pathItems = try await FileCrawler.crawl(options: options)
 
-        if shared.debug {
+        if developer.debug {
             // Full JSON report — identical to `report` command output
             let report = TermsReportBuilder.build(
                 cliArguments: CommandLine.arguments,
-                rootDir: shared.resolvedDir,
+                rootDir: crawl.resolvedDir,
                 pathItems: pathItems,
                 includeEmpty: false
             )

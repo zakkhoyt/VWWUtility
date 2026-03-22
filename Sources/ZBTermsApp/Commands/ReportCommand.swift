@@ -16,48 +16,50 @@ struct ReportCommand: AsyncParsableCommand {
           • term_usages   — every path item paired with its extracted terms
           • unique_terms  — deduplicated terms sorted by occurrence count (descending)
 
-        Filtering:
-          --exclude <pattern>  Drop items whose extractable_path matches a glob.
-                               May be repeated. Uses find -not -name semantics.
-          --include <term>     Keep only items whose extractable_path contains this
-                               substring. May be repeated; item passes if it matches
-                               any include term. Applied after all --exclude patterns.
-
         Examples:
           zbterms report --dir ~/videos
+          zbterms report --dir ~/videos --container dir
           zbterms report --dir ~/videos --exclude "*[clip]*"
           zbterms report --dir ~/videos --include shoe --include dunk
-          zbterms report --dir ~/videos --exclude "*tmp*" --include shoe
-        """
+          zbterms report --dir ~/videos --exclude "*tmp*" --include "shoe,practice"
+        """,
+        version: ZBTermsVersion.string
     )
 
-    @OptionGroup
-    var shared: SharedOptions
+    @OptionGroup var crawl: CrawlOptions
+    @OptionGroup var filter: FilterOptions
+    @OptionGroup var developer: DeveloperOptions
 
     @Argument(
-        help: "What to mine: file (default), dir, or all."
+        help: ArgumentHelp(
+            "Scope of items to mine: file (default), dir, or all.",
+            valueName: "file|dir|all"
+        )
     )
     var container: TermContainer = .file
 
     @Flag(
         name: .customLong("include-empty"),
-        help: "Include path items that contain zero terms."
+        help: ArgumentHelp(
+            "Include path items that contain zero terms.",
+            discussion: "By default, items with no extractable terms are omitted from the report."
+        )
     )
     var includeEmpty: Bool = false
 
     init() {}
 
     func run() async throws {
-        try shared.validateDir()
-        SlogBridge.shared.isDebug = shared.debug
+        try crawl.validateDir()
+        SlogBridge.shared.isDebug = developer.debug
         await SlogBridge.shared.probe()
 
-        let options = shared.crawlerOptions(container: container)
+        let options = crawl.crawlerOptions(container: container, filter: filter, developer: developer)
         let pathItems = try await FileCrawler.crawl(options: options)
 
         let report = TermsReportBuilder.build(
             cliArguments: CommandLine.arguments,
-            rootDir: shared.resolvedDir,
+            rootDir: crawl.resolvedDir,
             pathItems: pathItems,
             includeEmpty: includeEmpty
         )
