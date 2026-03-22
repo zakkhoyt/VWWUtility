@@ -7,7 +7,7 @@
         "swift"
       ],
       "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
+      "cwd": "${workspaceFolder:hangzhou}",
       "name": "Debug NodesTerminalApp",
       "preLaunchTask": "swift: Build Debug NodesTerminalApp",
       "target": "NodesTerminalApp",
@@ -20,7 +20,7 @@
         "swift"
       ],
       "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
+      "cwd": "${workspaceFolder:hangzhou}",
       "name": "Release NodesTerminalApp",
       "preLaunchTask": "swift: Build Release NodesTerminalApp",
       "target": "NodesTerminalApp",
@@ -33,7 +33,7 @@
         "swift"
       ],
       "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
+      "cwd": "${workspaceFolder:hangzhou}",
       "name": "Debug VWWUtilityTerminalApp",
       "preLaunchTask": "swift: Build Debug VWWUtilityTerminalApp",
       "target": "VWWUtilityTerminalApp",
@@ -46,7 +46,7 @@
         "swift"
       ],
       "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
+      "cwd": "${workspaceFolder:hangzhou}",
       "name": "Release VWWUtilityTerminalApp",
       "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp",
       "target": "VWWUtilityTerminalApp",
@@ -66,7 +66,7 @@
         "--service-name",
         "vww-mpdev"
       ],
-      "cwd": "${workspaceFolder:VWWUtility}",
+      "cwd": "${workspaceFolder:hangzhou}",
       "name": "Debug MultipeerEngineTerminalApp",
       "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp",
       "target": "MultipeerEngineTerminalApp",
@@ -79,11 +79,31 @@
         "swift"
       ],
       "args": [],
-      "cwd": "${workspaceFolder:VWWUtility}",
+      "cwd": "${workspaceFolder:hangzhou}",
       "name": "Release MultipeerEngineTerminalApp",
       "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp",
       "target": "MultipeerEngineTerminalApp",
       "configuration": "release"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:hangzhou}",
+      "name": "Debug SwiftyShellExample",
+      "target": "SwiftyShellExample",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug SwiftyShellExample"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:hangzhou}",
+      "name": "Release SwiftyShellExample",
+      "target": "SwiftyShellExample",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release SwiftyShellExample"
     }
   ]
 }

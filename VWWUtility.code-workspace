@@ -134,5 +134,89 @@
     },
     "swift.backgroundCompilation": false,
     "swift.disableAutoResolve": true
+  },
+  "launch": {
+    "configurations": [
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Debug VWWUtilityTerminalApp (VWWUtility)",
+        "target": "VWWUtilityTerminalApp",
+        "configuration": "debug",
+        "preLaunchTask": "swift: Build Debug VWWUtilityTerminalApp (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Release VWWUtilityTerminalApp (VWWUtility)",
+        "target": "VWWUtilityTerminalApp",
+        "configuration": "release",
+        "preLaunchTask": "swift: Build Release VWWUtilityTerminalApp (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Debug SwiftyShellExample (VWWUtility)",
+        "target": "SwiftyShellExample",
+        "configuration": "debug",
+        "preLaunchTask": "swift: Build Debug SwiftyShellExample (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Release SwiftyShellExample (VWWUtility)",
+        "target": "SwiftyShellExample",
+        "configuration": "release",
+        "preLaunchTask": "swift: Build Release SwiftyShellExample (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Debug NodesTerminalApp (VWWUtility)",
+        "target": "NodesTerminalApp",
+        "configuration": "debug",
+        "preLaunchTask": "swift: Build Debug NodesTerminalApp (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Release NodesTerminalApp (VWWUtility)",
+        "target": "NodesTerminalApp",
+        "configuration": "release",
+        "preLaunchTask": "swift: Build Release NodesTerminalApp (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Debug MultipeerEngineTerminalApp (VWWUtility)",
+        "target": "MultipeerEngineTerminalApp",
+        "configuration": "debug",
+        "preLaunchTask": "swift: Build Debug MultipeerEngineTerminalApp (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Release MultipeerEngineTerminalApp (VWWUtility)",
+        "target": "MultipeerEngineTerminalApp",
+        "configuration": "release",
+        "preLaunchTask": "swift: Build Release MultipeerEngineTerminalApp (VWWUtility)"
+      }
+    ]
   }
 }
