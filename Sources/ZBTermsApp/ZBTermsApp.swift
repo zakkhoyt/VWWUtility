@@ -9,6 +9,7 @@ struct ZBTerms: AsyncParsableCommand {
             ReportCommand.self,
             ListUniqueCommand.self,
             RenameCommand.self,
+            FindCommand.self,
         ]
     )
 }

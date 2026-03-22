@@ -48,21 +48,13 @@ public final class SlogBridge: @unchecked Sendable {
 
     /// Logs an informational message to stderr (always printed).
     public func info(_ message: String) async {
-        if isAvailable {
-            await ZShell.execute(zsh: "\(preamble)\nslog_se \(zshQuote(message))")
-        } else {
-            fallbackPrint(message)
-        }
+        fallbackPrint(message)
     }
 
     /// Logs a debug message to stderr. No-op when `isDebug` is `false`.
     public func debug(_ message: String) async {
         guard isDebug else { return }
-        if isAvailable {
-            await ZShell.execute(zsh: "\(preamble)\nslog_se \(zshQuote(message))")
-        } else {
-            fallbackPrint(message)
-        }
+        fallbackPrint(message)
     }
 
     // MARK: - Step logging
@@ -136,7 +128,7 @@ public final class SlogBridge: @unchecked Sendable {
             throw SlogBridgeError.commandFailed(
                 command: command,
                 exitCode: result.terminationStatus,
-                stderr: result.stderr
+                stderr: nil
             )
         }
 
@@ -175,40 +167,60 @@ public final class SlogBridge: @unchecked Sendable {
 // MARK: - ZShell convenience extension
 
 extension ZShell {
-    /// Runs a multi-line Zsh script via `/bin/zsh -c` and forwards subprocess stderr
-    /// (where slog_* writes) to the parent's stderr file handle.
+    /// Runs a multi-line Zsh script via `/bin/zsh -c`.
+    ///
+    /// Stdout is captured and returned to the caller (e.g., for parsing `find` output).
+    /// Stderr is connected directly to the parent process's stderr file handle so that
+    /// `slog_*` output reaches the user's terminal with correct TTY detection and ANSI
+    /// color support. Routing stderr through a Pipe would cause `isatty(2)` to return 0
+    /// inside the subprocess, which suppresses slog's color output.
     @discardableResult
     static func execute(
         zsh script: String
-    ) async -> (stdout: String?, stderr: String?, terminationStatus: Int) {
-        let command = Shell.Command(
-            executableURL: URL(fileURLWithPath: "/bin/zsh"),
-            arguments: ["-c", script]
-        )
-        do {
-            let response = try await ZShell.process(command: command)
-            forwardStderr(response.stderr)
-            return (
-                stdout: response.stdout,
-                stderr: response.stderr,
-                terminationStatus: Int(response.process.terminationStatus)
-            )
-        } catch let error as Shell.Error {
-            forwardStderr(error.response.stderr)
-            return (
-                stdout: nil,
-                stderr: error.response.stderr,
-                terminationStatus: Int(error.response.process.terminationStatus)
-            )
-        } catch {
-            return (nil, error.localizedDescription, 127)
-        }
-    }
+    ) async -> (stdout: String?, terminationStatus: Int) {
+        await withCheckedContinuation { continuation in
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/bin/zsh")
+            process.arguments = ["-c", script]
+            process.environment = ProcessInfo.processInfo.environment
 
-    private static func forwardStderr(_ stderr: String?) {
-        guard let text = stderr, !text.isEmpty,
-              let data = text.data(using: .utf8) else { return }
-        FileHandle.standardError.write(data)
+            // Capture stdout so callers can parse results (e.g., file paths from find).
+            let stdoutPipe = Pipe()
+            process.standardOutput = stdoutPipe
+
+            // Mirror stderr directly to our own stderr — no Pipe, no buffering.
+            // This lets slog_* detect the terminal and emit ANSI-colored output.
+            process.standardError = FileHandle.standardError
+
+            // Stream stdout continuously to avoid pipe-buffer deadlock on large find output.
+            // stdoutData is accessed only from the serial readabilityHandler queue and then
+            // from terminationHandler after readGroup.wait() drains the handler — safe despite
+            // the cross-closure capture that Swift's Sendable checker flags.
+            nonisolated(unsafe) var stdoutData = Data()
+            let readGroup = DispatchGroup()
+            readGroup.enter()
+            stdoutPipe.fileHandleForReading.readabilityHandler = { fh in
+                let chunk = fh.availableData
+                if chunk.isEmpty {
+                    stdoutPipe.fileHandleForReading.readabilityHandler = nil
+                    readGroup.leave()
+                } else {
+                    stdoutData.append(chunk)
+                }
+            }
+
+            process.terminationHandler = { p in
+                readGroup.wait()
+                let stdout = stdoutData.isEmpty ? nil : String(data: stdoutData, encoding: .utf8)
+                continuation.resume(returning: (stdout, Int(p.terminationStatus)))
+            }
+
+            do {
+                try process.run()
+            } catch {
+                continuation.resume(returning: (nil, 127))
+            }
+        }
     }
 }
 

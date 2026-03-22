@@ -8,12 +8,14 @@ public enum TermsReportBuilder {
     /// Builds a complete `TermsReport` from the given path items.
     ///
     /// - Parameters:
+    ///   - cliArguments: The full `CommandLine.arguments` captured at invocation time.
     ///   - rootDir: The directory that was crawled (`--dir`).
     ///   - pathItems: Items returned by `FileCrawler.crawl(options:)`.
     ///   - includeEmpty: When `false` (default), items with zero terms are excluded from
     ///     `termUsages`. They are never counted toward `uniqueTerms`.
     /// - Returns: A fully populated `TermsReport`.
     public static func build(
+        cliArguments: [String] = [],
         rootDir: String,
         pathItems: [TermsReport.PathItem],
         includeEmpty: Bool = false
@@ -46,6 +48,7 @@ public enum TermsReportBuilder {
             }
 
         return TermsReport(
+            cliArguments: cliArguments,
             rootDir: rootDir,
             termUsages: termUsages,
             uniqueTerms: uniqueTerms

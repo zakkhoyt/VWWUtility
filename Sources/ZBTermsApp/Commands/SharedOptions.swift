@@ -19,9 +19,21 @@ struct SharedOptions: ParsableArguments {
 
     @Option(
         name: .customLong("exclude"),
-        help: "Exclude path items whose extractable_path matches this glob (same semantics as find -not -name)."
+        help: ArgumentHelp(
+            "Exclude path items whose extractable_path matches this glob (same semantics as find -not -name). May be repeated; an item is dropped if it matches any pattern.",
+            valueName: "pattern"
+        )
     )
-    var exclude: String?
+    var excludes: [String] = []
+
+    @Option(
+        name: .customLong("include"),
+        help: ArgumentHelp(
+            "Keep only path items whose extractable_path contains this substring. May be repeated; an item passes if it matches at least one include term. Applied after all --exclude patterns.",
+            valueName: "term"
+        )
+    )
+    var includes: [String] = []
 
     @Flag(
         name: .customLong("follow-symlinks"),
@@ -44,11 +56,10 @@ struct SharedOptions: ParsableArguments {
     init() {}
 
     /// Resolves the effective root directory, defaulting to `$PWD`.
+    /// Uses `easyDirURL` to expand tildes, resolve symlinks, and normalize the path.
     var resolvedDir: String {
-        if let dir {
-            return dir
-        }
-        return FileManager.default.currentDirectoryPath
+        let raw = dir ?? FileManager.default.currentDirectoryPath
+        return raw.easyDirURL.path
     }
 
     /// Validates `resolvedDir` exists and is a directory. Throws a validation error otherwise.
@@ -66,7 +77,8 @@ struct SharedOptions: ParsableArguments {
             rootDir: resolvedDir,
             container: container,
             maxDepth: maxDepth,
-            exclude: exclude,
+            excludes: excludes,
+            includes: includes,
             followSymlinks: followSymlinks,
             isDryRun: dryRun
         )

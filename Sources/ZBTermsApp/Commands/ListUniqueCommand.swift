@@ -14,7 +14,8 @@ struct ListUniqueCommand: AsyncParsableCommand {
           • count       — number of path items that contain this term
           • path_items  — list of path items containing the term (lex sorted)
 
-        Accepts the same options as the `report` command.
+        Accepts the same --dir, --exclude, --include, --max-depth, and --debug options
+        as the `report` command. --exclude and --include may each be repeated.
         """
     )
 

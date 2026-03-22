@@ -11,8 +11,23 @@ struct ReportCommand: AsyncParsableCommand {
         abstract: "Crawl a directory and report all terms found in file/dir names.",
         discussion: """
         Outputs pretty-printed, key-sorted JSON to stdout containing:
-          • term_usages  — every path item paired with its extracted terms
-          • unique_terms — deduplicated terms sorted by occurrence count (descending)
+          • cli_arguments — the full invocation (binary path, subcommand, flags)
+          • root_dir      — the directory that was crawled
+          • term_usages   — every path item paired with its extracted terms
+          • unique_terms  — deduplicated terms sorted by occurrence count (descending)
+
+        Filtering:
+          --exclude <pattern>  Drop items whose extractable_path matches a glob.
+                               May be repeated. Uses find -not -name semantics.
+          --include <term>     Keep only items whose extractable_path contains this
+                               substring. May be repeated; item passes if it matches
+                               any include term. Applied after all --exclude patterns.
+
+        Examples:
+          zbterms report --dir ~/videos
+          zbterms report --dir ~/videos --exclude "*[clip]*"
+          zbterms report --dir ~/videos --include shoe --include dunk
+          zbterms report --dir ~/videos --exclude "*tmp*" --include shoe
         """
     )
 
@@ -41,6 +56,7 @@ struct ReportCommand: AsyncParsableCommand {
         let pathItems = try await FileCrawler.crawl(options: options)
 
         let report = TermsReportBuilder.build(
+            cliArguments: CommandLine.arguments,
             rootDir: shared.resolvedDir,
             pathItems: pathItems,
             includeEmpty: includeEmpty

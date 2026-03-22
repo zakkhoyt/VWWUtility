@@ -22,20 +22,51 @@ swift package \
 ```
 
 
+---
 
 
-# TODO
-* Rename DrawingUI -> Math
-  * Package.swift
-  * Is there a way to rename packages?. [YES!](https://github.com/apple/swift-package-manager/blob/main/Documentation/ModuleAliasing.md)
-  
-  
-  
-* [X] CodableUtils from
-   * [ ] Remove intersection with BaseUtility
-   * [ ] set up tests
-* [ ] RadixUtils from Module
-* [ ] ColorUtils from DrawingUI?
-* [ ] ShellUtils from TermTools
-* [ ] SystemSettings form BaseUtility
-* [ ] Swift6
+```zsh
+swift run zbterms report 
+  --dir $HOME/conductor/workspaces/VWWUtility/sarajevo/.gitignored/test \
+  | jq '.unique_terms[] | (.term, .count)'
+```
+
+
+
+```zsh
+swift build \
+  --arch x86_64 --arch arm64 \
+  --configuration release \
+  --product zbterms
+  # --package-path ${PACKAGE_DIR}
+```
+
+
+
+---
+
+
+## Testing
+
+
+
+
+```zsh
+zbterms report 
+  --dir $HOME/conductor/workspaces/VWWUtility/sarajevo/.gitignored/test \
+  | jq '.unique_terms[] | (.term, .count)'
+```
+
+
+
+
+
+
+
+
+## 
+
+```zsh
+# present as a list of file
+zbterms report | jq '.term_usages[].path_item.path'
+```

@@ -16,9 +16,15 @@ struct RenameCommand: AsyncParsableCommand {
 
         Use --dry-run to preview what would be renamed without making changes.
 
+        Filtering (applied on top of --old matching):
+          --exclude <pattern>  Drop entries whose basename matches a glob. May be repeated.
+          --include <term>     Keep only entries whose basename contains this substring.
+                               May be repeated. Applied after --exclude patterns.
+
         Examples:
           zbterms rename --old "*_test_*" --new "*_demo_*" --dir ~/videos
           zbterms rename --old "*_shoe_*" --new "*_sneaker_*" --dry-run
+          zbterms rename --old "*_shoe_*" --new "*_sneaker_*" --exclude "*tmp*" --include dunk
         """
     )
 
@@ -53,12 +59,20 @@ struct RenameCommand: AsyncParsableCommand {
         let findCmd = buildFindCommand(rootDir: rootDir)
 
         // Find matching paths
-        let matchingPaths = try await SlogBridge.shared.runStep(
+        var matchingPaths = try await SlogBridge.shared.runStep(
             will: "find entries matching '\(old)' under \(rootDir)",
             command: findCmd,
             successMessage: "found matching entries",
             isDryRun: false // always run find even in dry-run; just skip the mv
         )
+
+        // Post-filter: keep only entries whose basename contains at least one include term.
+        if !shared.includes.isEmpty {
+            matchingPaths = matchingPaths.filter { path in
+                let basename = URL(fileURLWithPath: path).lastPathComponent
+                return shared.includes.contains { basename.localizedCaseInsensitiveContains($0) }
+            }
+        }
 
         guard !matchingPaths.isEmpty else {
             await SlogBridge.shared.info("no entries matched pattern '\(old)' under \(rootDir)")
@@ -108,7 +122,7 @@ struct RenameCommand: AsyncParsableCommand {
 
         parts += ["-name", shellQuote(old)]
 
-        if let exclude = shared.exclude {
+        for exclude in shared.excludes {
             parts += ["!", "-name", shellQuote(exclude)]
         }
 

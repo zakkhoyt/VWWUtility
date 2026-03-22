@@ -17,8 +17,14 @@ public enum FileCrawler {
         public let container: TermContainer
         /// Maximum directory depth. `0` means unlimited (no `-maxdepth` flag).
         public let maxDepth: Int
-        /// Glob pattern to exclude from results (matched against `extractable_path`).
-        public let exclude: String?
+        /// Glob patterns to exclude from results (matched against `extractable_path` via find `-not -name`).
+        /// All patterns are applied; an item is excluded if it matches **any** of them.
+        public let excludes: [String]
+        /// Substring terms that the `extractable_path` must contain.
+        /// Applied as a Swift post-filter after `find` returns results.
+        /// An item passes when its `extractable_path` contains **at least one** include term.
+        /// Ignored when empty.
+        public let includes: [String]
         /// Whether to follow symbolic links.
         public let followSymlinks: Bool
         /// Whether to emit dry-run logging instead of executing.
@@ -28,14 +34,16 @@ public enum FileCrawler {
             rootDir: String,
             container: TermContainer = .file,
             maxDepth: Int = 0,
-            exclude: String? = nil,
+            excludes: [String] = [],
+            includes: [String] = [],
             followSymlinks: Bool = false,
             isDryRun: Bool = false
         ) {
             self.rootDir = rootDir
             self.container = container
             self.maxDepth = maxDepth
-            self.exclude = exclude
+            self.excludes = excludes
+            self.includes = includes
             self.followSymlinks = followSymlinks
             self.isDryRun = isDryRun
         }
@@ -79,25 +87,14 @@ public enum FileCrawler {
 
         if options.isDryRun { return [] }
 
-        return lines.compactMap { absolutePath -> TermsReport.PathItem? in
+        var items: [TermsReport.PathItem] = lines.compactMap { absolutePath -> TermsReport.PathItem? in
             guard !absolutePath.isEmpty else { return nil }
 
-            // Make path relative to rootDir
             let relPath = URL(fileURLWithPath: absolutePath)
                 .pathRelative(to: rootURL)
 
             let contentType: TermsReport.PathContentType = container == .file ? .file : .dir
-
-            // extractable_path: basename for files, last path component for dirs
-            let extractable: String
-            switch container {
-            case .file:
-                extractable = URL(fileURLWithPath: absolutePath).lastPathComponent
-            case .dir:
-                extractable = URL(fileURLWithPath: absolutePath).lastPathComponent
-            case .all:
-                extractable = URL(fileURLWithPath: absolutePath).lastPathComponent
-            }
+            let extractable = URL(fileURLWithPath: absolutePath).lastPathComponent
 
             return TermsReport.PathItem(
                 pathContentType: contentType,
@@ -106,6 +103,18 @@ public enum FileCrawler {
                 absolutePath: absolutePath
             )
         }
+
+        // Post-filter: keep only items whose extractablePath (basename for files, leaf dir name
+        // for dirs) contains at least one include term. Excludes are applied by find (-not -name).
+        if !options.includes.isEmpty {
+            items = items.filter { item in
+                options.includes.contains { term in
+                    item.extractablePath.localizedCaseInsensitiveContains(term)
+                }
+            }
+        }
+
+        return items
     }
 
     /// Builds the `find` command string for a given container type.
@@ -135,8 +144,8 @@ public enum FileCrawler {
             break
         }
 
-        // Exclude filter (matches against basename, like find -name)
-        if let exclude = options.exclude {
+        // Exclude filters (each appends a ! -name clause; item must not match any of them)
+        for exclude in options.excludes {
             parts += ["!", "-name", shellQuote(exclude)]
         }
 

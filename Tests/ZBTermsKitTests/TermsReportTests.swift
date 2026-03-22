@@ -38,6 +38,7 @@ final class TermsReportTests: XCTestCase {
         let termUsage = TermsReport.TermUsage(pathItem: pathItem, terms: ["shoe"])
         let uniqueTerm = TermsReport.UniqueTerm(term: "shoe", count: 1, pathItems: [pathItem])
         let report = TermsReport(
+            cliArguments: [],
             rootDir: "/tmp",
             termUsages: [termUsage],
             uniqueTerms: [uniqueTerm]
@@ -99,7 +100,6 @@ final class TermsReportTests: XCTestCase {
             rootDir: tree.rootURL.path,
             container: .file,
             maxDepth: 0,
-            exclude: nil,
             followSymlinks: false,
             isDryRun: false
         )
@@ -133,7 +133,6 @@ final class TermsReportTests: XCTestCase {
             rootDir: tree.rootURL.path,
             container: .file,
             maxDepth: 0,
-            exclude: nil,
             followSymlinks: false,
             isDryRun: false
         )
@@ -157,7 +156,6 @@ final class TermsReportTests: XCTestCase {
             rootDir: tree.rootURL.path,
             container: .file,
             maxDepth: 0,
-            exclude: nil,
             followSymlinks: false,
             isDryRun: false
         )

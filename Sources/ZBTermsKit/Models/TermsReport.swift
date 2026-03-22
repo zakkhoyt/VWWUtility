@@ -75,10 +75,15 @@ public struct TermsReport: Codable, Sendable, Equatable {
     // MARK: - Properties
 
     enum CodingKeys: String, CodingKey {
+        case cliArguments = "cli_arguments"
         case rootDir = "root_dir"
         case termUsages = "term_usages"
         case uniqueTerms = "unique_terms"
     }
+
+    /// The full `CommandLine.arguments` array captured at invocation time.
+    /// Index 0 is the binary path; index 1 is the subcommand; remaining entries are flags and values.
+    public let cliArguments: [String]
 
     /// The directory that was crawled (value of `--dir`).
     public let rootDir: String
