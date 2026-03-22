@@ -43,11 +43,11 @@ do {
 }
 ```
 
-## `Shell.Error.Cause`
+## Shell.Error.Cause
 
 ``Shell/Error-swift.struct/Cause-swift.enum`` is an `enum` with four cases:
 
-### `.nonZeroTerminationStatus(Int32)`
+### nonZeroTerminationStatus(_:)
 
 The most common case. The process ran to completion but exited with a non-zero status code.
 The associated `Int32` value is the exact exit code.
@@ -64,7 +64,7 @@ do {
 }
 ```
 
-### `.processRun(Error)`
+### processRun(_:)
 
 The `Process.run()` call itself threw — the executable was not found, the file was not
 executable, or a sandbox restriction prevented the launch. The associated value is the
@@ -84,7 +84,7 @@ do {
 }
 ```
 
-### `.failedToDecodePipe(Data?)`
+### failedToDecodePipe(_:)
 
 The bytes written to stdout could not be decoded as UTF-8. The associated `Data?` value
 contains the raw bytes that failed decoding, or `nil` if the pipe was empty.
@@ -97,7 +97,7 @@ catch let error as Shell.Error {
 }
 ```
 
-### `.emptyCommandList`
+### emptyCommandList
 
 Thrown by `process(commands:)` when the caller passes an empty array. This is a
 programmer error and should not occur in production code.

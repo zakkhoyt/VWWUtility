@@ -7,7 +7,7 @@ Run shell commands from Swift — from a single line of code to a fully structur
 SwiftyShell provides three API tiers. Start with the simplest one that meets your needs
 and reach for the structured tier when you need error details, stderr, or exit codes.
 
-## Tier 1 — Simple: `ZShell.run(_:)`
+## Tier 1 — Simple: run(_:)
 
 Use ``SwiftShell/run(_:)`` when you only need stdout and don't care about errors:
 
@@ -24,7 +24,7 @@ let branch: String? = await ZShell.run("git rev-parse --abbrev-ref HEAD")
 `run` returns `nil` when the command produces no output or exits with a non-zero status.
 It never throws.
 
-## Tier 2 — String I/O: `ZShell.execute(_:)`
+## Tier 2 — String I/O: execute(_:)
 
 Use ``SwiftShell/execute(_:)`` when you also need stderr or the exit code:
 
@@ -45,7 +45,7 @@ Both `run` and `execute` accept a plain `String`. Arguments are split on spaces,
 commands like `"echo -n hello"` work as expected. For arguments that contain spaces,
 use the structured ``Shell/Command`` API (Tier 3) and pass an `[String]` array directly.
 
-## Tier 3 — Structured: `ZShell.process(command:)`
+## Tier 3 — Structured: process(command:)
 
 Use ``SwiftShell/process(command:)`` when you need typed errors, a custom working directory,
 or precise control over arguments:
