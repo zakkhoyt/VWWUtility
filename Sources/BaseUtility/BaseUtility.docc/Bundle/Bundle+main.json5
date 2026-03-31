@@ -1,0 +1,16 @@
+// Bundle.main
+[
+  {
+    "name": "Bundle.main",
+    "bundleIdentifier": "co.hatch.WalkingSkeletonApp",
+    "path": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app",
+    "bundleURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/",
+    "resourceURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/",
+    "executableURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/WalkingSkeletonApp",
+    "privateFrameworksURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/Frameworks/",
+    "sharedFrameworksURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/SharedFrameworks/",
+    "sharedSupportURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/SharedSupport/",
+    "builtInPlugInsURL": "/private/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/PlugIns/",
+    "appStoreReceiptURL": "/Users/zakkhoyt/Library/Containers/co.hatch.WalkingSkeletonApp/Data/StoreKit/sandboxReceipt"
+  }
+]
