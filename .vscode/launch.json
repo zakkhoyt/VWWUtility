@@ -104,6 +104,26 @@
       "target": "SwiftyShellExample",
       "configuration": "release",
       "preLaunchTask": "swift: Build Release SwiftyShellExample"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:sarajevo}",
+      "name": "Debug zbterms",
+      "target": "zbterms",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug zbterms"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:sarajevo}",
+      "name": "Release zbterms",
+      "target": "zbterms",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release zbterms"
     }
   ]
 }

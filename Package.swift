@@ -198,6 +198,10 @@ let package = Package(
         .library(
             name: "VWWUtility",
             targets: ["VWWUtility"]
+        ),
+        .executable(
+            name: "zbterms",
+            targets: ["ZBTermsApp"]
         )
     ],
     dependencies: [
@@ -489,6 +493,32 @@ let package = Package(
             swiftSettings: [
                 .enableUpcomingFeature("ExistentialAny")
             ]
+        ),
+        .executableTarget(
+            name: "ZBTermsApp",
+            dependencies: [
+                .target(name: "ZBTermsKit"),
+                .target(name: "CodableUtilities"),
+                .product(
+                    name: "ArgumentParser",
+                    package: "swift-argument-parser"
+                )
+            ],
+            swiftSettings: swiftSettings
+        ),
+        .target(
+            name: "ZBTermsKit",
+            dependencies: [
+                .target(name: "SwiftyShell"),
+                .target(name: "CodableUtilities"),
+                .target(name: "BaseUtility"),
+            ],
+            swiftSettings: swiftSettings
+        ),
+        .testTarget(
+            name: "ZBTermsKitTests",
+            dependencies: ["ZBTermsKit"],
+            swiftSettings: swiftSettings
         )
     ]
 )
