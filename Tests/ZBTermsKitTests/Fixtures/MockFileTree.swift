@@ -50,10 +50,13 @@ extension MockFileTree {
     public static func standard() throws -> MockFileTree {
         let tree = try MockFileTree()
 
-        // Files with common terms (simple topic-only terms, no hyphens in term names)
+        // Files with V1 terms (subject+params concatenated, no separator)
         try tree.addFile("videos/march madness_shoe_at14m3s_swish_f09_ on youtube.com - user - title.mp4")
         try tree.addFile("videos/practice_shoe_dunk_at30s_for5s_clip.mp4")
         try tree.addFile("videos/game_highlights_shoered_at2m15s.mp4")
+
+        // File with V2 terms (subject-params separated by "-")
+        try tree.addFile("videos/practice_shoe-ht-red_at14m3s_swish.mp4")
 
         // File with favorite rating (leading underscores)
         try tree.addFile("photos/__best_shot_shoe.jpg")

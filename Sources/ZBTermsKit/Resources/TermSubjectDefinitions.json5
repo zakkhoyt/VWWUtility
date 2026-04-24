@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Favorite Rating",
+    "definition": "A numeric rating from 0 to 99 indicating how much the author likes this file",
+    "basename_representation": "f"
+  },
+  {
+    "name": "Timestamp Start",
+    "definition": "The time offset within the media where a clip begins",
+    "basename_representation": "at"
+  },
+  {
+    "name": "Duration",
+    "definition": "How long a clip runs",
+    "basename_representation": "for"
+  },
+  {
+    "name": "Shoe",
+    "definition": "Content features a shoe",
+    "basename_representation": "shoe"
+  },
+  {
+    "name": "Basketball",
+    "definition": "Content features a basketball",
+    "basename_representation": "bball"
+  }
+]

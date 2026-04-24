@@ -50,7 +50,7 @@ public struct TermsReport: Codable, Sendable, Equatable {
 
         /// Terms extracted from `pathItem.extractablePath`, in left-to-right order.
         /// Does not include the surrounding `_` delimiters.
-        public let terms: [String]
+        public let terms: [Term]
     }
 
     /// A single unique term and a summary of where it appears.

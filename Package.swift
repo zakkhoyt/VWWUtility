@@ -513,6 +513,10 @@ let package = Package(
                 .target(name: "CodableUtilities"),
                 .target(name: "BaseUtility"),
             ],
+            resources: [
+                .copy("Resources/TermSubjectDefinitions.json5"),
+                .copy("Resources/ParameterDefinitions.json5"),
+            ],
             swiftSettings: swiftSettings
         ),
         .testTarget(

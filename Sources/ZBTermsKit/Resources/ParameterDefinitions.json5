@@ -1,0 +1,27 @@
+[
+  {
+    "name": "White",
+    "definition": "The color white",
+    "basename_representation": "w"
+  },
+  {
+    "name": "Red",
+    "definition": "The color red",
+    "basename_representation": "red"
+  },
+  {
+    "name": "Blue",
+    "definition": "The color blue",
+    "basename_representation": "blue"
+  },
+  {
+    "name": "High-Top",
+    "definition": "A high-top shoe style",
+    "basename_representation": "ht"
+  },
+  {
+    "name": "Wood",
+    "definition": "Made of or relates to wood",
+    "basename_representation": "wood"
+  }
+]

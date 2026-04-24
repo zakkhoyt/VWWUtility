@@ -59,7 +59,6 @@ struct ListUniqueCommand: AsyncParsableCommand {
             includeEmpty: includeEmpty
         )
 
-        // Output only the uniqueTerms array
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let data = try encoder.encode(report.uniqueTerms)

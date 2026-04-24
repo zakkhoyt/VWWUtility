@@ -35,7 +35,8 @@ final class TermsReportTests: XCTestCase {
 
     func test_jsonRoundTrip_termsReport() throws {
         let pathItem = makePathItem()
-        let termUsage = TermsReport.TermUsage(pathItem: pathItem, terms: ["shoe"])
+        let shoeTerm = try XCTUnwrap(try? Term(basenameRepresentation: "shoe"))
+        let termUsage = TermsReport.TermUsage(pathItem: pathItem, terms: [shoeTerm])
         let uniqueTerm = TermsReport.UniqueTerm(term: "shoe", count: 1, pathItems: [pathItem])
         let report = TermsReport(
             cliArguments: [],
@@ -68,17 +69,20 @@ final class TermsReportTests: XCTestCase {
 
     // MARK: - TermsReportBuilder
 
-    func test_uniqueTerms_sortedByCountDescending() {
+    func test_uniqueTerms_sortedByCountDescending() throws {
         let itemA = makePathItem(path: "a/file.mp4", extractablePath: "file.mp4", absolutePath: "/a/file.mp4")
         let itemB = makePathItem(path: "b/file.mp4", extractablePath: "file.mp4", absolutePath: "/b/file.mp4")
         let itemC = makePathItem(path: "c/file.mp4", extractablePath: "file.mp4", absolutePath: "/c/file.mp4")
 
+        let shoeTerm = try XCTUnwrap(try? Term(basenameRepresentation: "shoe"))
+        let dunkTerm = try XCTUnwrap(try? Term(basenameRepresentation: "dunk"))
+
         // shoe appears 3 times, dunk appears 1 time
         let pathItems = [itemA, itemB, itemC]
         let termUsages = [
-            TermsReport.TermUsage(pathItem: itemA, terms: ["shoe", "dunk"]),
-            TermsReport.TermUsage(pathItem: itemB, terms: ["shoe"]),
-            TermsReport.TermUsage(pathItem: itemC, terms: ["shoe"]),
+            TermsReport.TermUsage(pathItem: itemA, terms: [shoeTerm, dunkTerm]),
+            TermsReport.TermUsage(pathItem: itemB, terms: [shoeTerm]),
+            TermsReport.TermUsage(pathItem: itemC, terms: [shoeTerm]),
         ]
         // Build report manually to test builder
         let report = TermsReportBuilder.build(rootDir: "/tmp", pathItems: pathItems, includeEmpty: true)

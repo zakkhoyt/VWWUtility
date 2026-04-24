@@ -32,7 +32,7 @@ public enum TermsReportBuilder {
             termUsages.append(TermsReport.TermUsage(pathItem: item, terms: terms))
 
             for term in terms {
-                termToItems[term, default: []].append(item)
+                termToItems[term.subject.basenameRepresentation, default: []].append(item)
             }
         }
 
