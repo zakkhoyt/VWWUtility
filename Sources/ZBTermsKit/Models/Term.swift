@@ -218,7 +218,7 @@ extension Term {
                 return mainList 
             }
 
-            let secondaryList =  = (try? decoder.decode([Subject].self, from: data)) ?? []
+            let secondaryList = (try? decoder.decode([Subject].self, from: data)) ?? []
             return secondaryList + mainList
         }
     }
