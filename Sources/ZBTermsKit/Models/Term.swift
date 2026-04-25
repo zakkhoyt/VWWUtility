@@ -204,13 +204,22 @@ extension Term {
 
         /// Loads all predefined subjects from `TermSubjectDefinitions.json5`.
         static func loadAll() -> [Subject] {
-            guard
-                let url = Bundle.module.url(forResource: "TermSubjectDefinitions", withExtension: "json5"),
+            guard let url = Bundle.module.url(forResource: "TermSubjectDefinitions", withExtension: "json5"),
                 let data = try? Data(contentsOf: url)
             else { return [] }
             let decoder = JSONDecoder()
             decoder.allowsJSON5 = true
-            return (try? decoder.decode([Subject].self, from: data)) ?? []
+            let mainList = (try? decoder.decode([Subject].self, from: data)) ?? []
+
+
+            guard let url = Bundle.module.url(forResource: "TermSubjectDefinitions2", withExtension: "json5"),
+                let data = try? Data(contentsOf: url)
+            else { 
+                return mainList 
+            }
+
+            let secondaryList =  = (try? decoder.decode([Subject].self, from: data)) ?? []
+            return secondaryList + mainList
         }
     }
 
