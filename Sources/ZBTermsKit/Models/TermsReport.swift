@@ -53,23 +53,69 @@ public struct TermsReport: Codable, Sendable, Equatable {
         public let terms: [Term]
     }
 
+    /// Serializable form of a single `Term.Parameter`, including `parameter_type` which is
+    /// excluded from `Term.Parameter`'s own JSON encoding (it is a computed property there).
+    public struct ParameterOutput: Codable, Sendable, Equatable {
+
+        enum CodingKeys: String, CodingKey {
+            case basenameRepresentation = "basename_representation"
+            case parameterType          = "parameter_type"
+        }
+
+        public let basenameRepresentation: String
+        /// `"flag"` for presence-only parameters; `"option"` for key=value parameters.
+        public let parameterType: String
+
+        init(from parameter: Term.Parameter) {
+            self.basenameRepresentation = parameter.basenameRepresentation
+            switch parameter.parameterType {
+            case .flag:   self.parameterType = "flag"
+            case .option: self.parameterType = "option"
+            }
+        }
+    }
+
+    /// A specific raw term expression (e.g. `"f-06"`) and the path items that contain it.
+    public struct TermExpression: Codable, Sendable, Equatable {
+
+        enum CodingKeys: String, CodingKey {
+            case termExpression = "term_expression"
+            case parameters
+            case pathItems      = "path_items"
+        }
+
+        /// The raw term string as it appears in file basenames (e.g. `"f-06"`).
+        public let termExpression: String
+
+        /// The parameters extracted from this term expression.
+        public let parameters: [ParameterOutput]
+
+        /// All path items whose basename contains this exact term expression.
+        public let pathItems: [PathItem]
+    }
+
     /// A single unique term and a summary of where it appears.
     public struct UniqueTerm: Codable, Sendable, Equatable {
 
         enum CodingKeys: String, CodingKey {
             case term
             case count
-            case pathItems = "path_items"
+            case pathItems       = "path_items"
+            case termExpressions = "term_expressions"
         }
 
-        /// The term string, without surrounding `_` delimiters.
-        public let term: String
+        /// The subject of this term — full object with name, definition, and basename representation.
+        public let term: Term.Subject
 
         /// Number of path items that contain this term. Equal to `pathItems.count`.
         public let count: Int
 
         /// All path items that contain this term, lexicographically sorted by `path`.
         public let pathItems: [PathItem]
+
+        /// Grouping of path items by the specific raw term expression they contain
+        /// (e.g. `"f-06"` vs `"f-08"`), sorted by `term_expression`.
+        public let termExpressions: [TermExpression]
     }
 
     // MARK: - Properties

@@ -22,8 +22,16 @@ public enum TermsReportBuilder {
     ) -> TermsReport {
         // Build term usages
         var termUsages: [TermsReport.TermUsage] = []
-        // Accumulate: term → [PathItem]
-        var termToItems: [String: [TermsReport.PathItem]] = [:]
+        // subject BR → all items for that subject
+        var termToItems:     [String: [TermsReport.PathItem]] = [:]
+        // subject BR → Subject object (captured once per subject)
+        var subjectByBR:     [String: Term.Subject]           = [:]
+        // subject BR → set of raw term strings seen under it
+        var subjectToRaws:   [String: Set<String>]            = [:]
+        // raw term → items containing that exact raw term
+        var rawToItems:      [String: [TermsReport.PathItem]] = [:]
+        // raw term → parameters (stable; first occurrence wins)
+        var rawToParameters: [String: [Term.Parameter]]       = [:]
 
         for item in pathItems {
             let terms = TermExtractor.extractTerms(from: item.extractablePath)
@@ -32,19 +40,40 @@ public enum TermsReportBuilder {
             termUsages.append(TermsReport.TermUsage(pathItem: item, terms: terms))
 
             for term in terms {
-                termToItems[term.subject.basenameRepresentation, default: []].append(item)
+                let br = term.subject.basenameRepresentation
+                subjectByBR[br]                     = term.subject
+                termToItems[br, default: []].append(item)
+                subjectToRaws[br, default: []].insert(term.raw)
+                rawToItems[term.raw, default: []].append(item)
+                if rawToParameters[term.raw] == nil {
+                    rawToParameters[term.raw] = term.parameters
+                }
             }
         }
 
-        // Build unique terms sorted descending by count, then alphabetically by term
+        // Build unique terms sorted descending by count, then alphabetically by subject
         let uniqueTerms = termToItems
-            .map { term, items -> TermsReport.UniqueTerm in
-                let sorted = items.sorted { $0.path < $1.path }
-                return TermsReport.UniqueTerm(term: term, count: items.count, pathItems: sorted)
+            .map { br, items -> TermsReport.UniqueTerm in
+                let subject = subjectByBR[br]!
+                let termExpressions = (subjectToRaws[br] ?? []).sorted().map { raw in
+                    TermsReport.TermExpression(
+                        termExpression: raw,
+                        parameters: (rawToParameters[raw] ?? []).map {
+                            TermsReport.ParameterOutput(from: $0)
+                        },
+                        pathItems: (rawToItems[raw] ?? []).sorted { $0.path < $1.path }
+                    )
+                }
+                return TermsReport.UniqueTerm(
+                    term: subject,
+                    count: items.count,
+                    pathItems: items.sorted { $0.path < $1.path },
+                    termExpressions: termExpressions
+                )
             }
             .sorted {
                 if $0.count != $1.count { return $0.count > $1.count }
-                return $0.term < $1.term
+                return $0.term.basenameRepresentation < $1.term.basenameRepresentation
             }
 
         return TermsReport(
