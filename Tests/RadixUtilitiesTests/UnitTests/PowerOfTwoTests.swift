@@ -10,7 +10,7 @@ import XCTest
 
 class PowerOfTwoTests: XCTestCase {
     func testBinaryIntegerIsPowerOfTwo() {
-        if #available(iOS 18.0, *) {
+        if #available(iOS 18.0, macOS 15.0, *) {
             let exponents = [UInt128](0..<128)
             let powersOfTwo = exponents.map { UInt128(pow(2, Double($0))) }
             let notPowersOfTwo = powersOfTwo.map {
