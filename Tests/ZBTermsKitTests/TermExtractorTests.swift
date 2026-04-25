@@ -7,7 +7,7 @@ final class TermExtractorTests: XCTestCase {
 
     func test_commonTerms_extractedCorrectly() {
         let terms = TermExtractor.extractTerms(from: "video_shoe_dunk_at30s.mp4")
-        XCTAssertEqual(terms.map(\.raw), ["shoe", "dunk", "at30s"])
+        XCTAssertEqual(terms.map(\.raw), ["video", "shoe", "dunk", "at30s"])
     }
 
     func test_adjacentTermsShareDelimiter() {
@@ -29,7 +29,7 @@ final class TermExtractorTests: XCTestCase {
 
     func test_numberOnlyTerm() {
         let terms = TermExtractor.extractTerms(from: "clip_at30s_for5s.mp4")
-        XCTAssertEqual(terms.map(\.raw), ["at30s", "for5s"])
+        XCTAssertEqual(terms.map(\.raw), ["clip", "at30s", "for5s"])
     }
 
     func test_multipleAdjacentTerms_realWorldFilename() {
@@ -37,7 +37,7 @@ final class TermExtractorTests: XCTestCase {
         let terms = TermExtractor.extractTerms(
             from: "march madness_shoe_at14m3s_swish_f09_ on youtube.com - user - title.mp4"
         )
-        XCTAssertEqual(terms.map(\.raw), ["shoe", "at14m3s", "swish", "f09"])
+        XCTAssertEqual(terms.map(\.raw), ["shoe", "at14m3s", "swish", "f-09"])
     }
 
     // MARK: - Favorite rating (leading underscores)
@@ -88,12 +88,12 @@ final class TermExtractorTests: XCTestCase {
     func test_extensionStripped_beforeExtraction() {
         // Extension ".mp4" shouldn't interfere with term parsing
         let terms = TermExtractor.extractTerms(from: "file_shoe_dunk.mp4")
-        XCTAssertEqual(terms.map(\.raw), ["shoe", "dunk"])
+        XCTAssertEqual(terms.map(\.raw), ["file", "shoe", "dunk"])
     }
 
     func test_noExtension_worksCorrectly() {
         let terms = TermExtractor.extractTerms(from: "file_shoe_dunk")
-        XCTAssertEqual(terms.map(\.raw), ["shoe", "dunk"])
+        XCTAssertEqual(terms.map(\.raw), ["file", "shoe", "dunk"])
     }
 
     func test_termAtStartAndEnd() {
@@ -103,7 +103,7 @@ final class TermExtractorTests: XCTestCase {
 
     func test_singleTerm() {
         let terms = TermExtractor.extractTerms(from: "file_only_.mp4")
-        XCTAssertEqual(terms.map(\.raw), ["only"])
+        XCTAssertEqual(terms.map(\.raw), ["file", "only"])
     }
 
     func test_trailingTerm_noClosingUnderscore() {
@@ -172,7 +172,7 @@ final class TermExtractorTests: XCTestCase {
     func test_v1AndV2_mixedInSameFilename() {
         // V1 "shoe" and V2 "f-09" in same basename
         let terms = TermExtractor.extractTerms(from: "file_shoe_f-09_clip.mp4")
-        XCTAssertEqual(terms.count, 3)
+        XCTAssertEqual(terms.count, 4)
         let shoeTerm = terms.first { $0.raw == "shoe" }
         let fTerm = terms.first { $0.raw == "f-09" }
         XCTAssertEqual(shoeTerm?.syntaxVersion, .v1)

@@ -105,10 +105,10 @@ final class FileCrawlerTests: XCTestCase {
         let options = FileCrawler.Options(
             rootDir: tree.rootURL.path,
             container: .file,
-            excludes: ["*[clip]*", "*.txt"]
+            excludes: ["*clip*", "*.txt"]
         )
         let items = try await FileCrawler.crawl(options: options)
-        let clipFile = items.first { $0.extractablePath.contains("[clip]") }
+        let clipFile = items.first { $0.extractablePath.contains("clip") }
         XCTAssertNil(clipFile, "Files matching first exclude pattern should not appear")
         let txtFile = items.first { $0.extractablePath.hasSuffix(".txt") }
         XCTAssertNil(txtFile, "Files matching second exclude pattern should not appear")
@@ -118,11 +118,11 @@ final class FileCrawlerTests: XCTestCase {
         let options = FileCrawler.Options(
             rootDir: tree.rootURL.path,
             container: .file,
-            excludes: ["*[clip]*", "*.txt"]
+            excludes: ["*clip*", "*.txt"]
         )
         let items = try await FileCrawler.crawl(options: options)
         let mp4Files = items.filter { $0.extractablePath.hasSuffix(".mp4") }
-        // Some .mp4 files are not named *[clip]* — they should still be present
+        // Some .mp4 files don't contain "clip" — they should still be present
         XCTAssertFalse(mp4Files.isEmpty, "Non-matching .mp4 files should still appear")
     }
 
