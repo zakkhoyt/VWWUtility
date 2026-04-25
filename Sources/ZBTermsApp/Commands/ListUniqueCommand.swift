@@ -61,7 +61,8 @@ struct ListUniqueCommand: AsyncParsableCommand {
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        let data = try encoder.encode(report.uniqueTerms)
+        let sortedTerms = report.uniqueTerms.sorted { $0.term < $1.term }
+        let data = try encoder.encode(sortedTerms)
         guard let json = String(data: data, encoding: .utf8) else {
             throw ExitCode(1)
         }

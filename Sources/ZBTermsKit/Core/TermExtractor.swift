@@ -30,6 +30,11 @@ public enum TermExtractor {
                token.range(of: #"^[0-9]{1,4}$"#, options: .regularExpression) != nil {
                 return try? Term(basenameRepresentation: "ord-\(token)")
             }
+            // Any token: f followed by 1–4 digits with no dash → promote to f-<digits>
+            if token.range(of: #"^f[0-9]{1,4}$"#, options: .regularExpression) != nil {
+                let digits = String(token.dropFirst())
+                return try? Term(basenameRepresentation: "f-\(digits)")
+            }
             return try? Term(basenameRepresentation: token)
         }
     }

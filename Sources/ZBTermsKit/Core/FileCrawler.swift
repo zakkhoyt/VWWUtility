@@ -146,6 +146,8 @@ public enum FileCrawler {
 
         // Always exclude macOS metadata sidecar files
         parts += ["!", "-name", shellQuote(".DS_Store")]
+        // Always exclude hidden dotfiles (any name beginning with ".")
+        parts += ["!", "-name", shellQuote(".*")]
 
         // Exclude filters (each appends a ! -name clause; item must not match any of them)
         for exclude in options.excludes {
