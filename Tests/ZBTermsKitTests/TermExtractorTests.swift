@@ -43,11 +43,10 @@ final class TermExtractorTests: XCTestCase {
     // MARK: - Favorite rating (leading underscores)
 
     func test_favoriteRating_notExtractedAsCommonTerm() {
-        // "__best_shot.jpg" — leading __ should NOT appear in common terms
+        // "__best_shot.jpg" — leading __ produces f-02 prepended; "best" and "shot" follow
         let terms = TermExtractor.extractTerms(from: "__best_shot.jpg")
         XCTAssertFalse(terms.map(\.raw).contains(""), "Empty string should not be in terms")
-        // "best" and "shot" are valid terms
-        XCTAssertEqual(terms.map(\.raw), ["best", "shot"])
+        XCTAssertEqual(terms.map(\.raw), ["f-02", "best", "shot"])
     }
 
     func test_favoriteRating_singleUnderscore_detected() {
@@ -274,5 +273,37 @@ final class TermExtractorTests: XCTestCase {
         XCTAssertNotNil(ordTerm)
         XCTAssertEqual(ordTerm?.raw, "ord-03")
         XCTAssertEqual(ordTerm?.parameters.first?.basenameRepresentation, "03")
+    }
+
+    // MARK: - Leading-underscore favorite (v1 encoding)
+
+    func test_leadingUnderscores_two_prependsFavorite() {
+        let terms = TermExtractor.extractTerms(from: "__shot_dunk.mp4")
+        XCTAssertEqual(terms.first?.raw, "f-02")
+        XCTAssertEqual(terms.first?.subject.basenameRepresentation, "f")
+        XCTAssertEqual(terms.map(\.raw), ["f-02", "shot", "dunk"])
+    }
+
+    func test_leadingUnderscores_three_prependsFavorite() {
+        let terms = TermExtractor.extractTerms(from: "___shot.mp4")
+        XCTAssertEqual(terms.first?.raw, "f-03")
+    }
+
+    func test_leadingUnderscores_ten_prependsFavorite() {
+        let terms = TermExtractor.extractTerms(from: "__________shot.mp4")
+        XCTAssertEqual(terms.first?.raw, "f-10")
+    }
+
+    func test_leadingUnderscores_one_doesNotPrependFavorite() {
+        // Single leading _ is just the term delimiter — no synthetic favorite term
+        let terms = TermExtractor.extractTerms(from: "_shot.mp4")
+        XCTAssertFalse(terms.map(\.raw).contains("f-01"))
+        XCTAssertEqual(terms.map(\.raw), ["shot"])
+    }
+
+    func test_leadingUnderscores_eleven_doesNotPrependFavorite() {
+        // 11+ underscores exceed the 1–10 range; extractFavoriteRating returns nil
+        let terms = TermExtractor.extractTerms(from: "___________shot.mp4")
+        XCTAssertFalse(terms.map(\.raw).contains { $0.hasPrefix("f-") })
     }
 }

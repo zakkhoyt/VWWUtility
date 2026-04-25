@@ -23,10 +23,18 @@ public enum TermExtractor {
     public static func extractTerms(from extractablePath: String) -> [Term] {
         // Dotfiles (macOS sidecar files like .DS_Store, hidden configs) are never term sources.
         guard !extractablePath.hasPrefix(".") else { return [] }
+
+        // Leading-underscore favorite rating: 2–10 leading `_` encode a V1 favorite.
+        // Single `_` is just the term delimiter — not a rating.
+        var syntheticFavorite: Term? = nil
+        if let rating = extractFavoriteRating(from: extractablePath), rating >= 2 {
+            syntheticFavorite = try? Term(basenameRepresentation: "f-\(String(format: "%02d", rating))")
+        }
+
         // For files: strip extension so `_term_.mp4` is handled correctly.
         let stem = stripExtension(extractablePath)
         let tokens = commonTerms(in: stem)
-        return tokens.enumerated().compactMap { (index, token) in
+        let extracted = tokens.enumerated().compactMap { (index, token) -> Term? in
             // First token only: pure 1–4 digit string → auto-promote to ord-<digits>
             if index == 0,
                token.range(of: #"^[0-9]{1,4}$"#, options: .regularExpression) != nil {
@@ -39,6 +47,11 @@ public enum TermExtractor {
             }
             return try? Term(basenameRepresentation: token)
         }
+
+        if let syntheticFavorite {
+            return [syntheticFavorite] + extracted
+        }
+        return extracted
     }
 
     /// Returns the *favorite rating* (number of leading underscores, 1–10) if the basename

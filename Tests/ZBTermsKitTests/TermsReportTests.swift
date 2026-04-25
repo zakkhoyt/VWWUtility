@@ -37,7 +37,8 @@ final class TermsReportTests: XCTestCase {
         let pathItem = makePathItem()
         let shoeTerm = try XCTUnwrap(try? Term(basenameRepresentation: "shoe"))
         let termUsage = TermsReport.TermUsage(pathItem: pathItem, terms: [shoeTerm])
-        let uniqueTerm = TermsReport.UniqueTerm(term: "shoe", count: 1, pathItems: [pathItem])
+        let shoeSubject = Term.Subject(basenameRepresentation: "shoe")
+        let uniqueTerm = TermsReport.UniqueTerm(term: shoeSubject, count: 1, pathItems: [pathItem], termExpressions: [])
         let report = TermsReport(
             cliArguments: [],
             rootDir: "/tmp",
@@ -53,7 +54,7 @@ final class TermsReportTests: XCTestCase {
         XCTAssertEqual(decoded.rootDir, report.rootDir)
         XCTAssertEqual(decoded.termUsages.count, report.termUsages.count)
         XCTAssertEqual(decoded.uniqueTerms.count, report.uniqueTerms.count)
-        XCTAssertEqual(decoded.uniqueTerms.first?.term, "shoe")
+        XCTAssertEqual(decoded.uniqueTerms.first?.term.basenameRepresentation, "shoe")
     }
 
     func test_jsonCodingKeys_areSnakeCase() throws {
@@ -116,7 +117,7 @@ final class TermsReportTests: XCTestCase {
 
         // shoe=3, clip=2, dunk=1 → descending order
         XCTAssertFalse(report.uniqueTerms.isEmpty)
-        XCTAssertEqual(report.uniqueTerms.first?.term, "shoe",
+        XCTAssertEqual(report.uniqueTerms.first?.term.basenameRepresentation, "shoe",
                        "Most frequent term should be first")
 
         for i in 0..<(report.uniqueTerms.count - 1) {
