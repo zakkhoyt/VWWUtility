@@ -144,6 +144,9 @@ public enum FileCrawler {
             break
         }
 
+        // Always exclude macOS metadata sidecar files
+        parts += ["!", "-name", shellQuote(".DS_Store")]
+
         // Exclude filters (each appends a ! -name clause; item must not match any of them)
         for exclude in options.excludes {
             parts += ["!", "-name", shellQuote(exclude)]

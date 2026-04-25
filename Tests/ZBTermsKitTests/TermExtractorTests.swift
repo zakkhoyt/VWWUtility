@@ -187,6 +187,13 @@ final class TermExtractorTests: XCTestCase {
         XCTAssertEqual(v1.subject.basenameRepresentation, v2.subject.basenameRepresentation)
     }
 
+    // MARK: - .DS_Store
+
+    func test_dsStore_producesNoTerms() {
+        let terms = TermExtractor.extractTerms(from: ".DS_Store")
+        XCTAssertTrue(terms.isEmpty)
+    }
+
     // MARK: - UUID rejection
 
     func test_uuidToken_isRejected() {
