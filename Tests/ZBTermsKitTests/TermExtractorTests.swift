@@ -187,6 +187,31 @@ final class TermExtractorTests: XCTestCase {
         XCTAssertEqual(v1.subject.basenameRepresentation, v2.subject.basenameRepresentation)
     }
 
+    // MARK: - Favorite shorthand (f[0-9]{1,4})
+
+    func test_favoriteShorthand_promoted() {
+        let terms = TermExtractor.extractTerms(from: "clip_f08_shoe.mp4")
+        let fTerm = terms.first { $0.subject.basenameRepresentation == "f" }
+        XCTAssertNotNil(fTerm)
+        XCTAssertEqual(fTerm?.raw, "f-08")
+        XCTAssertEqual(fTerm?.syntaxVersion, .v2)
+        XCTAssertEqual(fTerm?.parameters.first?.basenameRepresentation, "08")
+    }
+
+    func test_favoriteShorthand_anyPosition() {
+        let terms = TermExtractor.extractTerms(from: "game_shoe_f03_dunk.mp4")
+        let fTerm = terms.first { $0.subject.basenameRepresentation == "f" }
+        XCTAssertNotNil(fTerm)
+        XCTAssertEqual(fTerm?.raw, "f-03")
+    }
+
+    func test_favoriteShorthand_alreadyV2_notDoublePromoted() {
+        let terms = TermExtractor.extractTerms(from: "clip_f-09_shoe.mp4")
+        let fTerm = terms.first { $0.subject.basenameRepresentation == "f" }
+        XCTAssertEqual(fTerm?.raw, "f-09")
+        XCTAssertEqual(fTerm?.syntaxVersion, .v2)
+    }
+
     // MARK: - .DS_Store
 
     func test_dsStore_producesNoTerms() {
