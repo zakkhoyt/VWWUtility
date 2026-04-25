@@ -2,26 +2,31 @@
   {
     "name": "White",
     "definition": "The color white",
-    "basename_representation": "w"
+    "basename_representation": "w",
+    "parameter_type": "key"
   },
   {
     "name": "Red",
     "definition": "The color red",
-    "basename_representation": "red"
+    "basename_representation": "red",
+    "parameter_type": "key"
   },
   {
     "name": "Blue",
     "definition": "The color blue",
-    "basename_representation": "blue"
+    "basename_representation": "blue",
+    "parameter_type": "key"
   },
   {
     "name": "High-Top",
     "definition": "A high-top shoe style",
-    "basename_representation": "ht"
+    "basename_representation": "ht",
+    "parameter_type": "key"
   },
   {
     "name": "Wood",
     "definition": "Made of or relates to wood",
-    "basename_representation": "wood"
+    "basename_representation": "wood",
+    "parameter_type": "key"
   }
 ]

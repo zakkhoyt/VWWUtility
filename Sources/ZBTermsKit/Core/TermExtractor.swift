@@ -21,6 +21,8 @@ public enum TermExtractor {
     ///   component of a directory path.
     /// - Returns: Terms in left-to-right order, without surrounding `_` delimiters.
     public static func extractTerms(from extractablePath: String) -> [Term] {
+        // Dotfiles (macOS sidecar files like .DS_Store, hidden configs) are never term sources.
+        guard !extractablePath.hasPrefix(".") else { return [] }
         // For files: strip extension so `_term_.mp4` is handled correctly.
         let stem = stripExtension(extractablePath)
         let tokens = commonTerms(in: stem)
