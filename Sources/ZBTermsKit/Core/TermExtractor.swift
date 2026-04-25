@@ -23,8 +23,14 @@ public enum TermExtractor {
     public static func extractTerms(from extractablePath: String) -> [Term] {
         // For files: strip extension so `_term_.mp4` is handled correctly.
         let stem = stripExtension(extractablePath)
-        return commonTerms(in: stem).compactMap { token in
-            try? Term(basenameRepresentation: token)
+        let tokens = commonTerms(in: stem)
+        return tokens.enumerated().compactMap { (index, token) in
+            // First token only: pure 1–4 digit string → auto-promote to ord-<digits>
+            if index == 0,
+               token.range(of: #"^[0-9]{1,4}$"#, options: .regularExpression) != nil {
+                return try? Term(basenameRepresentation: "ord-\(token)")
+            }
+            return try? Term(basenameRepresentation: token)
         }
     }
 

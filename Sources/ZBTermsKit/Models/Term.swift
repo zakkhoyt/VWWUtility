@@ -80,6 +80,12 @@ public struct Term: Codable, Sendable, Equatable {
             ).map(String.init)
 
             let subjectRaw = parts.first ?? basenameRepresentation
+
+            // UUID rejection: 8-char uppercase hex subject → this is a UUID token, not a term
+            if subjectRaw.range(of: #"^[A-Z0-9]{8}$"#, options: .regularExpression) != nil {
+                return nil
+            }
+
             self.subject = Term.predefinedSubjects
                 .first { $0.basenameRepresentation == subjectRaw }
                 ?? Subject(basenameRepresentation: subjectRaw)

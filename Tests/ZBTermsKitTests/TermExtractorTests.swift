@@ -186,4 +186,61 @@ final class TermExtractorTests: XCTestCase {
         let v2 = try XCTUnwrap(try? Term(basenameRepresentation: "shoe-ht-red"))
         XCTAssertEqual(v1.subject.basenameRepresentation, v2.subject.basenameRepresentation)
     }
+
+    // MARK: - UUID rejection
+
+    func test_uuidToken_isRejected() {
+        let term = try? Term(basenameRepresentation: "229963EF-D8D0-443A-987E-AA1161FB8C1C-6856-00000476BFF43267")
+        XCTAssertNil(term)
+    }
+
+    func test_uuidInFilename_notExtracted() {
+        let terms = TermExtractor.extractTerms(
+            from: "seat-red_ball_229963EF-D8D0-443A-987E-AA1161FB8C1C-6856-00000476BFF43267.mp4"
+        )
+        XCTAssertEqual(terms.map(\.raw), ["seat-red", "ball"])
+    }
+
+    func test_uuidInFilename_validTermsStillExtracted() {
+        let terms = TermExtractor.extractTerms(
+            from: "06_f06_nails-f-w_pntw_9B5C2C95-5CC8-4C58-95C8-EFBB305EA61D-6856-00000476BFB5DF49.mp4"
+        )
+        let raws = terms.map(\.raw)
+        XCTAssertTrue(raws.contains("f-06"))
+        XCTAssertTrue(raws.contains("nails-f-w"))
+        XCTAssertTrue(raws.contains("pntw"))
+        XCTAssertFalse(raws.contains { $0.range(of: #"^[A-Z0-9]{8}-"#, options: .regularExpression) != nil })
+    }
+
+    // MARK: - Order term (ord)
+
+    func test_ordShorthand_firstToken_promoted() {
+        let terms = TermExtractor.extractTerms(from: "01_f08_shoe_dunk.mp4")
+        XCTAssertEqual(terms.first?.raw, "ord-01")
+        XCTAssertEqual(terms.first?.syntaxVersion, .v2)
+        XCTAssertEqual(terms.first?.subject.basenameRepresentation, "ord")
+        XCTAssertEqual(terms.first?.parameters.first?.basenameRepresentation, "01")
+    }
+
+    func test_ordShorthand_zeroPadded() {
+        let terms = TermExtractor.extractTerms(from: "0003_shoe_dunk.mp4")
+        XCTAssertEqual(terms.first?.raw, "ord-0003")
+        XCTAssertEqual(terms.first?.subject.basenameRepresentation, "ord")
+        XCTAssertEqual(terms.first?.parameters.first?.basenameRepresentation, "0003")
+    }
+
+    func test_ordShorthand_nonFirstToken_notPromoted() {
+        // "shoe" is the leading token; "03" is not first — must not be auto-promoted
+        let terms = TermExtractor.extractTerms(from: "shoe_03_dunk.mp4")
+        XCTAssertFalse(terms.map(\.raw).contains("ord-03"))
+        XCTAssertTrue(terms.map(\.raw).contains("03"))
+    }
+
+    func test_ordV2_explicit_anyPosition() {
+        let terms = TermExtractor.extractTerms(from: "f-03_ord-03_shoe_dunk.mp4")
+        let ordTerm = terms.first { $0.subject.basenameRepresentation == "ord" }
+        XCTAssertNotNil(ordTerm)
+        XCTAssertEqual(ordTerm?.raw, "ord-03")
+        XCTAssertEqual(ordTerm?.parameters.first?.basenameRepresentation, "03")
+    }
 }
