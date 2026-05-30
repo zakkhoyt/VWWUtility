@@ -58,5 +58,17 @@
     "definition": "Free-form context/topic describing what happens during a clip",
     "basename_representation": "context",
     "parameter_type": "key"
+  },
+  {
+    "name": "Speed",
+    "definition": "Clip playback speed percentage (integer; 100 = normal, 50 = half/slower, 200 = double/faster)",
+    "basename_representation": "speed",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Interpolate",
+    "definition": "Flag enabling motion-interpolated frames for smoother slow motion (default off)",
+    "basename_representation": "interp",
+    "parameter_type": "key"
   }
 ]

@@ -65,6 +65,7 @@ _at=33s_                        ← subject "at" = "33s" (clip start); no params
 _at=33s-for=20_                 ← + option for=20 (clip duration)
 _at=2m15s-for=20-zoom=110_      ← + zoom
 _at=33s-zoom=110-zx=40-zy=30_   ← zoom with a focal point
+_at=33s-for=10-speed=50_        ← half-speed clip
 ```
 
 The full V2 term grammar is therefore:
@@ -76,8 +77,8 @@ The full V2 term grammar is therefore:
 Components are `[a-zA-Z0-9]+`; parameters are **order-independent** (`-zx=40-zoom=110` ≡
 `-zoom=110-zx=40`). Exact key matching applies — the duration key is `for`, never `forr`/`forx`.
 
-> Clip values (`at`, `for`, `zoom`, `zx`, `zy`) are opaque strings to ZBTermsKit; their meaning
-> (durations, percentages) is interpreted by the `zbclip` tool, not by term parsing.
+> Clip values (`at`, `for`, `zoom`, `zx`, `zy`, `speed`) are opaque strings to ZBTermsKit; their
+> meaning (durations, percentages) is interpreted by the `zbclip` tool, not by term parsing.
 
 ## Mixed Basenames
 
