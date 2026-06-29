@@ -1,0 +1,16 @@
+// Bundle.module
+[
+  {
+    "name": "Bundle.module",
+    "bundleIdentifier": "hatchmodules.HatchBLEClient.resources",
+    "path": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle",
+    "bundleURL": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle/",
+    "resourceURL": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle/",
+    "executableURL": null,
+    "privateFrameworksURL": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle/Frameworks/",
+    "sharedFrameworksURL": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle/SharedFrameworks/",
+    "sharedSupportURL": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle/SharedSupport/",
+    "builtInPlugInsURL": "/var/folders/kd/jr06zppx451b4kwyd2_bp9nc0000gn/X/3B142676-41A0-5475-A685-A4F25AE34E3E/d/Wrapper/WalkingSkeletonApp.app/HatchModules_HatchBLEClient.bundle/PlugIns/",
+    "appStoreReceiptURL": null
+  }
+]
