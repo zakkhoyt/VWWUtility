@@ -39,3 +39,28 @@ swift package \
 * [ ] ShellUtils from TermTools
 * [ ] SystemSettings form BaseUtility
 * [ ] Swift6
+
+
+
+
+
+
+Compiled binary (absolute path):
+```zsh
+~/conductor/workspaces/VWWUtility/sarajevo/.build/debug/zbterms
+```
+
+Using swift run from within the package directory:
+```zsh
+cd /Users/zakkhoyt/conductor/workspaces/VWWUtility/sarajevo
+swift run zbterms list-unique --dir ~/Videos --max-depth 2
+```
+
+Using swift run from any directory:
+```zsh
+swift run \
+  --package-path /Users/zakkhoyt/conductor/workspaces/VWWUtility/sarajevo \
+  zbterms \
+  list-unique 
+  --dir ~/Videos --max-depth 2
+```
