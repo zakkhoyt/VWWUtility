@@ -1,0 +1,2 @@
+The next phase will be to write a command line app (executableTarget named DSStoreApp). This will use SwiftArgumentParser to parse CLI args, then coordinate calls to  DSStoreTools. We might actually want another library target that is responsible for that coordinating. The first / main thing I'm interested in that app doing is creating / reading / writing `.DS_Store` files (macOS files used to customize folder appearances and also store per-folder settings. 
+
