@@ -504,6 +504,9 @@ let package = Package(
                     package: "swift-argument-parser"
                 )
             ],
+            resources: [
+                .copy("ZBTermsApp/docs/README_ZBTERMS.md")
+            ],
             swiftSettings: swiftSettings
         ),
         .target(
