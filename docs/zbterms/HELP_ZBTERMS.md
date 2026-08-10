@@ -22,16 +22,7 @@ swift package \
 ```
 
 
----
-
-
-```zsh
-swift run zbterms report 
-  --dir $HOME/conductor/workspaces/VWWUtility/sarajevo/.gitignored/test \
-  | jq '.unique_terms[] | (.term, .count)'
-```
-
-
+# Release Build / Archive
 
 ```zsh
 swift build \
@@ -41,32 +32,20 @@ swift build \
   # --package-path ${PACKAGE_DIR}
 ```
 
+# Use Cases
 
-
----
-
-
-## Testing
-
-
-
-
+## Unique Terms
 ```zsh
-zbterms report 
-  --dir $HOME/conductor/workspaces/VWWUtility/sarajevo/.gitignored/test \
+zbterms report \
+  --dir <path> \
   | jq '.unique_terms[] | (.term, .count)'
 ```
 
 
-
-
-
-
-
-
-## 
-
+## Term Uses
 ```zsh
-# present as a list of file
-zbterms report | jq '.term_usages[].path_item.path'
+# present as a list of files
+zbterms report \
+  --dir <path> \ 
+  | jq '.term_usages[].path_item.path'
 ```
