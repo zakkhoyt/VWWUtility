@@ -1,1 +1,0 @@
-/Users/zakkhoyt/Documents/notes/apple/swift/docc/SWIFT_DOCC_PLUGIN_SCOPES.md
