@@ -1,7 +1,7 @@
 @preconcurrency import ArgumentParser
 
 enum ZBTermsVersion {
-    static let string = "0.1.0"
+    static let string = "0.2.0"
 }
 
 @main
@@ -12,6 +12,9 @@ struct ZBTerms: AsyncParsableCommand {
         discussion: """
         Terms are tags embedded in filenames using underscore delimiters: _term_.
         Adjacent terms share delimiters with no doubling: _term1_term2_term3_.
+
+        v1 terms concatenate subject + parameters (_shoehtred_); v2 terms hyphen-separate them,
+        and a subject may carry an inline value (_shoe-ht-red_, _at=33s-for=20_).
 
         Run any subcommand with --help for details and examples.
         """,
