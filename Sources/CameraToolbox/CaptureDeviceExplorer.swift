@@ -30,14 +30,20 @@ public final class CaptureDeviceExplorer {
         position: .unspecified
     )
     
-    private let depthDataCameras = AVCaptureDevice.DiscoverySession(
-        deviceTypes: [
-            .builtInTrueDepthCamera,
-            .builtInLiDARDepthCamera
-        ],
-        mediaType: .video,
-        position: .unspecified
-    )
+    private let depthDataCameras: AVCaptureDevice.DiscoverySession? = {
+        #if os(iOS) || targetEnvironment(macCatalyst)
+        return AVCaptureDevice.DiscoverySession(
+            deviceTypes: [
+                .builtInTrueDepthCamera,
+                .builtInLiDARDepthCamera
+            ],
+            mediaType: .video,
+            position: .unspecified
+        )
+        #else
+        return nil
+        #endif
+    }()
     
     private let microphones = AVCaptureDevice.DiscoverySession(
         deviceTypes: [.microphone],
@@ -55,8 +61,9 @@ public final class CaptureDeviceExplorer {
         let externalCamerasDescription = externalCameras.devices.map { $0.localizedName }.listDescription()
         logger.debug("Explorer found [\(self.externalCameras.devices.count)] external cameras: \(externalCamerasDescription, privacy: .public)")
 
-        let depthDataCamerasDescription = depthDataCameras.devices.map { $0.localizedName }.listDescription()
-        logger.debug("Explorer found [\(self.depthDataCameras.devices.count)] depthData cameras: \(depthDataCamerasDescription, privacy: .public)")
+        let depthDataDevices = depthDataCameras?.devices ?? []
+        let depthDataCamerasDescription = depthDataDevices.map { $0.localizedName }.listDescription()
+        logger.debug("Explorer found [\(depthDataDevices.count)] depthData cameras: \(depthDataCamerasDescription, privacy: .public)")
         
         let microphonesDescription = microphones.devices.map { $0.localizedName }.listDescription()
         logger.debug("Explorer found [\(self.microphones.devices.count)] microphones: \(microphonesDescription, privacy: .public)")
@@ -65,7 +72,7 @@ public final class CaptureDeviceExplorer {
     public func allVideoCameras(
         position: AVCaptureDevice.Position = .unspecified
     ) -> [AVCaptureDevice] {
-        externalCameras.devices + frontCameras.devices + backCameras.devices + depthDataCameras.devices
+        externalCameras.devices + frontCameras.devices + backCameras.devices + (depthDataCameras?.devices ?? [])
     }
     
     /// Can be filtered by `deviceType`, `position`, etc..
@@ -119,6 +126,7 @@ public final class CaptureDeviceExplorer {
 
 @available(macCatalyst 17.0, *)
 extension [AVCaptureDevice.DeviceType] {
+    #if os(iOS) || targetEnvironment(macCatalyst)
     static let cameraDeviceTypes_iOS: Self = [
         .builtInWideAngleCamera,
         .builtInTelephotoCamera,
@@ -129,6 +137,9 @@ extension [AVCaptureDevice.DeviceType] {
         .builtInTrueDepthCamera,
         .builtInLiDARDepthCamera
     ]
+    #else
+    static let cameraDeviceTypes_iOS: Self = []
+    #endif
     
     static let cameraDeviceTypes_macOS: Self = [
         .external,
@@ -136,30 +147,28 @@ extension [AVCaptureDevice.DeviceType] {
         //        .deskViewCamera,
         //        .companionDeskViewCamera,
         .builtInWideAngleCamera,
-        .builtInTelephotoCamera,
-        .builtInUltraWideCamera,
-        .builtInDualCamera,
-        .builtInDualWideCamera,
-        .builtInTripleCamera,
-        .builtInTrueDepthCamera,
-        .builtInLiDARDepthCamera
     ]
 }
 
 extension [AVCaptureSession.Preset] {
-    static let all: Self = [
-        .photo, // photo quality
-        .high, // default
-        .medium,
-        .low,
-        .cif352x288,
-        .vga640x480,
-        .hd1280x720,
-        .hd1920x1080,
-        .hd4K3840x2160,
-        .iFrame960x540,
-        .iFrame1280x720,
-        .inputPriority, // Defer to what was set using AVCaptureDevice.setActiveFormat(:)
-    ]
+    static let all: Self = {
+        var presets: [AVCaptureSession.Preset] = [
+            .photo, // photo quality
+            .high, // default
+            .medium,
+            .low,
+            .cif352x288,
+            .vga640x480,
+            .hd1280x720,
+            .hd1920x1080,
+            .hd4K3840x2160,
+            .iFrame960x540,
+            .iFrame1280x720,
+        ]
+        #if os(iOS) || targetEnvironment(macCatalyst)
+        presets.append(.inputPriority) // Defer to what was set using AVCaptureDevice.setActiveFormat(:)
+        #endif
+        return presets
+    }()
 }
 

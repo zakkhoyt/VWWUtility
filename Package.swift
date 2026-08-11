@@ -504,9 +504,6 @@ let package = Package(
                     package: "swift-argument-parser"
                 )
             ],
-            resources: [
-                .copy("ZBTermsApp/docs/README_ZBTERMS.md")
-            ],
             swiftSettings: swiftSettings
         ),
         .target(
@@ -515,6 +512,11 @@ let package = Package(
                 .target(name: "SwiftyShell"),
                 .target(name: "CodableUtilities"),
                 .target(name: "BaseUtility"),
+            ],
+            resources: [
+                .copy("Resources/TermSubjectDefinitions.json5"),
+                .copy("Resources/TermSubjectDefinitions2.json5"),
+                .copy("Resources/ParameterDefinitions.json5"),
             ],
             swiftSettings: swiftSettings
         ),

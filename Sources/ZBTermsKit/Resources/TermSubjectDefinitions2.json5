@@ -1,0 +1,12 @@
+[
+  {
+    "name": "pantyhose",
+    "basename_representation": "ph"
+    "definition": "ph-{color}-{style}",
+  },
+  {
+    "basename_representation": "pnt"
+    "name": "panties",
+    "definition": "pnt-{color}-{style}",
+  }
+]
