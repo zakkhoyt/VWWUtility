@@ -242,7 +242,7 @@ public struct FileCrawler {
         
         let fileItems: [FileCrawler.Item] = try fileURLs.compactMap { url in
             guard let isHidden: NSNumber = url.resourceValue(key: .isHiddenKey) else {
-                let error = Error.missingURLResource(url, .isHiddenKey)
+                let error = Error.urlMissingResource(url: url, resourceKey: .isHiddenKey)
                 logger.error("\(error.localizedDescription)")
                 throw error
             }
@@ -261,13 +261,13 @@ public struct FileCrawler {
             
             // Dirs dont' have a fileSize
             guard let fileSizeNumber: NSNumber = url.resourceValue(key: .fileSizeKey) else {
-                let error = Error.missingURLResource(url, .fileSizeKey)
+                let error = Error.urlMissingResource(url: url, resourceKey: .fileSizeKey)
                 logger.error("\(error.localizedDescription)")
                 throw error
             }
             
             guard let isAliasFile: Bool = url.resourceValue(key: .isAliasFileKey) else {
-                let error = Error.missingURLResource(url, .isAliasFileKey)
+                let error = Error.urlMissingResource(url: url, resourceKey: .isAliasFileKey)
                 logger.error("\(error.localizedDescription)")
                 throw error
             }
@@ -317,7 +317,7 @@ public struct FileCrawler {
         }
         
         guard let isSymbolicLink: Bool = directoryURL.resourceValue(key: .isSymbolicLinkKey) else {
-            let error = FileCrawler.Error.missingURLResource(directoryURL, .isSymbolicLinkKey)
+            let error = FileCrawler.Error.urlMissingResource(url: directoryURL, resourceKey: .isSymbolicLinkKey)
             logger.error("\(error.localizedDescription)")
             throw error
         }
@@ -340,16 +340,43 @@ public struct FileCrawler {
                 .producesRelativePathURLs
             ]
             
+            let isAccessing = directoryURL.startAccessingSecurityScopedResource()
+            
+            // Here you're processing your url
+            defer {
+                if isAccessing {
+                    directoryURL.stopAccessingSecurityScopedResource()
+                }
+            }
+
             let urls = try FileManager.default.contentsOfDirectory(
                 at: directoryURL,
                 includingPropertiesForKeys: URLResourceKey.allResourceKeys,
+//                includingPropertiesForKeys: URLResourceKey.fileKindSystemResourceKeys + URLResourceKey.regularFileResourceKeys,
                 options: options
             )
                 .sorted {
                     // Default order for `eza -T`
                     $0.lastPathComponent.caseInsensitiveCompare($1.lastPathComponent) == .orderedAscending
                 }
-            let directoryURLs: [URL] = urls.filter { url in
+            let directoryURLs: [URL] = try urls.filter { url in
+//                guard try url.checkResourceIsReachable() else {
+//                    logger.warning("skipping directoryURL because it' checkResourceIsReachable == false")
+//                    return false
+//                }
+//                // https://stackoverflow.com/a/77142065/803882
+//#warning("TODO: zakkhoyt - Maybe try this too url.checkResourceIsReachable")
+//                let urlAccessGranted = url.startAccessingSecurityScopedResource()
+//                guard urlAccessGranted else {
+//                    logger.warning("skipping directoryURL because it urlAccessGranted == false")
+//                    return false
+//                }
+//                defer {
+//                    if urlAccessGranted {
+//                        url.stopAccessingSecurityScopedResource()
+//                    }
+//                }
+                
                 guard let number: NSNumber = url.resourceValue(key: .isDirectoryKey) else {
                     logger.fault("Failed to get resource for .isDirectoryKey for directoryURL: \(url.path(percentEncoded: false))")
                     return false
@@ -361,7 +388,25 @@ public struct FileCrawler {
 //                logger.debug("Including directoryURL: \(url.path(percentEncoded: false))")
                 return true
             }
-            let fileURLs: [URL] = urls.filter { url in
+            let fileURLs: [URL] = try urls.filter { url in
+//                guard try url.checkResourceIsReachable() else {
+//                    logger.warning("skipping fileURL because it' checkResourceIsReachable == false")
+//                    return false
+//                }
+//                // https://stackoverflow.com/a/77142065/803882
+//#warning("TODO: zakkhoyt - Maybe try this too url.checkResourceIsReachable")
+//                let urlAccessGranted = url.startAccessingSecurityScopedResource()
+//                guard urlAccessGranted else {
+//                    logger.warning("skipping fileURL because it urlAccessGranted == false")
+//                    return false
+//                }
+//                defer {
+//                    if urlAccessGranted {
+//                        url.stopAccessingSecurityScopedResource()
+//                    }
+//                }
+
+
                 guard let number: NSNumber = url.resourceValue(key: .isRegularFileKey) else {
                     logger.fault("Failed to get resource for .isDirectoryKey for fileURL: \(url.path(percentEncoded: false))")
                     return false
@@ -380,8 +425,19 @@ public struct FileCrawler {
 
             return (directoryURLs: directoryURLs, fileURLs: fileURLs)
         } catch {
-            logger.fault("\(error.localizedDescription)")
-            throw error
+            dump((error as NSError).userInfo)
+            if let errorURL: URL = ((error as NSError).userInfo["NSURL"] as? URL) {
+                let values = try? errorURL.resourceValues(forKeys: .allResourceKeys)
+                logger.fault("\(error.localizedDescription)\n\(values.debugDescription)")
+            } else {
+                logger.fault("\(error.localizedDescription)")
+            }
+            
+//            if (error as NSError).code == 257 {
+//                
+//            } else {
+                throw error
+//            }
         }
         
         //
@@ -389,27 +445,24 @@ public struct FileCrawler {
 }
 
 extension FileCrawler {
-    public enum DisplayFormat: CustomStringConvertible {
-        case eza
-        case find
-        //            case lsOne
-        
-        public var description: String {
-            switch self {
-            case .eza: "eza"
-            case .find: "find * -type f"
-                //                case .lsOne: "ls -1"
-            }
-        }
-    }
-}
-
-extension FileCrawler {
-    public enum Error: Swift.Error {
-        case missingURLResource(URL, URLResourceKey)
-        case missingURLResources(URL, [URLResourceKey])
+    public enum Error: LocalizedError {
+        case urlMissingResource(url: URL, resourceKey: URLResourceKey)
+        case urlMissingResources(url: URL, resourceKeys: [URLResourceKey])
         case expectedDirectoryURL(URL)
         case expectedFileURL(URL)
+        
+        public var errorDescription: String? {
+            switch self {
+            case .urlMissingResource(let url, let resourceKey):
+                "urlMissingResourceKey(url: \(url.absoluteString), resourceKey: \(resourceKey.debugDescription))"
+            case .urlMissingResources(let url, let resourceKeys):
+                "urlMissingResourceKey(url: \(url.absoluteString), resourceKeys: \(resourceKeys.debugDescription))"
+            case .expectedDirectoryURL(let url):
+                "expectedDirectoryURL(url: \(url.absoluteString)"
+            case .expectedFileURL(let url):
+                "expectedFileURL(url: \(url.absoluteString)"
+            }
+        }
     }
 }
 
@@ -418,6 +471,15 @@ extension FileCrawler {
     public enum Item {
         case directory(url: URL, isSymbolicLink: Bool, subdirectoryItems: [Item], fileItems: [Item])
         case regularFile(url: URL, sizeInBytes: UInt64, isAliasFile: Bool, fileExtension: String)
+            
+        public var childItems: [Item] {
+            switch self {
+            case .directory(_, _, let subdirectoryItems, let fileItems):
+                subdirectoryItems + fileItems
+            case .regularFile:
+                []
+            }
+        }
 
         public var isDirectory: Bool {
             switch self {
@@ -440,7 +502,7 @@ extension FileCrawler {
         public var path: String {
             get throws {
                 guard let path: String = url.resourceValue(key: .pathKey) else {
-                    let error = Error.missingURLResource(url, .pathKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .pathKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -451,7 +513,7 @@ extension FileCrawler {
         public var canonicalPath: String {
             get throws {
                 guard let canonicalPath: String = url.resourceValue(key: .canonicalPathKey) else {
-                    let error = Error.missingURLResource(url, .canonicalPathKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .canonicalPathKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -462,7 +524,7 @@ extension FileCrawler {
         public var addedToDirectoryDate: Date {
             get throws {
                 guard let addedToDirectoryDate: Date = url.resourceValue(key: .addedToDirectoryDateKey) else {
-                    let error = Error.missingURLResource(url, .addedToDirectoryDateKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .addedToDirectoryDateKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -473,7 +535,7 @@ extension FileCrawler {
         public var createdDate: Date {
             get throws {
                 guard let createdDate: Date = url.resourceValue(key: .creationDateKey) else {
-                    let error = Error.missingURLResource(url, .creationDateKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .creationDateKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -484,7 +546,7 @@ extension FileCrawler {
         public var modifiedDate: Date {
             get throws {
                 guard let modifiedDate: Date = url.resourceValue(key: .contentModificationDateKey) else {
-                    let error = Error.missingURLResource(url, .contentModificationDateKey)
+                    let error = Error.urlMissingResource(url: url, resourceKey: .contentModificationDateKey)
                     logger.error("\(error.localizedDescription)")
                     throw error
                 }
@@ -521,9 +583,18 @@ extension FileCrawler {
             url.deletingPathExtension().lastPathComponent
         }
         
+//        public var parentDirectoryURL: URL {
+//            url.deletingLastPathComponent().deletingPathExtension()
+//        }
+        
         public var parentDirectoryURL: URL {
-            url.deletingLastPathComponent().deletingPathExtension()
+            if let parentDirectoryURL: URL = url.resourceValue(key: .parentDirectoryURLKey) {
+                parentDirectoryURL
+            } else {
+                url.deletingPathExtension().deletingLastPathComponent()
+            }
         }
+
         
         public var urlResourcesDescription: String {
             let keys = URLResourceKey.fileKindSystemResourceKeys + URLResourceKey.privacyResourceKeys
@@ -559,3 +630,259 @@ extension [FileCrawler.Item] {
         }
     }
 }
+
+
+extension FileCrawler {
+    
+    public enum DisplayFormat: CustomStringConvertible {
+        /// ```sh
+        /// .
+        /// ├── Documents
+        /// │   ├── 240825_141507.txt
+        /// │   ├── 240825_142707.txt
+        /// │   ├── 240825_143038.txt
+        /// │   ├── 240825_144910
+        /// │   │   ├── 240825_144910.txt
+        /// ```
+        case eza
+
+
+        /// ```sh
+        /// $ find . | sort
+        /// .
+        /// ./.com.apple.mobile_container_manager.metadata.plist
+        /// ./Documents
+        /// ./Documents/240825_141507.txt
+        /// ./Documents/240825_142707.txt
+        /// ./Documents/240825_143038.txt
+        /// ./Documents/240825_144910
+        /// ./Documents/240825_144910.txt
+        /// ```
+        case find
+        
+        
+        /// ```sh
+        /// $ ls -R1
+        /// Documents
+        /// Library
+        ///
+        ///     ./Documents:
+        /// 240825_141507.txt
+        /// 240825_142707.txt
+        /// 240825_143038.txt
+        /// 240825_144910
+        /// 240825_144910.txt
+        /// FILE_PROVIDER.md
+        /// _240825_144910
+        ///
+        ///     ./Documents/240825_144910:
+        /// 240825_144910.txt
+        /// _240825_144910
+        /// ```
+        case ls
+        //            case lsOne
+        
+        var displayAbsolutePaths: Bool {
+            switch self {
+            case .eza:
+                false
+            case .find:
+                true
+            case .ls:
+                false
+            }
+        }
+
+        
+        public var description: String {
+            switch self {
+            case .eza: "eza"
+            case .find: "find * -type f"
+            case .ls: "ls -1dF **/*"
+//            case .ls: "ls -ldF **/*"
+                //                case .lsOne: "ls -1"
+            }
+        }
+    }
+    
+    /// ```sh
+    ///     .
+    /// ├── 240825_141507.txt
+    /// ├── 240825_142707.txt
+    /// ├── 240825_143038.txt
+    /// ├── 240825_144910
+    /// │  ├── 240825_144910.txt
+    /// │  └── _240825_144910
+    /// │     ├── 240825_144910.txt
+    /// │     └── _240825_144910
+    /// │        └── 240825_144910.txt
+    /// ├── _240825_144910
+    /// │  └── 240825_144910.txt
+    /// └── FILE_PROVIDER.md
+    /// ```
+    public static func formatTree(
+        items fileHierarchyItems: [Item],
+        format: DisplayFormat = .eza,
+        recursive: Bool = true,
+        level: Int = 0
+    ) {
+        //    ) -> [String] {
+        
+        // ```sh
+        //     .
+        // ├── 240825_141507.txt
+        // ├── 240825_142707.txt
+        // ├── 240825_143038.txt
+        // ├── 240825_144910
+        // │  ├── 240825_144910.txt
+        // │  └── _240825_144910
+        // │     ├── 240825_144910.txt
+        // │     └── _240825_144910
+        // │        └── 240825_144910.txt
+        // ├── _240825_144910
+        // │  └── 240825_144910.txt
+        // └── FILE_PROVIDER.md
+        // ```
+
+        
+        
+        
+        
+        ///
+        /// ## `$ eza -T`
+        /// ```sh
+        /// .
+        /// └── Documents
+        ///     ├── 240825_141507.txt
+        ///     ├── 240825_142707.txt
+        ///     ├── 240825_143038.txt
+        ///     ├── 240825_144910
+        ///     │   ├── 240825_144910.txt
+        ///     │   └── _240825_144910
+        ///     │       ├── 240825_144910.txt
+        ///     │       └── _240825_144910
+        ///     │           └── 240825_144910.txt
+        ///     ├── 240825_144910.txt
+        ///     ├── _240825_144910
+        ///     │   ├── 240825_144910.txt
+        ///     │   └── private_bundle
+        ///     │       ├── 240825_144910.txt
+        ///     │       └── videos
+        ///     │           ├── mov
+        ///     │           │   ├── obs_cams.mov
+        ///     │           │   └── volcanos.MOV
+        ///     │           └── mp4
+        ///     │               ├── blender.mp4
+        ///     │               ├── meatloaf.mp4
+        ///     │               ├── metroid.mp4
+        ///     │               └── sworrd_dog.mp4
+        ///     └── FILE_PROVIDER.md
+        /// ```
+        ///
+        ///
+        /// ## `$ eza -T`
+        ///
+        /// ```sh
+        /// .
+        /// └── Documents
+        ///     ├── 240825_144910
+        ///     │   └── _240825_144910
+        ///     │       └── _240825_144910
+        ///     ├── _240825_144910
+        ///     │   └── private_bundle
+        ///     │       └── videos
+        ///     │           ├── mov
+        ///     │           │   ├── obs_cams.mov
+        ///     │           │   └── volcanos.MOV
+        ///     │           └── mp4
+        ///     │               ├── blender.mp4
+        ///     │               ├── meatloaf.mp4
+        ///     │               ├── metroid.mp4
+        ///     │               └── sworrd_dog.mp4
+        ///
+        /// ```
+        ///
+        /// ## App (untouched)
+        ///
+        /// ```sh
+        /// └── Documents    **** D:[L:00]
+        /// │  ├── 240825_144910    **** D:[L:01]
+        /// │     └── _240825_144910    **** D:[L:02]
+        /// │        └── _240825_144910    **** D:[L:03]
+        /// │  └── _240825_144910    **** D:[L:01]
+        /// │     └── private_bundle    **** D:[L:02]
+        /// │        └── videos    **** D:[L:03]
+        /// │           ├── mov    **** D:[L:04]
+        /// │              └── obs_cams.mov    **** f:[L:05]
+        /// │           └── mp4    **** D:[L:04]
+        /// │              ├── blender.mp4    **** f:[L:05]
+        /// │              ├── meatloaf.mp4    **** f:[L:05]
+        /// │              ├── metroid.mp4    **** f:[L:05]
+        /// │              └── sworrd_dog.mp4    **** f:[L:05]
+        /// ```
+        ///
+        ///
+        /// ```sh
+        /// .
+        /// └── Documents    **** D:[L:00]
+        ///     ├── 240825_144910    **** D:[L:01]
+        ///     │   └── _240825_144910    **** D:[L:02]
+        ///     │         └── _240825_144910    **** D:[L:03]
+        ///     ├── _240825_144910    **** D:[L:01]
+        ///     │      └── private_bundle    **** D:[L:02]
+        ///     │          └── videos    **** D:[L:03]
+        ///     │              ├── mov    **** D:[L:04]
+        ///     │              └── obs_cams.mov    **** f:[L:05]
+        ///     │          └── mp4    **** D:[L:04]
+        ///     │              ├── blender.mp4    **** f:[L:05]
+        ///     │              ├── meatloaf.mp4    **** f:[L:05]
+        ///     │              ├── metroid.mp4    **** f:[L:05]
+        ///     │              └── sworrd_dog.mp4    **** f:[L:05]
+        /// ```
+        ///
+        ///
+        ///
+        ///
+        fileHierarchyItems.enumerated().forEach {
+            let index = $0
+            let fileHierarchyItem = $1
+            let directoryPath = fileHierarchyItem.parentDirectoryURL.path
+            let url = fileHierarchyItem.url
+            let displayName = url.lastPathComponent
+            let relativePath = format.displayAbsolutePaths ? url.path : url.path.replacingOccurrences(of: "\(directoryPath)", with: "")
+            
+#warning("TODO: zakkhoyt - add `.` or initial absolute")
+            let commonPrefix = "[L:\("\(level)".padded(length: 2, character: "0"))] "
+            let dirIndentPrefix = level > 0 ? "│  " : ""
+            let fileIndentPrefix = level > 0 ? "│  " : ""
+            
+            let dirIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
+            let fileIndentCore = String(repeating: "   ", count: Swift.max(0, level - 1))
+            let isLastElement = index == fileHierarchyItems.count - 1
+            let dirIndentPostfix = isLastElement ? "└── " : "├── "
+            let fileIndentPostfix = dirIndentPostfix
+            
+            let dirIndent = [dirIndentPrefix, dirIndentCore, dirIndentPostfix].joined()
+            let fileIndent = [fileIndentPrefix, fileIndentCore, fileIndentPostfix].joined()
+            
+            if fileHierarchyItem.isDirectory {
+                let line = "\(dirIndent)\(displayName)    **** D:\(commonPrefix)"
+                print(line)
+                
+                if recursive {
+                    formatTree(
+                        items: fileHierarchyItem.childItems,
+                        format: format,
+                        recursive: recursive,
+                        level: level + 1
+                    )
+                }
+            } else {
+                let line = "\(fileIndent)\(displayName)    **** f:\(commonPrefix)"
+                print(line)
+            }
+        }
+    }
+}
+    
+

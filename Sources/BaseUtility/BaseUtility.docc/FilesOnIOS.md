@@ -5,6 +5,11 @@ Applications and application extensions generally read/write files to/from 2 pla
 * Application Sandbox
 * A Shared App Group
 
+
+
+
+
+
 ## Application Sandbox
 
 An application stores its files in a directory known as the ***application sandbox***. This is a directory which is private to the app itself.
@@ -28,6 +33,15 @@ A few examples of files stored in the ***application sandbox***:
 * `UserDefaults.standard` data is stored in the ***application sandbox*** under `\(appSandboxURL)/Library/Preferences/\(Bundle.main.bundleIdentifier!).plist`
 * `Logger` log files are stored in the ***application sandbox*** under: `\(appSandboxURL)/Documents/\(dateStamp).log`
 
+
+
+
+
+
+
+
+
+
 ## App Group (Shared)
 
 Sometimes it may be useful for apps/extensions to share data. Apps cannot read data each others sandboxes but they *can* read from a shared `App Group`. This is a directory which is similar to an application sandbox with more open permission.
@@ -42,3 +56,4 @@ Again, the directory path for an ***app group*** varies by platform. Here are so
 A few examples of files stored in the ***app group***:
 * `UserDefaults.appGroup` stores data in a shared ***app group*** under `\(appGroupURL)/Library/Preferences/group.\(Bundle.main.bundleIdentifier!).plist`
 * `CoreDataService` stores its data in a shared ***app group*** under: `\(appGroupURL)/Nightlight.sqlite`
+
