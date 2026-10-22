@@ -55,6 +55,31 @@ _modem-speed=fast_      ← option: key "speed", value "fast"
 _bbbat-wood_            ← flag: "wood"
 ```
 
+### V2 Subject Values (clip terms)
+
+A V2 subject may also carry its own inline value via `=`, written `subject=value`. This is how
+*clip terms* are encoded: the subject `at` carries a `<time>` value, and clip parameters hang off it.
+
+```
+_at=33s_                        ← subject "at" = "33s" (clip start); no params
+_at=33s-for=20_                 ← + option for=20 (clip duration)
+_at=2m15s-for=20-zoom=110_      ← + zoom
+_at=33s-zoom=110-zx=40-zy=30_   ← zoom with a focal point
+_at=33s-for=10-speed=50_        ← half-speed clip
+```
+
+The full V2 term grammar is therefore:
+
+```
+‹subject›[=‹value›] ( -‹param› )*        param = ‹key›=‹value›  |  ‹flag›
+```
+
+Components are `[a-zA-Z0-9]+`; parameters are **order-independent** (`-zx=40-zoom=110` ≡
+`-zoom=110-zx=40`). Exact key matching applies — the duration key is `for`, never `forr`/`forx`.
+
+> Clip values (`at`, `for`, `zoom`, `zx`, `zy`, `speed`) are opaque strings to ZBTermsKit; their
+> meaning (durations, percentages) is interpreted by the `zbclip` tool, not by term parsing.
+
 ## Mixed Basenames
 
 A single basename may contain both V1 and V2 terms in any order. Each token is parsed
@@ -76,8 +101,9 @@ basename (extension removed). The rules are:
 3. **Trailing token** — valid characters after the last `_` with no closing `_` are
    captured as a term. For example `_dunk_clip.mp4` (after extension strip: `_dunk_clip`)
    yields `dunk` and `clip`
-4. **Invalid characters** — a token containing characters outside `[a-zA-Z0-9\-]` is
-   silently skipped (e.g. `_ on youtube.com` is not a term)
+4. **Allowed characters** — a token may contain `[a-zA-Z0-9\-=]`: letters, digits, the parameter
+   delimiter `-`, and the option delimiter `=` (the latter for subject-values and key=value params).
+   A token containing any other character is silently skipped (e.g. `_ on youtube.com` is not a term)
 
 ### Example Walkthrough
 
@@ -114,6 +140,21 @@ access from JSON resource files bundled with ZBTermsKit:
 
 When no predefined entry matches, ``Term`` creates a fallback ``Term/Subject`` or
 ``Term/Parameter`` whose `name` and `definition` are both set to the raw token string.
+
+## Special Promotions & Rejections
+
+Beyond plain tokenization, ``TermExtractor`` applies these rules during extraction, so the returned
+``Term`` list can differ from the raw basename tokens:
+
+- **Favorite rating (leading underscores).** A basename starting with 2–10 consecutive `_`
+  (followed by a non-`_`) encodes a favorite rating, promoted to a synthetic `f-NN` term
+  (`__best.jpg` → `f-02`). A single leading `_` is just the term delimiter, not a rating.
+- **Favorite shorthand.** A bare `fNN` token is normalized to `f-NN` (`f09` → `f-09`).
+- **Order.** A leading token of purely 1–4 digits is promoted to `ord-NNNN` (`03_clip.mp4` → `ord-03`).
+- **UUID rejection.** A V2 token whose subject is exactly 8 uppercase-hex characters
+  (`^[A-Z0-9]{8}$`, e.g. `A5722D74-F48D`) is treated as a UUID fragment and **not** emitted as a term.
+
+The `f`, `at`, `for`, and `ord` subjects are registered in `TermSubjectDefinitions.json5`.
 
 ## See Also
 

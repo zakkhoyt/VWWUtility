@@ -28,5 +28,47 @@
     "definition": "Made of or relates to wood",
     "basename_representation": "wood",
     "parameter_type": "key"
+  },
+  {
+    "name": "Duration",
+    "definition": "Clip duration parameter on an 'at' clip term (a <time> value, e.g. for=20, for=1m30s)",
+    "basename_representation": "for",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Zoom",
+    "definition": "Zoom percentage applied to a clip (integer; default 100 = no zoom)",
+    "basename_representation": "zoom",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Zoom Center X",
+    "definition": "Horizontal focal point for zoom as a percentage 0-100 from the left edge (default 50)",
+    "basename_representation": "zx",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Zoom Center Y",
+    "definition": "Vertical focal point for zoom as a percentage 0-100 from the top edge (default 50)",
+    "basename_representation": "zy",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Context",
+    "definition": "Free-form context/topic describing what happens during a clip",
+    "basename_representation": "context",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Speed",
+    "definition": "Clip playback speed percentage (integer; 100 = normal, 50 = half/slower, 200 = double/faster)",
+    "basename_representation": "speed",
+    "parameter_type": "key"
+  },
+  {
+    "name": "Interpolate",
+    "definition": "Flag enabling motion-interpolated frames for smoother slow motion (default off)",
+    "basename_representation": "interp",
+    "parameter_type": "key"
   }
 ]
