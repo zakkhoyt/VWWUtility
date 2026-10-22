@@ -515,7 +515,6 @@ let package = Package(
             ],
             resources: [
                 .copy("Resources/TermSubjectDefinitions.json5"),
-                .copy("Resources/TermSubjectDefinitions2.json5"),
                 .copy("Resources/ParameterDefinitions.json5"),
             ],
             swiftSettings: swiftSettings
