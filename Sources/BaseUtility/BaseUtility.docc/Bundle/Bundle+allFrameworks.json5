@@ -1,0 +1,3818 @@
+[
+  {
+    "bundleIdentifier": "com.apple.Email",
+    "path": "/System/Library/PrivateFrameworks/Email.framework",
+    "name": "Email.framework",
+    "original_index": 0
+  },
+  {
+    "bundleIdentifier": "com.apple.USDLib_FormatLoaderProxy",
+    "path": "/System/Library/PrivateFrameworks/USDLib_FormatLoaderProxy.framework",
+    "name": "USDLib_FormatLoaderProxy.framework",
+    "original_index": 1
+  },
+  {
+    "bundleIdentifier": "com.apple.DistributedSensing",
+    "path": "/System/Library/PrivateFrameworks/DistributedSensing.framework",
+    "name": "DistributedSensing.framework",
+    "original_index": 2
+  },
+  {
+    "bundleIdentifier": "com.apple.C2",
+    "path": "/System/Library/PrivateFrameworks/C2.framework",
+    "name": "C2.framework",
+    "original_index": 3
+  },
+  {
+    "bundleIdentifier": "com.apple.proactive.support.ProactiveSupport",
+    "path": "/System/Library/PrivateFrameworks/ProactiveSupport.framework",
+    "name": "ProactiveSupport.framework",
+    "original_index": 4
+  },
+  {
+    "bundleIdentifier": "com.apple.VisionKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/VisionKit.framework",
+    "name": "VisionKit.framework",
+    "original_index": 5
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleDepth",
+    "path": "/System/Library/PrivateFrameworks/AppleDepth.framework",
+    "name": "AppleDepth.framework",
+    "original_index": 6
+  },
+  {
+    "bundleIdentifier": "com.apple.HIServices",
+    "path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework",
+    "name": "HIServices.framework",
+    "original_index": 7
+  },
+  {
+    "bundleIdentifier": "com.apple.TranslationUIServices",
+    "path": "/System/Library/PrivateFrameworks/TranslationUIServices.framework",
+    "name": "TranslationUIServices.framework",
+    "original_index": 8
+  },
+  {
+    "bundleIdentifier": "com.apple.AuthKit",
+    "path": "/System/Library/PrivateFrameworks/AuthKit.framework",
+    "name": "AuthKit.framework",
+    "original_index": 9
+  },
+  {
+    "bundleIdentifier": "com.apple.EmailFoundation",
+    "path": "/System/Library/PrivateFrameworks/EmailFoundation.framework",
+    "name": "EmailFoundation.framework",
+    "original_index": 10
+  },
+  {
+    "bundleIdentifier": "com.apple.IOAccelerator",
+    "path": "/System/Library/PrivateFrameworks/IOAccelerator.framework",
+    "name": "IOAccelerator.framework",
+    "original_index": 11
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreAccessibility",
+    "path": "/System/Library/PrivateFrameworks/CoreAccessibility.framework",
+    "name": "CoreAccessibility.framework",
+    "original_index": 12
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreDuetDaemonProtocol",
+    "path": "/System/Library/PrivateFrameworks/CoreDuetDaemonProtocol.framework",
+    "name": "CoreDuetDaemonProtocol.framework",
+    "original_index": 13
+  },
+  {
+    "bundleIdentifier": "com.apple.SearchFoundation",
+    "path": "/System/Library/PrivateFrameworks/SearchFoundation.framework",
+    "name": "SearchFoundation.framework",
+    "original_index": 14
+  },
+  {
+    "bundleIdentifier": "com.apple.OpenDirectory",
+    "path": "/System/Library/Frameworks/OpenDirectory.framework",
+    "name": "OpenDirectory.framework",
+    "original_index": 15
+  },
+  {
+    "bundleIdentifier": "com.apple.PersonaKit",
+    "path": "/System/Library/PrivateFrameworks/PersonaKit.framework",
+    "name": "PersonaKit.framework",
+    "original_index": 16
+  },
+  {
+    "bundleIdentifier": "com.apple.managedconfiguration",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/ManagedConfiguration.framework",
+    "name": "ManagedConfiguration.framework",
+    "original_index": 17
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.parsec.CoreParsec",
+    "path": "/System/Library/PrivateFrameworks/CoreParsec.framework",
+    "name": "CoreParsec.framework",
+    "original_index": 18
+  },
+  {
+    "bundleIdentifier": "com.apple.STSXPCHelperClient",
+    "path": "/System/Library/PrivateFrameworks/STSXPCHelperClient.framework",
+    "name": "STSXPCHelperClient.framework",
+    "original_index": 19
+  },
+  {
+    "bundleIdentifier": "com.apple.AppSSOCore",
+    "path": "/System/Library/PrivateFrameworks/AppSSOCore.framework",
+    "name": "AppSSOCore.framework",
+    "original_index": 20
+  },
+  {
+    "bundleIdentifier": "com.apple.acg.AutoLoop",
+    "path": "/System/Library/PrivateFrameworks/AutoLoop.framework",
+    "name": "AutoLoop.framework",
+    "original_index": 21
+  },
+  {
+    "bundleIdentifier": "com.apple.TeaSettings",
+    "path": "/System/Library/PrivateFrameworks/TeaSettings.framework",
+    "name": "TeaSettings.framework",
+    "original_index": 22
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreMedia",
+    "path": "/System/Library/Frameworks/CoreMedia.framework",
+    "name": "CoreMedia.framework",
+    "original_index": 23
+  },
+  {
+    "bundleIdentifier": "com.apple.BiometricKit",
+    "path": "/System/Library/PrivateFrameworks/BiometricKit.framework",
+    "name": "BiometricKit.framework",
+    "original_index": 24
+  },
+  {
+    "bundleIdentifier": "com.apple.CalendarDaemon",
+    "path": "/System/Library/PrivateFrameworks/CalendarDaemon.framework",
+    "name": "CalendarDaemon.framework",
+    "original_index": 25
+  },
+  {
+    "bundleIdentifier": "com.apple.OTSVG",
+    "path": "/System/Library/PrivateFrameworks/OTSVG.framework",
+    "name": "OTSVG.framework",
+    "original_index": 26
+  },
+  {
+    "bundleIdentifier": "com.apple.TokenGenerationCore",
+    "path": "/System/Library/PrivateFrameworks/TokenGenerationCore.framework",
+    "name": "TokenGenerationCore.framework",
+    "original_index": 27
+  },
+  {
+    "bundleIdentifier": "com.apple.security.CryptoKit",
+    "path": "/System/Library/Frameworks/CryptoKit.framework",
+    "name": "CryptoKit.framework",
+    "original_index": 28
+  },
+  {
+    "bundleIdentifier": "com.apple.QuickLookIosmac",
+    "path": "/System/Library/PrivateFrameworks/QuickLookIosmac.framework",
+    "name": "QuickLookIosmac.framework",
+    "original_index": 29
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotoLibraryServices",
+    "path": "/System/Library/PrivateFrameworks/PhotoLibraryServices.framework",
+    "name": "PhotoLibraryServices.framework",
+    "original_index": 30
+  },
+  {
+    "bundleIdentifier": "com.apple.LanguageModeling",
+    "path": "/System/Library/PrivateFrameworks/LanguageModeling.framework",
+    "name": "LanguageModeling.framework",
+    "original_index": 31
+  },
+  {
+    "bundleIdentifier": "com.apple.MobileAssets",
+    "path": "/System/Library/PrivateFrameworks/MobileAsset.framework",
+    "name": "MobileAsset.framework",
+    "original_index": 32
+  },
+  {
+    "bundleIdentifier": "com.apple.SymptomPresentationFeed",
+    "path": "/System/Library/PrivateFrameworks/Symptoms.framework/Versions/A/Frameworks/SymptomPresentationFeed.framework",
+    "name": "SymptomPresentationFeed.framework",
+    "original_index": 33
+  },
+  {
+    "bundleIdentifier": "com.apple.imtransferservices",
+    "path": "/System/Library/PrivateFrameworks/IMTransferServices.framework",
+    "name": "IMTransferServices.framework",
+    "original_index": 34
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreWiFi",
+    "path": "/System/Library/PrivateFrameworks/CoreWiFi.framework",
+    "name": "CoreWiFi.framework",
+    "original_index": 35
+  },
+  {
+    "bundleIdentifier": "com.apple.TrialProto",
+    "path": "/System/Library/PrivateFrameworks/TrialProto.framework",
+    "name": "TrialProto.framework",
+    "original_index": 36
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.SiriInstrumentation",
+    "path": "/System/Library/PrivateFrameworks/SiriInstrumentation.framework",
+    "name": "SiriInstrumentation.framework",
+    "original_index": 37
+  },
+  {
+    "bundleIdentifier": "com.apple.spotlight.metadata.utilities",
+    "path": "/System/Library/PrivateFrameworks/MetadataUtilities.framework",
+    "name": "MetadataUtilities.framework",
+    "original_index": 38
+  },
+  {
+    "bundleIdentifier": "com.apple.imfoundation",
+    "path": "/System/Library/PrivateFrameworks/IMFoundation.framework",
+    "name": "IMFoundation.framework",
+    "original_index": 39
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.AVFAudio",
+    "path": "/System/Library/Frameworks/AVFAudio.framework",
+    "name": "AVFAudio.framework",
+    "original_index": 40
+  },
+  {
+    "bundleIdentifier": "com.apple.datadetectors",
+    "path": "/System/Library/PrivateFrameworks/DataDetectors.framework",
+    "name": "DataDetectors.framework",
+    "original_index": 41
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.SystemAdministration",
+    "path": "/System/Library/PrivateFrameworks/SystemAdministration.framework",
+    "name": "SystemAdministration.framework",
+    "original_index": 42
+  },
+  {
+    "bundleIdentifier": "com.apple.PowerLog",
+    "path": "/System/Library/PrivateFrameworks/PowerLog.framework",
+    "name": "PowerLog.framework",
+    "original_index": 43
+  },
+  {
+    "bundleIdentifier": "com.apple.SocialLayer",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/SocialLayer.framework",
+    "name": "SocialLayer.framework",
+    "original_index": 44
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.CoreAudio",
+    "path": "/System/Library/Frameworks/CoreAudio.framework",
+    "name": "CoreAudio.framework",
+    "original_index": 45
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomePubSub",
+    "path": "/System/Library/PrivateFrameworks/BiomePubSub.framework",
+    "name": "BiomePubSub.framework",
+    "original_index": 46
+  },
+  {
+    "bundleIdentifier": "com.apple.cryptokit.Chirp",
+    "path": "/System/Library/PrivateFrameworks/Chirp.framework",
+    "name": "Chirp.framework",
+    "original_index": 47
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MPSRayIntersector",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework",
+    "name": "MPSRayIntersector.framework",
+    "original_index": 48
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotosIntelligenceCore",
+    "path": "/System/Library/PrivateFrameworks/PhotosIntelligenceCore.framework",
+    "name": "PhotosIntelligenceCore.framework",
+    "original_index": 49
+  },
+  {
+    "bundleIdentifier": "com.apple.LinkMetadata",
+    "path": "/System/Library/PrivateFrameworks/LinkMetadata.framework",
+    "name": "LinkMetadata.framework",
+    "original_index": 50
+  },
+  {
+    "bundleIdentifier": "com.apple.TextRecognition",
+    "path": "/System/Library/PrivateFrameworks/TextRecognition.framework",
+    "name": "TextRecognition.framework",
+    "original_index": 51
+  },
+  {
+    "bundleIdentifier": "com.apple.private.EmbeddedAcousticRecognition",
+    "path": "/System/Library/PrivateFrameworks/EmbeddedAcousticRecognition.framework",
+    "name": "EmbeddedAcousticRecognition.framework",
+    "original_index": 52
+  },
+  {
+    "bundleIdentifier": "com.apple.locationsupport",
+    "path": "/System/Library/PrivateFrameworks/LocationSupport.framework",
+    "name": "LocationSupport.framework",
+    "original_index": 53
+  },
+  {
+    "bundleIdentifier": "com.apple.IntentsFoundation",
+    "path": "/System/Library/PrivateFrameworks/IntentsFoundation.framework",
+    "name": "IntentsFoundation.framework",
+    "original_index": 54
+  },
+  {
+    "bundleIdentifier": "com.apple.GLKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/GLKit.framework",
+    "name": "GLKit.framework",
+    "original_index": 55
+  },
+  {
+    "bundleIdentifier": "com.apple.dataaccess.dataaccessexpress.framework",
+    "path": "/System/Library/PrivateFrameworks/DataAccessExpress.framework",
+    "name": "DataAccessExpress.framework",
+    "original_index": 56
+  },
+  {
+    "bundleIdentifier": "com.apple.PhoneNumbers",
+    "path": "/System/Library/PrivateFrameworks/PhoneNumbers.framework",
+    "name": "PhoneNumbers.framework",
+    "original_index": 57
+  },
+  {
+    "bundleIdentifier": "com.apple.idsfoundation",
+    "path": "/System/Library/PrivateFrameworks/IDSFoundation.framework",
+    "name": "IDSFoundation.framework",
+    "original_index": 58
+  },
+  {
+    "bundleIdentifier": "com.apple.Intents",
+    "path": "/System/Library/Frameworks/Intents.framework",
+    "name": "Intents.framework",
+    "original_index": 59
+  },
+  {
+    "bundleIdentifier": "com.apple.InternalSwiftProtobuf",
+    "path": "/System/Library/PrivateFrameworks/InternalSwiftProtobuf.framework",
+    "name": "InternalSwiftProtobuf.framework",
+    "original_index": 60
+  },
+  {
+    "bundleIdentifier": "com.apple.PegasusAPI",
+    "path": "/System/Library/PrivateFrameworks/PegasusAPI.framework",
+    "name": "PegasusAPI.framework",
+    "original_index": 61
+  },
+  {
+    "bundleIdentifier": "com.apple.PerformanceAnalysis",
+    "path": "/System/Library/PrivateFrameworks/PerformanceAnalysis.framework",
+    "name": "PerformanceAnalysis.framework",
+    "original_index": 62
+  },
+  {
+    "bundleIdentifier": "com.apple.cmphoto.AppleJPEGXL",
+    "path": "/System/Library/PrivateFrameworks/AppleJPEGXL.framework",
+    "name": "AppleJPEGXL.framework",
+    "original_index": 63
+  },
+  {
+    "bundleIdentifier": "com.apple.ApplicationServices.ATS",
+    "path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework",
+    "name": "ATS.framework",
+    "original_index": 64
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreServices.CarbonCore",
+    "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework",
+    "name": "CarbonCore.framework",
+    "original_index": 65
+  },
+  {
+    "bundleIdentifier": "com.apple.ANEServices",
+    "path": "/System/Library/PrivateFrameworks/ANEServices.framework",
+    "name": "ANEServices.framework",
+    "original_index": 66
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaAccessibility",
+    "path": "/System/Library/Frameworks/MediaAccessibility.framework",
+    "name": "MediaAccessibility.framework",
+    "original_index": 67
+  },
+  {
+    "bundleIdentifier": "com.apple.dt.DeveloperToolsSupport",
+    "path": "/System/Library/Frameworks/DeveloperToolsSupport.framework",
+    "name": "DeveloperToolsSupport.framework",
+    "original_index": 68
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.Apple80211",
+    "path": "/System/Library/PrivateFrameworks/Apple80211.framework",
+    "name": "Apple80211.framework",
+    "original_index": 69
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.SiriAnalytics",
+    "path": "/System/Library/PrivateFrameworks/SiriAnalytics.framework",
+    "name": "SiriAnalytics.framework",
+    "original_index": 70
+  },
+  {
+    "bundleIdentifier": "com.apple.AppIntents",
+    "path": "/System/Library/Frameworks/AppIntents.framework",
+    "name": "AppIntents.framework",
+    "original_index": 71
+  },
+  {
+    "bundleIdentifier": "com.apple.InstalledContentLibrary",
+    "path": "/System/Library/PrivateFrameworks/InstalledContentLibrary.framework",
+    "name": "InstalledContentLibrary.framework",
+    "original_index": 72
+  },
+  {
+    "bundleIdentifier": "com.apple.AuthenticationServicesCore",
+    "path": "/System/Library/PrivateFrameworks/AuthenticationServicesCore.framework",
+    "name": "AuthenticationServicesCore.framework",
+    "original_index": 73
+  },
+  {
+    "bundleIdentifier": "com.apple.AppSupportUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/AppSupportUI.framework",
+    "name": "AppSupportUI.framework",
+    "original_index": 74
+  },
+  {
+    "bundleIdentifier": "com.apple.MessageSecurity",
+    "path": "/System/Library/PrivateFrameworks/MessageSecurity.framework",
+    "name": "MessageSecurity.framework",
+    "original_index": 75
+  },
+  {
+    "bundleIdentifier": "com.apple.mobileicons.framework",
+    "path": "/System/Library/PrivateFrameworks/MobileIcons.framework",
+    "name": "MobileIcons.framework",
+    "original_index": 76
+  },
+  {
+    "bundleIdentifier": "com.apple.security",
+    "path": "/System/Library/Frameworks/Security.framework",
+    "name": "Security.framework",
+    "original_index": 77
+  },
+  {
+    "bundleIdentifier": "com.apple.LocalAuthentication.LocalAuthenticationCoreUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/LocalAuthenticationCoreUI.framework",
+    "name": "LocalAuthenticationCoreUI.framework",
+    "original_index": 78
+  },
+  {
+    "bundleIdentifier": "com.apple.security.KeychainCircle.KeychainCircle",
+    "path": "/System/Library/PrivateFrameworks/KeychainCircle.framework",
+    "name": "KeychainCircle.framework",
+    "original_index": 79
+  },
+  {
+    "bundleIdentifier": "com.apple.ASEProcessing",
+    "path": "/System/Library/PrivateFrameworks/ASEProcessing.framework",
+    "name": "ASEProcessing.framework",
+    "original_index": 80
+  },
+  {
+    "bundleIdentifier": "com.apple.DuetActivityScheduler",
+    "path": "/System/Library/PrivateFrameworks/DuetActivityScheduler.framework",
+    "name": "DuetActivityScheduler.framework",
+    "original_index": 81
+  },
+  {
+    "bundleIdentifier": "com.apple.Futhark",
+    "path": "/System/Library/PrivateFrameworks/Futhark.framework",
+    "name": "Futhark.framework",
+    "original_index": 82
+  },
+  {
+    "bundleIdentifier": "com.apple.ReplayKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/ReplayKit.framework",
+    "name": "ReplayKit.framework",
+    "original_index": 83
+  },
+  {
+    "bundleIdentifier": "com.apple.SkyLight",
+    "path": "/System/Library/PrivateFrameworks/SkyLight.framework",
+    "name": "SkyLight.framework",
+    "original_index": 84
+  },
+  {
+    "bundleIdentifier": "com.apple.Safari.Shared",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/SafariShared.framework",
+    "name": "SafariShared.framework",
+    "original_index": 85
+  },
+  {
+    "bundleIdentifier": "com.apple.coreduetcontext",
+    "path": "/System/Library/PrivateFrameworks/CoreDuetContext.framework",
+    "name": "CoreDuetContext.framework",
+    "original_index": 86
+  },
+  {
+    "bundleIdentifier": "com.apple.acg.InertiaCam",
+    "path": "/System/Library/PrivateFrameworks/InertiaCam.framework",
+    "name": "InertiaCam.framework",
+    "original_index": 87
+  },
+  {
+    "bundleIdentifier": "com.apple.coreservices.SharedFileList",
+    "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework",
+    "name": "SharedFileList.framework",
+    "original_index": 88
+  },
+  {
+    "bundleIdentifier": "com.apple.BulkSymbolication",
+    "path": "/System/Library/PrivateFrameworks/BulkSymbolication.framework",
+    "name": "BulkSymbolication.framework",
+    "original_index": 89
+  },
+  {
+    "bundleIdentifier": "com.apple.crossdevicearbitration",
+    "path": "/System/Library/PrivateFrameworks/SiriCrossDeviceArbitration.framework",
+    "name": "SiriCrossDeviceArbitration.framework",
+    "original_index": 90
+  },
+  {
+    "bundleIdentifier": "com.apple.QuickLookUICore",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/QuickLookUICore.framework",
+    "name": "QuickLookUICore.framework",
+    "original_index": 91
+  },
+  {
+    "bundleIdentifier": "com.apple.QuartzCore",
+    "path": "/System/Library/Frameworks/QuartzCore.framework",
+    "name": "QuartzCore.framework",
+    "original_index": 92
+  },
+  {
+    "bundleIdentifier": "com.apple.speech.synthesis.framework",
+    "path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework",
+    "name": "SpeechSynthesis.framework",
+    "original_index": 93
+  },
+  {
+    "bundleIdentifier": "com.apple.UniformTypeIdentifiers",
+    "path": "/System/Library/Frameworks/UniformTypeIdentifiers.framework",
+    "name": "UniformTypeIdentifiers.framework",
+    "original_index": 94
+  },
+  {
+    "bundleIdentifier": "com.apple.vectordb.VectorSearch",
+    "path": "/System/Library/PrivateFrameworks/VectorSearch.framework",
+    "name": "VectorSearch.framework",
+    "original_index": 95
+  },
+  {
+    "bundleIdentifier": "com.apple.FileProvider",
+    "path": "/System/Library/Frameworks/FileProvider.framework",
+    "name": "FileProvider.framework",
+    "original_index": 96
+  },
+  {
+    "bundleIdentifier": "com.apple.GraphVisualizer",
+    "path": "/System/Library/PrivateFrameworks/GraphVisualizer.framework",
+    "name": "GraphVisualizer.framework",
+    "original_index": 97
+  },
+  {
+    "bundleIdentifier": "com.apple.SwiftData",
+    "path": "/System/Library/Frameworks/SwiftData.framework",
+    "name": "SwiftData.framework",
+    "original_index": 98
+  },
+  {
+    "bundleIdentifier": "com.apple.AAAFoundation",
+    "path": "/System/Library/PrivateFrameworks/AAAFoundation.framework",
+    "name": "AAAFoundation.framework",
+    "original_index": 99
+  },
+  {
+    "bundleIdentifier": "com.apple.coreui",
+    "path": "/System/Library/PrivateFrameworks/CoreUI.framework",
+    "name": "CoreUI.framework",
+    "original_index": 100
+  },
+  {
+    "bundleIdentifier": "com.apple.SceneKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/SceneKit.framework",
+    "name": "SceneKit.framework",
+    "original_index": 101
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MPSMatrix",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework",
+    "name": "MPSMatrix.framework",
+    "original_index": 102
+  },
+  {
+    "bundleIdentifier": "com.apple.AtomicsInternal",
+    "path": "/System/Library/PrivateFrameworks/AtomicsInternal.framework",
+    "name": "AtomicsInternal.framework",
+    "original_index": 103
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreBluetooth",
+    "path": "/System/Library/Frameworks/CoreBluetooth.framework",
+    "name": "CoreBluetooth.framework",
+    "original_index": 104
+  },
+  {
+    "bundleIdentifier": "com.apple.TemplateKit",
+    "path": "/System/Library/PrivateFrameworks/TemplateKit.framework",
+    "name": "TemplateKit.framework",
+    "original_index": 105
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.midi.CoreMIDI",
+    "path": "/System/Library/Frameworks/CoreMIDI.framework",
+    "name": "CoreMIDI.framework",
+    "original_index": 106
+  },
+  {
+    "bundleIdentifier": "com.apple.CSStore",
+    "path": "/System/Library/PrivateFrameworks/CoreServicesStore.framework",
+    "name": "CoreServicesStore.framework",
+    "original_index": 107
+  },
+  {
+    "bundleIdentifier": "com.apple.SoftwareUpdateCoreConnect",
+    "path": "/System/Library/PrivateFrameworks/SoftwareUpdateCoreConnect.framework",
+    "name": "SoftwareUpdateCoreConnect.framework",
+    "original_index": 108
+  },
+  {
+    "bundleIdentifier": "com.apple.QuickLookUIFramework",
+    "path": "/System/Library/Frameworks/QuickLookUI.framework",
+    "name": "QuickLookUI.framework",
+    "original_index": 109
+  },
+  {
+    "bundleIdentifier": "com.apple.PoirotSchematizer",
+    "path": "/System/Library/PrivateFrameworks/PoirotSchematizer.framework",
+    "name": "PoirotSchematizer.framework",
+    "original_index": 110
+  },
+  {
+    "bundleIdentifier": "com.apple.-AppIntentsServices.-AppIntents",
+    "path": "/System/Library/PrivateFrameworks/_AppIntentsServices_AppIntents.framework",
+    "name": "_AppIntentsServices_AppIntents.framework",
+    "original_index": 111
+  },
+  {
+    "bundleIdentifier": "com.apple.CBORLibrary",
+    "path": "/System/Library/PrivateFrameworks/CBORLibrary.framework",
+    "name": "CBORLibrary.framework",
+    "original_index": 112
+  },
+  {
+    "bundleIdentifier": "com.apple.newstransport",
+    "path": "/System/Library/PrivateFrameworks/NewsTransport.framework",
+    "name": "NewsTransport.framework",
+    "original_index": 113
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.PrintKit",
+    "path": "/System/Library/PrivateFrameworks/PrintKit.framework",
+    "name": "PrintKit.framework",
+    "original_index": 114
+  },
+  {
+    "bundleIdentifier": "com.apple.JavaScriptCore",
+    "path": "/System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework",
+    "name": "JavaScriptCore.framework",
+    "original_index": 115
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerationalStorage",
+    "path": "/System/Library/PrivateFrameworks/GenerationalStorage.framework",
+    "name": "GenerationalStorage.framework",
+    "original_index": 116
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteViewServices",
+    "path": "/System/Library/PrivateFrameworks/RemoteViewServices.framework",
+    "name": "RemoteViewServices.framework",
+    "original_index": 117
+  },
+  {
+    "bundleIdentifier": "com.apple.TeaDB",
+    "path": "/System/Library/PrivateFrameworks/TeaDB.framework",
+    "name": "TeaDB.framework",
+    "original_index": 118
+  },
+  {
+    "bundleIdentifier": "com.apple.CrashReporterSupport",
+    "path": "/System/Library/PrivateFrameworks/CrashReporterSupport.framework",
+    "name": "CrashReporterSupport.framework",
+    "original_index": 119
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaPlayer",
+    "path": "/System/iOSSupport/System/Library/Frameworks/MediaPlayer.framework",
+    "name": "MediaPlayer.framework",
+    "original_index": 120
+  },
+  {
+    "bundleIdentifier": "com.apple.tailspin.TailspinSymbolication",
+    "path": "/System/Library/PrivateFrameworks/TailspinSymbolication.framework",
+    "name": "TailspinSymbolication.framework",
+    "original_index": 121
+  },
+  {
+    "bundleIdentifier": "com.apple.Accessibility",
+    "path": "/System/Library/Frameworks/Accessibility.framework",
+    "name": "Accessibility.framework",
+    "original_index": 122
+  },
+  {
+    "bundleIdentifier": "com.apple.StocksKit",
+    "path": "/System/Library/PrivateFrameworks/StocksKit.framework",
+    "name": "StocksKit.framework",
+    "original_index": 123
+  },
+  {
+    "bundleIdentifier": "com.apple.signpost.SignpostSupport",
+    "path": "/System/Library/PrivateFrameworks/SignpostSupport.framework",
+    "name": "SignpostSupport.framework",
+    "original_index": 124
+  },
+  {
+    "bundleIdentifier": "com.apple.MarkupUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/MarkupUI.framework",
+    "name": "MarkupUI.framework",
+    "original_index": 125
+  },
+  {
+    "bundleIdentifier": "com.apple.TextComposer",
+    "path": "/System/Library/PrivateFrameworks/TextComposer.framework",
+    "name": "TextComposer.framework",
+    "original_index": 126
+  },
+  {
+    "bundleIdentifier": "com.apple.StreamingZip",
+    "path": "/System/Library/PrivateFrameworks/StreamingZip.framework",
+    "name": "StreamingZip.framework",
+    "original_index": 127
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.caulk",
+    "path": "/System/Library/PrivateFrameworks/caulk.framework",
+    "name": "caulk.framework",
+    "original_index": 128
+  },
+  {
+    "bundleIdentifier": "com.apple.IntelligencePlatformLibrary",
+    "path": "/System/Library/PrivateFrameworks/IntelligencePlatformLibrary.framework",
+    "name": "IntelligencePlatformLibrary.framework",
+    "original_index": 129
+  },
+  {
+    "bundleIdentifier": "com.apple.contextkit.ContextKit",
+    "path": "/System/Library/PrivateFrameworks/ContextKit.framework",
+    "name": "ContextKit.framework",
+    "original_index": 130
+  },
+  {
+    "bundleIdentifier": "com.apple.tightbeam",
+    "path": "/System/Library/PrivateFrameworks/Tightbeam.framework",
+    "name": "Tightbeam.framework",
+    "original_index": 131
+  },
+  {
+    "bundleIdentifier": "com.apple.coremotion",
+    "path": "/System/Library/Frameworks/CoreMotion.framework",
+    "name": "CoreMotion.framework",
+    "original_index": 132
+  },
+  {
+    "bundleIdentifier": "com.apple.login",
+    "path": "/System/Library/PrivateFrameworks/login.framework",
+    "name": "login.framework",
+    "original_index": 133
+  },
+  {
+    "bundleIdentifier": "com.apple.LinguisticData",
+    "path": "/System/Library/PrivateFrameworks/LinguisticData.framework",
+    "name": "LinguisticData.framework",
+    "original_index": 134
+  },
+  {
+    "bundleIdentifier": "com.apple.MMCS",
+    "path": "/System/Library/PrivateFrameworks/MMCS.framework",
+    "name": "MMCS.framework",
+    "original_index": 135
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreData",
+    "path": "/System/Library/Frameworks/CoreData.framework",
+    "name": "CoreData.framework",
+    "original_index": 136
+  },
+  {
+    "bundleIdentifier": "com.apple.BluetoothManager",
+    "path": "/System/Library/PrivateFrameworks/BluetoothManager.framework",
+    "name": "BluetoothManager.framework",
+    "original_index": 137
+  },
+  {
+    "bundleIdentifier": "com.apple.VirtualGarage",
+    "path": "/System/Library/PrivateFrameworks/VirtualGarage.framework",
+    "name": "VirtualGarage.framework",
+    "original_index": 138
+  },
+  {
+    "bundleIdentifier": "com.apple.PhysicsKit",
+    "path": "/System/Library/PrivateFrameworks/PhysicsKit.framework",
+    "name": "PhysicsKit.framework",
+    "original_index": 139
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreFollowUp-OSX",
+    "path": "/System/Library/PrivateFrameworks/CoreFollowUp.framework",
+    "name": "CoreFollowUp.framework",
+    "original_index": 140
+  },
+  {
+    "bundleIdentifier": "com.apple.SwiftUI",
+    "path": "/System/iOSSupport/System/Library/Frameworks/SwiftUI.framework",
+    "name": "SwiftUI.framework",
+    "original_index": 141
+  },
+  {
+    "bundleIdentifier": "com.apple.CommonPanels",
+    "path": "/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CommonPanels.framework",
+    "name": "CommonPanels.framework",
+    "original_index": 142
+  },
+  {
+    "bundleIdentifier": "com.apple.MobileSystemServices",
+    "path": "/System/Library/PrivateFrameworks/MobileSystemServices.framework",
+    "name": "MobileSystemServices.framework",
+    "original_index": 143
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.AccessibilityUIUtilities",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/AccessibilityUIUtilities.framework",
+    "name": "AccessibilityUIUtilities.framework",
+    "original_index": 144
+  },
+  {
+    "bundleIdentifier": "com.apple.datadetectorscore",
+    "path": "/System/Library/PrivateFrameworks/DataDetectorsCore.framework",
+    "name": "DataDetectorsCore.framework",
+    "original_index": 145
+  },
+  {
+    "bundleIdentifier": "com.apple.Navigation",
+    "path": "/System/Library/PrivateFrameworks/Navigation.framework",
+    "name": "Navigation.framework",
+    "original_index": 146
+  },
+  {
+    "bundleIdentifier": "com.apple.FrontBoard",
+    "path": "/System/Library/PrivateFrameworks/FrontBoard.framework",
+    "name": "FrontBoard.framework",
+    "original_index": 147
+  },
+  {
+    "bundleIdentifier": "com.apple.openscripting",
+    "path": "/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/OpenScripting.framework",
+    "name": "OpenScripting.framework",
+    "original_index": 148
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteTextInput",
+    "path": "/System/Library/PrivateFrameworks/RemoteTextInput.framework",
+    "name": "RemoteTextInput.framework",
+    "original_index": 149
+  },
+  {
+    "bundleIdentifier": "com.apple.newsfoundation",
+    "path": "/System/Library/PrivateFrameworks/NewsFoundation.framework",
+    "name": "NewsFoundation.framework",
+    "original_index": 150
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.familycontrols",
+    "path": "/System/Library/PrivateFrameworks/FamilyControls.framework",
+    "name": "FamilyControls.framework",
+    "original_index": 151
+  },
+  {
+    "bundleIdentifier": "com.apple.Contacts.ContactsUICore",
+    "path": "/System/Library/PrivateFrameworks/ContactsUICore.framework",
+    "name": "ContactsUICore.framework",
+    "original_index": 152
+  },
+  {
+    "bundleIdentifier": "com.apple.UserActivity",
+    "path": "/System/Library/PrivateFrameworks/UserActivity.framework",
+    "name": "UserActivity.framework",
+    "original_index": 153
+  },
+  {
+    "bundleIdentifier": "com.apple.ImageCaptureCore",
+    "path": "/System/Library/Frameworks/ImageCaptureCore.framework",
+    "name": "ImageCaptureCore.framework",
+    "original_index": 154
+  },
+  {
+    "bundleIdentifier": "com.apple.proactive.PersonalizationPortrait",
+    "path": "/System/Library/PrivateFrameworks/PersonalizationPortrait.framework",
+    "name": "PersonalizationPortrait.framework",
+    "original_index": 155
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/MetalKit.framework",
+    "name": "MetalKit.framework",
+    "original_index": 156
+  },
+  {
+    "bundleIdentifier": "com.apple.cloudkit.CloudKit",
+    "path": "/System/Library/Frameworks/CloudKit.framework",
+    "name": "CloudKit.framework",
+    "original_index": 157
+  },
+  {
+    "bundleIdentifier": "com.apple.xpc.RemoteXPC",
+    "path": "/System/Library/PrivateFrameworks/RemoteXPC.framework",
+    "name": "RemoteXPC.framework",
+    "original_index": 158
+  },
+  {
+    "bundleIdentifier": "com.apple.devicemanagementclient.DEPClientLibrary",
+    "path": "/System/Library/PrivateFrameworks/DEPClientLibrary.framework",
+    "name": "DEPClientLibrary.framework",
+    "original_index": 159
+  },
+  {
+    "bundleIdentifier": "com.apple.Montreal",
+    "path": "/System/Library/PrivateFrameworks/Montreal.framework",
+    "name": "Montreal.framework",
+    "original_index": 160
+  },
+  {
+    "bundleIdentifier": "com.apple.AssistantServices",
+    "path": "/System/Library/PrivateFrameworks/AssistantServices.framework",
+    "name": "AssistantServices.framework",
+    "original_index": 161
+  },
+  {
+    "bundleIdentifier": "com.apple.AttributeGraph",
+    "path": "/System/Library/PrivateFrameworks/AttributeGraph.framework",
+    "name": "AttributeGraph.framework",
+    "original_index": 162
+  },
+  {
+    "bundleIdentifier": "com.apple.PrototypeTools",
+    "path": "/System/Library/PrivateFrameworks/PrototypeTools.framework",
+    "name": "PrototypeTools.framework",
+    "original_index": 163
+  },
+  {
+    "bundleIdentifier": "com.apple.LocalAuthentication.DaemonUtils",
+    "path": "/System/Library/Frameworks/LocalAuthentication.framework/Support/DaemonUtils.framework",
+    "name": "DaemonUtils.framework",
+    "original_index": 164
+  },
+  {
+    "bundleIdentifier": "com.apple.WiFiPeerToPeer",
+    "path": "/System/Library/PrivateFrameworks/WiFiPeerToPeer.framework",
+    "name": "WiFiPeerToPeer.framework",
+    "original_index": 165
+  },
+  {
+    "bundleIdentifier": "com.apple.Coherence",
+    "path": "/System/Library/PrivateFrameworks/Coherence.framework",
+    "name": "Coherence.framework",
+    "original_index": 166
+  },
+  {
+    "bundleIdentifier": "com.apple.MultitouchSupport.framework",
+    "path": "/System/Library/PrivateFrameworks/MultitouchSupport.framework",
+    "name": "MultitouchSupport.framework",
+    "original_index": 167
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleDepthCore",
+    "path": "/System/Library/PrivateFrameworks/AppleDepthCore.framework",
+    "name": "AppleDepthCore.framework",
+    "original_index": 168
+  },
+  {
+    "bundleIdentifier": "com.apple.IPConfiguration",
+    "path": "/System/Library/PrivateFrameworks/IPConfiguration.framework",
+    "name": "IPConfiguration.framework",
+    "original_index": 169
+  },
+  {
+    "bundleIdentifier": "com.apple.messageui",
+    "path": "/System/iOSSupport/System/Library/Frameworks/MessageUI.framework",
+    "name": "MessageUI.framework",
+    "original_index": 170
+  },
+  {
+    "bundleIdentifier": "com.apple.ProtectedCloudStorage",
+    "path": "/System/Library/PrivateFrameworks/ProtectedCloudStorage.framework",
+    "name": "ProtectedCloudStorage.framework",
+    "original_index": 171
+  },
+  {
+    "bundleIdentifier": "com.apple.performance.DiagnosticRequest",
+    "path": "/System/Library/PrivateFrameworks/DiagnosticRequest.framework",
+    "name": "DiagnosticRequest.framework",
+    "original_index": 172
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreFoundation",
+    "path": "/System/Library/Frameworks/CoreFoundation.framework",
+    "name": "CoreFoundation.framework",
+    "original_index": 173
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.AXMediaUtilities",
+    "path": "/System/Library/PrivateFrameworks/AXMediaUtilities.framework",
+    "name": "AXMediaUtilities.framework",
+    "original_index": 174
+  },
+  {
+    "bundleIdentifier": "com.apple.CalDAV",
+    "path": "/System/Library/PrivateFrameworks/CalDAV.framework",
+    "name": "CalDAV.framework",
+    "original_index": 175
+  },
+  {
+    "bundleIdentifier": "com.apple.AFKUser",
+    "path": "/System/Library/PrivateFrameworks/AFKUser.framework",
+    "name": "AFKUser.framework",
+    "original_index": 176
+  },
+  {
+    "bundleIdentifier": "com.apple.AssetCacheServices",
+    "path": "/System/Library/PrivateFrameworks/AssetCacheServices.framework",
+    "name": "AssetCacheServices.framework",
+    "original_index": 177
+  },
+  {
+    "bundleIdentifier": "com.apple.Osprey",
+    "path": "/System/Library/PrivateFrameworks/Osprey.framework",
+    "name": "Osprey.framework",
+    "original_index": 178
+  },
+  {
+    "bundleIdentifier": "com.apple.DeviceActivity",
+    "path": "/System/Library/Frameworks/DeviceActivity.framework",
+    "name": "DeviceActivity.framework",
+    "original_index": 179
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MetalPerformanceShaders",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework",
+    "name": "MetalPerformanceShaders.framework",
+    "original_index": 180
+  },
+  {
+    "bundleIdentifier": "com.apple.Reveal",
+    "path": "/System/Library/PrivateFrameworks/Reveal.framework",
+    "name": "Reveal.framework",
+    "original_index": 181
+  },
+  {
+    "bundleIdentifier": "com.apple.print.framework.PrintCore",
+    "path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework",
+    "name": "PrintCore.framework",
+    "original_index": 182
+  },
+  {
+    "bundleIdentifier": "com.apple.IntentsUI",
+    "path": "/System/iOSSupport/System/Library/Frameworks/IntentsUI.framework",
+    "name": "IntentsUI.framework",
+    "original_index": 183
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.tts.SiriTTS",
+    "path": "/System/Library/PrivateFrameworks/SiriTTS.framework",
+    "name": "SiriTTS.framework",
+    "original_index": 184
+  },
+  {
+    "bundleIdentifier": "com.apple.AppSupport",
+    "path": "/System/Library/PrivateFrameworks/AppSupport.framework",
+    "name": "AppSupport.framework",
+    "original_index": 185
+  },
+  {
+    "bundleIdentifier": "com.apple.CFNetwork",
+    "path": "/System/Library/Frameworks/CFNetwork.framework",
+    "name": "CFNetwork.framework",
+    "original_index": 186
+  },
+  {
+    "bundleIdentifier": "com.apple.CallKit",
+    "path": "/System/Library/Frameworks/CallKit.framework",
+    "name": "CallKit.framework",
+    "original_index": 187
+  },
+  {
+    "bundleIdentifier": "com.apple.CorePrediction",
+    "path": "/System/Library/PrivateFrameworks/CorePrediction.framework",
+    "name": "CorePrediction.framework",
+    "original_index": 188
+  },
+  {
+    "bundleIdentifier": "com.apple.NaturalLanguage",
+    "path": "/System/Library/Frameworks/NaturalLanguage.framework",
+    "name": "NaturalLanguage.framework",
+    "original_index": 189
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreServices.OSServices",
+    "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework",
+    "name": "OSServices.framework",
+    "original_index": 190
+  },
+  {
+    "bundleIdentifier": "com.apple.idskvstore",
+    "path": "/System/Library/PrivateFrameworks/IDSKVStore.framework",
+    "name": "IDSKVStore.framework",
+    "original_index": 191
+  },
+  {
+    "bundleIdentifier": "com.apple.AskToCore",
+    "path": "/System/Library/PrivateFrameworks/AskToCore.framework",
+    "name": "AskToCore.framework",
+    "original_index": 192
+  },
+  {
+    "bundleIdentifier": "com.apple.SwiftUICore",
+    "path": "/System/Library/Frameworks/SwiftUICore.framework",
+    "name": "SwiftUICore.framework",
+    "original_index": 193
+  },
+  {
+    "bundleIdentifier": "com.apple.ftawd",
+    "path": "/System/Library/PrivateFrameworks/FTAWD.framework",
+    "name": "FTAWD.framework",
+    "original_index": 194
+  },
+  {
+    "bundleIdentifier": "com.apple.Foundation",
+    "path": "/System/Library/Frameworks/Foundation.framework",
+    "name": "Foundation.framework",
+    "original_index": 195
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotosImagingFoundation",
+    "path": "/System/Library/PrivateFrameworks/PhotosImagingFoundation.framework",
+    "name": "PhotosImagingFoundation.framework",
+    "original_index": 196
+  },
+  {
+    "bundleIdentifier": "com.apple.BackgroundSystemTasks",
+    "path": "/System/Library/PrivateFrameworks/BackgroundSystemTasks.framework",
+    "name": "BackgroundSystemTasks.framework",
+    "original_index": 197
+  },
+  {
+    "bundleIdentifier": "com.apple.LocalAuthenticationCore",
+    "path": "/System/Library/PrivateFrameworks/LocalAuthenticationCore.framework",
+    "name": "LocalAuthenticationCore.framework",
+    "original_index": 198
+  },
+  {
+    "bundleIdentifier": "com.apple.IOAccelMemoryInfo",
+    "path": "/System/Library/PrivateFrameworks/IOAccelMemoryInfo.framework",
+    "name": "IOAccelMemoryInfo.framework",
+    "original_index": 199
+  },
+  {
+    "bundleIdentifier": "com.apple.ManagedSettingsSupport",
+    "path": "/System/Library/PrivateFrameworks/ManagedSettingsSupport.framework",
+    "name": "ManagedSettingsSupport.framework",
+    "original_index": 200
+  },
+  {
+    "bundleIdentifier": "com.apple.coreduet.KnowledgeMonitor",
+    "path": "/System/Library/PrivateFrameworks/KnowledgeMonitor.framework",
+    "name": "KnowledgeMonitor.framework",
+    "original_index": 201
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreML.AppleNeuralEngine",
+    "path": "/System/Library/PrivateFrameworks/AppleNeuralEngine.framework",
+    "name": "AppleNeuralEngine.framework",
+    "original_index": 202
+  },
+  {
+    "bundleIdentifier": "com.apple.-JetEngine-SwiftUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/_JetEngine_SwiftUI.framework",
+    "name": "_JetEngine_SwiftUI.framework",
+    "original_index": 203
+  },
+  {
+    "bundleIdentifier": "com.apple.SafariFoundation",
+    "path": "/System/Library/PrivateFrameworks/SafariFoundation.framework",
+    "name": "SafariFoundation.framework",
+    "original_index": 204
+  },
+  {
+    "bundleIdentifier": "com.apple.ModelIO",
+    "path": "/System/Library/Frameworks/ModelIO.framework",
+    "name": "ModelIO.framework",
+    "original_index": 205
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.AudioToolboxCore",
+    "path": "/System/Library/PrivateFrameworks/AudioToolboxCore.framework",
+    "name": "AudioToolboxCore.framework",
+    "original_index": 206
+  },
+  {
+    "bundleIdentifier": "com.apple.CommerceCore",
+    "path": "/System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Frameworks/CommerceCore.framework",
+    "name": "CommerceCore.framework",
+    "original_index": 207
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleMediaServices",
+    "path": "/System/Library/PrivateFrameworks/AppleMediaServices.framework",
+    "name": "AppleMediaServices.framework",
+    "original_index": 208
+  },
+  {
+    "bundleIdentifier": "com.apple.AuthKitUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/AuthKitUI.framework",
+    "name": "AuthKitUI.framework",
+    "original_index": 209
+  },
+  {
+    "bundleIdentifier": "com.apple.imcore",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/IMCore.framework",
+    "name": "IMCore.framework",
+    "original_index": 210
+  },
+  {
+    "bundleIdentifier": "com.apple.CMImaging",
+    "path": "/System/Library/PrivateFrameworks/CMImaging.framework",
+    "name": "CMImaging.framework",
+    "original_index": 211
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreMaterial",
+    "path": "/System/Library/PrivateFrameworks/CoreMaterial.framework",
+    "name": "CoreMaterial.framework",
+    "original_index": 212
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreTelephony",
+    "path": "/System/Library/Frameworks/CoreTelephony.framework",
+    "name": "CoreTelephony.framework",
+    "original_index": 213
+  },
+  {
+    "bundleIdentifier": "com.apple.UserSafety",
+    "path": "/System/Library/PrivateFrameworks/UserSafety.framework",
+    "name": "UserSafety.framework",
+    "original_index": 214
+  },
+  {
+    "bundleIdentifier": "com.apple.CloudPhotoServices",
+    "path": "/System/Library/PrivateFrameworks/CloudPhotoServices.framework",
+    "name": "CloudPhotoServices.framework",
+    "original_index": 215
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreEmoji",
+    "path": "/System/Library/PrivateFrameworks/CoreEmoji.framework",
+    "name": "CoreEmoji.framework",
+    "original_index": 216
+  },
+  {
+    "bundleIdentifier": "com.apple.DifferentialPrivacy",
+    "path": "/System/Library/PrivateFrameworks/DifferentialPrivacy.framework",
+    "name": "DifferentialPrivacy.framework",
+    "original_index": 217
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MPSImage",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework",
+    "name": "MPSImage.framework",
+    "original_index": 218
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.calculate",
+    "path": "/System/Library/PrivateFrameworks/Calculate.framework",
+    "name": "Calculate.framework",
+    "original_index": 219
+  },
+  {
+    "bundleIdentifier": "com.apple.Bluetooth",
+    "path": "/System/Library/Frameworks/IOBluetooth.framework",
+    "name": "IOBluetooth.framework",
+    "original_index": 220
+  },
+  {
+    "bundleIdentifier": "com.apple.UIIntelligenceSupport",
+    "path": "/System/Library/PrivateFrameworks/UIIntelligenceSupport.framework",
+    "name": "UIIntelligenceSupport.framework",
+    "original_index": 221
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreMediaStream",
+    "path": "/System/Library/PrivateFrameworks/CoreMediaStream.framework",
+    "name": "CoreMediaStream.framework",
+    "original_index": 222
+  },
+  {
+    "bundleIdentifier": "com.apple.eventkit",
+    "path": "/System/Library/Frameworks/EventKit.framework",
+    "name": "EventKit.framework",
+    "original_index": 223
+  },
+  {
+    "bundleIdentifier": "com.apple.Sharing",
+    "path": "/System/Library/PrivateFrameworks/Sharing.framework",
+    "name": "Sharing.framework",
+    "original_index": 224
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.GenerativeModelsFoundation",
+    "path": "/System/Library/PrivateFrameworks/GenerativeModelsFoundation.framework",
+    "name": "GenerativeModelsFoundation.framework",
+    "original_index": 225
+  },
+  {
+    "bundleIdentifier": "com.apple.SoftwareUpdateCoreSupport",
+    "path": "/System/Library/PrivateFrameworks/SoftwareUpdateCoreSupport.framework",
+    "name": "SoftwareUpdateCoreSupport.framework",
+    "original_index": 226
+  },
+  {
+    "bundleIdentifier": "com.apple.ImageIO",
+    "path": "/System/Library/Frameworks/ImageIO.framework",
+    "name": "ImageIO.framework",
+    "original_index": 227
+  },
+  {
+    "bundleIdentifier": "com.apple.OAuth",
+    "path": "/System/Library/PrivateFrameworks/OAuth.framework",
+    "name": "OAuth.framework",
+    "original_index": 228
+  },
+  {
+    "bundleIdentifier": "com.apple.DocumentManager",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/DocumentManager.framework",
+    "name": "DocumentManager.framework",
+    "original_index": 229
+  },
+  {
+    "bundleIdentifier": "com.apple.FrontBoardServices",
+    "path": "/System/Library/PrivateFrameworks/FrontBoardServices.framework",
+    "name": "FrontBoardServices.framework",
+    "original_index": 230
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreDisplay",
+    "path": "/System/Library/Frameworks/CoreDisplay.framework",
+    "name": "CoreDisplay.framework",
+    "original_index": 231
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.ctcategories",
+    "path": "/System/Library/PrivateFrameworks/Categories.framework",
+    "name": "Categories.framework",
+    "original_index": 232
+  },
+  {
+    "bundleIdentifier": "com.apple.libktrace",
+    "path": "/System/Library/PrivateFrameworks/ktrace.framework",
+    "name": "ktrace.framework",
+    "original_index": 233
+  },
+  {
+    "bundleIdentifier": "com.apple.MPSFunctions",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework",
+    "name": "MPSFunctions.framework",
+    "original_index": 234
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreText",
+    "path": "/System/Library/Frameworks/CoreText.framework",
+    "name": "CoreText.framework",
+    "original_index": 235
+  },
+  {
+    "bundleIdentifier": "com.apple.ClassKit",
+    "path": "/System/Library/Frameworks/ClassKit.framework",
+    "name": "ClassKit.framework",
+    "original_index": 236
+  },
+  {
+    "bundleIdentifier": "com.apple.AccessibilityUtilities",
+    "path": "/System/Library/PrivateFrameworks/AccessibilityUtilities.framework",
+    "name": "AccessibilityUtilities.framework",
+    "original_index": 237
+  },
+  {
+    "bundleIdentifier": "com.apple.opengles",
+    "path": "/System/iOSSupport/System/Library/Frameworks/OpenGLES.framework",
+    "name": "OpenGLES.framework",
+    "original_index": 238
+  },
+  {
+    "bundleIdentifier": "com.apple.DeviceManagement",
+    "path": "/System/Library/PrivateFrameworks/DeviceManagement.framework",
+    "name": "DeviceManagement.framework",
+    "original_index": 239
+  },
+  {
+    "bundleIdentifier": "com.apple.MailSupport",
+    "path": "/System/Library/PrivateFrameworks/MailSupport.framework",
+    "name": "MailSupport.framework",
+    "original_index": 240
+  },
+  {
+    "bundleIdentifier": "com.apple.MessageProtection",
+    "path": "/System/Library/PrivateFrameworks/MessageProtection.framework",
+    "name": "MessageProtection.framework",
+    "original_index": 241
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomeStorage",
+    "path": "/System/Library/PrivateFrameworks/BiomeStorage.framework",
+    "name": "BiomeStorage.framework",
+    "original_index": 242
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomeFoundation",
+    "path": "/System/Library/PrivateFrameworks/BiomeFoundation.framework",
+    "name": "BiomeFoundation.framework",
+    "original_index": 243
+  },
+  {
+    "bundleIdentifier": "com.apple.BackBoardServices",
+    "path": "/System/Library/PrivateFrameworks/BackBoardServices.framework",
+    "name": "BackBoardServices.framework",
+    "original_index": 244
+  },
+  {
+    "bundleIdentifier": "com.apple.SystemConfiguration.EAP8021X",
+    "path": "/System/Library/PrivateFrameworks/EAP8021X.framework",
+    "name": "EAP8021X.framework",
+    "original_index": 245
+  },
+  {
+    "bundleIdentifier": "com.apple.TipKitCore",
+    "path": "/System/Library/PrivateFrameworks/TipKitCore.framework",
+    "name": "TipKitCore.framework",
+    "original_index": 246
+  },
+  {
+    "bundleIdentifier": "com.apple.FuseBoard",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/FuseBoard.framework",
+    "name": "FuseBoard.framework",
+    "original_index": 247
+  },
+  {
+    "bundleIdentifier": "com.apple.proactive.PersonalIntelligenceCore",
+    "path": "/System/Library/PrivateFrameworks/PersonalIntelligenceCore.framework",
+    "name": "PersonalIntelligenceCore.framework",
+    "original_index": 248
+  },
+  {
+    "bundleIdentifier": "com.apple.Heimdal",
+    "path": "/System/Library/PrivateFrameworks/Heimdal.framework",
+    "name": "Heimdal.framework",
+    "original_index": 249
+  },
+  {
+    "bundleIdentifier": "com.apple.stickers",
+    "path": "/System/Library/PrivateFrameworks/Stickers.framework",
+    "name": "Stickers.framework",
+    "original_index": 250
+  },
+  {
+    "bundleIdentifier": "com.apple.AggregateDictionary",
+    "path": "/System/Library/PrivateFrameworks/AggregateDictionary.framework",
+    "name": "AggregateDictionary.framework",
+    "original_index": 251
+  },
+  {
+    "bundleIdentifier": "com.apple.GraphicsServices",
+    "path": "/System/Library/PrivateFrameworks/GraphicsServices.framework",
+    "name": "GraphicsServices.framework",
+    "original_index": 252
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomeSync",
+    "path": "/System/Library/PrivateFrameworks/BiomeSync.framework",
+    "name": "BiomeSync.framework",
+    "original_index": 253
+  },
+  {
+    "bundleIdentifier": "com.apple.VectorKit",
+    "path": "/System/Library/PrivateFrameworks/VectorKit.framework",
+    "name": "VectorKit.framework",
+    "original_index": 254
+  },
+  {
+    "bundleIdentifier": "com.apple.NearField",
+    "path": "/System/Library/PrivateFrameworks/NearField.framework",
+    "name": "NearField.framework",
+    "original_index": 255
+  },
+  {
+    "bundleIdentifier": "com.apple.QuickLookThumbnailing",
+    "path": "/System/Library/Frameworks/QuickLookThumbnailing.framework",
+    "name": "QuickLookThumbnailing.framework",
+    "original_index": 256
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaExperience",
+    "path": "/System/Library/PrivateFrameworks/MediaExperience.framework",
+    "name": "MediaExperience.framework",
+    "original_index": 257
+  },
+  {
+    "bundleIdentifier": "com.apple.ExtensionFoundation",
+    "path": "/System/Library/Frameworks/ExtensionFoundation.framework",
+    "name": "ExtensionFoundation.framework",
+    "original_index": 258
+  },
+  {
+    "bundleIdentifier": "com.apple.loginsupport",
+    "path": "/System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework",
+    "name": "loginsupport.framework",
+    "original_index": 259
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomeDSL",
+    "path": "/System/Library/PrivateFrameworks/BiomeDSL.framework",
+    "name": "BiomeDSL.framework",
+    "original_index": 260
+  },
+  {
+    "bundleIdentifier": "com.apple.avfoundation",
+    "path": "/System/Library/Frameworks/AVFoundation.framework",
+    "name": "AVFoundation.framework",
+    "original_index": 261
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteConfiguration",
+    "path": "/System/Library/PrivateFrameworks/RemoteConfiguration.framework",
+    "name": "RemoteConfiguration.framework",
+    "original_index": 262
+  },
+  {
+    "bundleIdentifier": "com.apple.Transparency",
+    "path": "/System/Library/PrivateFrameworks/Transparency.framework",
+    "name": "Transparency.framework",
+    "original_index": 263
+  },
+  {
+    "bundleIdentifier": "com.apple.WebCore",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/WebCore.framework",
+    "name": "WebCore.framework",
+    "original_index": 264
+  },
+  {
+    "bundleIdentifier": "com.apple.UIKitCore",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/UIKitCore.framework",
+    "name": "UIKitCore.framework",
+    "original_index": 265
+  },
+  {
+    "bundleIdentifier": "com.apple.NewsURLBucket",
+    "path": "/System/Library/PrivateFrameworks/NewsURLBucket.framework",
+    "name": "NewsURLBucket.framework",
+    "original_index": 266
+  },
+  {
+    "bundleIdentifier": "com.apple.AvailabilityKit",
+    "path": "/System/Library/PrivateFrameworks/AvailabilityKit.framework",
+    "name": "AvailabilityKit.framework",
+    "original_index": 267
+  },
+  {
+    "bundleIdentifier": "com.apple.Symbolication",
+    "path": "/System/Library/PrivateFrameworks/Symbolication.framework",
+    "name": "Symbolication.framework",
+    "original_index": 268
+  },
+  {
+    "bundleIdentifier": "com.apple.MPSBenchmarkLoop",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSBenchmarkLoop.framework",
+    "name": "MPSBenchmarkLoop.framework",
+    "original_index": 269
+  },
+  {
+    "bundleIdentifier": "com.apple.ftclientservices",
+    "path": "/System/Library/PrivateFrameworks/FTClientServices.framework",
+    "name": "FTClientServices.framework",
+    "original_index": 270
+  },
+  {
+    "bundleIdentifier": "com.apple.RunningBoardServices",
+    "path": "/System/Library/PrivateFrameworks/RunningBoardServices.framework",
+    "name": "RunningBoardServices.framework",
+    "original_index": 271
+  },
+  {
+    "bundleIdentifier": "com.apple.communicationsfilter",
+    "path": "/System/Library/PrivateFrameworks/CommunicationsFilter.framework",
+    "name": "CommunicationsFilter.framework",
+    "original_index": 272
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.IOKit",
+    "path": "/System/Library/Frameworks/IOKit.framework",
+    "name": "IOKit.framework",
+    "original_index": 273
+  },
+  {
+    "bundleIdentifier": "com.apple.CMCapture",
+    "path": "/System/Library/PrivateFrameworks/CMCapture.framework",
+    "name": "CMCapture.framework",
+    "original_index": 274
+  },
+  {
+    "bundleIdentifier": "com.apple.dt.DebugHierarchyFoundation",
+    "path": "/Applications/Xcode.app/Contents/SharedFrameworks/DebugHierarchyFoundation.framework",
+    "name": "DebugHierarchyFoundation.framework",
+    "original_index": 275
+  },
+  {
+    "bundleIdentifier": "com.apple.SymptomDiagnosticReporter",
+    "path": "/System/Library/PrivateFrameworks/SymptomDiagnosticReporter.framework",
+    "name": "SymptomDiagnosticReporter.framework",
+    "original_index": 276
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreMediaIO",
+    "path": "/System/Library/Frameworks/CoreMediaIO.framework",
+    "name": "CoreMediaIO.framework",
+    "original_index": 277
+  },
+  {
+    "bundleIdentifier": "com.apple.avfoundationcf",
+    "path": "/System/Library/PrivateFrameworks/AVFoundationCF.framework",
+    "name": "AVFoundationCF.framework",
+    "original_index": 278
+  },
+  {
+    "bundleIdentifier": "com.apple.IntlPreferences",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/IntlPreferences.framework",
+    "name": "IntlPreferences.framework",
+    "original_index": 279
+  },
+  {
+    "bundleIdentifier": "com.apple.FeatureFlagsSupport",
+    "path": "/System/Library/PrivateFrameworks/FeatureFlagsSupport.framework",
+    "name": "FeatureFlagsSupport.framework",
+    "original_index": 280
+  },
+  {
+    "bundleIdentifier": "com.apple.AddressBook.ContactsFoundation",
+    "path": "/System/Library/PrivateFrameworks/ContactsFoundation.framework",
+    "name": "ContactsFoundation.framework",
+    "original_index": 281
+  },
+  {
+    "bundleIdentifier": "com.apple.DebugSymbols",
+    "path": "/System/Library/PrivateFrameworks/DebugSymbols.framework",
+    "name": "DebugSymbols.framework",
+    "original_index": 282
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleAccount",
+    "path": "/System/Library/PrivateFrameworks/AppleAccount.framework",
+    "name": "AppleAccount.framework",
+    "original_index": 283
+  },
+  {
+    "bundleIdentifier": "com.apple.devicemanagementclient.DMCUtilities",
+    "path": "/System/Library/PrivateFrameworks/DMCUtilities.framework",
+    "name": "DMCUtilities.framework",
+    "original_index": 284
+  },
+  {
+    "bundleIdentifier": "com.apple.AVFCapture",
+    "path": "/System/Library/PrivateFrameworks/AVFCapture.framework",
+    "name": "AVFCapture.framework",
+    "original_index": 285
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.CoreAudio.IsolatedCoreAudioClient",
+    "path": "/System/Library/PrivateFrameworks/IsolatedCoreAudioClient.framework",
+    "name": "IsolatedCoreAudioClient.framework",
+    "original_index": 286
+  },
+  {
+    "bundleIdentifier": "com.apple.AssertionServices",
+    "path": "/System/Library/PrivateFrameworks/AssertionServices.framework",
+    "name": "AssertionServices.framework",
+    "original_index": 287
+  },
+  {
+    "bundleIdentifier": "com.apple.ContactsUI",
+    "path": "/System/iOSSupport/System/Library/Frameworks/ContactsUI.framework",
+    "name": "ContactsUI.framework",
+    "original_index": 288
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.GenerativeFunctions",
+    "path": "/System/Library/PrivateFrameworks/GenerativeFunctions.framework",
+    "name": "GenerativeFunctions.framework",
+    "original_index": 289
+  },
+  {
+    "bundleIdentifier": "com.apple.CVNLP",
+    "path": "/System/Library/PrivateFrameworks/CVNLP.framework",
+    "name": "CVNLP.framework",
+    "original_index": 290
+  },
+  {
+    "bundleIdentifier": "com.apple.WebKitLegacy",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/WebKitLegacy.framework",
+    "name": "WebKitLegacy.framework",
+    "original_index": 291
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MPSNDArray",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework",
+    "name": "MPSNDArray.framework",
+    "original_index": 292
+  },
+  {
+    "bundleIdentifier": "com.apple.TimeSync",
+    "path": "/System/Library/PrivateFrameworks/TimeSync.framework",
+    "name": "TimeSync.framework",
+    "original_index": 293
+  },
+  {
+    "bundleIdentifier": "com.apple.ReflectionInternal",
+    "path": "/System/Library/PrivateFrameworks/ReflectionInternal.framework",
+    "name": "ReflectionInternal.framework",
+    "original_index": 294
+  },
+  {
+    "bundleIdentifier": "com.apple.AccessibilityBundles",
+    "path": "/System/Library/PrivateFrameworks/AccessibilityBundles.framework",
+    "name": "AccessibilityBundles.framework",
+    "original_index": 295
+  },
+  {
+    "bundleIdentifier": "com.apple.Metal",
+    "path": "/System/Library/Frameworks/Metal.framework",
+    "name": "Metal.framework",
+    "original_index": 296
+  },
+  {
+    "bundleIdentifier": "com.apple.AutoFillCore",
+    "path": "/System/Library/PrivateFrameworks/AutoFillCore.framework",
+    "name": "AutoFillCore.framework",
+    "original_index": 297
+  },
+  {
+    "bundleIdentifier": "com.apple.DeviceIdentity",
+    "path": "/System/Library/PrivateFrameworks/DeviceIdentity.framework",
+    "name": "DeviceIdentity.framework",
+    "original_index": 298
+  },
+  {
+    "bundleIdentifier": "com.apple.darwinup-framework",
+    "path": "/System/Library/PrivateFrameworks/Darwinup.framework",
+    "name": "Darwinup.framework",
+    "original_index": 299
+  },
+  {
+    "bundleIdentifier": "com.apple.corebrightness",
+    "path": "/System/Library/PrivateFrameworks/CoreBrightness.framework",
+    "name": "CoreBrightness.framework",
+    "original_index": 300
+  },
+  {
+    "bundleIdentifier": "com.apple.FuseBoardServices",
+    "path": "/System/Library/PrivateFrameworks/FuseBoardServices.framework",
+    "name": "FuseBoardServices.framework",
+    "original_index": 301
+  },
+  {
+    "bundleIdentifier": "com.apple.SpeechRecognitionCore",
+    "path": "/System/Library/PrivateFrameworks/SpeechRecognitionCore.framework",
+    "name": "SpeechRecognitionCore.framework",
+    "original_index": 302
+  },
+  {
+    "bundleIdentifier": "com.apple.PowerlogControl",
+    "path": "/System/Library/PrivateFrameworks/PowerlogControl.framework",
+    "name": "PowerlogControl.framework",
+    "original_index": 303
+  },
+  {
+    "bundleIdentifier": "com.apple.pluginkit.framework",
+    "path": "/System/Library/PrivateFrameworks/PlugInKit.framework",
+    "name": "PlugInKit.framework",
+    "original_index": 304
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotoLibraryServicesCore",
+    "path": "/System/Library/PrivateFrameworks/PhotoLibraryServicesCore.framework",
+    "name": "PhotoLibraryServicesCore.framework",
+    "original_index": 305
+  },
+  {
+    "bundleIdentifier": "com.apple.UIKitMacHelper",
+    "path": "/System/Library/PrivateFrameworks/UIKitMacHelper.framework",
+    "name": "UIKitMacHelper.framework",
+    "original_index": 306
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreUtilsExtras",
+    "path": "/System/Library/PrivateFrameworks/CoreUtilsExtras.framework",
+    "name": "CoreUtilsExtras.framework",
+    "original_index": 307
+  },
+  {
+    "bundleIdentifier": "com.apple.VisionKit.VisionKitInternal",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/VisionKitInternal.framework",
+    "name": "VisionKitInternal.framework",
+    "original_index": 308
+  },
+  {
+    "bundleIdentifier": "com.apple.AppStoreComponents",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/AppStoreComponents.framework",
+    "name": "AppStoreComponents.framework",
+    "original_index": 309
+  },
+  {
+    "bundleIdentifier": "com.apple.StatusKit",
+    "path": "/System/Library/PrivateFrameworks/StatusKit.framework",
+    "name": "StatusKit.framework",
+    "original_index": 310
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotosFormats",
+    "path": "/System/Library/PrivateFrameworks/PhotosFormats.framework",
+    "name": "PhotosFormats.framework",
+    "original_index": 311
+  },
+  {
+    "bundleIdentifier": "com.apple.private.AppleMobileFileIntegrity-fmk",
+    "path": "/System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework",
+    "name": "AppleMobileFileIntegrity.framework",
+    "original_index": 312
+  },
+  {
+    "bundleIdentifier": "com.apple.DictionaryServices",
+    "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework",
+    "name": "DictionaryServices.framework",
+    "original_index": 313
+  },
+  {
+    "bundleIdentifier": "com.apple.ConfigurationEngineModel",
+    "path": "/System/Library/PrivateFrameworks/ConfigurationEngineModel.framework",
+    "name": "ConfigurationEngineModel.framework",
+    "original_index": 314
+  },
+  {
+    "bundleIdentifier": "com.apple.private.SystemPolicy",
+    "path": "/System/Library/PrivateFrameworks/SystemPolicy.framework",
+    "name": "SystemPolicy.framework",
+    "original_index": 315
+  },
+  {
+    "bundleIdentifier": "com.apple.proactive.support.ProactiveEventTracker",
+    "path": "/System/Library/PrivateFrameworks/ProactiveEventTracker.framework",
+    "name": "ProactiveEventTracker.framework",
+    "original_index": 316
+  },
+  {
+    "bundleIdentifier": "com.apple.TCC",
+    "path": "/System/Library/PrivateFrameworks/TCC.framework",
+    "name": "TCC.framework",
+    "original_index": 317
+  },
+  {
+    "bundleIdentifier": "com.apple.CalendarFoundation",
+    "path": "/System/Library/PrivateFrameworks/CalendarFoundation.framework",
+    "name": "CalendarFoundation.framework",
+    "original_index": 318
+  },
+  {
+    "bundleIdentifier": "com.apple.AppStoreDaemon",
+    "path": "/System/Library/PrivateFrameworks/AppStoreDaemon.framework",
+    "name": "AppStoreDaemon.framework",
+    "original_index": 319
+  },
+  {
+    "bundleIdentifier": "com.apple.IconFoundation",
+    "path": "/System/Library/PrivateFrameworks/IconFoundation.framework",
+    "name": "IconFoundation.framework",
+    "original_index": 320
+  },
+  {
+    "bundleIdentifier": "com.apple.incomingcallfilter",
+    "path": "/System/Library/PrivateFrameworks/IncomingCallFilter.framework",
+    "name": "IncomingCallFilter.framework",
+    "original_index": 321
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.SiriTTSService",
+    "path": "/System/Library/PrivateFrameworks/SiriTTSService.framework",
+    "name": "SiriTTSService.framework",
+    "original_index": 322
+  },
+  {
+    "bundleIdentifier": "com.apple.ContactsUI.ContactsUIMacHelper",
+    "path": "/System/Library/PrivateFrameworks/ContactsUIMacHelper.framework",
+    "name": "ContactsUIMacHelper.framework",
+    "original_index": 323
+  },
+  {
+    "bundleIdentifier": "com.apple.findmy.framework.FindMyCommon",
+    "path": "/System/Library/PrivateFrameworks/FindMyCommon.framework",
+    "name": "FindMyCommon.framework",
+    "original_index": 324
+  },
+  {
+    "bundleIdentifier": "com.apple.mobilesafari.framework",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/MobileSafari.framework",
+    "name": "MobileSafari.framework",
+    "original_index": 325
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.CoreWLAN",
+    "path": "/System/Library/Frameworks/CoreWLAN.framework",
+    "name": "CoreWLAN.framework",
+    "original_index": 326
+  },
+  {
+    "bundleIdentifier": "com.apple.perfdata",
+    "path": "/System/Library/PrivateFrameworks/perfdata.framework",
+    "name": "perfdata.framework",
+    "original_index": 327
+  },
+  {
+    "bundleIdentifier": "com.apple.mediastream",
+    "path": "/System/Library/PrivateFrameworks/MediaStream.framework",
+    "name": "MediaStream.framework",
+    "original_index": 328
+  },
+  {
+    "bundleIdentifier": "com.apple.LinkPresentation",
+    "path": "/System/iOSSupport/System/Library/Frameworks/LinkPresentation.framework",
+    "name": "LinkPresentation.framework",
+    "original_index": 329
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.GenerativeModels",
+    "path": "/System/Library/PrivateFrameworks/GenerativeModels.framework",
+    "name": "GenerativeModels.framework",
+    "original_index": 330
+  },
+  {
+    "bundleIdentifier": "com.apple.MobileInstallation",
+    "path": "/System/Library/PrivateFrameworks/MobileInstallation.framework",
+    "name": "MobileInstallation.framework",
+    "original_index": 331
+  },
+  {
+    "bundleIdentifier": "com.apple.WebKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/WebKit.framework",
+    "name": "WebKit.framework",
+    "original_index": 332
+  },
+  {
+    "bundleIdentifier": "com.apple.CloudDocs",
+    "path": "/System/Library/PrivateFrameworks/CloudDocs.framework",
+    "name": "CloudDocs.framework",
+    "original_index": 333
+  },
+  {
+    "bundleIdentifier": "com.apple.SafariServices",
+    "path": "/System/iOSSupport/System/Library/Frameworks/SafariServices.framework",
+    "name": "SafariServices.framework",
+    "original_index": 334
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts.ContactsPersistence",
+    "path": "/System/Library/PrivateFrameworks/ContactsPersistence.framework",
+    "name": "ContactsPersistence.framework",
+    "original_index": 335
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreSDB",
+    "path": "/System/Library/PrivateFrameworks/CoreSDB.framework",
+    "name": "CoreSDB.framework",
+    "original_index": 336
+  },
+  {
+    "bundleIdentifier": "com.apple.ScreenTimeCore",
+    "path": "/System/Library/PrivateFrameworks/ScreenTimeCore.framework",
+    "name": "ScreenTimeCore.framework",
+    "original_index": 337
+  },
+  {
+    "bundleIdentifier": "com.apple.CloudSubscriptionFeatures",
+    "path": "/System/Library/PrivateFrameworks/CloudSubscriptionFeatures.framework",
+    "name": "CloudSubscriptionFeatures.framework",
+    "original_index": 338
+  },
+  {
+    "bundleIdentifier": "com.apple.PIP",
+    "path": "/System/Library/PrivateFrameworks/PIP.framework",
+    "name": "PIP.framework",
+    "original_index": 339
+  },
+  {
+    "bundleIdentifier": "com.apple.SharedWebCredentials",
+    "path": "/System/Library/PrivateFrameworks/SharedWebCredentials.framework",
+    "name": "SharedWebCredentials.framework",
+    "original_index": 340
+  },
+  {
+    "bundleIdentifier": "com.apple.VN",
+    "path": "/System/Library/Frameworks/Vision.framework",
+    "name": "Vision.framework",
+    "original_index": 341
+  },
+  {
+    "bundleIdentifier": "com.apple.CharacterPicker",
+    "path": "/System/Library/PrivateFrameworks/CharacterPicker.framework",
+    "name": "CharacterPicker.framework",
+    "original_index": 342
+  },
+  {
+    "bundleIdentifier": "com.apple.NetworkServiceProxyFramework",
+    "path": "/System/Library/PrivateFrameworks/NetworkServiceProxy.framework",
+    "name": "NetworkServiceProxy.framework",
+    "original_index": 343
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.AccessibilityPlatformTranslation",
+    "path": "/System/Library/PrivateFrameworks/AccessibilityPlatformTranslation.framework",
+    "name": "AccessibilityPlatformTranslation.framework",
+    "original_index": 344
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.ConfigurationProfiles",
+    "path": "/System/Library/PrivateFrameworks/ConfigurationProfiles.framework",
+    "name": "ConfigurationProfiles.framework",
+    "original_index": 345
+  },
+  {
+    "bundleIdentifier": "com.apple.combine",
+    "path": "/System/Library/Frameworks/Combine.framework",
+    "name": "Combine.framework",
+    "original_index": 346
+  },
+  {
+    "bundleIdentifier": "com.apple.DiskImagesFramework",
+    "path": "/System/Library/PrivateFrameworks/DiskImages.framework",
+    "name": "DiskImages.framework",
+    "original_index": 347
+  },
+  {
+    "bundleIdentifier": "com.apple.analyticsd",
+    "path": "/System/Library/PrivateFrameworks/CoreAnalytics.framework",
+    "name": "CoreAnalytics.framework",
+    "original_index": 348
+  },
+  {
+    "bundleIdentifier": "com.apple.aiml.dendrite.Dendrite",
+    "path": "/System/Library/PrivateFrameworks/Dendrite.framework",
+    "name": "Dendrite.framework",
+    "original_index": 349
+  },
+  {
+    "bundleIdentifier": "com.apple.Accounts",
+    "path": "/System/Library/Frameworks/Accounts.framework",
+    "name": "Accounts.framework",
+    "original_index": 350
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.IOKitten",
+    "path": "/System/Library/PrivateFrameworks/IOKitten.framework",
+    "name": "IOKitten.framework",
+    "original_index": 351
+  },
+  {
+    "bundleIdentifier": "com.apple.CloudServices",
+    "path": "/System/Library/PrivateFrameworks/CloudServices.framework",
+    "name": "CloudServices.framework",
+    "original_index": 352
+  },
+  {
+    "bundleIdentifier": "com.apple.URLFormatting",
+    "path": "/System/Library/PrivateFrameworks/URLFormatting.framework",
+    "name": "URLFormatting.framework",
+    "original_index": 353
+  },
+  {
+    "bundleIdentifier": "com.apple.UserManagement",
+    "path": "/System/Library/PrivateFrameworks/UserManagement.framework",
+    "name": "UserManagement.framework",
+    "original_index": 354
+  },
+  {
+    "bundleIdentifier": "com.apple.texttospeech",
+    "path": "/System/Library/PrivateFrameworks/TextToSpeech.framework",
+    "name": "TextToSpeech.framework",
+    "original_index": 355
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts.ContactsAccounts",
+    "path": "/System/Library/PrivateFrameworks/ContactsAccounts.framework",
+    "name": "ContactsAccounts.framework",
+    "original_index": 356
+  },
+  {
+    "bundleIdentifier": "com.apple.TextInput",
+    "path": "/System/Library/PrivateFrameworks/TextInput.framework",
+    "name": "TextInput.framework",
+    "original_index": 357
+  },
+  {
+    "bundleIdentifier": "com.apple.imgaudio.AudioAnalytics",
+    "path": "/System/Library/PrivateFrameworks/AudioAnalytics.framework",
+    "name": "AudioAnalytics.framework",
+    "original_index": 358
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreSuggestions",
+    "path": "/System/Library/PrivateFrameworks/CoreSuggestions.framework",
+    "name": "CoreSuggestions.framework",
+    "original_index": 359
+  },
+  {
+    "bundleIdentifier": "com.apple.Safari.Shared.UI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/SafariSharedUI.framework",
+    "name": "SafariSharedUI.framework",
+    "original_index": 360
+  },
+  {
+    "bundleIdentifier": "com.apple.UserNotifications",
+    "path": "/System/Library/Frameworks/UserNotifications.framework",
+    "name": "UserNotifications.framework",
+    "original_index": 361
+  },
+  {
+    "bundleIdentifier": "com.apple.ModelCatalog.ModelCatalog",
+    "path": "/System/Library/PrivateFrameworks/ModelCatalog.framework",
+    "name": "ModelCatalog.framework",
+    "original_index": 362
+  },
+  {
+    "bundleIdentifier": "com.apple.contextkit.ContextKitCore",
+    "path": "/System/Library/PrivateFrameworks/ContextKitCore.framework",
+    "name": "ContextKitCore.framework",
+    "original_index": 363
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteManagement",
+    "path": "/System/Library/PrivateFrameworks/RemoteManagement.framework",
+    "name": "RemoteManagement.framework",
+    "original_index": 364
+  },
+  {
+    "bundleIdentifier": "com.apple.AVKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/AVKit.framework",
+    "name": "AVKit.framework",
+    "original_index": 365
+  },
+  {
+    "bundleIdentifier": "com.apple.LoginUICore",
+    "path": "/System/Library/PrivateFrameworks/LoginUIKit.framework/Versions/A/Frameworks/LoginUICore.framework",
+    "name": "LoginUICore.framework",
+    "original_index": 366
+  },
+  {
+    "bundleIdentifier": "com.apple.GeoServices",
+    "path": "/System/Library/PrivateFrameworks/GeoServices.framework",
+    "name": "GeoServices.framework",
+    "original_index": 367
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MPSCore",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework",
+    "name": "MPSCore.framework",
+    "original_index": 368
+  },
+  {
+    "bundleIdentifier": "com.apple.AccessibilitySharedSupport",
+    "path": "/System/Library/PrivateFrameworks/AccessibilitySharedSupport.framework",
+    "name": "AccessibilitySharedSupport.framework",
+    "original_index": 369
+  },
+  {
+    "bundleIdentifier": "com.apple.AppKit",
+    "path": "/System/Library/Frameworks/AppKit.framework",
+    "name": "AppKit.framework",
+    "original_index": 370
+  },
+  {
+    "bundleIdentifier": "com.apple.PassKitCore",
+    "path": "/System/Library/PrivateFrameworks/PassKitCore.framework",
+    "name": "PassKitCore.framework",
+    "original_index": 371
+  },
+  {
+    "bundleIdentifier": "com.apple.FontServices",
+    "path": "/System/Library/PrivateFrameworks/FontServices.framework",
+    "name": "FontServices.framework",
+    "original_index": 372
+  },
+  {
+    "bundleIdentifier": "com.apple.AVKitCore",
+    "path": "/System/Library/PrivateFrameworks/AVKitCore.framework",
+    "name": "AVKitCore.framework",
+    "original_index": 373
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShadersGraph",
+    "path": "/System/Library/Frameworks/MetalPerformanceShadersGraph.framework",
+    "name": "MetalPerformanceShadersGraph.framework",
+    "original_index": 374
+  },
+  {
+    "bundleIdentifier": "com.apple.Rapport",
+    "path": "/System/Library/PrivateFrameworks/Rapport.framework",
+    "name": "Rapport.framework",
+    "original_index": 375
+  },
+  {
+    "bundleIdentifier": "com.apple.newscore",
+    "path": "/System/Library/PrivateFrameworks/NewsCore.framework",
+    "name": "NewsCore.framework",
+    "original_index": 376
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreML.MLAssetIO",
+    "path": "/System/Library/PrivateFrameworks/MLAssetIO.framework",
+    "name": "MLAssetIO.framework",
+    "original_index": 377
+  },
+  {
+    "bundleIdentifier": "com.apple.GeoServices",
+    "path": "/System/Library/PrivateFrameworks/GeoServicesCore.framework",
+    "name": "GeoServicesCore.framework",
+    "original_index": 378
+  },
+  {
+    "bundleIdentifier": "com.apple.securityfoundation",
+    "path": "/System/Library/Frameworks/SecurityFoundation.framework",
+    "name": "SecurityFoundation.framework",
+    "original_index": 379
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.AXAssetLoader",
+    "path": "/System/Library/PrivateFrameworks/AXAssetLoader.framework",
+    "name": "AXAssetLoader.framework",
+    "original_index": 380
+  },
+  {
+    "bundleIdentifier": "com.apple.AXRuntime",
+    "path": "/System/Library/PrivateFrameworks/AXRuntime.framework",
+    "name": "AXRuntime.framework",
+    "original_index": 381
+  },
+  {
+    "bundleIdentifier": "com.apple.PhotoFoundation",
+    "path": "/System/Library/PrivateFrameworks/PhotoFoundation.framework",
+    "name": "PhotoFoundation.framework",
+    "original_index": 382
+  },
+  {
+    "bundleIdentifier": "com.apple.ToneLibrary",
+    "path": "/System/Library/PrivateFrameworks/ToneLibrary.framework",
+    "name": "ToneLibrary.framework",
+    "original_index": 383
+  },
+  {
+    "bundleIdentifier": "com.apple.Network",
+    "path": "/System/Library/Frameworks/Network.framework",
+    "name": "Network.framework",
+    "original_index": 384
+  },
+  {
+    "bundleIdentifier": "com.apple.findmy.framework.FindMyBase",
+    "path": "/System/Library/PrivateFrameworks/FindMyBase.framework",
+    "name": "FindMyBase.framework",
+    "original_index": 385
+  },
+  {
+    "bundleIdentifier": "com.apple.ManagedSettingsObjC",
+    "path": "/System/Library/PrivateFrameworks/ManagedSettingsObjC.framework",
+    "name": "ManagedSettingsObjC.framework",
+    "original_index": 386
+  },
+  {
+    "bundleIdentifier": "com.apple.LocalAuthenticationUI",
+    "path": "/System/Library/PrivateFrameworks/LocalAuthenticationUI.framework",
+    "name": "LocalAuthenticationUI.framework",
+    "original_index": 387
+  },
+  {
+    "bundleIdentifier": "com.apple.LoggingSupport",
+    "path": "/System/Library/PrivateFrameworks/LoggingSupport.framework",
+    "name": "LoggingSupport.framework",
+    "original_index": 388
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts.donation",
+    "path": "/System/Library/PrivateFrameworks/ContactsDonation.framework",
+    "name": "ContactsDonation.framework",
+    "original_index": 389
+  },
+  {
+    "bundleIdentifier": "com.apple.-AppIntents-SwiftUI",
+    "path": "/System/iOSSupport/System/Library/Frameworks/_AppIntents_SwiftUI.framework",
+    "name": "_AppIntents_SwiftUI.framework",
+    "original_index": 390
+  },
+  {
+    "bundleIdentifier": "com.apple.QuickLookNonBaseSystem",
+    "path": "/System/Library/PrivateFrameworks/QuickLookNonBaseSystem.framework",
+    "name": "QuickLookNonBaseSystem.framework",
+    "original_index": 391
+  },
+  {
+    "bundleIdentifier": "com.apple.IntentsCore",
+    "path": "/System/Library/PrivateFrameworks/IntentsCore.framework",
+    "name": "IntentsCore.framework",
+    "original_index": 392
+  },
+  {
+    "bundleIdentifier": "com.apple.VisionKitCore",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/VisionKitCore.framework",
+    "name": "VisionKitCore.framework",
+    "original_index": 393
+  },
+  {
+    "bundleIdentifier": "com.apple.gpusw.GPURawCounter",
+    "path": "/System/Library/PrivateFrameworks/GPURawCounter.framework",
+    "name": "GPURawCounter.framework",
+    "original_index": 394
+  },
+  {
+    "bundleIdentifier": "com.apple.DataDetection",
+    "path": "/System/Library/Frameworks/DataDetection.framework",
+    "name": "DataDetection.framework",
+    "original_index": 395
+  },
+  {
+    "bundleIdentifier": "com.apple.NetworkExtension",
+    "path": "/System/Library/Frameworks/NetworkExtension.framework",
+    "name": "NetworkExtension.framework",
+    "original_index": 396
+  },
+  {
+    "bundleIdentifier": "com.apple.marco",
+    "path": "/System/Library/PrivateFrameworks/Marco.framework",
+    "name": "Marco.framework",
+    "original_index": 397
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreAUC",
+    "path": "/System/Library/PrivateFrameworks/CoreAUC.framework",
+    "name": "CoreAUC.framework",
+    "original_index": 398
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.SiriPowerInstrumentation",
+    "path": "/System/Library/PrivateFrameworks/SiriPowerInstrumentation.framework",
+    "name": "SiriPowerInstrumentation.framework",
+    "original_index": 399
+  },
+  {
+    "bundleIdentifier": "com.apple.RenderBox",
+    "path": "/System/Library/PrivateFrameworks/RenderBox.framework",
+    "name": "RenderBox.framework",
+    "original_index": 400
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreTransferable",
+    "path": "/System/Library/Frameworks/CoreTransferable.framework",
+    "name": "CoreTransferable.framework",
+    "original_index": 401
+  },
+  {
+    "bundleIdentifier": "com.apple.Synapse",
+    "path": "/System/Library/PrivateFrameworks/Synapse.framework",
+    "name": "Synapse.framework",
+    "original_index": 402
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.AudioSession",
+    "path": "/System/Library/PrivateFrameworks/AudioSession.framework",
+    "name": "AudioSession.framework",
+    "original_index": 403
+  },
+  {
+    "bundleIdentifier": "com.apple.portrait.Portrait",
+    "path": "/System/Library/PrivateFrameworks/Portrait.framework",
+    "name": "Portrait.framework",
+    "original_index": 404
+  },
+  {
+    "bundleIdentifier": "com.apple.AddressBook.core",
+    "path": "/System/Library/PrivateFrameworks/AddressBookCore.framework",
+    "name": "AddressBookCore.framework",
+    "original_index": 405
+  },
+  {
+    "bundleIdentifier": "com.apple.Safari.Core",
+    "path": "/System/Library/PrivateFrameworks/SafariCore.framework",
+    "name": "SafariCore.framework",
+    "original_index": 406
+  },
+  {
+    "bundleIdentifier": "com.apple.DocumentCamera",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/DocumentCamera.framework",
+    "name": "DocumentCamera.framework",
+    "original_index": 407
+  },
+  {
+    "bundleIdentifier": "com.apple.dt.XCTTargetBootstrap",
+    "path": "/System/Library/PrivateFrameworks/XCTTargetBootstrap.framework",
+    "name": "XCTTargetBootstrap.framework",
+    "original_index": 408
+  },
+  {
+    "bundleIdentifier": "com.apple.RuntimeInternal",
+    "path": "/System/Library/PrivateFrameworks/RuntimeInternal.framework",
+    "name": "RuntimeInternal.framework",
+    "original_index": 409
+  },
+  {
+    "bundleIdentifier": "com.apple.SymptomAnalytics",
+    "path": "/System/Library/PrivateFrameworks/Symptoms.framework/Versions/A/Frameworks/SymptomAnalytics.framework",
+    "name": "SymptomAnalytics.framework",
+    "original_index": 410
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreAuthentication.SharedUtils",
+    "path": "/System/Library/Frameworks/LocalAuthentication.framework/Support/SharedUtils.framework",
+    "name": "SharedUtils.framework",
+    "original_index": 411
+  },
+  {
+    "bundleIdentifier": "com.apple.coreservices.BackgroundTaskManagement",
+    "path": "/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework",
+    "name": "BackgroundTaskManagement.framework",
+    "original_index": 412
+  },
+  {
+    "bundleIdentifier": "com.apple.IO80211",
+    "path": "/System/Library/PrivateFrameworks/IO80211.framework",
+    "name": "IO80211.framework",
+    "original_index": 413
+  },
+  {
+    "bundleIdentifier": "com.apple.FamilyCircle",
+    "path": "/System/Library/PrivateFrameworks/FamilyCircle.framework",
+    "name": "FamilyCircle.framework",
+    "original_index": 414
+  },
+  {
+    "bundleIdentifier": "com.apple.NLP",
+    "path": "/System/Library/PrivateFrameworks/NLP.framework",
+    "name": "NLP.framework",
+    "original_index": 415
+  },
+  {
+    "bundleIdentifier": "com.apple.PushKit",
+    "path": "/System/Library/Frameworks/PushKit.framework",
+    "name": "PushKit.framework",
+    "original_index": 416
+  },
+  {
+    "bundleIdentifier": "com.apple.DAAPKit",
+    "path": "/System/Library/PrivateFrameworks/DAAPKit.framework",
+    "name": "DAAPKit.framework",
+    "original_index": 417
+  },
+  {
+    "bundleIdentifier": "com.apple.RecapPerformanceTesting",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/RecapPerformanceTesting.framework",
+    "name": "RecapPerformanceTesting.framework",
+    "original_index": 418
+  },
+  {
+    "bundleIdentifier": "com.apple.AppIntentsServices",
+    "path": "/System/Library/PrivateFrameworks/AppIntentsServices.framework",
+    "name": "AppIntentsServices.framework",
+    "original_index": 419
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreRoutine",
+    "path": "/System/Library/PrivateFrameworks/CoreRoutine.framework",
+    "name": "CoreRoutine.framework",
+    "original_index": 420
+  },
+  {
+    "bundleIdentifier": "com.apple.LocalAuthentication",
+    "path": "/System/Library/Frameworks/LocalAuthentication.framework",
+    "name": "LocalAuthentication.framework",
+    "original_index": 421
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreGraphics",
+    "path": "/System/Library/Frameworks/CoreGraphics.framework",
+    "name": "CoreGraphics.framework",
+    "original_index": 422
+  },
+  {
+    "bundleIdentifier": "com.apple.TextInputUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/TextInputUI.framework",
+    "name": "TextInputUI.framework",
+    "original_index": 423
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleIDAuthSupport",
+    "path": "/System/Library/PrivateFrameworks/AppleIDAuthSupport.framework",
+    "name": "AppleIDAuthSupport.framework",
+    "original_index": 424
+  },
+  {
+    "bundleIdentifier": "com.apple.GRDB.GRDBInternal",
+    "path": "/System/Library/PrivateFrameworks/GRDBInternal.framework",
+    "name": "GRDBInternal.framework",
+    "original_index": 425
+  },
+  {
+    "bundleIdentifier": "com.apple.AuthKitUIMacHelper",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/AuthKitUIMacHelper.framework",
+    "name": "AuthKitUIMacHelper.framework",
+    "original_index": 426
+  },
+  {
+    "bundleIdentifier": "com.apple.WritingToolsUI",
+    "path": "/System/Library/PrivateFrameworks/WritingToolsUI.framework",
+    "name": "WritingToolsUI.framework",
+    "original_index": 427
+  },
+  {
+    "bundleIdentifier": "com.apple.spotlight.CSExattrCrypto",
+    "path": "/System/Library/PrivateFrameworks/CSExattrCrypto.framework",
+    "name": "CSExattrCrypto.framework",
+    "original_index": 428
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteManagementProtocol",
+    "path": "/System/Library/PrivateFrameworks/RemoteManagementProtocol.framework",
+    "name": "RemoteManagementProtocol.framework",
+    "original_index": 429
+  },
+  {
+    "bundleIdentifier": "com.apple.audio.toolbox.AudioToolbox",
+    "path": "/System/Library/Frameworks/AudioToolbox.framework",
+    "name": "AudioToolbox.framework",
+    "original_index": 430
+  },
+  {
+    "bundleIdentifier": "com.apple.IAP",
+    "path": "/System/Library/PrivateFrameworks/IAP.framework",
+    "name": "IAP.framework",
+    "original_index": 431
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomeFlexibleStorage",
+    "path": "/System/Library/PrivateFrameworks/BiomeFlexibleStorage.framework",
+    "name": "BiomeFlexibleStorage.framework",
+    "original_index": 432
+  },
+  {
+    "bundleIdentifier": "com.apple.JetPack",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/JetPack.framework",
+    "name": "JetPack.framework",
+    "original_index": 433
+  },
+  {
+    "bundleIdentifier": "com.apple.SpotlightReceiver",
+    "path": "/System/Library/PrivateFrameworks/SpotlightReceiver.framework",
+    "name": "SpotlightReceiver.framework",
+    "original_index": 434
+  },
+  {
+    "bundleIdentifier": "com.apple.MSUDataAccessor",
+    "path": "/System/Library/PrivateFrameworks/MSUDataAccessor.framework",
+    "name": "MSUDataAccessor.framework",
+    "original_index": 435
+  },
+  {
+    "bundleIdentifier": "com.apple.TextureIO",
+    "path": "/System/Library/PrivateFrameworks/TextureIO.framework",
+    "name": "TextureIO.framework",
+    "original_index": 436
+  },
+  {
+    "bundleIdentifier": "com.apple.ShareSheet",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/ShareSheet.framework",
+    "name": "ShareSheet.framework",
+    "original_index": 437
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts",
+    "path": "/System/Library/Frameworks/Contacts.framework",
+    "name": "Contacts.framework",
+    "original_index": 438
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreImage",
+    "path": "/System/Library/Frameworks/CoreImage.framework",
+    "name": "CoreImage.framework",
+    "original_index": 439
+  },
+  {
+    "bundleIdentifier": "com.apple.ParsingInternal",
+    "path": "/System/Library/PrivateFrameworks/ParsingInternal.framework",
+    "name": "ParsingInternal.framework",
+    "original_index": 440
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteManagementStore",
+    "path": "/System/Library/PrivateFrameworks/RemoteManagementStore.framework",
+    "name": "RemoteManagementStore.framework",
+    "original_index": 441
+  },
+  {
+    "bundleIdentifier": "com.apple.security.octagontrust",
+    "path": "/System/Library/PrivateFrameworks/OctagonTrust.framework",
+    "name": "OctagonTrust.framework",
+    "original_index": 442
+  },
+  {
+    "bundleIdentifier": "com.apple.RTCReporting",
+    "path": "/System/Library/PrivateFrameworks/RTCReporting.framework",
+    "name": "RTCReporting.framework",
+    "original_index": 443
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleLDAP",
+    "path": "/System/Library/PrivateFrameworks/AppleLDAP.framework",
+    "name": "AppleLDAP.framework",
+    "original_index": 444
+  },
+  {
+    "bundleIdentifier": "com.apple.ProDisplayLibrary",
+    "path": "/System/Library/PrivateFrameworks/ProDisplayLibrary.framework",
+    "name": "ProDisplayLibrary.framework",
+    "original_index": 445
+  },
+  {
+    "bundleIdentifier": "com.apple.replaykit.ReplayKitMacHelper",
+    "path": "/System/Library/PrivateFrameworks/ReplayKitMacHelper.framework",
+    "name": "ReplayKitMacHelper.framework",
+    "original_index": 446
+  },
+  {
+    "bundleIdentifier": "com.apple.MLCompute",
+    "path": "/System/Library/Frameworks/MLCompute.framework",
+    "name": "MLCompute.framework",
+    "original_index": 447
+  },
+  {
+    "bundleIdentifier": "com.apple.ExtensionKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/ExtensionKit.framework",
+    "name": "ExtensionKit.framework",
+    "original_index": 448
+  },
+  {
+    "bundleIdentifier": "com.apple.HID",
+    "path": "/System/Library/PrivateFrameworks/HID.framework",
+    "name": "HID.framework",
+    "original_index": 449
+  },
+  {
+    "bundleIdentifier": "com.apple.LaunchServices",
+    "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework",
+    "name": "LaunchServices.framework",
+    "original_index": 450
+  },
+  {
+    "bundleIdentifier": "com.apple.UsageTracking",
+    "path": "/System/Library/PrivateFrameworks/UsageTracking.framework",
+    "name": "UsageTracking.framework",
+    "original_index": 451
+  },
+  {
+    "bundleIdentifier": "com.apple.SFSymbolsFramework",
+    "path": "/System/Library/PrivateFrameworks/SFSymbols.framework",
+    "name": "SFSymbols.framework",
+    "original_index": 452
+  },
+  {
+    "bundleIdentifier": "com.apple.devicemanagementclient.MDMClientLibrary",
+    "path": "/System/Library/PrivateFrameworks/MDMClientLibrary.framework",
+    "name": "MDMClientLibrary.framework",
+    "original_index": 453
+  },
+  {
+    "bundleIdentifier": "com.apple.DocumentManagerCore",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/DocumentManagerCore.framework",
+    "name": "DocumentManagerCore.framework",
+    "original_index": 454
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreNLP",
+    "path": "/System/Library/PrivateFrameworks/CoreNLP.framework",
+    "name": "CoreNLP.framework",
+    "original_index": 455
+  },
+  {
+    "bundleIdentifier": "com.apple.CloudPhotoLibrary",
+    "path": "/System/Library/PrivateFrameworks/CloudPhotoLibrary.framework",
+    "name": "CloudPhotoLibrary.framework",
+    "original_index": 456
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreKDL",
+    "path": "/System/Library/PrivateFrameworks/CoreKDL.framework",
+    "name": "CoreKDL.framework",
+    "original_index": 457
+  },
+  {
+    "bundleIdentifier": "com.apple.CryptoTokenKit",
+    "path": "/System/Library/Frameworks/CryptoTokenKit.framework",
+    "name": "CryptoTokenKit.framework",
+    "original_index": 458
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaServices",
+    "path": "/System/Library/PrivateFrameworks/MediaServices.framework",
+    "name": "MediaServices.framework",
+    "original_index": 459
+  },
+  {
+    "bundleIdentifier": "com.apple.cloudkit.CloudAssets",
+    "path": "/System/Library/PrivateFrameworks/CloudAssets.framework",
+    "name": "CloudAssets.framework",
+    "original_index": 460
+  },
+  {
+    "bundleIdentifier": "com.apple.VideoToolbox",
+    "path": "/System/Library/Frameworks/VideoToolbox.framework",
+    "name": "VideoToolbox.framework",
+    "original_index": 461
+  },
+  {
+    "bundleIdentifier": "com.apple.osanalytics.OSAnalytics",
+    "path": "/System/Library/PrivateFrameworks/OSAnalytics.framework",
+    "name": "OSAnalytics.framework",
+    "original_index": 462
+  },
+  {
+    "bundleIdentifier": "com.apple.seservice",
+    "path": "/System/Library/PrivateFrameworks/SEService.framework",
+    "name": "SEService.framework",
+    "original_index": 463
+  },
+  {
+    "bundleIdentifier": "com.apple.DoNotDisturb",
+    "path": "/System/Library/PrivateFrameworks/DoNotDisturb.framework",
+    "name": "DoNotDisturb.framework",
+    "original_index": 464
+  },
+  {
+    "bundleIdentifier": "com.apple.ScreenCaptureKit",
+    "path": "/System/Library/Frameworks/ScreenCaptureKit.framework",
+    "name": "ScreenCaptureKit.framework",
+    "original_index": 465
+  },
+  {
+    "bundleIdentifier": "com.apple.framework.DFRFoundation",
+    "path": "/System/Library/PrivateFrameworks/DFRFoundation.framework",
+    "name": "DFRFoundation.framework",
+    "original_index": 466
+  },
+  {
+    "bundleIdentifier": "com.apple.photo.PhotoImaging",
+    "path": "/System/Library/PrivateFrameworks/PhotoImaging.framework",
+    "name": "PhotoImaging.framework",
+    "original_index": 467
+  },
+  {
+    "bundleIdentifier": "com.apple.SensitiveContentAnalysis",
+    "path": "/System/Library/Frameworks/SensitiveContentAnalysis.framework",
+    "name": "SensitiveContentAnalysis.framework",
+    "original_index": 468
+  },
+  {
+    "bundleIdentifier": "com.apple.DiscRecording",
+    "path": "/System/Library/Frameworks/DiscRecording.framework",
+    "name": "DiscRecording.framework",
+    "original_index": 469
+  },
+  {
+    "bundleIdentifier": "com.apple.PrintKitUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/PrintKitUI.framework",
+    "name": "PrintKitUI.framework",
+    "original_index": 470
+  },
+  {
+    "bundleIdentifier": "com.apple.aps.framework",
+    "path": "/System/Library/PrivateFrameworks/ApplePushService.framework",
+    "name": "ApplePushService.framework",
+    "original_index": 471
+  },
+  {
+    "bundleIdentifier": "com.apple.PoirotSQLite",
+    "path": "/System/Library/PrivateFrameworks/PoirotSQLite.framework",
+    "name": "PoirotSQLite.framework",
+    "original_index": 472
+  },
+  {
+    "bundleIdentifier": "com.apple.DiskManagement",
+    "path": "/System/Library/PrivateFrameworks/DiskManagement.framework",
+    "name": "DiskManagement.framework",
+    "original_index": 473
+  },
+  {
+    "bundleIdentifier": "com.apple.intelligenceflow.ProactiveDaemonSupport",
+    "path": "/System/Library/PrivateFrameworks/ProactiveDaemonSupport.framework",
+    "name": "ProactiveDaemonSupport.framework",
+    "original_index": 474
+  },
+  {
+    "bundleIdentifier": "com.apple.AutoFillUI",
+    "path": "/System/Library/PrivateFrameworks/AutoFillUI.framework",
+    "name": "AutoFillUI.framework",
+    "original_index": 475
+  },
+  {
+    "bundleIdentifier": "com.apple.CorePDF",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/CorePDF.framework",
+    "name": "CorePDF.framework",
+    "original_index": 476
+  },
+  {
+    "bundleIdentifier": "com.apple.IOGPU",
+    "path": "/System/Library/PrivateFrameworks/IOGPU.framework",
+    "name": "IOGPU.framework",
+    "original_index": 477
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.GenerativeFunctionsFoundation",
+    "path": "/System/Library/PrivateFrameworks/GenerativeFunctionsFoundation.framework",
+    "name": "GenerativeFunctionsFoundation.framework",
+    "original_index": 478
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreUtils",
+    "path": "/System/Library/PrivateFrameworks/CoreUtils.framework",
+    "name": "CoreUtils.framework",
+    "original_index": 479
+  },
+  {
+    "bundleIdentifier": "com.apple.FeedbackService",
+    "path": "/System/Library/PrivateFrameworks/FeedbackService.framework",
+    "name": "FeedbackService.framework",
+    "original_index": 480
+  },
+  {
+    "bundleIdentifier": "com.apple.AuthenticationServices",
+    "path": "/System/iOSSupport/System/Library/Frameworks/AuthenticationServices.framework",
+    "name": "AuthenticationServices.framework",
+    "original_index": 481
+  },
+  {
+    "bundleIdentifier": "com.apple.Symbols",
+    "path": "/System/Library/Frameworks/Symbols.framework",
+    "name": "Symbols.framework",
+    "original_index": 482
+  },
+  {
+    "bundleIdentifier": "com.apple.TextInputUIMac",
+    "path": "/System/Library/PrivateFrameworks/TextInputUIMacHelper.framework",
+    "name": "TextInputUIMacHelper.framework",
+    "original_index": 483
+  },
+  {
+    "bundleIdentifier": "com.apple.InternationalSupport",
+    "path": "/System/Library/PrivateFrameworks/InternationalSupport.framework",
+    "name": "InternationalSupport.framework",
+    "original_index": 484
+  },
+  {
+    "bundleIdentifier": "com.apple.quicklook",
+    "path": "/System/iOSSupport/System/Library/Frameworks/QuickLook.framework",
+    "name": "QuickLook.framework",
+    "original_index": 485
+  },
+  {
+    "bundleIdentifier": "com.apple.-AppIntents-UIKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/_AppIntents_UIKit.framework",
+    "name": "_AppIntents_UIKit.framework",
+    "original_index": 486
+  },
+  {
+    "bundleIdentifier": "com.apple.DataDetectorsUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/DataDetectorsUI.framework",
+    "name": "DataDetectorsUI.framework",
+    "original_index": 487
+  },
+  {
+    "bundleIdentifier": "com.apple.CalendarDatabase",
+    "path": "/System/Library/PrivateFrameworks/CalendarDatabase.framework",
+    "name": "CalendarDatabase.framework",
+    "original_index": 488
+  },
+  {
+    "bundleIdentifier": "com.apple.iTunesCloud",
+    "path": "/System/Library/PrivateFrameworks/iTunesCloud.framework",
+    "name": "iTunesCloud.framework",
+    "original_index": 489
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.AIMLExperimentationAnalytics",
+    "path": "/System/Library/PrivateFrameworks/AIMLExperimentationAnalytics.framework",
+    "name": "AIMLExperimentationAnalytics.framework",
+    "original_index": 490
+  },
+  {
+    "bundleIdentifier": "com.apple.CorePhoneNumbers",
+    "path": "/System/Library/PrivateFrameworks/CorePhoneNumbers.framework",
+    "name": "CorePhoneNumbers.framework",
+    "original_index": 491
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleKeyStore",
+    "path": "/System/Library/PrivateFrameworks/AppleKeyStore.framework",
+    "name": "AppleKeyStore.framework",
+    "original_index": 492
+  },
+  {
+    "bundleIdentifier": "com.apple.Catalyst",
+    "path": "/System/Library/PrivateFrameworks/Catalyst.framework",
+    "name": "Catalyst.framework",
+    "original_index": 493
+  },
+  {
+    "bundleIdentifier": "com.apple.CollectionsInternal",
+    "path": "/System/Library/PrivateFrameworks/CollectionsInternal.framework",
+    "name": "CollectionsInternal.framework",
+    "original_index": 494
+  },
+  {
+    "bundleIdentifier": "com.apple.EmailAddressing",
+    "path": "/System/Library/PrivateFrameworks/EmailAddressing.framework",
+    "name": "EmailAddressing.framework",
+    "original_index": 495
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreAutoLayout",
+    "path": "/System/Library/PrivateFrameworks/CoreAutoLayout.framework",
+    "name": "CoreAutoLayout.framework",
+    "original_index": 496
+  },
+  {
+    "bundleIdentifier": "com.apple.private.NanoRegistry",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/NanoRegistry.framework",
+    "name": "NanoRegistry.framework",
+    "original_index": 497
+  },
+  {
+    "bundleIdentifier": "com.apple.OSLog",
+    "path": "/System/Library/Frameworks/OSLog.framework",
+    "name": "OSLog.framework",
+    "original_index": 498
+  },
+  {
+    "bundleIdentifier": "com.apple.JetUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/JetUI.framework",
+    "name": "JetUI.framework",
+    "original_index": 499
+  },
+  {
+    "bundleIdentifier": "com.apple.InternationalTextSearch",
+    "path": "/System/Library/PrivateFrameworks/InternationalTextSearch.framework",
+    "name": "InternationalTextSearch.framework",
+    "original_index": 500
+  },
+  {
+    "bundleIdentifier": "com.apple.InputAnalytics",
+    "path": "/System/Library/PrivateFrameworks/InputAnalytics.framework",
+    "name": "InputAnalytics.framework",
+    "original_index": 501
+  },
+  {
+    "bundleIdentifier": "com.apple.coredav",
+    "path": "/System/Library/PrivateFrameworks/CoreDAV.framework",
+    "name": "CoreDAV.framework",
+    "original_index": 502
+  },
+  {
+    "bundleIdentifier": "com.apple.VisionCore",
+    "path": "/System/Library/PrivateFrameworks/VisionCore.framework",
+    "name": "VisionCore.framework",
+    "original_index": 503
+  },
+  {
+    "bundleIdentifier": "com.apple.FeatureFlags",
+    "path": "/System/Library/PrivateFrameworks/FeatureFlags.framework",
+    "name": "FeatureFlags.framework",
+    "original_index": 504
+  },
+  {
+    "bundleIdentifier": "com.apple.WritingTools",
+    "path": "/System/Library/PrivateFrameworks/WritingTools.framework",
+    "name": "WritingTools.framework",
+    "original_index": 505
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreSVG",
+    "path": "/System/Library/PrivateFrameworks/CoreSVG.framework",
+    "name": "CoreSVG.framework",
+    "original_index": 506
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.PromptKit",
+    "path": "/System/Library/PrivateFrameworks/PromptKit.framework",
+    "name": "PromptKit.framework",
+    "original_index": 507
+  },
+  {
+    "bundleIdentifier": "com.apple.WindowManagement",
+    "path": "/System/Library/PrivateFrameworks/WindowManagement.framework",
+    "name": "WindowManagement.framework",
+    "original_index": 508
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreML",
+    "path": "/System/Library/Frameworks/CoreML.framework",
+    "name": "CoreML.framework",
+    "original_index": 509
+  },
+  {
+    "bundleIdentifier": "com.apple.MessageUIMacHelper",
+    "path": "/System/Library/PrivateFrameworks/MessageUIMacHelper.framework",
+    "name": "MessageUIMacHelper.framework",
+    "original_index": 510
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreTime",
+    "path": "/System/Library/PrivateFrameworks/CoreTime.framework",
+    "name": "CoreTime.framework",
+    "original_index": 511
+  },
+  {
+    "bundleIdentifier": "com.apple.SAObjects",
+    "path": "/System/Library/PrivateFrameworks/SAObjects.framework",
+    "name": "SAObjects.framework",
+    "original_index": 512
+  },
+  {
+    "bundleIdentifier": "com.apple.IASUtilities",
+    "path": "/System/Library/PrivateFrameworks/IASUtilities.framework",
+    "name": "IASUtilities.framework",
+    "original_index": 513
+  },
+  {
+    "bundleIdentifier": "com.apple.BaseBoard",
+    "path": "/System/Library/PrivateFrameworks/BaseBoard.framework",
+    "name": "BaseBoard.framework",
+    "original_index": 514
+  },
+  {
+    "bundleIdentifier": "com.apple.trial",
+    "path": "/System/Library/PrivateFrameworks/Trial.framework",
+    "name": "Trial.framework",
+    "original_index": 515
+  },
+  {
+    "bundleIdentifier": "com.apple.PencilKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/PencilKit.framework",
+    "name": "PencilKit.framework",
+    "original_index": 516
+  },
+  {
+    "bundleIdentifier": "com.apple.PegasusConfiguration",
+    "path": "/System/Library/PrivateFrameworks/PegasusConfiguration.framework",
+    "name": "PegasusConfiguration.framework",
+    "original_index": 517
+  },
+  {
+    "bundleIdentifier": "com.apple.ids",
+    "path": "/System/Library/PrivateFrameworks/IDS.framework",
+    "name": "IDS.framework",
+    "original_index": 518
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteManagementModel",
+    "path": "/System/Library/PrivateFrameworks/RemoteManagementModel.framework",
+    "name": "RemoteManagementModel.framework",
+    "original_index": 519
+  },
+  {
+    "bundleIdentifier": "com.apple.IOSurface",
+    "path": "/System/Library/Frameworks/IOSurface.framework",
+    "name": "IOSurface.framework",
+    "original_index": 520
+  },
+  {
+    "bundleIdentifier": "com.apple.photo.MediaConversionService",
+    "path": "/System/Library/PrivateFrameworks/MediaConversionService.framework",
+    "name": "MediaConversionService.framework",
+    "original_index": 521
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleIDSSOAuthentication",
+    "path": "/System/Library/PrivateFrameworks/AppleIDSSOAuthentication.framework",
+    "name": "AppleIDSSOAuthentication.framework",
+    "original_index": 522
+  },
+  {
+    "bundleIdentifier": "com.apple.findmy.framework.FindMyLocate",
+    "path": "/System/Library/PrivateFrameworks/FindMyLocate.framework",
+    "name": "FindMyLocate.framework",
+    "original_index": 523
+  },
+  {
+    "bundleIdentifier": "com.apple.ConfigProfileHelper",
+    "path": "/System/Library/PrivateFrameworks/ConfigProfileHelper.framework",
+    "name": "ConfigProfileHelper.framework",
+    "original_index": 524
+  },
+  {
+    "bundleIdentifier": "com.apple.SetupAssistantFramework",
+    "path": "/System/Library/PrivateFrameworks/SetupAssistantFramework.framework",
+    "name": "SetupAssistantFramework.framework",
+    "original_index": 525
+  },
+  {
+    "bundleIdentifier": "com.apple.corerecents",
+    "path": "/System/Library/PrivateFrameworks/CoreRecents.framework",
+    "name": "CoreRecents.framework",
+    "original_index": 526
+  },
+  {
+    "bundleIdentifier": "com.apple.AnnotationKit",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/AnnotationKit.framework",
+    "name": "AnnotationKit.framework",
+    "original_index": 527
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.CascadeSets",
+    "path": "/System/Library/PrivateFrameworks/CascadeSets.framework",
+    "name": "CascadeSets.framework",
+    "original_index": 528
+  },
+  {
+    "bundleIdentifier": "com.apple.Accelerate.vecLib",
+    "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework",
+    "name": "vecLib.framework",
+    "original_index": 529
+  },
+  {
+    "bundleIdentifier": "com.apple.StocksCore",
+    "path": "/System/Library/PrivateFrameworks/StocksCore.framework",
+    "name": "StocksCore.framework",
+    "original_index": 530
+  },
+  {
+    "bundleIdentifier": "com.apple.security.CryptoKit-Private",
+    "path": "/System/Library/PrivateFrameworks/CryptoKitPrivate.framework",
+    "name": "CryptoKitPrivate.framework",
+    "original_index": 531
+  },
+  {
+    "bundleIdentifier": "com.apple.AAAFoundationSwift",
+    "path": "/System/Library/PrivateFrameworks/AAAFoundationSwift.framework",
+    "name": "AAAFoundationSwift.framework",
+    "original_index": 532
+  },
+  {
+    "bundleIdentifier": "com.apple.OnBoardingKit",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/OnBoardingKit.framework",
+    "name": "OnBoardingKit.framework",
+    "original_index": 533
+  },
+  {
+    "bundleIdentifier": "com.apple.IMDPersistence",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/IMDPersistence.framework",
+    "name": "IMDPersistence.framework",
+    "original_index": 534
+  },
+  {
+    "bundleIdentifier": "com.apple.ExternalAccessory",
+    "path": "/System/Library/Frameworks/ExternalAccessory.framework",
+    "name": "ExternalAccessory.framework",
+    "original_index": 535
+  },
+  {
+    "bundleIdentifier": "com.apple.LinkServices",
+    "path": "/System/Library/PrivateFrameworks/LinkServices.framework",
+    "name": "LinkServices.framework",
+    "original_index": 536
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.Sage",
+    "path": "/System/Library/PrivateFrameworks/Sage.framework",
+    "name": "Sage.framework",
+    "original_index": 537
+  },
+  {
+    "bundleIdentifier": "com.apple.MobileKeyBag",
+    "path": "/System/Library/PrivateFrameworks/MobileKeyBag.framework",
+    "name": "MobileKeyBag.framework",
+    "original_index": 538
+  },
+  {
+    "bundleIdentifier": "com.apple.iCalendar",
+    "path": "/System/Library/PrivateFrameworks/iCalendar.framework",
+    "name": "iCalendar.framework",
+    "original_index": 539
+  },
+  {
+    "bundleIdentifier": "com.apple.SharedWithYou",
+    "path": "/System/iOSSupport/System/Library/Frameworks/SharedWithYou.framework",
+    "name": "SharedWithYou.framework",
+    "original_index": 540
+  },
+  {
+    "bundleIdentifier": "com.apple.skp.FeedbackLogger",
+    "path": "/System/Library/PrivateFrameworks/FeedbackLogger.framework",
+    "name": "FeedbackLogger.framework",
+    "original_index": 541
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreDuet",
+    "path": "/System/Library/PrivateFrameworks/CoreDuet.framework",
+    "name": "CoreDuet.framework",
+    "original_index": 542
+  },
+  {
+    "bundleIdentifier": "com.apple.TelephonyUtilities",
+    "path": "/System/Library/PrivateFrameworks/TelephonyUtilities.framework",
+    "name": "TelephonyUtilities.framework",
+    "original_index": 543
+  },
+  {
+    "bundleIdentifier": "com.apple.WebUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/WebUI.framework",
+    "name": "WebUI.framework",
+    "original_index": 544
+  },
+  {
+    "bundleIdentifier": "com.apple.quicklook.QuickLookSupport",
+    "path": "/System/Library/PrivateFrameworks/QuickLookSupport.framework",
+    "name": "QuickLookSupport.framework",
+    "original_index": 545
+  },
+  {
+    "bundleIdentifier": "com.apple.TeaFoundation",
+    "path": "/System/Library/PrivateFrameworks/TeaFoundation.framework",
+    "name": "TeaFoundation.framework",
+    "original_index": 546
+  },
+  {
+    "bundleIdentifier": "com.apple.commonutilities",
+    "path": "/System/Library/PrivateFrameworks/CommonUtilities.framework",
+    "name": "CommonUtilities.framework",
+    "original_index": 547
+  },
+  {
+    "bundleIdentifier": "com.apple.facetimeservices",
+    "path": "/System/Library/PrivateFrameworks/FTServices.framework",
+    "name": "FTServices.framework",
+    "original_index": 548
+  },
+  {
+    "bundleIdentifier": "com.apple.SampleAnalysis",
+    "path": "/System/Library/PrivateFrameworks/SampleAnalysis.framework",
+    "name": "SampleAnalysis.framework",
+    "original_index": 549
+  },
+  {
+    "bundleIdentifier": "com.apple.Metadata",
+    "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework",
+    "name": "Metadata.framework",
+    "original_index": 550
+  },
+  {
+    "bundleIdentifier": "com.apple.GenerativeFunctions.GenerativeFunctionsInstrumentation",
+    "path": "/System/Library/PrivateFrameworks/GenerativeFunctionsInstrumentation.framework",
+    "name": "GenerativeFunctionsInstrumentation.framework",
+    "original_index": 551
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.VoiceOverServices",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/VoiceOverServices.framework",
+    "name": "VoiceOverServices.framework",
+    "original_index": 552
+  },
+  {
+    "bundleIdentifier": "com.apple.persistentconnection",
+    "path": "/System/Library/PrivateFrameworks/PersistentConnection.framework",
+    "name": "PersistentConnection.framework",
+    "original_index": 553
+  },
+  {
+    "bundleIdentifier": "com.apple.EFILogin",
+    "path": "/System/Library/PrivateFrameworks/EFILogin.framework",
+    "name": "EFILogin.framework",
+    "original_index": 554
+  },
+  {
+    "bundleIdentifier": "com.apple.NetFS",
+    "path": "/System/Library/Frameworks/NetFS.framework",
+    "name": "NetFS.framework",
+    "original_index": 555
+  },
+  {
+    "bundleIdentifier": "com.apple.MapKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/MapKit.framework",
+    "name": "MapKit.framework",
+    "original_index": 556
+  },
+  {
+    "bundleIdentifier": "com.apple.AVFCore",
+    "path": "/System/Library/PrivateFrameworks/AVFCore.framework",
+    "name": "AVFCore.framework",
+    "original_index": 557
+  },
+  {
+    "bundleIdentifier": "com.apple.Engram",
+    "path": "/System/Library/PrivateFrameworks/Engram.framework",
+    "name": "Engram.framework",
+    "original_index": 558
+  },
+  {
+    "bundleIdentifier": "com.apple.UIKitServices",
+    "path": "/System/Library/PrivateFrameworks/UIKitServices.framework",
+    "name": "UIKitServices.framework",
+    "original_index": 559
+  },
+  {
+    "bundleIdentifier": "com.apple.CMPhoto",
+    "path": "/System/Library/PrivateFrameworks/CMPhoto.framework",
+    "name": "CMPhoto.framework",
+    "original_index": 560
+  },
+  {
+    "bundleIdentifier": "com.apple.SymptomShared",
+    "path": "/System/Library/PrivateFrameworks/SymptomShared.framework",
+    "name": "SymptomShared.framework",
+    "original_index": 561
+  },
+  {
+    "bundleIdentifier": "com.apple.PersonaUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/PersonaUI.framework",
+    "name": "PersonaUI.framework",
+    "original_index": 562
+  },
+  {
+    "bundleIdentifier": "com.apple.Quagga",
+    "path": "/System/Library/PrivateFrameworks/Quagga.framework",
+    "name": "Quagga.framework",
+    "original_index": 563
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.AXCoreUtilities",
+    "path": "/System/Library/PrivateFrameworks/AXCoreUtilities.framework",
+    "name": "AXCoreUtilities.framework",
+    "original_index": 564
+  },
+  {
+    "bundleIdentifier": "com.apple.UIAccessibility",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/UIAccessibility.framework",
+    "name": "UIAccessibility.framework",
+    "original_index": 565
+  },
+  {
+    "bundleIdentifier": "com.apple.EmailCore",
+    "path": "/System/Library/PrivateFrameworks/EmailCore.framework",
+    "name": "EmailCore.framework",
+    "original_index": 566
+  },
+  {
+    "bundleIdentifier": "com.apple.FramePacing",
+    "path": "/System/Library/PrivateFrameworks/FramePacing.framework",
+    "name": "FramePacing.framework",
+    "original_index": 567
+  },
+  {
+    "bundleIdentifier": "com.apple.LockdownMode",
+    "path": "/System/Library/PrivateFrameworks/LockdownMode.framework",
+    "name": "LockdownMode.framework",
+    "original_index": 568
+  },
+  {
+    "bundleIdentifier": "com.apple.Photos",
+    "path": "/System/Library/Frameworks/Photos.framework",
+    "name": "Photos.framework",
+    "original_index": 569
+  },
+  {
+    "bundleIdentifier": "com.apple.desktopservices",
+    "path": "/System/Library/PrivateFrameworks/DesktopServicesPriv.framework",
+    "name": "DesktopServicesPriv.framework",
+    "original_index": 570
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaToolbox",
+    "path": "/System/Library/Frameworks/MediaToolbox.framework",
+    "name": "MediaToolbox.framework",
+    "original_index": 571
+  },
+  {
+    "bundleIdentifier": "com.apple.BiomeLibrary",
+    "path": "/System/Library/PrivateFrameworks/BiomeLibrary.framework",
+    "name": "BiomeLibrary.framework",
+    "original_index": 572
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreVideo",
+    "path": "/System/Library/Frameworks/CoreVideo.framework",
+    "name": "CoreVideo.framework",
+    "original_index": 573
+  },
+  {
+    "bundleIdentifier": "com.apple.ManagedSettings",
+    "path": "/System/Library/Frameworks/ManagedSettings.framework",
+    "name": "ManagedSettings.framework",
+    "original_index": 574
+  },
+  {
+    "bundleIdentifier": "com.apple.AppSSO",
+    "path": "/System/Library/PrivateFrameworks/AppSSO.framework",
+    "name": "AppSSO.framework",
+    "original_index": 575
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts.ContactsMetrics",
+    "path": "/System/Library/PrivateFrameworks/ContactsMetrics.framework",
+    "name": "ContactsMetrics.framework",
+    "original_index": 576
+  },
+  {
+    "bundleIdentifier": "com.apple.TipKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/TipKit.framework",
+    "name": "TipKit.framework",
+    "original_index": 577
+  },
+  {
+    "bundleIdentifier": "com.apple.ModelManagerServices",
+    "path": "/System/Library/PrivateFrameworks/ModelManagerServices.framework",
+    "name": "ModelManagerServices.framework",
+    "original_index": 578
+  },
+  {
+    "bundleIdentifier": "com.apple.xpc.ServiceManagement",
+    "path": "/System/Library/Frameworks/ServiceManagement.framework",
+    "name": "ServiceManagement.framework",
+    "original_index": 579
+  },
+  {
+    "bundleIdentifier": "com.apple.JetEngine",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/JetEngine.framework",
+    "name": "JetEngine.framework",
+    "original_index": 580
+  },
+  {
+    "bundleIdentifier": "com.apple.CollectionViewCore",
+    "path": "/System/Library/PrivateFrameworks/CollectionViewCore.framework",
+    "name": "CollectionViewCore.framework",
+    "original_index": 581
+  },
+  {
+    "bundleIdentifier": "com.apple.CaptiveNetworkSupport",
+    "path": "/System/Library/PrivateFrameworks/CaptiveNetwork.framework",
+    "name": "CaptiveNetwork.framework",
+    "original_index": 582
+  },
+  {
+    "bundleIdentifier": "com.apple.ProtocolBuffer",
+    "path": "/System/Library/PrivateFrameworks/ProtocolBuffer.framework",
+    "name": "ProtocolBuffer.framework",
+    "original_index": 583
+  },
+  {
+    "bundleIdentifier": "com.apple.ScreenReaderCore",
+    "path": "/System/Library/PrivateFrameworks/ScreenReaderCore.framework",
+    "name": "ScreenReaderCore.framework",
+    "original_index": 584
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaAnalysisServices",
+    "path": "/System/Library/PrivateFrameworks/MediaAnalysisServices.framework",
+    "name": "MediaAnalysisServices.framework",
+    "original_index": 585
+  },
+  {
+    "bundleIdentifier": "com.apple.MetalPerformanceShaders.MPSNeuralNetwork",
+    "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework",
+    "name": "MPSNeuralNetwork.framework",
+    "original_index": 586
+  },
+  {
+    "bundleIdentifier": "com.apple.WebGPU",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/WebGPU.framework",
+    "name": "WebGPU.framework",
+    "original_index": 587
+  },
+  {
+    "bundleIdentifier": "com.apple.accessibility.PhotosensitivityProcessing",
+    "path": "/System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework",
+    "name": "PhotosensitivityProcessing.framework",
+    "original_index": 588
+  },
+  {
+    "bundleIdentifier": "com.apple.TokenGeneration",
+    "path": "/System/Library/PrivateFrameworks/TokenGeneration.framework",
+    "name": "TokenGeneration.framework",
+    "original_index": 589
+  },
+  {
+    "bundleIdentifier": "com.apple.AVKitMacHelper",
+    "path": "/System/Library/PrivateFrameworks/AVKitMacHelper.framework",
+    "name": "AVKitMacHelper.framework",
+    "original_index": 590
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts.vCard",
+    "path": "/System/Library/PrivateFrameworks/vCard.framework",
+    "name": "vCard.framework",
+    "original_index": 591
+  },
+  {
+    "bundleIdentifier": "com.apple.SharedWithYouCore",
+    "path": "/System/Library/Frameworks/SharedWithYouCore.framework",
+    "name": "SharedWithYouCore.framework",
+    "original_index": 592
+  },
+  {
+    "bundleIdentifier": "com.apple.GeoAnalytics",
+    "path": "/System/Library/PrivateFrameworks/GeoAnalytics.framework",
+    "name": "GeoAnalytics.framework",
+    "original_index": 593
+  },
+  {
+    "bundleIdentifier": "com.apple.SensitiveContentAnalysisML",
+    "path": "/System/Library/PrivateFrameworks/SensitiveContentAnalysisML.framework",
+    "name": "SensitiveContentAnalysisML.framework",
+    "original_index": 594
+  },
+  {
+    "bundleIdentifier": "com.apple.quicklook.QuickLookUIIosmac",
+    "path": "/System/Library/PrivateFrameworks/QuickLookUIIosmac.framework",
+    "name": "QuickLookUIIosmac.framework",
+    "original_index": 595
+  },
+  {
+    "bundleIdentifier": "com.apple.CacheDelete",
+    "path": "/System/Library/PrivateFrameworks/CacheDelete.framework",
+    "name": "CacheDelete.framework",
+    "original_index": 596
+  },
+  {
+    "bundleIdentifier": "com.apple.HIToolbox",
+    "path": "/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework",
+    "name": "HIToolbox.framework",
+    "original_index": 597
+  },
+  {
+    "bundleIdentifier": "com.apple.HIDDisplay",
+    "path": "/System/Library/PrivateFrameworks/HIDDisplay.framework",
+    "name": "HIDDisplay.framework",
+    "original_index": 598
+  },
+  {
+    "bundleIdentifier": "com.apple.crossdevicearbitration.feedback",
+    "path": "/System/Library/PrivateFrameworks/SiriCrossDeviceArbitrationFeedback.framework",
+    "name": "SiriCrossDeviceArbitrationFeedback.framework",
+    "original_index": 599
+  },
+  {
+    "bundleIdentifier": "com.apple.PDFKit",
+    "path": "/System/iOSSupport/System/Library/Frameworks/PDFKit.framework",
+    "name": "PDFKit.framework",
+    "original_index": 600
+  },
+  {
+    "bundleIdentifier": "com.apple.multiverse",
+    "path": "/System/Library/PrivateFrameworks/MultiverseSupport.framework",
+    "name": "MultiverseSupport.framework",
+    "original_index": 601
+  },
+  {
+    "bundleIdentifier": "com.apple.xpc.AppServerSupport",
+    "path": "/System/Library/PrivateFrameworks/AppServerSupport.framework",
+    "name": "AppServerSupport.framework",
+    "original_index": 602
+  },
+  {
+    "bundleIdentifier": "com.apple.biome.BiomeStreams",
+    "path": "/System/Library/PrivateFrameworks/BiomeStreams.framework",
+    "name": "BiomeStreams.framework",
+    "original_index": 603
+  },
+  {
+    "bundleIdentifier": "com.apple.calls.NeighborhoodActivityConduit",
+    "path": "/System/Library/PrivateFrameworks/NeighborhoodActivityConduit.framework",
+    "name": "NeighborhoodActivityConduit.framework",
+    "original_index": 604
+  },
+  {
+    "bundleIdentifier": "com.apple.UnifiedAssetFramework",
+    "path": "/System/Library/PrivateFrameworks/UnifiedAssetFramework.framework",
+    "name": "UnifiedAssetFramework.framework",
+    "original_index": 605
+  },
+  {
+    "bundleIdentifier": "com.apple.NearbyInteraction",
+    "path": "/System/Library/Frameworks/NearbyInteraction.framework",
+    "name": "NearbyInteraction.framework",
+    "original_index": 606
+  },
+  {
+    "bundleIdentifier": "com.apple.FusionTracker",
+    "path": "/System/Library/PrivateFrameworks/FusionTracker.framework",
+    "name": "FusionTracker.framework",
+    "original_index": 607
+  },
+  {
+    "bundleIdentifier": "com.apple.UIFoundation",
+    "path": "/System/Library/PrivateFrameworks/UIFoundation.framework",
+    "name": "UIFoundation.framework",
+    "original_index": 608
+  },
+  {
+    "bundleIdentifier": "com.apple.vision.EspressoFramework",
+    "path": "/System/Library/PrivateFrameworks/Espresso.framework",
+    "name": "Espresso.framework",
+    "original_index": 609
+  },
+  {
+    "bundleIdentifier": "com.apple.IASUtilitiesCore",
+    "path": "/System/Library/PrivateFrameworks/IASUtilitiesCore.framework",
+    "name": "IASUtilitiesCore.framework",
+    "original_index": 610
+  },
+  {
+    "bundleIdentifier": "com.apple.ViewBridge",
+    "path": "/System/Library/PrivateFrameworks/ViewBridge.framework",
+    "name": "ViewBridge.framework",
+    "original_index": 611
+  },
+  {
+    "bundleIdentifier": "com.apple.BridgeXPC",
+    "path": "/System/Library/PrivateFrameworks/BridgeXPC.framework",
+    "name": "BridgeXPC.framework",
+    "original_index": 612
+  },
+  {
+    "bundleIdentifier": "com.apple.gpusw.MetalTools",
+    "path": "/System/Library/PrivateFrameworks/MetalTools.framework",
+    "name": "MetalTools.framework",
+    "original_index": 613
+  },
+  {
+    "bundleIdentifier": "com.apple.VDAF",
+    "path": "/System/Library/PrivateFrameworks/VDAF.framework",
+    "name": "VDAF.framework",
+    "original_index": 614
+  },
+  {
+    "bundleIdentifier": "com.apple.imsharedutilities",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/IMSharedUtilities.framework",
+    "name": "IMSharedUtilities.framework",
+    "original_index": 615
+  },
+  {
+    "bundleIdentifier": "com.apple.contacts.ContactsAutocomplete",
+    "path": "/System/Library/PrivateFrameworks/ContactsAutocomplete.framework",
+    "name": "ContactsAutocomplete.framework",
+    "original_index": 616
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreSceneUnderstanding",
+    "path": "/System/Library/PrivateFrameworks/CoreSceneUnderstanding.framework",
+    "name": "CoreSceneUnderstanding.framework",
+    "original_index": 617
+  },
+  {
+    "bundleIdentifier": "com.apple.MediaRemote",
+    "path": "/System/Library/PrivateFrameworks/MediaRemote.framework",
+    "name": "MediaRemote.framework",
+    "original_index": 618
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreSpotlight",
+    "path": "/System/Library/Frameworks/CoreSpotlight.framework",
+    "name": "CoreSpotlight.framework",
+    "original_index": 619
+  },
+  {
+    "bundleIdentifier": "com.apple.CPAnalytics",
+    "path": "/System/Library/PrivateFrameworks/CPAnalytics.framework",
+    "name": "CPAnalytics.framework",
+    "original_index": 620
+  },
+  {
+    "bundleIdentifier": "com.apple.corelocation",
+    "path": "/System/Library/Frameworks/CoreLocation.framework",
+    "name": "CoreLocation.framework",
+    "original_index": 621
+  },
+  {
+    "bundleIdentifier": "com.apple.siri.flatbuffer.AppleFlatBuffers",
+    "path": "/System/Library/PrivateFrameworks/AppleFlatBuffers.framework",
+    "name": "AppleFlatBuffers.framework",
+    "original_index": 622
+  },
+  {
+    "bundleIdentifier": "com.apple.LookupFramework",
+    "path": "/System/Library/PrivateFrameworks/Lookup.framework",
+    "name": "Lookup.framework",
+    "original_index": 623
+  },
+  {
+    "bundleIdentifier": "com.apple.BoardServices",
+    "path": "/System/Library/PrivateFrameworks/BoardServices.framework",
+    "name": "BoardServices.framework",
+    "original_index": 624
+  },
+  {
+    "bundleIdentifier": "com.apple.Safari.SafeBrowsing",
+    "path": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework",
+    "name": "SafariSafeBrowsing.framework",
+    "original_index": 625
+  },
+  {
+    "bundleIdentifier": "com.apple.RevealCore",
+    "path": "/System/Library/PrivateFrameworks/RevealCore.framework",
+    "name": "RevealCore.framework",
+    "original_index": 626
+  },
+  {
+    "bundleIdentifier": "com.apple.photo.NeutrinoCore",
+    "path": "/System/Library/PrivateFrameworks/NeutrinoCore.framework",
+    "name": "NeutrinoCore.framework",
+    "original_index": 627
+  },
+  {
+    "bundleIdentifier": "com.apple.EmojiFoundation",
+    "path": "/System/Library/PrivateFrameworks/EmojiFoundation.framework",
+    "name": "EmojiFoundation.framework",
+    "original_index": 628
+  },
+  {
+    "bundleIdentifier": "com.apple.CoreHandwriting",
+    "path": "/System/Library/PrivateFrameworks/CoreHandwriting.framework",
+    "name": "CoreHandwriting.framework",
+    "original_index": 629
+  },
+  {
+    "bundleIdentifier": "com.apple.BaseBoardUI",
+    "path": "/System/iOSSupport/System/Library/PrivateFrameworks/BaseBoardUI.framework",
+    "name": "BaseBoardUI.framework",
+    "original_index": 630
+  },
+  {
+    "bundleIdentifier": "com.apple.CMCaptureCore",
+    "path": "/System/Library/PrivateFrameworks/CMCaptureCore.framework",
+    "name": "CMCaptureCore.framework",
+    "original_index": 631
+  },
+  {
+    "bundleIdentifier": "com.apple.security.CryptoKit-C-Bridging",
+    "path": "/System/Library/PrivateFrameworks/CryptoKitCBridging.framework",
+    "name": "CryptoKitCBridging.framework",
+    "original_index": 632
+  },
+  {
+    "bundleIdentifier": "com.apple.RemoteServiceDiscovery",
+    "path": "/System/Library/PrivateFrameworks/RemoteServiceDiscovery.framework",
+    "name": "RemoteServiceDiscovery.framework",
+    "original_index": 633
+  },
+  {
+    "bundleIdentifier": "com.apple.IconServices",
+    "path": "/System/Library/PrivateFrameworks/IconServices.framework",
+    "name": "IconServices.framework",
+    "original_index": 634
+  },
+  {
+    "bundleIdentifier": "com.apple.AppleDeviceQuerySupport",
+    "path": "/System/Library/PrivateFrameworks/AppleDeviceQuerySupport.framework",
+    "name": "AppleDeviceQuerySupport.framework",
+    "original_index": 635
+  },
+]
