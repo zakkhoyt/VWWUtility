@@ -19,7 +19,7 @@ enum TestDataPoints {
             UInt64.self,
             Int64.self
         ]
-        if #available(iOS 18.0, *) {
+        if #available(iOS 18.0, macOS 15.0, *) {
             return types + [
                 UInt128.self,
                 Int128.self
