@@ -3,7 +3,8 @@ import Foundation
 /// Extracts terms from a filename string using the established term syntax.
 ///
 /// ## Term syntax
-/// A *common term* is a token of the form `_[a-zA-Z0-9\-]+_`.  Adjacent terms share their
+/// A *common term* is a token of the form `_[a-zA-Z0-9\-=]+_` (`=` carries V2 subject values and
+/// key=value parameters, e.g. `_at=33s-for=20_`).  Adjacent terms share their
 /// delimiter, so `_a_b_c_` contains three terms: `a`, `b`, `c`.  A term cluster may appear
 /// anywhere in the basename — other text can precede and follow it.
 ///
@@ -40,9 +41,9 @@ public enum TermExtractor {
                token.range(of: #"^[0-9]{1,4}$"#, options: .regularExpression) != nil {
                 return try? Term(basenameRepresentation: "ord-\(token)")
             }
-            // Any token: f followed by 1–4 digits with no dash → promote to f-<digits>
-            if token.range(of: #"^f[0-9]{1,4}$"#, options: .regularExpression) != nil {
-                let digits = String(token.dropFirst())
+            // Any token: `fNN` or `f=NN` (1–4 digits) → normalize to the canonical `f-NN`
+            if token.range(of: #"^f=?[0-9]{1,4}$"#, options: .regularExpression) != nil {
+                let digits = token.drop { !$0.isNumber }
                 return try? Term(basenameRepresentation: "f-\(digits)")
             }
             return try? Term(basenameRepresentation: token)
@@ -88,7 +89,10 @@ public enum TermExtractor {
     /// serve as the leading `_` for the next term.
     ///
     /// A trailing token with no closing `_` (e.g. `_dunk_clip`) is also captured if it
-    /// consists entirely of valid term characters (`[a-zA-Z0-9\-]`).
+    /// consists entirely of valid term characters (``validTermPattern``).
+    /// Letters, digits, the parameter delimiter `-`, and the option delimiter `=`.
+    private static let validTermPattern = #"^[a-zA-Z0-9\-=]+$"#
+
     private static func commonTerms(in stem: String) -> [String] {
         var terms: [String] = []
 
@@ -97,7 +101,7 @@ public enum TermExtractor {
         if let firstUnderscore = stem.firstIndex(of: "_") {
             let leading = String(stem[stem.startIndex ..< firstUnderscore])
             if !leading.isEmpty,
-               leading.range(of: #"^[a-zA-Z0-9\-]+$"#, options: .regularExpression) != nil {
+               leading.range(of: validTermPattern, options: .regularExpression) != nil {
                 terms.append(leading)
             }
         }
@@ -114,7 +118,7 @@ public enum TermExtractor {
             if let underscoreEnd = stem[afterUnderscore...].firstIndex(of: "_") {
                 // Standard case: token sits between two `_` delimiters.
                 let token = String(stem[afterUnderscore ..< underscoreEnd])
-                if !token.isEmpty, token.range(of: #"^[a-zA-Z0-9\-]+$"#, options: .regularExpression) != nil {
+                if !token.isEmpty, token.range(of: validTermPattern, options: .regularExpression) != nil {
                     terms.append(token)
                 }
                 // Reuse the closing `_` as the potential opening `_` for the next term.
@@ -122,7 +126,7 @@ public enum TermExtractor {
             } else {
                 // Trailing term: valid chars after the last `_` with no closing delimiter.
                 let token = String(stem[afterUnderscore...])
-                if !token.isEmpty, token.range(of: #"^[a-zA-Z0-9\-]+$"#, options: .regularExpression) != nil {
+                if !token.isEmpty, token.range(of: validTermPattern, options: .regularExpression) != nil {
                     terms.append(token)
                 }
                 break

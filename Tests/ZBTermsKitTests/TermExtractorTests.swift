@@ -211,6 +211,14 @@ final class TermExtractorTests: XCTestCase {
         XCTAssertEqual(fTerm?.syntaxVersion, .v2)
     }
 
+    func test_favoriteEqualsForm_normalized() {
+        let terms = TermExtractor.extractTerms(from: "clip_f=06_y.mp4")
+        XCTAssertEqual(terms.map(\.raw), ["clip", "f-06", "y"])
+        let fTerm = terms.first { $0.subject.basenameRepresentation == "f" }
+        XCTAssertEqual(fTerm?.syntaxVersion, .v2)
+        XCTAssertEqual(fTerm?.parameters.first?.basenameRepresentation, "06")
+    }
+
     // MARK: - .DS_Store
 
     func test_dsStore_producesNoTerms() {
@@ -305,5 +313,83 @@ final class TermExtractorTests: XCTestCase {
         // 11+ underscores exceed the 1–10 range; extractFavoriteRating returns nil
         let terms = TermExtractor.extractTerms(from: "___________shot.mp4")
         XCTAssertFalse(terms.map(\.raw).contains { $0.hasPrefix("f-") })
+    }
+
+    // MARK: - Predefined definitions
+
+    func test_predefinedSubjects_loadFromBundle() {
+        let subjects = Term.predefinedSubjects.map(\.basenameRepresentation)
+        for expected in ["f", "at", "for", "ord"] {
+            XCTAssertTrue(subjects.contains(expected), "missing predefined subject '\(expected)'")
+        }
+    }
+
+    func test_predefinedParameters_loadFromBundle() {
+        let parameters = Term.predefinedParameters.map(\.basenameRepresentation)
+        for expected in ["for", "zoom", "zx", "zy", "speed", "interp"] {
+            XCTAssertTrue(parameters.contains(expected), "missing predefined parameter '\(expected)'")
+        }
+    }
+
+    func test_predefinedSubject_providesNameAndDefinition() throws {
+        let term = try XCTUnwrap(try? Term(basenameRepresentation: "f-07"))
+        XCTAssertEqual(term.subject.name, "Favorite Rating")
+        XCTAssertFalse(term.subject.definition.isEmpty)
+    }
+
+    // MARK: - V2 subject values (clip terms)
+
+    func test_v2ClipTerm_extractedFromFilename() throws {
+        let terms = TermExtractor.extractTerms(from: "foo_at=33s-for=20-zoom=110_bar.mp4")
+        XCTAssertEqual(terms.map(\.raw), ["foo", "at=33s-for=20-zoom=110", "bar"])
+
+        let clip = try XCTUnwrap(terms.first { $0.subject.basenameRepresentation == "at" })
+        XCTAssertEqual(clip.syntaxVersion, .v2)
+        XCTAssertEqual(clip.subject.name, "Timestamp Start")
+        XCTAssertEqual(clip.subjectValue, "33s")
+        XCTAssertEqual(clip.parameters.map(\.basenameRepresentation), ["for=20", "zoom=110"])
+        XCTAssertEqual(clip.parameters.map(\.name), ["Duration", "Zoom"])
+        XCTAssertEqual(clip.parameters.first?.parameterType, .option(value: "20"))
+    }
+
+    func test_v2ClipTerm_flagParameter() throws {
+        let term = try XCTUnwrap(try? Term(basenameRepresentation: "at=33s-speed=50-interp"))
+        XCTAssertEqual(term.parameters.map(\.name), ["Speed", "Interpolate"])
+        XCTAssertEqual(term.parameters.last?.parameterType, .flag)
+    }
+
+    func test_v2SubjectValue_withoutParameters() throws {
+        let term = try XCTUnwrap(try? Term(basenameRepresentation: "at=33s"))
+        XCTAssertEqual(term.syntaxVersion, .v2)
+        XCTAssertEqual(term.subject.basenameRepresentation, "at")
+        XCTAssertEqual(term.subjectValue, "33s")
+        XCTAssertTrue(term.parameters.isEmpty)
+    }
+
+    func test_v2Term_withoutSubjectValue_hasNilSubjectValue() throws {
+        let term = try XCTUnwrap(try? Term(basenameRepresentation: "shoe-ht-red"))
+        XCTAssertNil(term.subjectValue)
+    }
+
+    // MARK: - V1 prefix matching
+
+    func test_v1Term_timingPrefixes() throws {
+        let at = try XCTUnwrap(try? Term(basenameRepresentation: "at1m10s"))
+        XCTAssertEqual(at.subject.basenameRepresentation, "at")
+        let duration = try XCTUnwrap(try? Term(basenameRepresentation: "for8"))
+        XCTAssertEqual(duration.subject.basenameRepresentation, "for")
+    }
+
+    func test_v1Term_composedOfPredefinedParameters() throws {
+        let term = try XCTUnwrap(try? Term(basenameRepresentation: "shoehtred"))
+        XCTAssertEqual(term.syntaxVersion, .v1)
+        XCTAssertEqual(term.subject.basenameRepresentation, "shoe")
+    }
+
+    func test_v1Term_wordStartingWithShortSubject_notMatched() throws {
+        for word in ["foo", "attic", "order", "phone"] {
+            let term = try XCTUnwrap(try? Term(basenameRepresentation: word))
+            XCTAssertEqual(term.subject.basenameRepresentation, word)
+        }
     }
 }

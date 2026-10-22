@@ -34,8 +34,12 @@ _shoehtred_
 
 Subject `shoe`, parameters `ht` and `red` are concatenated. Parsing V1 terms requires
 the predefined subject registry (``Term/predefinedSubjects``) to identify where the
-subject ends and parameters begin. When no predefined subject prefix matches, the entire
-raw token is used as the subject with an empty parameter list.
+subject ends and parameters begin. The longest predefined subject that prefixes the token
+wins, and only when the rest of the token is empty, starts with a digit (`at30s`, `for8`),
+or splits entirely into predefined parameters (`shoehtred` → `ht` + `red`). That keeps
+ordinary words that merely start with a short subject (`foo` vs `f`, `attic` vs `at`) from
+being misread. When no predefined subject matches this way, the entire raw token is used as
+the subject with an empty parameter list.
 
 ### V2 — Hyphen-Separated
 
@@ -68,6 +72,10 @@ _at=33s-zoom=110-zx=40-zy=30_   ← zoom with a focal point
 _at=33s-for=10-speed=50_        ← half-speed clip
 ```
 
+The subject's value is reported separately as ``Term/subjectValue`` (`subject_value` in JSON);
+the subject itself is still `at`, so every clip groups under one subject. Predefined subjects and
+parameters are matched by key (the part before `=`), so `for=20` picks up the `for` definition.
+
 The full V2 term grammar is therefore:
 
 ```
@@ -83,7 +91,7 @@ Components are `[a-zA-Z0-9]+`; parameters are **order-independent** (`-zx=40-zoo
 ## Mixed Basenames
 
 A single basename may contain both V1 and V2 terms in any order. Each token is parsed
-independently using its own heuristic: if the token contains `-` it is V2; otherwise V1.
+independently using its own heuristic: if the token contains `-` or `=` it is V2; otherwise V1.
 
 ```
 march madness_shoe_f-09_clip.mp4
@@ -139,7 +147,10 @@ access from JSON resource files bundled with ZBTermsKit:
   (e.g. `"ht"` → `"High-Top"`, `"A high-top shoe style"`)
 
 When no predefined entry matches, ``Term`` creates a fallback ``Term/Subject`` or
-``Term/Parameter`` whose `name` and `definition` are both set to the raw token string.
+``Term/Parameter`` whose `name` is the raw token string and whose `definition` is empty.
+
+Both files ship inside ZBTermsKit, so a missing or malformed file stops the process with the
+decoding error instead of silently loading no definitions.
 
 ## Special Promotions & Rejections
 
@@ -149,7 +160,8 @@ Beyond plain tokenization, ``TermExtractor`` applies these rules during extracti
 - **Favorite rating (leading underscores).** A basename starting with 2–10 consecutive `_`
   (followed by a non-`_`) encodes a favorite rating, promoted to a synthetic `f-NN` term
   (`__best.jpg` → `f-02`). A single leading `_` is just the term delimiter, not a rating.
-- **Favorite shorthand.** A bare `fNN` token is normalized to `f-NN` (`f09` → `f-09`).
+- **Favorite shorthand.** A bare `fNN` or `f=NN` token is normalized to the canonical `f-NN`
+  (`f09` → `f-09`, `f=06` → `f-06`), so every favorite form groups under the same expression.
 - **Order.** A leading token of purely 1–4 digits is promoted to `ord-NNNN` (`03_clip.mp4` → `ord-03`).
 - **UUID rejection.** A V2 token whose subject is exactly 8 uppercase-hex characters
   (`^[A-Z0-9]{8}$`, e.g. `A5722D74-F48D`) is treated as a UUID fragment and **not** emitted as a term.

@@ -1,7 +1,7 @@
 [
   {
     "name": "Favorite Rating",
-    "definition": "A numeric rating from 0 to 99 indicating how much the author likes this file",
+    "definition": "A favorite rating from 00 to 10 (f-NN; also written fNN or f=NN, or as 2-10 leading underscores in v1)",
     "basename_representation": "f"
   },
   {
@@ -16,22 +16,21 @@
   },
   {
     "name": "Order",
-    "definition": "Order position . index within a sequence",
+    "definition": "Order position / index within a sequence",
     "basename_representation": "ord"
   },
-  /// Temp / Dev below here
   {
     "name": "pantyhose",
-    "basename_representation": "ph"
     "definition": "ph-{color}-{style}",
+    "basename_representation": "ph"
   },
   {
-    "basename_representation": "pnt"
     "name": "panties",
     "definition": "pnt-{color}-{style}",
+    "basename_representation": "pnt"
   },
 
-  /// Temp / Dev below here
+  // Example subjects used by the TermParsing docs and the tests
   {
     "name": "Shoe",
     "definition": "Content features a shoe",
