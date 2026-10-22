@@ -36,9 +36,18 @@ swift build \
 
 ## Unique Terms
 ```zsh
+target_dir="..."
+target_dir_name=${target_dir:t}
+json_file=".gitignored/zbterms/json/${target_dir_name}.json"
+slog_var1_se 'target_dir'
+slog_var1_se 'target_dir_name'
+slog_var1_se 'json_file'
+
 zbterms report \
-  --dir <path> \
-  | jq '.unique_terms[] | (.term, .count)'
+  --dir ${(q)target_dir} \
+  | jq '.unique_terms[] | (.term, .count)' \
+  | tee ${(q)json_file} \
+  | jq '.'
 ```
 
 
