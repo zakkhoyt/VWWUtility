@@ -1,0 +1,265 @@
+distilledArguments -> processedArguments
+8-bit color demo
+A look up table where input is 0...255 and output is a color (foreground or background).
+    0-7:  Sstandard colors (as in black, red, green, yellow, blue, magenta, cyan, white)
+   8-15:  High intensity colors (as in BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE)
+ 16-231:  A 6 × 6 × 6 cube (216 colors): 16 + 36 × r + 6 × g + b (where 0...5 ~= [r, g, b])
+232-255:  Grayscale from dark to light in 24 steps (0...23
+See details: [36m[4mhttps://en.wikipedia.org/wiki/ANSI_escape_code#8-bit[0m
+
+  [38;5;0mecho_pretty --8-bit 0  [0m [48;5;0mecho_pretty --8-BIT 0  [0m
+  [38;5;1mecho_pretty --8-bit 1  [0m [48;5;1mecho_pretty --8-BIT 1  [0m
+  [38;5;2mecho_pretty --8-bit 2  [0m [48;5;2mecho_pretty --8-BIT 2  [0m
+  [38;5;3mecho_pretty --8-bit 3  [0m [48;5;3mecho_pretty --8-BIT 3  [0m
+  [38;5;4mecho_pretty --8-bit 4  [0m [48;5;4mecho_pretty --8-BIT 4  [0m
+  [38;5;5mecho_pretty --8-bit 5  [0m [48;5;5mecho_pretty --8-BIT 5  [0m
+  [38;5;6mecho_pretty --8-bit 6  [0m [48;5;6mecho_pretty --8-BIT 6  [0m
+  [38;5;7mecho_pretty --8-bit 7  [0m [48;5;7mecho_pretty --8-BIT 7  [0m
+  [38;5;8mecho_pretty --8-bit 8  [0m [48;5;8mecho_pretty --8-BIT 8  [0m
+  [38;5;9mecho_pretty --8-bit 9  [0m [48;5;9mecho_pretty --8-BIT 9  [0m
+  [38;5;10mecho_pretty --8-bit 10 [0m [48;5;10mecho_pretty --8-BIT 10 [0m
+  [38;5;11mecho_pretty --8-bit 11 [0m [48;5;11mecho_pretty --8-BIT 11 [0m
+  [38;5;12mecho_pretty --8-bit 12 [0m [48;5;12mecho_pretty --8-BIT 12 [0m
+  [38;5;13mecho_pretty --8-bit 13 [0m [48;5;13mecho_pretty --8-BIT 13 [0m
+  [38;5;14mecho_pretty --8-bit 14 [0m [48;5;14mecho_pretty --8-BIT 14 [0m
+  [38;5;15mecho_pretty --8-bit 15 [0m [48;5;15mecho_pretty --8-BIT 15 [0m
+  [38;5;16mecho_pretty --8-bit 16 [0m [48;5;16mecho_pretty --8-BIT 16 [0m
+  [38;5;17mecho_pretty --8-bit 17 [0m [48;5;17mecho_pretty --8-BIT 17 [0m
+  [38;5;18mecho_pretty --8-bit 18 [0m [48;5;18mecho_pretty --8-BIT 18 [0m
+  [38;5;19mecho_pretty --8-bit 19 [0m [48;5;19mecho_pretty --8-BIT 19 [0m
+  [38;5;20mecho_pretty --8-bit 20 [0m [48;5;20mecho_pretty --8-BIT 20 [0m
+  [38;5;21mecho_pretty --8-bit 21 [0m [48;5;21mecho_pretty --8-BIT 21 [0m
+  [38;5;22mecho_pretty --8-bit 22 [0m [48;5;22mecho_pretty --8-BIT 22 [0m
+  [38;5;23mecho_pretty --8-bit 23 [0m [48;5;23mecho_pretty --8-BIT 23 [0m
+  [38;5;24mecho_pretty --8-bit 24 [0m [48;5;24mecho_pretty --8-BIT 24 [0m
+  [38;5;25mecho_pretty --8-bit 25 [0m [48;5;25mecho_pretty --8-BIT 25 [0m
+  [38;5;26mecho_pretty --8-bit 26 [0m [48;5;26mecho_pretty --8-BIT 26 [0m
+  [38;5;27mecho_pretty --8-bit 27 [0m [48;5;27mecho_pretty --8-BIT 27 [0m
+  [38;5;28mecho_pretty --8-bit 28 [0m [48;5;28mecho_pretty --8-BIT 28 [0m
+  [38;5;29mecho_pretty --8-bit 29 [0m [48;5;29mecho_pretty --8-BIT 29 [0m
+  [38;5;30mecho_pretty --8-bit 30 [0m [48;5;30mecho_pretty --8-BIT 30 [0m
+  [38;5;31mecho_pretty --8-bit 31 [0m [48;5;31mecho_pretty --8-BIT 31 [0m
+  [38;5;32mecho_pretty --8-bit 32 [0m [48;5;32mecho_pretty --8-BIT 32 [0m
+  [38;5;33mecho_pretty --8-bit 33 [0m [48;5;33mecho_pretty --8-BIT 33 [0m
+  [38;5;34mecho_pretty --8-bit 34 [0m [48;5;34mecho_pretty --8-BIT 34 [0m
+  [38;5;35mecho_pretty --8-bit 35 [0m [48;5;35mecho_pretty --8-BIT 35 [0m
+  [38;5;36mecho_pretty --8-bit 36 [0m [48;5;36mecho_pretty --8-BIT 36 [0m
+  [38;5;37mecho_pretty --8-bit 37 [0m [48;5;37mecho_pretty --8-BIT 37 [0m
+  [38;5;38mecho_pretty --8-bit 38 [0m [48;5;38mecho_pretty --8-BIT 38 [0m
+  [38;5;39mecho_pretty --8-bit 39 [0m [48;5;39mecho_pretty --8-BIT 39 [0m
+  [38;5;40mecho_pretty --8-bit 40 [0m [48;5;40mecho_pretty --8-BIT 40 [0m
+  [38;5;41mecho_pretty --8-bit 41 [0m [48;5;41mecho_pretty --8-BIT 41 [0m
+  [38;5;42mecho_pretty --8-bit 42 [0m [48;5;42mecho_pretty --8-BIT 42 [0m
+  [38;5;43mecho_pretty --8-bit 43 [0m [48;5;43mecho_pretty --8-BIT 43 [0m
+  [38;5;44mecho_pretty --8-bit 44 [0m [48;5;44mecho_pretty --8-BIT 44 [0m
+  [38;5;45mecho_pretty --8-bit 45 [0m [48;5;45mecho_pretty --8-BIT 45 [0m
+  [38;5;46mecho_pretty --8-bit 46 [0m [48;5;46mecho_pretty --8-BIT 46 [0m
+  [38;5;47mecho_pretty --8-bit 47 [0m [48;5;47mecho_pretty --8-BIT 47 [0m
+  [38;5;48mecho_pretty --8-bit 48 [0m [48;5;48mecho_pretty --8-BIT 48 [0m
+  [38;5;49mecho_pretty --8-bit 49 [0m [48;5;49mecho_pretty --8-BIT 49 [0m
+  [38;5;50mecho_pretty --8-bit 50 [0m [48;5;50mecho_pretty --8-BIT 50 [0m
+  [38;5;51mecho_pretty --8-bit 51 [0m [48;5;51mecho_pretty --8-BIT 51 [0m
+  [38;5;52mecho_pretty --8-bit 52 [0m [48;5;52mecho_pretty --8-BIT 52 [0m
+  [38;5;53mecho_pretty --8-bit 53 [0m [48;5;53mecho_pretty --8-BIT 53 [0m
+  [38;5;54mecho_pretty --8-bit 54 [0m [48;5;54mecho_pretty --8-BIT 54 [0m
+  [38;5;55mecho_pretty --8-bit 55 [0m [48;5;55mecho_pretty --8-BIT 55 [0m
+  [38;5;56mecho_pretty --8-bit 56 [0m [48;5;56mecho_pretty --8-BIT 56 [0m
+  [38;5;57mecho_pretty --8-bit 57 [0m [48;5;57mecho_pretty --8-BIT 57 [0m
+  [38;5;58mecho_pretty --8-bit 58 [0m [48;5;58mecho_pretty --8-BIT 58 [0m
+  [38;5;59mecho_pretty --8-bit 59 [0m [48;5;59mecho_pretty --8-BIT 59 [0m
+  [38;5;60mecho_pretty --8-bit 60 [0m [48;5;60mecho_pretty --8-BIT 60 [0m
+  [38;5;61mecho_pretty --8-bit 61 [0m [48;5;61mecho_pretty --8-BIT 61 [0m
+  [38;5;62mecho_pretty --8-bit 62 [0m [48;5;62mecho_pretty --8-BIT 62 [0m
+  [38;5;63mecho_pretty --8-bit 63 [0m [48;5;63mecho_pretty --8-BIT 63 [0m
+  [38;5;64mecho_pretty --8-bit 64 [0m [48;5;64mecho_pretty --8-BIT 64 [0m
+  [38;5;65mecho_pretty --8-bit 65 [0m [48;5;65mecho_pretty --8-BIT 65 [0m
+  [38;5;66mecho_pretty --8-bit 66 [0m [48;5;66mecho_pretty --8-BIT 66 [0m
+  [38;5;67mecho_pretty --8-bit 67 [0m [48;5;67mecho_pretty --8-BIT 67 [0m
+  [38;5;68mecho_pretty --8-bit 68 [0m [48;5;68mecho_pretty --8-BIT 68 [0m
+  [38;5;69mecho_pretty --8-bit 69 [0m [48;5;69mecho_pretty --8-BIT 69 [0m
+  [38;5;70mecho_pretty --8-bit 70 [0m [48;5;70mecho_pretty --8-BIT 70 [0m
+  [38;5;71mecho_pretty --8-bit 71 [0m [48;5;71mecho_pretty --8-BIT 71 [0m
+  [38;5;72mecho_pretty --8-bit 72 [0m [48;5;72mecho_pretty --8-BIT 72 [0m
+  [38;5;73mecho_pretty --8-bit 73 [0m [48;5;73mecho_pretty --8-BIT 73 [0m
+  [38;5;74mecho_pretty --8-bit 74 [0m [48;5;74mecho_pretty --8-BIT 74 [0m
+  [38;5;75mecho_pretty --8-bit 75 [0m [48;5;75mecho_pretty --8-BIT 75 [0m
+  [38;5;76mecho_pretty --8-bit 76 [0m [48;5;76mecho_pretty --8-BIT 76 [0m
+  [38;5;77mecho_pretty --8-bit 77 [0m [48;5;77mecho_pretty --8-BIT 77 [0m
+  [38;5;78mecho_pretty --8-bit 78 [0m [48;5;78mecho_pretty --8-BIT 78 [0m
+  [38;5;79mecho_pretty --8-bit 79 [0m [48;5;79mecho_pretty --8-BIT 79 [0m
+  [38;5;80mecho_pretty --8-bit 80 [0m [48;5;80mecho_pretty --8-BIT 80 [0m
+  [38;5;81mecho_pretty --8-bit 81 [0m [48;5;81mecho_pretty --8-BIT 81 [0m
+  [38;5;82mecho_pretty --8-bit 82 [0m [48;5;82mecho_pretty --8-BIT 82 [0m
+  [38;5;83mecho_pretty --8-bit 83 [0m [48;5;83mecho_pretty --8-BIT 83 [0m
+  [38;5;84mecho_pretty --8-bit 84 [0m [48;5;84mecho_pretty --8-BIT 84 [0m
+  [38;5;85mecho_pretty --8-bit 85 [0m [48;5;85mecho_pretty --8-BIT 85 [0m
+  [38;5;86mecho_pretty --8-bit 86 [0m [48;5;86mecho_pretty --8-BIT 86 [0m
+  [38;5;87mecho_pretty --8-bit 87 [0m [48;5;87mecho_pretty --8-BIT 87 [0m
+  [38;5;88mecho_pretty --8-bit 88 [0m [48;5;88mecho_pretty --8-BIT 88 [0m
+  [38;5;89mecho_pretty --8-bit 89 [0m [48;5;89mecho_pretty --8-BIT 89 [0m
+  [38;5;90mecho_pretty --8-bit 90 [0m [48;5;90mecho_pretty --8-BIT 90 [0m
+  [38;5;91mecho_pretty --8-bit 91 [0m [48;5;91mecho_pretty --8-BIT 91 [0m
+  [38;5;92mecho_pretty --8-bit 92 [0m [48;5;92mecho_pretty --8-BIT 92 [0m
+  [38;5;93mecho_pretty --8-bit 93 [0m [48;5;93mecho_pretty --8-BIT 93 [0m
+  [38;5;94mecho_pretty --8-bit 94 [0m [48;5;94mecho_pretty --8-BIT 94 [0m
+  [38;5;95mecho_pretty --8-bit 95 [0m [48;5;95mecho_pretty --8-BIT 95 [0m
+  [38;5;96mecho_pretty --8-bit 96 [0m [48;5;96mecho_pretty --8-BIT 96 [0m
+  [38;5;97mecho_pretty --8-bit 97 [0m [48;5;97mecho_pretty --8-BIT 97 [0m
+  [38;5;98mecho_pretty --8-bit 98 [0m [48;5;98mecho_pretty --8-BIT 98 [0m
+  [38;5;99mecho_pretty --8-bit 99 [0m [48;5;99mecho_pretty --8-BIT 99 [0m
+  [38;5;100mecho_pretty --8-bit 100[0m [48;5;100mecho_pretty --8-BIT 100[0m
+  [38;5;101mecho_pretty --8-bit 101[0m [48;5;101mecho_pretty --8-BIT 101[0m
+  [38;5;102mecho_pretty --8-bit 102[0m [48;5;102mecho_pretty --8-BIT 102[0m
+  [38;5;103mecho_pretty --8-bit 103[0m [48;5;103mecho_pretty --8-BIT 103[0m
+  [38;5;104mecho_pretty --8-bit 104[0m [48;5;104mecho_pretty --8-BIT 104[0m
+  [38;5;105mecho_pretty --8-bit 105[0m [48;5;105mecho_pretty --8-BIT 105[0m
+  [38;5;106mecho_pretty --8-bit 106[0m [48;5;106mecho_pretty --8-BIT 106[0m
+  [38;5;107mecho_pretty --8-bit 107[0m [48;5;107mecho_pretty --8-BIT 107[0m
+  [38;5;108mecho_pretty --8-bit 108[0m [48;5;108mecho_pretty --8-BIT 108[0m
+  [38;5;109mecho_pretty --8-bit 109[0m [48;5;109mecho_pretty --8-BIT 109[0m
+  [38;5;110mecho_pretty --8-bit 110[0m [48;5;110mecho_pretty --8-BIT 110[0m
+  [38;5;111mecho_pretty --8-bit 111[0m [48;5;111mecho_pretty --8-BIT 111[0m
+  [38;5;112mecho_pretty --8-bit 112[0m [48;5;112mecho_pretty --8-BIT 112[0m
+  [38;5;113mecho_pretty --8-bit 113[0m [48;5;113mecho_pretty --8-BIT 113[0m
+  [38;5;114mecho_pretty --8-bit 114[0m [48;5;114mecho_pretty --8-BIT 114[0m
+  [38;5;115mecho_pretty --8-bit 115[0m [48;5;115mecho_pretty --8-BIT 115[0m
+  [38;5;116mecho_pretty --8-bit 116[0m [48;5;116mecho_pretty --8-BIT 116[0m
+  [38;5;117mecho_pretty --8-bit 117[0m [48;5;117mecho_pretty --8-BIT 117[0m
+  [38;5;118mecho_pretty --8-bit 118[0m [48;5;118mecho_pretty --8-BIT 118[0m
+  [38;5;119mecho_pretty --8-bit 119[0m [48;5;119mecho_pretty --8-BIT 119[0m
+  [38;5;120mecho_pretty --8-bit 120[0m [48;5;120mecho_pretty --8-BIT 120[0m
+  [38;5;121mecho_pretty --8-bit 121[0m [48;5;121mecho_pretty --8-BIT 121[0m
+  [38;5;122mecho_pretty --8-bit 122[0m [48;5;122mecho_pretty --8-BIT 122[0m
+  [38;5;123mecho_pretty --8-bit 123[0m [48;5;123mecho_pretty --8-BIT 123[0m
+  [38;5;124mecho_pretty --8-bit 124[0m [48;5;124mecho_pretty --8-BIT 124[0m
+  [38;5;125mecho_pretty --8-bit 125[0m [48;5;125mecho_pretty --8-BIT 125[0m
+  [38;5;126mecho_pretty --8-bit 126[0m [48;5;126mecho_pretty --8-BIT 126[0m
+  [38;5;127mecho_pretty --8-bit 127[0m [48;5;127mecho_pretty --8-BIT 127[0m
+  [38;5;128mecho_pretty --8-bit 128[0m [48;5;128mecho_pretty --8-BIT 128[0m
+  [38;5;129mecho_pretty --8-bit 129[0m [48;5;129mecho_pretty --8-BIT 129[0m
+  [38;5;130mecho_pretty --8-bit 130[0m [48;5;130mecho_pretty --8-BIT 130[0m
+  [38;5;131mecho_pretty --8-bit 131[0m [48;5;131mecho_pretty --8-BIT 131[0m
+  [38;5;132mecho_pretty --8-bit 132[0m [48;5;132mecho_pretty --8-BIT 132[0m
+  [38;5;133mecho_pretty --8-bit 133[0m [48;5;133mecho_pretty --8-BIT 133[0m
+  [38;5;134mecho_pretty --8-bit 134[0m [48;5;134mecho_pretty --8-BIT 134[0m
+  [38;5;135mecho_pretty --8-bit 135[0m [48;5;135mecho_pretty --8-BIT 135[0m
+  [38;5;136mecho_pretty --8-bit 136[0m [48;5;136mecho_pretty --8-BIT 136[0m
+  [38;5;137mecho_pretty --8-bit 137[0m [48;5;137mecho_pretty --8-BIT 137[0m
+  [38;5;138mecho_pretty --8-bit 138[0m [48;5;138mecho_pretty --8-BIT 138[0m
+  [38;5;139mecho_pretty --8-bit 139[0m [48;5;139mecho_pretty --8-BIT 139[0m
+  [38;5;140mecho_pretty --8-bit 140[0m [48;5;140mecho_pretty --8-BIT 140[0m
+  [38;5;141mecho_pretty --8-bit 141[0m [48;5;141mecho_pretty --8-BIT 141[0m
+  [38;5;142mecho_pretty --8-bit 142[0m [48;5;142mecho_pretty --8-BIT 142[0m
+  [38;5;143mecho_pretty --8-bit 143[0m [48;5;143mecho_pretty --8-BIT 143[0m
+  [38;5;144mecho_pretty --8-bit 144[0m [48;5;144mecho_pretty --8-BIT 144[0m
+  [38;5;145mecho_pretty --8-bit 145[0m [48;5;145mecho_pretty --8-BIT 145[0m
+  [38;5;146mecho_pretty --8-bit 146[0m [48;5;146mecho_pretty --8-BIT 146[0m
+  [38;5;147mecho_pretty --8-bit 147[0m [48;5;147mecho_pretty --8-BIT 147[0m
+  [38;5;148mecho_pretty --8-bit 148[0m [48;5;148mecho_pretty --8-BIT 148[0m
+  [38;5;149mecho_pretty --8-bit 149[0m [48;5;149mecho_pretty --8-BIT 149[0m
+  [38;5;150mecho_pretty --8-bit 150[0m [48;5;150mecho_pretty --8-BIT 150[0m
+  [38;5;151mecho_pretty --8-bit 151[0m [48;5;151mecho_pretty --8-BIT 151[0m
+  [38;5;152mecho_pretty --8-bit 152[0m [48;5;152mecho_pretty --8-BIT 152[0m
+  [38;5;153mecho_pretty --8-bit 153[0m [48;5;153mecho_pretty --8-BIT 153[0m
+  [38;5;154mecho_pretty --8-bit 154[0m [48;5;154mecho_pretty --8-BIT 154[0m
+  [38;5;155mecho_pretty --8-bit 155[0m [48;5;155mecho_pretty --8-BIT 155[0m
+  [38;5;156mecho_pretty --8-bit 156[0m [48;5;156mecho_pretty --8-BIT 156[0m
+  [38;5;157mecho_pretty --8-bit 157[0m [48;5;157mecho_pretty --8-BIT 157[0m
+  [38;5;158mecho_pretty --8-bit 158[0m [48;5;158mecho_pretty --8-BIT 158[0m
+  [38;5;159mecho_pretty --8-bit 159[0m [48;5;159mecho_pretty --8-BIT 159[0m
+  [38;5;160mecho_pretty --8-bit 160[0m [48;5;160mecho_pretty --8-BIT 160[0m
+  [38;5;161mecho_pretty --8-bit 161[0m [48;5;161mecho_pretty --8-BIT 161[0m
+  [38;5;162mecho_pretty --8-bit 162[0m [48;5;162mecho_pretty --8-BIT 162[0m
+  [38;5;163mecho_pretty --8-bit 163[0m [48;5;163mecho_pretty --8-BIT 163[0m
+  [38;5;164mecho_pretty --8-bit 164[0m [48;5;164mecho_pretty --8-BIT 164[0m
+  [38;5;165mecho_pretty --8-bit 165[0m [48;5;165mecho_pretty --8-BIT 165[0m
+  [38;5;166mecho_pretty --8-bit 166[0m [48;5;166mecho_pretty --8-BIT 166[0m
+  [38;5;167mecho_pretty --8-bit 167[0m [48;5;167mecho_pretty --8-BIT 167[0m
+  [38;5;168mecho_pretty --8-bit 168[0m [48;5;168mecho_pretty --8-BIT 168[0m
+  [38;5;169mecho_pretty --8-bit 169[0m [48;5;169mecho_pretty --8-BIT 169[0m
+  [38;5;170mecho_pretty --8-bit 170[0m [48;5;170mecho_pretty --8-BIT 170[0m
+  [38;5;171mecho_pretty --8-bit 171[0m [48;5;171mecho_pretty --8-BIT 171[0m
+  [38;5;172mecho_pretty --8-bit 172[0m [48;5;172mecho_pretty --8-BIT 172[0m
+  [38;5;173mecho_pretty --8-bit 173[0m [48;5;173mecho_pretty --8-BIT 173[0m
+  [38;5;174mecho_pretty --8-bit 174[0m [48;5;174mecho_pretty --8-BIT 174[0m
+  [38;5;175mecho_pretty --8-bit 175[0m [48;5;175mecho_pretty --8-BIT 175[0m
+  [38;5;176mecho_pretty --8-bit 176[0m [48;5;176mecho_pretty --8-BIT 176[0m
+  [38;5;177mecho_pretty --8-bit 177[0m [48;5;177mecho_pretty --8-BIT 177[0m
+  [38;5;178mecho_pretty --8-bit 178[0m [48;5;178mecho_pretty --8-BIT 178[0m
+  [38;5;179mecho_pretty --8-bit 179[0m [48;5;179mecho_pretty --8-BIT 179[0m
+  [38;5;180mecho_pretty --8-bit 180[0m [48;5;180mecho_pretty --8-BIT 180[0m
+  [38;5;181mecho_pretty --8-bit 181[0m [48;5;181mecho_pretty --8-BIT 181[0m
+  [38;5;182mecho_pretty --8-bit 182[0m [48;5;182mecho_pretty --8-BIT 182[0m
+  [38;5;183mecho_pretty --8-bit 183[0m [48;5;183mecho_pretty --8-BIT 183[0m
+  [38;5;184mecho_pretty --8-bit 184[0m [48;5;184mecho_pretty --8-BIT 184[0m
+  [38;5;185mecho_pretty --8-bit 185[0m [48;5;185mecho_pretty --8-BIT 185[0m
+  [38;5;186mecho_pretty --8-bit 186[0m [48;5;186mecho_pretty --8-BIT 186[0m
+  [38;5;187mecho_pretty --8-bit 187[0m [48;5;187mecho_pretty --8-BIT 187[0m
+  [38;5;188mecho_pretty --8-bit 188[0m [48;5;188mecho_pretty --8-BIT 188[0m
+  [38;5;189mecho_pretty --8-bit 189[0m [48;5;189mecho_pretty --8-BIT 189[0m
+  [38;5;190mecho_pretty --8-bit 190[0m [48;5;190mecho_pretty --8-BIT 190[0m
+  [38;5;191mecho_pretty --8-bit 191[0m [48;5;191mecho_pretty --8-BIT 191[0m
+  [38;5;192mecho_pretty --8-bit 192[0m [48;5;192mecho_pretty --8-BIT 192[0m
+  [38;5;193mecho_pretty --8-bit 193[0m [48;5;193mecho_pretty --8-BIT 193[0m
+  [38;5;194mecho_pretty --8-bit 194[0m [48;5;194mecho_pretty --8-BIT 194[0m
+  [38;5;195mecho_pretty --8-bit 195[0m [48;5;195mecho_pretty --8-BIT 195[0m
+  [38;5;196mecho_pretty --8-bit 196[0m [48;5;196mecho_pretty --8-BIT 196[0m
+  [38;5;197mecho_pretty --8-bit 197[0m [48;5;197mecho_pretty --8-BIT 197[0m
+  [38;5;198mecho_pretty --8-bit 198[0m [48;5;198mecho_pretty --8-BIT 198[0m
+  [38;5;199mecho_pretty --8-bit 199[0m [48;5;199mecho_pretty --8-BIT 199[0m
+  [38;5;200mecho_pretty --8-bit 200[0m [48;5;200mecho_pretty --8-BIT 200[0m
+  [38;5;201mecho_pretty --8-bit 201[0m [48;5;201mecho_pretty --8-BIT 201[0m
+  [38;5;202mecho_pretty --8-bit 202[0m [48;5;202mecho_pretty --8-BIT 202[0m
+  [38;5;203mecho_pretty --8-bit 203[0m [48;5;203mecho_pretty --8-BIT 203[0m
+  [38;5;204mecho_pretty --8-bit 204[0m [48;5;204mecho_pretty --8-BIT 204[0m
+  [38;5;205mecho_pretty --8-bit 205[0m [48;5;205mecho_pretty --8-BIT 205[0m
+  [38;5;206mecho_pretty --8-bit 206[0m [48;5;206mecho_pretty --8-BIT 206[0m
+  [38;5;207mecho_pretty --8-bit 207[0m [48;5;207mecho_pretty --8-BIT 207[0m
+  [38;5;208mecho_pretty --8-bit 208[0m [48;5;208mecho_pretty --8-BIT 208[0m
+  [38;5;209mecho_pretty --8-bit 209[0m [48;5;209mecho_pretty --8-BIT 209[0m
+  [38;5;210mecho_pretty --8-bit 210[0m [48;5;210mecho_pretty --8-BIT 210[0m
+  [38;5;211mecho_pretty --8-bit 211[0m [48;5;211mecho_pretty --8-BIT 211[0m
+  [38;5;212mecho_pretty --8-bit 212[0m [48;5;212mecho_pretty --8-BIT 212[0m
+  [38;5;213mecho_pretty --8-bit 213[0m [48;5;213mecho_pretty --8-BIT 213[0m
+  [38;5;214mecho_pretty --8-bit 214[0m [48;5;214mecho_pretty --8-BIT 214[0m
+  [38;5;215mecho_pretty --8-bit 215[0m [48;5;215mecho_pretty --8-BIT 215[0m
+  [38;5;216mecho_pretty --8-bit 216[0m [48;5;216mecho_pretty --8-BIT 216[0m
+  [38;5;217mecho_pretty --8-bit 217[0m [48;5;217mecho_pretty --8-BIT 217[0m
+  [38;5;218mecho_pretty --8-bit 218[0m [48;5;218mecho_pretty --8-BIT 218[0m
+  [38;5;219mecho_pretty --8-bit 219[0m [48;5;219mecho_pretty --8-BIT 219[0m
+  [38;5;220mecho_pretty --8-bit 220[0m [48;5;220mecho_pretty --8-BIT 220[0m
+  [38;5;221mecho_pretty --8-bit 221[0m [48;5;221mecho_pretty --8-BIT 221[0m
+  [38;5;222mecho_pretty --8-bit 222[0m [48;5;222mecho_pretty --8-BIT 222[0m
+  [38;5;223mecho_pretty --8-bit 223[0m [48;5;223mecho_pretty --8-BIT 223[0m
+  [38;5;224mecho_pretty --8-bit 224[0m [48;5;224mecho_pretty --8-BIT 224[0m
+  [38;5;225mecho_pretty --8-bit 225[0m [48;5;225mecho_pretty --8-BIT 225[0m
+  [38;5;226mecho_pretty --8-bit 226[0m [48;5;226mecho_pretty --8-BIT 226[0m
+  [38;5;227mecho_pretty --8-bit 227[0m [48;5;227mecho_pretty --8-BIT 227[0m
+  [38;5;228mecho_pretty --8-bit 228[0m [48;5;228mecho_pretty --8-BIT 228[0m
+  [38;5;229mecho_pretty --8-bit 229[0m [48;5;229mecho_pretty --8-BIT 229[0m
+  [38;5;230mecho_pretty --8-bit 230[0m [48;5;230mecho_pretty --8-BIT 230[0m
+  [38;5;231mecho_pretty --8-bit 231[0m [48;5;231mecho_pretty --8-BIT 231[0m
+  [38;5;232mecho_pretty --8-bit 232[0m [48;5;232mecho_pretty --8-BIT 232[0m
+  [38;5;233mecho_pretty --8-bit 233[0m [48;5;233mecho_pretty --8-BIT 233[0m
+  [38;5;234mecho_pretty --8-bit 234[0m [48;5;234mecho_pretty --8-BIT 234[0m
+  [38;5;235mecho_pretty --8-bit 235[0m [48;5;235mecho_pretty --8-BIT 235[0m
+  [38;5;236mecho_pretty --8-bit 236[0m [48;5;236mecho_pretty --8-BIT 236[0m
+  [38;5;237mecho_pretty --8-bit 237[0m [48;5;237mecho_pretty --8-BIT 237[0m
+  [38;5;238mecho_pretty --8-bit 238[0m [48;5;238mecho_pretty --8-BIT 238[0m
+  [38;5;239mecho_pretty --8-bit 239[0m [48;5;239mecho_pretty --8-BIT 239[0m
+  [38;5;240mecho_pretty --8-bit 240[0m [48;5;240mecho_pretty --8-BIT 240[0m
+  [38;5;241mecho_pretty --8-bit 241[0m [48;5;241mecho_pretty --8-BIT 241[0m
+  [38;5;242mecho_pretty --8-bit 242[0m [48;5;242mecho_pretty --8-BIT 242[0m
+  [38;5;243mecho_pretty --8-bit 243[0m [48;5;243mecho_pretty --8-BIT 243[0m
+  [38;5;244mecho_pretty --8-bit 244[0m [48;5;244mecho_pretty --8-BIT 244[0m
+  [38;5;245mecho_pretty --8-bit 245[0m [48;5;245mecho_pretty --8-BIT 245[0m
+  [38;5;246mecho_pretty --8-bit 246[0m [48;5;246mecho_pretty --8-BIT 246[0m
+  [38;5;247mecho_pretty --8-bit 247[0m [48;5;247mecho_pretty --8-BIT 247[0m
+  [38;5;248mecho_pretty --8-bit 248[0m [48;5;248mecho_pretty --8-BIT 248[0m
+  [38;5;249mecho_pretty --8-bit 249[0m [48;5;249mecho_pretty --8-BIT 249[0m
+  [38;5;250mecho_pretty --8-bit 250[0m [48;5;250mecho_pretty --8-BIT 250[0m
+  [38;5;251mecho_pretty --8-bit 251[0m [48;5;251mecho_pretty --8-BIT 251[0m
+  [38;5;252mecho_pretty --8-bit 252[0m [48;5;252mecho_pretty --8-BIT 252[0m
+  [38;5;253mecho_pretty --8-bit 253[0m [48;5;253mecho_pretty --8-BIT 253[0m
+  [38;5;254mecho_pretty --8-bit 254[0m [48;5;254mecho_pretty --8-BIT 254[0m
+  [38;5;255mecho_pretty --8-bit 255[0m [48;5;255mecho_pretty --8-BIT 255[0m

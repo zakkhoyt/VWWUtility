@@ -1,0 +1,125 @@
+distilledArguments -> processedArguments
+[1mOVERVIEW[0m
+
+  Consider this to be an extension of echo with support for `ANSI` codes via command line arguments.
+
+[1mUSAGE[0m
+
+  echo_pretty [echo flags] [options] text [options] [meta flags]
+
+[1mOPTIONS (ECHO)[0m
+
+  Support for [3m[4mecho[0m arguments in [3m[4mzsh[0m. To learn more: [33m[1m[3mman zshbuiltins[0m
+
+  -n                                                Do not print the trailing newline character. (echo argument)
+  -E                                                Disable escape character sequences. In other words treat them as string literals.
+
+[1mOPTIONS[0m
+
+  Insert ANSI codes using the following.
+
+  --default                                         Reset to defaults (foreground, background, font, etc...) [0mEXAMPLE[0m
+  -d | --d | --defaultForeground                    Default foreground color [39mEXAMPLE[0m
+  -black                                            Black foreground color [30mEXAMPLE[0m
+  -red                                              Red foreground color [31mEXAMPLE[0m
+  -green                                            Green foreground color [32mEXAMPLE[0m
+  -yellow                                           Yellow foreground color [33mEXAMPLE[0m
+  -blue                                             Blue foreground color [34mEXAMPLE[0m
+  -magenta                                          Magenta foreground color [35mEXAMPLE[0m
+  -cyan                                             Cyan foreground color [36mEXAMPLE[0m
+  -white                                            White foreground color [37mEXAMPLE[0m
+  --black                                           Bright black foreground color [90mEXAMPLE[0m
+  --red                                             Bright red foreground color [91mEXAMPLE[0m
+  --green                                           Bright green foreground color [92mEXAMPLE[0m
+  --yellow                                          Bright yellow foreground color [93mEXAMPLE[0m
+  --blue                                            Bright blue foreground color [94mEXAMPLE[0m
+  --magenta                                         Bright magenta foreground color [95mEXAMPLE[0m
+  --cyan                                            Bright cyan foreground color [96mEXAMPLE[0m
+  --white                                           Bright white foreground color [97mEXAMPLE[0m
+  --orange                                          Orange foreground color. [38;5;208mEXAMPLE[0m
+  --8-bit <value>                                   8-bit RGB foreground color
+  --rgb <r> <g> <b>, --24-bit <r> <g> <b>           RGB foreground color (24-bit)
+  -D | --D | --defaultBackground                    Default background color [49mEXAMPLE[0m
+  -BLACK                                            Black background color [40mEXAMPLE[0m
+  -RED                                              Red background color [41mEXAMPLE[0m
+  -GREEN                                            Green background color [42mEXAMPLE[0m
+  -YELLOW                                           Yellow background color [43mEXAMPLE[0m
+  -BLUE                                             Blue background color [44mEXAMPLE[0m
+  -MAGENTA                                          Magenta background color [45mEXAMPLE[0m
+  -CYAN                                             Cyan background color [46mEXAMPLE[0m
+  -WHITE                                            White background color [47mEXAMPLE[0m
+  --BLACK                                           Bright black background color [100mEXAMPLE[0m
+  --RED                                             Bright red background color [101mEXAMPLE[0m
+  --GREEN                                           Bright green background color [102mEXAMPLE[0m
+  --YELLOW                                          Bright yellow background color [103mEXAMPLE[0m
+  --BLUE                                            Bright blue background color [104mEXAMPLE[0m
+  --MAGENTA                                         Bright magenta background color [105mEXAMPLE[0m
+  --CYAN                                            Bright cyan background color [106mEXAMPLE[0m
+  --WHITE                                           Bright white background color [107mEXAMPLE[0m
+  --ORANGE                                          Orange background color [48;5;208mEXAMPLE[0m
+  --8-BIT <value>                                   8-bit background color
+  --RGB <r> <g> <b>, --24-BIT <r> <g> <b>           RGB background color (24-bit)
+  --bold                                            Bold font [1mEXAMPLE[0m
+  --faint                                           Faint font [2mEXAMPLE[0m
+  --italic                                          Italic font [3mEXAMPLE[0m
+  --underline                                       Underline [4mEXAMPLE[0m
+  --double-underline                                Double underline [21mEXAMPLE[0m
+  --blink                                           Blink <= 150 Hz [5mEXAMPLE[0m
+  --blinkFast                                       Blink > 150 Hz. Rarely supported [6mEXAMPLE[0m
+  --invert | --swap                                 Invert font [7mEXAMPLE[0m
+  --hide                                            Hide font [8mEXAMPLE[0m
+  --strikeout                                       Strikeout [9mEXAMPLE[0m
+  --clearScreen                                     Clear screen
+  --eraseLine                                       Erase line
+  --up <count>                                      Move cursor up
+  --down <count>                                    Move cursor down
+  --right <count>                                   Move cursor right
+  --left <count>                                    Move cursor left
+  --cursor-hide                                     Hide the cursor
+  --cursor-show                                     Show (unhide) the cursor
+
+[1mOPTIONS (HYPERLINK)[0m
+
+  Emit a clickable [33m[1m[3mOSC 8[0m terminal hyperlink. Unlike [33m[1m[3m--url[0m (which only styles text), this embeds a real link target. The value may be a Markdown link, an HTML anchor, or a bare URL, and may also be written as [33m[1m[3m--link=<string>[0m. Unrecognized values are printed as plain text with a warning on stderr.
+
+  --link <string>                                   Create a hyperlink from "[title](url)", "<a href=\"url\">title</a>", or "https://…".
+
+[1mMETA OPTIONS[0m
+
+  For help, demos, references, etc...
+
+  --help                                            Print the help/usage message (this message)
+  --demo                                            A demonstration comparing echo_pretty syntax vs ANSI codes using echo
+  --demo-basics                                     Prints common ANSI escape code (litearls) for use in shell scripts
+  --demo-8-bit                                      A demonstration of 8-bit color flags
+  --demo-24-bit                                     A demonstration of 24-bit color flags
+  --demo-web-colors                                 Prints escape codes for (litearls) for use in shell scripts
+  --show                                            Print pre-encoded ANSI strings. This is useful to generate/copy/paste decorated strings and debugging.
+  --show-bash                                       Encode ANSI string for bash, write to stdout, and copy to pasteboard.
+  --show-swift                                      Encode ANSI string for swift, write to stdout, and copy to pasteboard.
+  --show-zsh                                        Encode ANSI string for zsh, write to stdout, and copy to pasteboard.
+  --version                                         Prints the semantic version of the current build
+  --dump                                            Write ProcessInfo arugments and environment to stderr
+  --debug                                           Write debug info to stderr & os.logger.
+    View stream: [93m[1mlog stream --predicate='category == echo_pretty --level=debug --style=compact[0m
+
+[1mENVIRONMENTAL VARIABLES[0m
+
+  ECHO_PRETTY_NO_TRAILING_DEFAULT_FLAG       If set, the --default argument will be postfixed automatically
+
+[1mREFERENCES[0m
+
+  * [VT100.net: Digital VT220 Programmer Reference Manual Contents](https://vt100.net/docs/vt220-rm/contents.html)
+    * [VT100.net: Digital VT220 Programmer Reference Manual Introduction](https://vt100.net/docs/vt220-rm/introduction.html)
+      * [Chapter 1, "Terminal Overview"](https://vt100.net/docs/vt220-rm/chapter1.html)
+      * [Chapter 2, "Character Encoding"](https://vt100.net/docs/vt220-rm/chapter2.html)
+      * [Chapter 3, "Transmitted Codes"](https://vt100.net/docs/vt220-rm/chapter3.html)
+      * [Chapter 4, "Received Codes"](https://vt100.net/docs/vt220-rm/chapter4.html)
+  * American National Standards Institute: [94m[4mhttps://en.wikipedia.org/wiki/ANSI_(disambiguation)[0m
+    * Control Sequence Introducer commands: [94m[4mhttps://en.wikipedia.org/wiki/ANSI_escape_code#CSI_sequences[0m
+    * 3-bit_and_4-bit color codes: [94m[4mhttps://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit[0m
+    * 8-bit color codes: [94m[4mhttps://en.wikipedia.org/wiki/ANSI_escape_code#8-bit[0m
+    * 24-bit (RGB) color codes: [94m[4mhttps://en.wikipedia.org/wiki/ANSI_escape_code#24-bit[0m
+  * Article: [94m[4mhttps://tldp.org/HOWTO/Bash-Prompt-HOWTO/x361.html[0m
+  * Video Terminal Programmer Info: [94m[4mhttps://vt100.net/docs/vt510-rm/DECSCUSR[0m
+

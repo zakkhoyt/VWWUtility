@@ -1,0 +1,538 @@
+distilledArguments -> processedArguments
+24-bit color demo
+See details: [36m[4mhttps://en.wikipedia.org/wiki/ANSI_escape_code#24-bit[0m
+
+Striding (r g b) from: 31, through: 255 by: 32
+
+  [38;2;32;32;32mecho_pretty --24-bit 32 32 32   [0m [48;2;32;32;32mecho_pretty --24-BIT 32 32 32   [0m
+  [38;2;32;32;64mecho_pretty --24-bit 32 32 64   [0m [48;2;32;32;64mecho_pretty --24-BIT 32 32 64   [0m
+  [38;2;32;32;96mecho_pretty --24-bit 32 32 96   [0m [48;2;32;32;96mecho_pretty --24-BIT 32 32 96   [0m
+  [38;2;32;32;128mecho_pretty --24-bit 32 32 128  [0m [48;2;32;32;128mecho_pretty --24-BIT 32 32 128  [0m
+  [38;2;32;32;160mecho_pretty --24-bit 32 32 160  [0m [48;2;32;32;160mecho_pretty --24-BIT 32 32 160  [0m
+  [38;2;32;32;192mecho_pretty --24-bit 32 32 192  [0m [48;2;32;32;192mecho_pretty --24-BIT 32 32 192  [0m
+  [38;2;32;32;224mecho_pretty --24-bit 32 32 224  [0m [48;2;32;32;224mecho_pretty --24-BIT 32 32 224  [0m
+  [38;2;32;32;255mecho_pretty --24-bit 32 32 255  [0m [48;2;32;32;255mecho_pretty --24-BIT 32 32 255  [0m
+  [38;2;32;64;32mecho_pretty --24-bit 32 64 32   [0m [48;2;32;64;32mecho_pretty --24-BIT 32 64 32   [0m
+  [38;2;32;64;64mecho_pretty --24-bit 32 64 64   [0m [48;2;32;64;64mecho_pretty --24-BIT 32 64 64   [0m
+  [38;2;32;64;96mecho_pretty --24-bit 32 64 96   [0m [48;2;32;64;96mecho_pretty --24-BIT 32 64 96   [0m
+  [38;2;32;64;128mecho_pretty --24-bit 32 64 128  [0m [48;2;32;64;128mecho_pretty --24-BIT 32 64 128  [0m
+  [38;2;32;64;160mecho_pretty --24-bit 32 64 160  [0m [48;2;32;64;160mecho_pretty --24-BIT 32 64 160  [0m
+  [38;2;32;64;192mecho_pretty --24-bit 32 64 192  [0m [48;2;32;64;192mecho_pretty --24-BIT 32 64 192  [0m
+  [38;2;32;64;224mecho_pretty --24-bit 32 64 224  [0m [48;2;32;64;224mecho_pretty --24-BIT 32 64 224  [0m
+  [38;2;32;64;255mecho_pretty --24-bit 32 64 255  [0m [48;2;32;64;255mecho_pretty --24-BIT 32 64 255  [0m
+  [38;2;32;96;32mecho_pretty --24-bit 32 96 32   [0m [48;2;32;96;32mecho_pretty --24-BIT 32 96 32   [0m
+  [38;2;32;96;64mecho_pretty --24-bit 32 96 64   [0m [48;2;32;96;64mecho_pretty --24-BIT 32 96 64   [0m
+  [38;2;32;96;96mecho_pretty --24-bit 32 96 96   [0m [48;2;32;96;96mecho_pretty --24-BIT 32 96 96   [0m
+  [38;2;32;96;128mecho_pretty --24-bit 32 96 128  [0m [48;2;32;96;128mecho_pretty --24-BIT 32 96 128  [0m
+  [38;2;32;96;160mecho_pretty --24-bit 32 96 160  [0m [48;2;32;96;160mecho_pretty --24-BIT 32 96 160  [0m
+  [38;2;32;96;192mecho_pretty --24-bit 32 96 192  [0m [48;2;32;96;192mecho_pretty --24-BIT 32 96 192  [0m
+  [38;2;32;96;224mecho_pretty --24-bit 32 96 224  [0m [48;2;32;96;224mecho_pretty --24-BIT 32 96 224  [0m
+  [38;2;32;96;255mecho_pretty --24-bit 32 96 255  [0m [48;2;32;96;255mecho_pretty --24-BIT 32 96 255  [0m
+  [38;2;32;128;32mecho_pretty --24-bit 32 128 32  [0m [48;2;32;128;32mecho_pretty --24-BIT 32 128 32  [0m
+  [38;2;32;128;64mecho_pretty --24-bit 32 128 64  [0m [48;2;32;128;64mecho_pretty --24-BIT 32 128 64  [0m
+  [38;2;32;128;96mecho_pretty --24-bit 32 128 96  [0m [48;2;32;128;96mecho_pretty --24-BIT 32 128 96  [0m
+  [38;2;32;128;128mecho_pretty --24-bit 32 128 128 [0m [48;2;32;128;128mecho_pretty --24-BIT 32 128 128 [0m
+  [38;2;32;128;160mecho_pretty --24-bit 32 128 160 [0m [48;2;32;128;160mecho_pretty --24-BIT 32 128 160 [0m
+  [38;2;32;128;192mecho_pretty --24-bit 32 128 192 [0m [48;2;32;128;192mecho_pretty --24-BIT 32 128 192 [0m
+  [38;2;32;128;224mecho_pretty --24-bit 32 128 224 [0m [48;2;32;128;224mecho_pretty --24-BIT 32 128 224 [0m
+  [38;2;32;128;255mecho_pretty --24-bit 32 128 255 [0m [48;2;32;128;255mecho_pretty --24-BIT 32 128 255 [0m
+  [38;2;32;160;32mecho_pretty --24-bit 32 160 32  [0m [48;2;32;160;32mecho_pretty --24-BIT 32 160 32  [0m
+  [38;2;32;160;64mecho_pretty --24-bit 32 160 64  [0m [48;2;32;160;64mecho_pretty --24-BIT 32 160 64  [0m
+  [38;2;32;160;96mecho_pretty --24-bit 32 160 96  [0m [48;2;32;160;96mecho_pretty --24-BIT 32 160 96  [0m
+  [38;2;32;160;128mecho_pretty --24-bit 32 160 128 [0m [48;2;32;160;128mecho_pretty --24-BIT 32 160 128 [0m
+  [38;2;32;160;160mecho_pretty --24-bit 32 160 160 [0m [48;2;32;160;160mecho_pretty --24-BIT 32 160 160 [0m
+  [38;2;32;160;192mecho_pretty --24-bit 32 160 192 [0m [48;2;32;160;192mecho_pretty --24-BIT 32 160 192 [0m
+  [38;2;32;160;224mecho_pretty --24-bit 32 160 224 [0m [48;2;32;160;224mecho_pretty --24-BIT 32 160 224 [0m
+  [38;2;32;160;255mecho_pretty --24-bit 32 160 255 [0m [48;2;32;160;255mecho_pretty --24-BIT 32 160 255 [0m
+  [38;2;32;192;32mecho_pretty --24-bit 32 192 32  [0m [48;2;32;192;32mecho_pretty --24-BIT 32 192 32  [0m
+  [38;2;32;192;64mecho_pretty --24-bit 32 192 64  [0m [48;2;32;192;64mecho_pretty --24-BIT 32 192 64  [0m
+  [38;2;32;192;96mecho_pretty --24-bit 32 192 96  [0m [48;2;32;192;96mecho_pretty --24-BIT 32 192 96  [0m
+  [38;2;32;192;128mecho_pretty --24-bit 32 192 128 [0m [48;2;32;192;128mecho_pretty --24-BIT 32 192 128 [0m
+  [38;2;32;192;160mecho_pretty --24-bit 32 192 160 [0m [48;2;32;192;160mecho_pretty --24-BIT 32 192 160 [0m
+  [38;2;32;192;192mecho_pretty --24-bit 32 192 192 [0m [48;2;32;192;192mecho_pretty --24-BIT 32 192 192 [0m
+  [38;2;32;192;224mecho_pretty --24-bit 32 192 224 [0m [48;2;32;192;224mecho_pretty --24-BIT 32 192 224 [0m
+  [38;2;32;192;255mecho_pretty --24-bit 32 192 255 [0m [48;2;32;192;255mecho_pretty --24-BIT 32 192 255 [0m
+  [38;2;32;224;32mecho_pretty --24-bit 32 224 32  [0m [48;2;32;224;32mecho_pretty --24-BIT 32 224 32  [0m
+  [38;2;32;224;64mecho_pretty --24-bit 32 224 64  [0m [48;2;32;224;64mecho_pretty --24-BIT 32 224 64  [0m
+  [38;2;32;224;96mecho_pretty --24-bit 32 224 96  [0m [48;2;32;224;96mecho_pretty --24-BIT 32 224 96  [0m
+  [38;2;32;224;128mecho_pretty --24-bit 32 224 128 [0m [48;2;32;224;128mecho_pretty --24-BIT 32 224 128 [0m
+  [38;2;32;224;160mecho_pretty --24-bit 32 224 160 [0m [48;2;32;224;160mecho_pretty --24-BIT 32 224 160 [0m
+  [38;2;32;224;192mecho_pretty --24-bit 32 224 192 [0m [48;2;32;224;192mecho_pretty --24-BIT 32 224 192 [0m
+  [38;2;32;224;224mecho_pretty --24-bit 32 224 224 [0m [48;2;32;224;224mecho_pretty --24-BIT 32 224 224 [0m
+  [38;2;32;224;255mecho_pretty --24-bit 32 224 255 [0m [48;2;32;224;255mecho_pretty --24-BIT 32 224 255 [0m
+  [38;2;32;255;32mecho_pretty --24-bit 32 255 32  [0m [48;2;32;255;32mecho_pretty --24-BIT 32 255 32  [0m
+  [38;2;32;255;64mecho_pretty --24-bit 32 255 64  [0m [48;2;32;255;64mecho_pretty --24-BIT 32 255 64  [0m
+  [38;2;32;255;96mecho_pretty --24-bit 32 255 96  [0m [48;2;32;255;96mecho_pretty --24-BIT 32 255 96  [0m
+  [38;2;32;255;128mecho_pretty --24-bit 32 255 128 [0m [48;2;32;255;128mecho_pretty --24-BIT 32 255 128 [0m
+  [38;2;32;255;160mecho_pretty --24-bit 32 255 160 [0m [48;2;32;255;160mecho_pretty --24-BIT 32 255 160 [0m
+  [38;2;32;255;192mecho_pretty --24-bit 32 255 192 [0m [48;2;32;255;192mecho_pretty --24-BIT 32 255 192 [0m
+  [38;2;32;255;224mecho_pretty --24-bit 32 255 224 [0m [48;2;32;255;224mecho_pretty --24-BIT 32 255 224 [0m
+  [38;2;32;255;255mecho_pretty --24-bit 32 255 255 [0m [48;2;32;255;255mecho_pretty --24-BIT 32 255 255 [0m
+  [38;2;64;32;32mecho_pretty --24-bit 64 32 32   [0m [48;2;64;32;32mecho_pretty --24-BIT 64 32 32   [0m
+  [38;2;64;32;64mecho_pretty --24-bit 64 32 64   [0m [48;2;64;32;64mecho_pretty --24-BIT 64 32 64   [0m
+  [38;2;64;32;96mecho_pretty --24-bit 64 32 96   [0m [48;2;64;32;96mecho_pretty --24-BIT 64 32 96   [0m
+  [38;2;64;32;128mecho_pretty --24-bit 64 32 128  [0m [48;2;64;32;128mecho_pretty --24-BIT 64 32 128  [0m
+  [38;2;64;32;160mecho_pretty --24-bit 64 32 160  [0m [48;2;64;32;160mecho_pretty --24-BIT 64 32 160  [0m
+  [38;2;64;32;192mecho_pretty --24-bit 64 32 192  [0m [48;2;64;32;192mecho_pretty --24-BIT 64 32 192  [0m
+  [38;2;64;32;224mecho_pretty --24-bit 64 32 224  [0m [48;2;64;32;224mecho_pretty --24-BIT 64 32 224  [0m
+  [38;2;64;32;255mecho_pretty --24-bit 64 32 255  [0m [48;2;64;32;255mecho_pretty --24-BIT 64 32 255  [0m
+  [38;2;64;64;32mecho_pretty --24-bit 64 64 32   [0m [48;2;64;64;32mecho_pretty --24-BIT 64 64 32   [0m
+  [38;2;64;64;64mecho_pretty --24-bit 64 64 64   [0m [48;2;64;64;64mecho_pretty --24-BIT 64 64 64   [0m
+  [38;2;64;64;96mecho_pretty --24-bit 64 64 96   [0m [48;2;64;64;96mecho_pretty --24-BIT 64 64 96   [0m
+  [38;2;64;64;128mecho_pretty --24-bit 64 64 128  [0m [48;2;64;64;128mecho_pretty --24-BIT 64 64 128  [0m
+  [38;2;64;64;160mecho_pretty --24-bit 64 64 160  [0m [48;2;64;64;160mecho_pretty --24-BIT 64 64 160  [0m
+  [38;2;64;64;192mecho_pretty --24-bit 64 64 192  [0m [48;2;64;64;192mecho_pretty --24-BIT 64 64 192  [0m
+  [38;2;64;64;224mecho_pretty --24-bit 64 64 224  [0m [48;2;64;64;224mecho_pretty --24-BIT 64 64 224  [0m
+  [38;2;64;64;255mecho_pretty --24-bit 64 64 255  [0m [48;2;64;64;255mecho_pretty --24-BIT 64 64 255  [0m
+  [38;2;64;96;32mecho_pretty --24-bit 64 96 32   [0m [48;2;64;96;32mecho_pretty --24-BIT 64 96 32   [0m
+  [38;2;64;96;64mecho_pretty --24-bit 64 96 64   [0m [48;2;64;96;64mecho_pretty --24-BIT 64 96 64   [0m
+  [38;2;64;96;96mecho_pretty --24-bit 64 96 96   [0m [48;2;64;96;96mecho_pretty --24-BIT 64 96 96   [0m
+  [38;2;64;96;128mecho_pretty --24-bit 64 96 128  [0m [48;2;64;96;128mecho_pretty --24-BIT 64 96 128  [0m
+  [38;2;64;96;160mecho_pretty --24-bit 64 96 160  [0m [48;2;64;96;160mecho_pretty --24-BIT 64 96 160  [0m
+  [38;2;64;96;192mecho_pretty --24-bit 64 96 192  [0m [48;2;64;96;192mecho_pretty --24-BIT 64 96 192  [0m
+  [38;2;64;96;224mecho_pretty --24-bit 64 96 224  [0m [48;2;64;96;224mecho_pretty --24-BIT 64 96 224  [0m
+  [38;2;64;96;255mecho_pretty --24-bit 64 96 255  [0m [48;2;64;96;255mecho_pretty --24-BIT 64 96 255  [0m
+  [38;2;64;128;32mecho_pretty --24-bit 64 128 32  [0m [48;2;64;128;32mecho_pretty --24-BIT 64 128 32  [0m
+  [38;2;64;128;64mecho_pretty --24-bit 64 128 64  [0m [48;2;64;128;64mecho_pretty --24-BIT 64 128 64  [0m
+  [38;2;64;128;96mecho_pretty --24-bit 64 128 96  [0m [48;2;64;128;96mecho_pretty --24-BIT 64 128 96  [0m
+  [38;2;64;128;128mecho_pretty --24-bit 64 128 128 [0m [48;2;64;128;128mecho_pretty --24-BIT 64 128 128 [0m
+  [38;2;64;128;160mecho_pretty --24-bit 64 128 160 [0m [48;2;64;128;160mecho_pretty --24-BIT 64 128 160 [0m
+  [38;2;64;128;192mecho_pretty --24-bit 64 128 192 [0m [48;2;64;128;192mecho_pretty --24-BIT 64 128 192 [0m
+  [38;2;64;128;224mecho_pretty --24-bit 64 128 224 [0m [48;2;64;128;224mecho_pretty --24-BIT 64 128 224 [0m
+  [38;2;64;128;255mecho_pretty --24-bit 64 128 255 [0m [48;2;64;128;255mecho_pretty --24-BIT 64 128 255 [0m
+  [38;2;64;160;32mecho_pretty --24-bit 64 160 32  [0m [48;2;64;160;32mecho_pretty --24-BIT 64 160 32  [0m
+  [38;2;64;160;64mecho_pretty --24-bit 64 160 64  [0m [48;2;64;160;64mecho_pretty --24-BIT 64 160 64  [0m
+  [38;2;64;160;96mecho_pretty --24-bit 64 160 96  [0m [48;2;64;160;96mecho_pretty --24-BIT 64 160 96  [0m
+  [38;2;64;160;128mecho_pretty --24-bit 64 160 128 [0m [48;2;64;160;128mecho_pretty --24-BIT 64 160 128 [0m
+  [38;2;64;160;160mecho_pretty --24-bit 64 160 160 [0m [48;2;64;160;160mecho_pretty --24-BIT 64 160 160 [0m
+  [38;2;64;160;192mecho_pretty --24-bit 64 160 192 [0m [48;2;64;160;192mecho_pretty --24-BIT 64 160 192 [0m
+  [38;2;64;160;224mecho_pretty --24-bit 64 160 224 [0m [48;2;64;160;224mecho_pretty --24-BIT 64 160 224 [0m
+  [38;2;64;160;255mecho_pretty --24-bit 64 160 255 [0m [48;2;64;160;255mecho_pretty --24-BIT 64 160 255 [0m
+  [38;2;64;192;32mecho_pretty --24-bit 64 192 32  [0m [48;2;64;192;32mecho_pretty --24-BIT 64 192 32  [0m
+  [38;2;64;192;64mecho_pretty --24-bit 64 192 64  [0m [48;2;64;192;64mecho_pretty --24-BIT 64 192 64  [0m
+  [38;2;64;192;96mecho_pretty --24-bit 64 192 96  [0m [48;2;64;192;96mecho_pretty --24-BIT 64 192 96  [0m
+  [38;2;64;192;128mecho_pretty --24-bit 64 192 128 [0m [48;2;64;192;128mecho_pretty --24-BIT 64 192 128 [0m
+  [38;2;64;192;160mecho_pretty --24-bit 64 192 160 [0m [48;2;64;192;160mecho_pretty --24-BIT 64 192 160 [0m
+  [38;2;64;192;192mecho_pretty --24-bit 64 192 192 [0m [48;2;64;192;192mecho_pretty --24-BIT 64 192 192 [0m
+  [38;2;64;192;224mecho_pretty --24-bit 64 192 224 [0m [48;2;64;192;224mecho_pretty --24-BIT 64 192 224 [0m
+  [38;2;64;192;255mecho_pretty --24-bit 64 192 255 [0m [48;2;64;192;255mecho_pretty --24-BIT 64 192 255 [0m
+  [38;2;64;224;32mecho_pretty --24-bit 64 224 32  [0m [48;2;64;224;32mecho_pretty --24-BIT 64 224 32  [0m
+  [38;2;64;224;64mecho_pretty --24-bit 64 224 64  [0m [48;2;64;224;64mecho_pretty --24-BIT 64 224 64  [0m
+  [38;2;64;224;96mecho_pretty --24-bit 64 224 96  [0m [48;2;64;224;96mecho_pretty --24-BIT 64 224 96  [0m
+  [38;2;64;224;128mecho_pretty --24-bit 64 224 128 [0m [48;2;64;224;128mecho_pretty --24-BIT 64 224 128 [0m
+  [38;2;64;224;160mecho_pretty --24-bit 64 224 160 [0m [48;2;64;224;160mecho_pretty --24-BIT 64 224 160 [0m
+  [38;2;64;224;192mecho_pretty --24-bit 64 224 192 [0m [48;2;64;224;192mecho_pretty --24-BIT 64 224 192 [0m
+  [38;2;64;224;224mecho_pretty --24-bit 64 224 224 [0m [48;2;64;224;224mecho_pretty --24-BIT 64 224 224 [0m
+  [38;2;64;224;255mecho_pretty --24-bit 64 224 255 [0m [48;2;64;224;255mecho_pretty --24-BIT 64 224 255 [0m
+  [38;2;64;255;32mecho_pretty --24-bit 64 255 32  [0m [48;2;64;255;32mecho_pretty --24-BIT 64 255 32  [0m
+  [38;2;64;255;64mecho_pretty --24-bit 64 255 64  [0m [48;2;64;255;64mecho_pretty --24-BIT 64 255 64  [0m
+  [38;2;64;255;96mecho_pretty --24-bit 64 255 96  [0m [48;2;64;255;96mecho_pretty --24-BIT 64 255 96  [0m
+  [38;2;64;255;128mecho_pretty --24-bit 64 255 128 [0m [48;2;64;255;128mecho_pretty --24-BIT 64 255 128 [0m
+  [38;2;64;255;160mecho_pretty --24-bit 64 255 160 [0m [48;2;64;255;160mecho_pretty --24-BIT 64 255 160 [0m
+  [38;2;64;255;192mecho_pretty --24-bit 64 255 192 [0m [48;2;64;255;192mecho_pretty --24-BIT 64 255 192 [0m
+  [38;2;64;255;224mecho_pretty --24-bit 64 255 224 [0m [48;2;64;255;224mecho_pretty --24-BIT 64 255 224 [0m
+  [38;2;64;255;255mecho_pretty --24-bit 64 255 255 [0m [48;2;64;255;255mecho_pretty --24-BIT 64 255 255 [0m
+  [38;2;96;32;32mecho_pretty --24-bit 96 32 32   [0m [48;2;96;32;32mecho_pretty --24-BIT 96 32 32   [0m
+  [38;2;96;32;64mecho_pretty --24-bit 96 32 64   [0m [48;2;96;32;64mecho_pretty --24-BIT 96 32 64   [0m
+  [38;2;96;32;96mecho_pretty --24-bit 96 32 96   [0m [48;2;96;32;96mecho_pretty --24-BIT 96 32 96   [0m
+  [38;2;96;32;128mecho_pretty --24-bit 96 32 128  [0m [48;2;96;32;128mecho_pretty --24-BIT 96 32 128  [0m
+  [38;2;96;32;160mecho_pretty --24-bit 96 32 160  [0m [48;2;96;32;160mecho_pretty --24-BIT 96 32 160  [0m
+  [38;2;96;32;192mecho_pretty --24-bit 96 32 192  [0m [48;2;96;32;192mecho_pretty --24-BIT 96 32 192  [0m
+  [38;2;96;32;224mecho_pretty --24-bit 96 32 224  [0m [48;2;96;32;224mecho_pretty --24-BIT 96 32 224  [0m
+  [38;2;96;32;255mecho_pretty --24-bit 96 32 255  [0m [48;2;96;32;255mecho_pretty --24-BIT 96 32 255  [0m
+  [38;2;96;64;32mecho_pretty --24-bit 96 64 32   [0m [48;2;96;64;32mecho_pretty --24-BIT 96 64 32   [0m
+  [38;2;96;64;64mecho_pretty --24-bit 96 64 64   [0m [48;2;96;64;64mecho_pretty --24-BIT 96 64 64   [0m
+  [38;2;96;64;96mecho_pretty --24-bit 96 64 96   [0m [48;2;96;64;96mecho_pretty --24-BIT 96 64 96   [0m
+  [38;2;96;64;128mecho_pretty --24-bit 96 64 128  [0m [48;2;96;64;128mecho_pretty --24-BIT 96 64 128  [0m
+  [38;2;96;64;160mecho_pretty --24-bit 96 64 160  [0m [48;2;96;64;160mecho_pretty --24-BIT 96 64 160  [0m
+  [38;2;96;64;192mecho_pretty --24-bit 96 64 192  [0m [48;2;96;64;192mecho_pretty --24-BIT 96 64 192  [0m
+  [38;2;96;64;224mecho_pretty --24-bit 96 64 224  [0m [48;2;96;64;224mecho_pretty --24-BIT 96 64 224  [0m
+  [38;2;96;64;255mecho_pretty --24-bit 96 64 255  [0m [48;2;96;64;255mecho_pretty --24-BIT 96 64 255  [0m
+  [38;2;96;96;32mecho_pretty --24-bit 96 96 32   [0m [48;2;96;96;32mecho_pretty --24-BIT 96 96 32   [0m
+  [38;2;96;96;64mecho_pretty --24-bit 96 96 64   [0m [48;2;96;96;64mecho_pretty --24-BIT 96 96 64   [0m
+  [38;2;96;96;96mecho_pretty --24-bit 96 96 96   [0m [48;2;96;96;96mecho_pretty --24-BIT 96 96 96   [0m
+  [38;2;96;96;128mecho_pretty --24-bit 96 96 128  [0m [48;2;96;96;128mecho_pretty --24-BIT 96 96 128  [0m
+  [38;2;96;96;160mecho_pretty --24-bit 96 96 160  [0m [48;2;96;96;160mecho_pretty --24-BIT 96 96 160  [0m
+  [38;2;96;96;192mecho_pretty --24-bit 96 96 192  [0m [48;2;96;96;192mecho_pretty --24-BIT 96 96 192  [0m
+  [38;2;96;96;224mecho_pretty --24-bit 96 96 224  [0m [48;2;96;96;224mecho_pretty --24-BIT 96 96 224  [0m
+  [38;2;96;96;255mecho_pretty --24-bit 96 96 255  [0m [48;2;96;96;255mecho_pretty --24-BIT 96 96 255  [0m
+  [38;2;96;128;32mecho_pretty --24-bit 96 128 32  [0m [48;2;96;128;32mecho_pretty --24-BIT 96 128 32  [0m
+  [38;2;96;128;64mecho_pretty --24-bit 96 128 64  [0m [48;2;96;128;64mecho_pretty --24-BIT 96 128 64  [0m
+  [38;2;96;128;96mecho_pretty --24-bit 96 128 96  [0m [48;2;96;128;96mecho_pretty --24-BIT 96 128 96  [0m
+  [38;2;96;128;128mecho_pretty --24-bit 96 128 128 [0m [48;2;96;128;128mecho_pretty --24-BIT 96 128 128 [0m
+  [38;2;96;128;160mecho_pretty --24-bit 96 128 160 [0m [48;2;96;128;160mecho_pretty --24-BIT 96 128 160 [0m
+  [38;2;96;128;192mecho_pretty --24-bit 96 128 192 [0m [48;2;96;128;192mecho_pretty --24-BIT 96 128 192 [0m
+  [38;2;96;128;224mecho_pretty --24-bit 96 128 224 [0m [48;2;96;128;224mecho_pretty --24-BIT 96 128 224 [0m
+  [38;2;96;128;255mecho_pretty --24-bit 96 128 255 [0m [48;2;96;128;255mecho_pretty --24-BIT 96 128 255 [0m
+  [38;2;96;160;32mecho_pretty --24-bit 96 160 32  [0m [48;2;96;160;32mecho_pretty --24-BIT 96 160 32  [0m
+  [38;2;96;160;64mecho_pretty --24-bit 96 160 64  [0m [48;2;96;160;64mecho_pretty --24-BIT 96 160 64  [0m
+  [38;2;96;160;96mecho_pretty --24-bit 96 160 96  [0m [48;2;96;160;96mecho_pretty --24-BIT 96 160 96  [0m
+  [38;2;96;160;128mecho_pretty --24-bit 96 160 128 [0m [48;2;96;160;128mecho_pretty --24-BIT 96 160 128 [0m
+  [38;2;96;160;160mecho_pretty --24-bit 96 160 160 [0m [48;2;96;160;160mecho_pretty --24-BIT 96 160 160 [0m
+  [38;2;96;160;192mecho_pretty --24-bit 96 160 192 [0m [48;2;96;160;192mecho_pretty --24-BIT 96 160 192 [0m
+  [38;2;96;160;224mecho_pretty --24-bit 96 160 224 [0m [48;2;96;160;224mecho_pretty --24-BIT 96 160 224 [0m
+  [38;2;96;160;255mecho_pretty --24-bit 96 160 255 [0m [48;2;96;160;255mecho_pretty --24-BIT 96 160 255 [0m
+  [38;2;96;192;32mecho_pretty --24-bit 96 192 32  [0m [48;2;96;192;32mecho_pretty --24-BIT 96 192 32  [0m
+  [38;2;96;192;64mecho_pretty --24-bit 96 192 64  [0m [48;2;96;192;64mecho_pretty --24-BIT 96 192 64  [0m
+  [38;2;96;192;96mecho_pretty --24-bit 96 192 96  [0m [48;2;96;192;96mecho_pretty --24-BIT 96 192 96  [0m
+  [38;2;96;192;128mecho_pretty --24-bit 96 192 128 [0m [48;2;96;192;128mecho_pretty --24-BIT 96 192 128 [0m
+  [38;2;96;192;160mecho_pretty --24-bit 96 192 160 [0m [48;2;96;192;160mecho_pretty --24-BIT 96 192 160 [0m
+  [38;2;96;192;192mecho_pretty --24-bit 96 192 192 [0m [48;2;96;192;192mecho_pretty --24-BIT 96 192 192 [0m
+  [38;2;96;192;224mecho_pretty --24-bit 96 192 224 [0m [48;2;96;192;224mecho_pretty --24-BIT 96 192 224 [0m
+  [38;2;96;192;255mecho_pretty --24-bit 96 192 255 [0m [48;2;96;192;255mecho_pretty --24-BIT 96 192 255 [0m
+  [38;2;96;224;32mecho_pretty --24-bit 96 224 32  [0m [48;2;96;224;32mecho_pretty --24-BIT 96 224 32  [0m
+  [38;2;96;224;64mecho_pretty --24-bit 96 224 64  [0m [48;2;96;224;64mecho_pretty --24-BIT 96 224 64  [0m
+  [38;2;96;224;96mecho_pretty --24-bit 96 224 96  [0m [48;2;96;224;96mecho_pretty --24-BIT 96 224 96  [0m
+  [38;2;96;224;128mecho_pretty --24-bit 96 224 128 [0m [48;2;96;224;128mecho_pretty --24-BIT 96 224 128 [0m
+  [38;2;96;224;160mecho_pretty --24-bit 96 224 160 [0m [48;2;96;224;160mecho_pretty --24-BIT 96 224 160 [0m
+  [38;2;96;224;192mecho_pretty --24-bit 96 224 192 [0m [48;2;96;224;192mecho_pretty --24-BIT 96 224 192 [0m
+  [38;2;96;224;224mecho_pretty --24-bit 96 224 224 [0m [48;2;96;224;224mecho_pretty --24-BIT 96 224 224 [0m
+  [38;2;96;224;255mecho_pretty --24-bit 96 224 255 [0m [48;2;96;224;255mecho_pretty --24-BIT 96 224 255 [0m
+  [38;2;96;255;32mecho_pretty --24-bit 96 255 32  [0m [48;2;96;255;32mecho_pretty --24-BIT 96 255 32  [0m
+  [38;2;96;255;64mecho_pretty --24-bit 96 255 64  [0m [48;2;96;255;64mecho_pretty --24-BIT 96 255 64  [0m
+  [38;2;96;255;96mecho_pretty --24-bit 96 255 96  [0m [48;2;96;255;96mecho_pretty --24-BIT 96 255 96  [0m
+  [38;2;96;255;128mecho_pretty --24-bit 96 255 128 [0m [48;2;96;255;128mecho_pretty --24-BIT 96 255 128 [0m
+  [38;2;96;255;160mecho_pretty --24-bit 96 255 160 [0m [48;2;96;255;160mecho_pretty --24-BIT 96 255 160 [0m
+  [38;2;96;255;192mecho_pretty --24-bit 96 255 192 [0m [48;2;96;255;192mecho_pretty --24-BIT 96 255 192 [0m
+  [38;2;96;255;224mecho_pretty --24-bit 96 255 224 [0m [48;2;96;255;224mecho_pretty --24-BIT 96 255 224 [0m
+  [38;2;96;255;255mecho_pretty --24-bit 96 255 255 [0m [48;2;96;255;255mecho_pretty --24-BIT 96 255 255 [0m
+  [38;2;128;32;32mecho_pretty --24-bit 128 32 32  [0m [48;2;128;32;32mecho_pretty --24-BIT 128 32 32  [0m
+  [38;2;128;32;64mecho_pretty --24-bit 128 32 64  [0m [48;2;128;32;64mecho_pretty --24-BIT 128 32 64  [0m
+  [38;2;128;32;96mecho_pretty --24-bit 128 32 96  [0m [48;2;128;32;96mecho_pretty --24-BIT 128 32 96  [0m
+  [38;2;128;32;128mecho_pretty --24-bit 128 32 128 [0m [48;2;128;32;128mecho_pretty --24-BIT 128 32 128 [0m
+  [38;2;128;32;160mecho_pretty --24-bit 128 32 160 [0m [48;2;128;32;160mecho_pretty --24-BIT 128 32 160 [0m
+  [38;2;128;32;192mecho_pretty --24-bit 128 32 192 [0m [48;2;128;32;192mecho_pretty --24-BIT 128 32 192 [0m
+  [38;2;128;32;224mecho_pretty --24-bit 128 32 224 [0m [48;2;128;32;224mecho_pretty --24-BIT 128 32 224 [0m
+  [38;2;128;32;255mecho_pretty --24-bit 128 32 255 [0m [48;2;128;32;255mecho_pretty --24-BIT 128 32 255 [0m
+  [38;2;128;64;32mecho_pretty --24-bit 128 64 32  [0m [48;2;128;64;32mecho_pretty --24-BIT 128 64 32  [0m
+  [38;2;128;64;64mecho_pretty --24-bit 128 64 64  [0m [48;2;128;64;64mecho_pretty --24-BIT 128 64 64  [0m
+  [38;2;128;64;96mecho_pretty --24-bit 128 64 96  [0m [48;2;128;64;96mecho_pretty --24-BIT 128 64 96  [0m
+  [38;2;128;64;128mecho_pretty --24-bit 128 64 128 [0m [48;2;128;64;128mecho_pretty --24-BIT 128 64 128 [0m
+  [38;2;128;64;160mecho_pretty --24-bit 128 64 160 [0m [48;2;128;64;160mecho_pretty --24-BIT 128 64 160 [0m
+  [38;2;128;64;192mecho_pretty --24-bit 128 64 192 [0m [48;2;128;64;192mecho_pretty --24-BIT 128 64 192 [0m
+  [38;2;128;64;224mecho_pretty --24-bit 128 64 224 [0m [48;2;128;64;224mecho_pretty --24-BIT 128 64 224 [0m
+  [38;2;128;64;255mecho_pretty --24-bit 128 64 255 [0m [48;2;128;64;255mecho_pretty --24-BIT 128 64 255 [0m
+  [38;2;128;96;32mecho_pretty --24-bit 128 96 32  [0m [48;2;128;96;32mecho_pretty --24-BIT 128 96 32  [0m
+  [38;2;128;96;64mecho_pretty --24-bit 128 96 64  [0m [48;2;128;96;64mecho_pretty --24-BIT 128 96 64  [0m
+  [38;2;128;96;96mecho_pretty --24-bit 128 96 96  [0m [48;2;128;96;96mecho_pretty --24-BIT 128 96 96  [0m
+  [38;2;128;96;128mecho_pretty --24-bit 128 96 128 [0m [48;2;128;96;128mecho_pretty --24-BIT 128 96 128 [0m
+  [38;2;128;96;160mecho_pretty --24-bit 128 96 160 [0m [48;2;128;96;160mecho_pretty --24-BIT 128 96 160 [0m
+  [38;2;128;96;192mecho_pretty --24-bit 128 96 192 [0m [48;2;128;96;192mecho_pretty --24-BIT 128 96 192 [0m
+  [38;2;128;96;224mecho_pretty --24-bit 128 96 224 [0m [48;2;128;96;224mecho_pretty --24-BIT 128 96 224 [0m
+  [38;2;128;96;255mecho_pretty --24-bit 128 96 255 [0m [48;2;128;96;255mecho_pretty --24-BIT 128 96 255 [0m
+  [38;2;128;128;32mecho_pretty --24-bit 128 128 32 [0m [48;2;128;128;32mecho_pretty --24-BIT 128 128 32 [0m
+  [38;2;128;128;64mecho_pretty --24-bit 128 128 64 [0m [48;2;128;128;64mecho_pretty --24-BIT 128 128 64 [0m
+  [38;2;128;128;96mecho_pretty --24-bit 128 128 96 [0m [48;2;128;128;96mecho_pretty --24-BIT 128 128 96 [0m
+  [38;2;128;128;128mecho_pretty --24-bit 128 128 128[0m [48;2;128;128;128mecho_pretty --24-BIT 128 128 128[0m
+  [38;2;128;128;160mecho_pretty --24-bit 128 128 160[0m [48;2;128;128;160mecho_pretty --24-BIT 128 128 160[0m
+  [38;2;128;128;192mecho_pretty --24-bit 128 128 192[0m [48;2;128;128;192mecho_pretty --24-BIT 128 128 192[0m
+  [38;2;128;128;224mecho_pretty --24-bit 128 128 224[0m [48;2;128;128;224mecho_pretty --24-BIT 128 128 224[0m
+  [38;2;128;128;255mecho_pretty --24-bit 128 128 255[0m [48;2;128;128;255mecho_pretty --24-BIT 128 128 255[0m
+  [38;2;128;160;32mecho_pretty --24-bit 128 160 32 [0m [48;2;128;160;32mecho_pretty --24-BIT 128 160 32 [0m
+  [38;2;128;160;64mecho_pretty --24-bit 128 160 64 [0m [48;2;128;160;64mecho_pretty --24-BIT 128 160 64 [0m
+  [38;2;128;160;96mecho_pretty --24-bit 128 160 96 [0m [48;2;128;160;96mecho_pretty --24-BIT 128 160 96 [0m
+  [38;2;128;160;128mecho_pretty --24-bit 128 160 128[0m [48;2;128;160;128mecho_pretty --24-BIT 128 160 128[0m
+  [38;2;128;160;160mecho_pretty --24-bit 128 160 160[0m [48;2;128;160;160mecho_pretty --24-BIT 128 160 160[0m
+  [38;2;128;160;192mecho_pretty --24-bit 128 160 192[0m [48;2;128;160;192mecho_pretty --24-BIT 128 160 192[0m
+  [38;2;128;160;224mecho_pretty --24-bit 128 160 224[0m [48;2;128;160;224mecho_pretty --24-BIT 128 160 224[0m
+  [38;2;128;160;255mecho_pretty --24-bit 128 160 255[0m [48;2;128;160;255mecho_pretty --24-BIT 128 160 255[0m
+  [38;2;128;192;32mecho_pretty --24-bit 128 192 32 [0m [48;2;128;192;32mecho_pretty --24-BIT 128 192 32 [0m
+  [38;2;128;192;64mecho_pretty --24-bit 128 192 64 [0m [48;2;128;192;64mecho_pretty --24-BIT 128 192 64 [0m
+  [38;2;128;192;96mecho_pretty --24-bit 128 192 96 [0m [48;2;128;192;96mecho_pretty --24-BIT 128 192 96 [0m
+  [38;2;128;192;128mecho_pretty --24-bit 128 192 128[0m [48;2;128;192;128mecho_pretty --24-BIT 128 192 128[0m
+  [38;2;128;192;160mecho_pretty --24-bit 128 192 160[0m [48;2;128;192;160mecho_pretty --24-BIT 128 192 160[0m
+  [38;2;128;192;192mecho_pretty --24-bit 128 192 192[0m [48;2;128;192;192mecho_pretty --24-BIT 128 192 192[0m
+  [38;2;128;192;224mecho_pretty --24-bit 128 192 224[0m [48;2;128;192;224mecho_pretty --24-BIT 128 192 224[0m
+  [38;2;128;192;255mecho_pretty --24-bit 128 192 255[0m [48;2;128;192;255mecho_pretty --24-BIT 128 192 255[0m
+  [38;2;128;224;32mecho_pretty --24-bit 128 224 32 [0m [48;2;128;224;32mecho_pretty --24-BIT 128 224 32 [0m
+  [38;2;128;224;64mecho_pretty --24-bit 128 224 64 [0m [48;2;128;224;64mecho_pretty --24-BIT 128 224 64 [0m
+  [38;2;128;224;96mecho_pretty --24-bit 128 224 96 [0m [48;2;128;224;96mecho_pretty --24-BIT 128 224 96 [0m
+  [38;2;128;224;128mecho_pretty --24-bit 128 224 128[0m [48;2;128;224;128mecho_pretty --24-BIT 128 224 128[0m
+  [38;2;128;224;160mecho_pretty --24-bit 128 224 160[0m [48;2;128;224;160mecho_pretty --24-BIT 128 224 160[0m
+  [38;2;128;224;192mecho_pretty --24-bit 128 224 192[0m [48;2;128;224;192mecho_pretty --24-BIT 128 224 192[0m
+  [38;2;128;224;224mecho_pretty --24-bit 128 224 224[0m [48;2;128;224;224mecho_pretty --24-BIT 128 224 224[0m
+  [38;2;128;224;255mecho_pretty --24-bit 128 224 255[0m [48;2;128;224;255mecho_pretty --24-BIT 128 224 255[0m
+  [38;2;128;255;32mecho_pretty --24-bit 128 255 32 [0m [48;2;128;255;32mecho_pretty --24-BIT 128 255 32 [0m
+  [38;2;128;255;64mecho_pretty --24-bit 128 255 64 [0m [48;2;128;255;64mecho_pretty --24-BIT 128 255 64 [0m
+  [38;2;128;255;96mecho_pretty --24-bit 128 255 96 [0m [48;2;128;255;96mecho_pretty --24-BIT 128 255 96 [0m
+  [38;2;128;255;128mecho_pretty --24-bit 128 255 128[0m [48;2;128;255;128mecho_pretty --24-BIT 128 255 128[0m
+  [38;2;128;255;160mecho_pretty --24-bit 128 255 160[0m [48;2;128;255;160mecho_pretty --24-BIT 128 255 160[0m
+  [38;2;128;255;192mecho_pretty --24-bit 128 255 192[0m [48;2;128;255;192mecho_pretty --24-BIT 128 255 192[0m
+  [38;2;128;255;224mecho_pretty --24-bit 128 255 224[0m [48;2;128;255;224mecho_pretty --24-BIT 128 255 224[0m
+  [38;2;128;255;255mecho_pretty --24-bit 128 255 255[0m [48;2;128;255;255mecho_pretty --24-BIT 128 255 255[0m
+  [38;2;160;32;32mecho_pretty --24-bit 160 32 32  [0m [48;2;160;32;32mecho_pretty --24-BIT 160 32 32  [0m
+  [38;2;160;32;64mecho_pretty --24-bit 160 32 64  [0m [48;2;160;32;64mecho_pretty --24-BIT 160 32 64  [0m
+  [38;2;160;32;96mecho_pretty --24-bit 160 32 96  [0m [48;2;160;32;96mecho_pretty --24-BIT 160 32 96  [0m
+  [38;2;160;32;128mecho_pretty --24-bit 160 32 128 [0m [48;2;160;32;128mecho_pretty --24-BIT 160 32 128 [0m
+  [38;2;160;32;160mecho_pretty --24-bit 160 32 160 [0m [48;2;160;32;160mecho_pretty --24-BIT 160 32 160 [0m
+  [38;2;160;32;192mecho_pretty --24-bit 160 32 192 [0m [48;2;160;32;192mecho_pretty --24-BIT 160 32 192 [0m
+  [38;2;160;32;224mecho_pretty --24-bit 160 32 224 [0m [48;2;160;32;224mecho_pretty --24-BIT 160 32 224 [0m
+  [38;2;160;32;255mecho_pretty --24-bit 160 32 255 [0m [48;2;160;32;255mecho_pretty --24-BIT 160 32 255 [0m
+  [38;2;160;64;32mecho_pretty --24-bit 160 64 32  [0m [48;2;160;64;32mecho_pretty --24-BIT 160 64 32  [0m
+  [38;2;160;64;64mecho_pretty --24-bit 160 64 64  [0m [48;2;160;64;64mecho_pretty --24-BIT 160 64 64  [0m
+  [38;2;160;64;96mecho_pretty --24-bit 160 64 96  [0m [48;2;160;64;96mecho_pretty --24-BIT 160 64 96  [0m
+  [38;2;160;64;128mecho_pretty --24-bit 160 64 128 [0m [48;2;160;64;128mecho_pretty --24-BIT 160 64 128 [0m
+  [38;2;160;64;160mecho_pretty --24-bit 160 64 160 [0m [48;2;160;64;160mecho_pretty --24-BIT 160 64 160 [0m
+  [38;2;160;64;192mecho_pretty --24-bit 160 64 192 [0m [48;2;160;64;192mecho_pretty --24-BIT 160 64 192 [0m
+  [38;2;160;64;224mecho_pretty --24-bit 160 64 224 [0m [48;2;160;64;224mecho_pretty --24-BIT 160 64 224 [0m
+  [38;2;160;64;255mecho_pretty --24-bit 160 64 255 [0m [48;2;160;64;255mecho_pretty --24-BIT 160 64 255 [0m
+  [38;2;160;96;32mecho_pretty --24-bit 160 96 32  [0m [48;2;160;96;32mecho_pretty --24-BIT 160 96 32  [0m
+  [38;2;160;96;64mecho_pretty --24-bit 160 96 64  [0m [48;2;160;96;64mecho_pretty --24-BIT 160 96 64  [0m
+  [38;2;160;96;96mecho_pretty --24-bit 160 96 96  [0m [48;2;160;96;96mecho_pretty --24-BIT 160 96 96  [0m
+  [38;2;160;96;128mecho_pretty --24-bit 160 96 128 [0m [48;2;160;96;128mecho_pretty --24-BIT 160 96 128 [0m
+  [38;2;160;96;160mecho_pretty --24-bit 160 96 160 [0m [48;2;160;96;160mecho_pretty --24-BIT 160 96 160 [0m
+  [38;2;160;96;192mecho_pretty --24-bit 160 96 192 [0m [48;2;160;96;192mecho_pretty --24-BIT 160 96 192 [0m
+  [38;2;160;96;224mecho_pretty --24-bit 160 96 224 [0m [48;2;160;96;224mecho_pretty --24-BIT 160 96 224 [0m
+  [38;2;160;96;255mecho_pretty --24-bit 160 96 255 [0m [48;2;160;96;255mecho_pretty --24-BIT 160 96 255 [0m
+  [38;2;160;128;32mecho_pretty --24-bit 160 128 32 [0m [48;2;160;128;32mecho_pretty --24-BIT 160 128 32 [0m
+  [38;2;160;128;64mecho_pretty --24-bit 160 128 64 [0m [48;2;160;128;64mecho_pretty --24-BIT 160 128 64 [0m
+  [38;2;160;128;96mecho_pretty --24-bit 160 128 96 [0m [48;2;160;128;96mecho_pretty --24-BIT 160 128 96 [0m
+  [38;2;160;128;128mecho_pretty --24-bit 160 128 128[0m [48;2;160;128;128mecho_pretty --24-BIT 160 128 128[0m
+  [38;2;160;128;160mecho_pretty --24-bit 160 128 160[0m [48;2;160;128;160mecho_pretty --24-BIT 160 128 160[0m
+  [38;2;160;128;192mecho_pretty --24-bit 160 128 192[0m [48;2;160;128;192mecho_pretty --24-BIT 160 128 192[0m
+  [38;2;160;128;224mecho_pretty --24-bit 160 128 224[0m [48;2;160;128;224mecho_pretty --24-BIT 160 128 224[0m
+  [38;2;160;128;255mecho_pretty --24-bit 160 128 255[0m [48;2;160;128;255mecho_pretty --24-BIT 160 128 255[0m
+  [38;2;160;160;32mecho_pretty --24-bit 160 160 32 [0m [48;2;160;160;32mecho_pretty --24-BIT 160 160 32 [0m
+  [38;2;160;160;64mecho_pretty --24-bit 160 160 64 [0m [48;2;160;160;64mecho_pretty --24-BIT 160 160 64 [0m
+  [38;2;160;160;96mecho_pretty --24-bit 160 160 96 [0m [48;2;160;160;96mecho_pretty --24-BIT 160 160 96 [0m
+  [38;2;160;160;128mecho_pretty --24-bit 160 160 128[0m [48;2;160;160;128mecho_pretty --24-BIT 160 160 128[0m
+  [38;2;160;160;160mecho_pretty --24-bit 160 160 160[0m [48;2;160;160;160mecho_pretty --24-BIT 160 160 160[0m
+  [38;2;160;160;192mecho_pretty --24-bit 160 160 192[0m [48;2;160;160;192mecho_pretty --24-BIT 160 160 192[0m
+  [38;2;160;160;224mecho_pretty --24-bit 160 160 224[0m [48;2;160;160;224mecho_pretty --24-BIT 160 160 224[0m
+  [38;2;160;160;255mecho_pretty --24-bit 160 160 255[0m [48;2;160;160;255mecho_pretty --24-BIT 160 160 255[0m
+  [38;2;160;192;32mecho_pretty --24-bit 160 192 32 [0m [48;2;160;192;32mecho_pretty --24-BIT 160 192 32 [0m
+  [38;2;160;192;64mecho_pretty --24-bit 160 192 64 [0m [48;2;160;192;64mecho_pretty --24-BIT 160 192 64 [0m
+  [38;2;160;192;96mecho_pretty --24-bit 160 192 96 [0m [48;2;160;192;96mecho_pretty --24-BIT 160 192 96 [0m
+  [38;2;160;192;128mecho_pretty --24-bit 160 192 128[0m [48;2;160;192;128mecho_pretty --24-BIT 160 192 128[0m
+  [38;2;160;192;160mecho_pretty --24-bit 160 192 160[0m [48;2;160;192;160mecho_pretty --24-BIT 160 192 160[0m
+  [38;2;160;192;192mecho_pretty --24-bit 160 192 192[0m [48;2;160;192;192mecho_pretty --24-BIT 160 192 192[0m
+  [38;2;160;192;224mecho_pretty --24-bit 160 192 224[0m [48;2;160;192;224mecho_pretty --24-BIT 160 192 224[0m
+  [38;2;160;192;255mecho_pretty --24-bit 160 192 255[0m [48;2;160;192;255mecho_pretty --24-BIT 160 192 255[0m
+  [38;2;160;224;32mecho_pretty --24-bit 160 224 32 [0m [48;2;160;224;32mecho_pretty --24-BIT 160 224 32 [0m
+  [38;2;160;224;64mecho_pretty --24-bit 160 224 64 [0m [48;2;160;224;64mecho_pretty --24-BIT 160 224 64 [0m
+  [38;2;160;224;96mecho_pretty --24-bit 160 224 96 [0m [48;2;160;224;96mecho_pretty --24-BIT 160 224 96 [0m
+  [38;2;160;224;128mecho_pretty --24-bit 160 224 128[0m [48;2;160;224;128mecho_pretty --24-BIT 160 224 128[0m
+  [38;2;160;224;160mecho_pretty --24-bit 160 224 160[0m [48;2;160;224;160mecho_pretty --24-BIT 160 224 160[0m
+  [38;2;160;224;192mecho_pretty --24-bit 160 224 192[0m [48;2;160;224;192mecho_pretty --24-BIT 160 224 192[0m
+  [38;2;160;224;224mecho_pretty --24-bit 160 224 224[0m [48;2;160;224;224mecho_pretty --24-BIT 160 224 224[0m
+  [38;2;160;224;255mecho_pretty --24-bit 160 224 255[0m [48;2;160;224;255mecho_pretty --24-BIT 160 224 255[0m
+  [38;2;160;255;32mecho_pretty --24-bit 160 255 32 [0m [48;2;160;255;32mecho_pretty --24-BIT 160 255 32 [0m
+  [38;2;160;255;64mecho_pretty --24-bit 160 255 64 [0m [48;2;160;255;64mecho_pretty --24-BIT 160 255 64 [0m
+  [38;2;160;255;96mecho_pretty --24-bit 160 255 96 [0m [48;2;160;255;96mecho_pretty --24-BIT 160 255 96 [0m
+  [38;2;160;255;128mecho_pretty --24-bit 160 255 128[0m [48;2;160;255;128mecho_pretty --24-BIT 160 255 128[0m
+  [38;2;160;255;160mecho_pretty --24-bit 160 255 160[0m [48;2;160;255;160mecho_pretty --24-BIT 160 255 160[0m
+  [38;2;160;255;192mecho_pretty --24-bit 160 255 192[0m [48;2;160;255;192mecho_pretty --24-BIT 160 255 192[0m
+  [38;2;160;255;224mecho_pretty --24-bit 160 255 224[0m [48;2;160;255;224mecho_pretty --24-BIT 160 255 224[0m
+  [38;2;160;255;255mecho_pretty --24-bit 160 255 255[0m [48;2;160;255;255mecho_pretty --24-BIT 160 255 255[0m
+  [38;2;192;32;32mecho_pretty --24-bit 192 32 32  [0m [48;2;192;32;32mecho_pretty --24-BIT 192 32 32  [0m
+  [38;2;192;32;64mecho_pretty --24-bit 192 32 64  [0m [48;2;192;32;64mecho_pretty --24-BIT 192 32 64  [0m
+  [38;2;192;32;96mecho_pretty --24-bit 192 32 96  [0m [48;2;192;32;96mecho_pretty --24-BIT 192 32 96  [0m
+  [38;2;192;32;128mecho_pretty --24-bit 192 32 128 [0m [48;2;192;32;128mecho_pretty --24-BIT 192 32 128 [0m
+  [38;2;192;32;160mecho_pretty --24-bit 192 32 160 [0m [48;2;192;32;160mecho_pretty --24-BIT 192 32 160 [0m
+  [38;2;192;32;192mecho_pretty --24-bit 192 32 192 [0m [48;2;192;32;192mecho_pretty --24-BIT 192 32 192 [0m
+  [38;2;192;32;224mecho_pretty --24-bit 192 32 224 [0m [48;2;192;32;224mecho_pretty --24-BIT 192 32 224 [0m
+  [38;2;192;32;255mecho_pretty --24-bit 192 32 255 [0m [48;2;192;32;255mecho_pretty --24-BIT 192 32 255 [0m
+  [38;2;192;64;32mecho_pretty --24-bit 192 64 32  [0m [48;2;192;64;32mecho_pretty --24-BIT 192 64 32  [0m
+  [38;2;192;64;64mecho_pretty --24-bit 192 64 64  [0m [48;2;192;64;64mecho_pretty --24-BIT 192 64 64  [0m
+  [38;2;192;64;96mecho_pretty --24-bit 192 64 96  [0m [48;2;192;64;96mecho_pretty --24-BIT 192 64 96  [0m
+  [38;2;192;64;128mecho_pretty --24-bit 192 64 128 [0m [48;2;192;64;128mecho_pretty --24-BIT 192 64 128 [0m
+  [38;2;192;64;160mecho_pretty --24-bit 192 64 160 [0m [48;2;192;64;160mecho_pretty --24-BIT 192 64 160 [0m
+  [38;2;192;64;192mecho_pretty --24-bit 192 64 192 [0m [48;2;192;64;192mecho_pretty --24-BIT 192 64 192 [0m
+  [38;2;192;64;224mecho_pretty --24-bit 192 64 224 [0m [48;2;192;64;224mecho_pretty --24-BIT 192 64 224 [0m
+  [38;2;192;64;255mecho_pretty --24-bit 192 64 255 [0m [48;2;192;64;255mecho_pretty --24-BIT 192 64 255 [0m
+  [38;2;192;96;32mecho_pretty --24-bit 192 96 32  [0m [48;2;192;96;32mecho_pretty --24-BIT 192 96 32  [0m
+  [38;2;192;96;64mecho_pretty --24-bit 192 96 64  [0m [48;2;192;96;64mecho_pretty --24-BIT 192 96 64  [0m
+  [38;2;192;96;96mecho_pretty --24-bit 192 96 96  [0m [48;2;192;96;96mecho_pretty --24-BIT 192 96 96  [0m
+  [38;2;192;96;128mecho_pretty --24-bit 192 96 128 [0m [48;2;192;96;128mecho_pretty --24-BIT 192 96 128 [0m
+  [38;2;192;96;160mecho_pretty --24-bit 192 96 160 [0m [48;2;192;96;160mecho_pretty --24-BIT 192 96 160 [0m
+  [38;2;192;96;192mecho_pretty --24-bit 192 96 192 [0m [48;2;192;96;192mecho_pretty --24-BIT 192 96 192 [0m
+  [38;2;192;96;224mecho_pretty --24-bit 192 96 224 [0m [48;2;192;96;224mecho_pretty --24-BIT 192 96 224 [0m
+  [38;2;192;96;255mecho_pretty --24-bit 192 96 255 [0m [48;2;192;96;255mecho_pretty --24-BIT 192 96 255 [0m
+  [38;2;192;128;32mecho_pretty --24-bit 192 128 32 [0m [48;2;192;128;32mecho_pretty --24-BIT 192 128 32 [0m
+  [38;2;192;128;64mecho_pretty --24-bit 192 128 64 [0m [48;2;192;128;64mecho_pretty --24-BIT 192 128 64 [0m
+  [38;2;192;128;96mecho_pretty --24-bit 192 128 96 [0m [48;2;192;128;96mecho_pretty --24-BIT 192 128 96 [0m
+  [38;2;192;128;128mecho_pretty --24-bit 192 128 128[0m [48;2;192;128;128mecho_pretty --24-BIT 192 128 128[0m
+  [38;2;192;128;160mecho_pretty --24-bit 192 128 160[0m [48;2;192;128;160mecho_pretty --24-BIT 192 128 160[0m
+  [38;2;192;128;192mecho_pretty --24-bit 192 128 192[0m [48;2;192;128;192mecho_pretty --24-BIT 192 128 192[0m
+  [38;2;192;128;224mecho_pretty --24-bit 192 128 224[0m [48;2;192;128;224mecho_pretty --24-BIT 192 128 224[0m
+  [38;2;192;128;255mecho_pretty --24-bit 192 128 255[0m [48;2;192;128;255mecho_pretty --24-BIT 192 128 255[0m
+  [38;2;192;160;32mecho_pretty --24-bit 192 160 32 [0m [48;2;192;160;32mecho_pretty --24-BIT 192 160 32 [0m
+  [38;2;192;160;64mecho_pretty --24-bit 192 160 64 [0m [48;2;192;160;64mecho_pretty --24-BIT 192 160 64 [0m
+  [38;2;192;160;96mecho_pretty --24-bit 192 160 96 [0m [48;2;192;160;96mecho_pretty --24-BIT 192 160 96 [0m
+  [38;2;192;160;128mecho_pretty --24-bit 192 160 128[0m [48;2;192;160;128mecho_pretty --24-BIT 192 160 128[0m
+  [38;2;192;160;160mecho_pretty --24-bit 192 160 160[0m [48;2;192;160;160mecho_pretty --24-BIT 192 160 160[0m
+  [38;2;192;160;192mecho_pretty --24-bit 192 160 192[0m [48;2;192;160;192mecho_pretty --24-BIT 192 160 192[0m
+  [38;2;192;160;224mecho_pretty --24-bit 192 160 224[0m [48;2;192;160;224mecho_pretty --24-BIT 192 160 224[0m
+  [38;2;192;160;255mecho_pretty --24-bit 192 160 255[0m [48;2;192;160;255mecho_pretty --24-BIT 192 160 255[0m
+  [38;2;192;192;32mecho_pretty --24-bit 192 192 32 [0m [48;2;192;192;32mecho_pretty --24-BIT 192 192 32 [0m
+  [38;2;192;192;64mecho_pretty --24-bit 192 192 64 [0m [48;2;192;192;64mecho_pretty --24-BIT 192 192 64 [0m
+  [38;2;192;192;96mecho_pretty --24-bit 192 192 96 [0m [48;2;192;192;96mecho_pretty --24-BIT 192 192 96 [0m
+  [38;2;192;192;128mecho_pretty --24-bit 192 192 128[0m [48;2;192;192;128mecho_pretty --24-BIT 192 192 128[0m
+  [38;2;192;192;160mecho_pretty --24-bit 192 192 160[0m [48;2;192;192;160mecho_pretty --24-BIT 192 192 160[0m
+  [38;2;192;192;192mecho_pretty --24-bit 192 192 192[0m [48;2;192;192;192mecho_pretty --24-BIT 192 192 192[0m
+  [38;2;192;192;224mecho_pretty --24-bit 192 192 224[0m [48;2;192;192;224mecho_pretty --24-BIT 192 192 224[0m
+  [38;2;192;192;255mecho_pretty --24-bit 192 192 255[0m [48;2;192;192;255mecho_pretty --24-BIT 192 192 255[0m
+  [38;2;192;224;32mecho_pretty --24-bit 192 224 32 [0m [48;2;192;224;32mecho_pretty --24-BIT 192 224 32 [0m
+  [38;2;192;224;64mecho_pretty --24-bit 192 224 64 [0m [48;2;192;224;64mecho_pretty --24-BIT 192 224 64 [0m
+  [38;2;192;224;96mecho_pretty --24-bit 192 224 96 [0m [48;2;192;224;96mecho_pretty --24-BIT 192 224 96 [0m
+  [38;2;192;224;128mecho_pretty --24-bit 192 224 128[0m [48;2;192;224;128mecho_pretty --24-BIT 192 224 128[0m
+  [38;2;192;224;160mecho_pretty --24-bit 192 224 160[0m [48;2;192;224;160mecho_pretty --24-BIT 192 224 160[0m
+  [38;2;192;224;192mecho_pretty --24-bit 192 224 192[0m [48;2;192;224;192mecho_pretty --24-BIT 192 224 192[0m
+  [38;2;192;224;224mecho_pretty --24-bit 192 224 224[0m [48;2;192;224;224mecho_pretty --24-BIT 192 224 224[0m
+  [38;2;192;224;255mecho_pretty --24-bit 192 224 255[0m [48;2;192;224;255mecho_pretty --24-BIT 192 224 255[0m
+  [38;2;192;255;32mecho_pretty --24-bit 192 255 32 [0m [48;2;192;255;32mecho_pretty --24-BIT 192 255 32 [0m
+  [38;2;192;255;64mecho_pretty --24-bit 192 255 64 [0m [48;2;192;255;64mecho_pretty --24-BIT 192 255 64 [0m
+  [38;2;192;255;96mecho_pretty --24-bit 192 255 96 [0m [48;2;192;255;96mecho_pretty --24-BIT 192 255 96 [0m
+  [38;2;192;255;128mecho_pretty --24-bit 192 255 128[0m [48;2;192;255;128mecho_pretty --24-BIT 192 255 128[0m
+  [38;2;192;255;160mecho_pretty --24-bit 192 255 160[0m [48;2;192;255;160mecho_pretty --24-BIT 192 255 160[0m
+  [38;2;192;255;192mecho_pretty --24-bit 192 255 192[0m [48;2;192;255;192mecho_pretty --24-BIT 192 255 192[0m
+  [38;2;192;255;224mecho_pretty --24-bit 192 255 224[0m [48;2;192;255;224mecho_pretty --24-BIT 192 255 224[0m
+  [38;2;192;255;255mecho_pretty --24-bit 192 255 255[0m [48;2;192;255;255mecho_pretty --24-BIT 192 255 255[0m
+  [38;2;224;32;32mecho_pretty --24-bit 224 32 32  [0m [48;2;224;32;32mecho_pretty --24-BIT 224 32 32  [0m
+  [38;2;224;32;64mecho_pretty --24-bit 224 32 64  [0m [48;2;224;32;64mecho_pretty --24-BIT 224 32 64  [0m
+  [38;2;224;32;96mecho_pretty --24-bit 224 32 96  [0m [48;2;224;32;96mecho_pretty --24-BIT 224 32 96  [0m
+  [38;2;224;32;128mecho_pretty --24-bit 224 32 128 [0m [48;2;224;32;128mecho_pretty --24-BIT 224 32 128 [0m
+  [38;2;224;32;160mecho_pretty --24-bit 224 32 160 [0m [48;2;224;32;160mecho_pretty --24-BIT 224 32 160 [0m
+  [38;2;224;32;192mecho_pretty --24-bit 224 32 192 [0m [48;2;224;32;192mecho_pretty --24-BIT 224 32 192 [0m
+  [38;2;224;32;224mecho_pretty --24-bit 224 32 224 [0m [48;2;224;32;224mecho_pretty --24-BIT 224 32 224 [0m
+  [38;2;224;32;255mecho_pretty --24-bit 224 32 255 [0m [48;2;224;32;255mecho_pretty --24-BIT 224 32 255 [0m
+  [38;2;224;64;32mecho_pretty --24-bit 224 64 32  [0m [48;2;224;64;32mecho_pretty --24-BIT 224 64 32  [0m
+  [38;2;224;64;64mecho_pretty --24-bit 224 64 64  [0m [48;2;224;64;64mecho_pretty --24-BIT 224 64 64  [0m
+  [38;2;224;64;96mecho_pretty --24-bit 224 64 96  [0m [48;2;224;64;96mecho_pretty --24-BIT 224 64 96  [0m
+  [38;2;224;64;128mecho_pretty --24-bit 224 64 128 [0m [48;2;224;64;128mecho_pretty --24-BIT 224 64 128 [0m
+  [38;2;224;64;160mecho_pretty --24-bit 224 64 160 [0m [48;2;224;64;160mecho_pretty --24-BIT 224 64 160 [0m
+  [38;2;224;64;192mecho_pretty --24-bit 224 64 192 [0m [48;2;224;64;192mecho_pretty --24-BIT 224 64 192 [0m
+  [38;2;224;64;224mecho_pretty --24-bit 224 64 224 [0m [48;2;224;64;224mecho_pretty --24-BIT 224 64 224 [0m
+  [38;2;224;64;255mecho_pretty --24-bit 224 64 255 [0m [48;2;224;64;255mecho_pretty --24-BIT 224 64 255 [0m
+  [38;2;224;96;32mecho_pretty --24-bit 224 96 32  [0m [48;2;224;96;32mecho_pretty --24-BIT 224 96 32  [0m
+  [38;2;224;96;64mecho_pretty --24-bit 224 96 64  [0m [48;2;224;96;64mecho_pretty --24-BIT 224 96 64  [0m
+  [38;2;224;96;96mecho_pretty --24-bit 224 96 96  [0m [48;2;224;96;96mecho_pretty --24-BIT 224 96 96  [0m
+  [38;2;224;96;128mecho_pretty --24-bit 224 96 128 [0m [48;2;224;96;128mecho_pretty --24-BIT 224 96 128 [0m
+  [38;2;224;96;160mecho_pretty --24-bit 224 96 160 [0m [48;2;224;96;160mecho_pretty --24-BIT 224 96 160 [0m
+  [38;2;224;96;192mecho_pretty --24-bit 224 96 192 [0m [48;2;224;96;192mecho_pretty --24-BIT 224 96 192 [0m
+  [38;2;224;96;224mecho_pretty --24-bit 224 96 224 [0m [48;2;224;96;224mecho_pretty --24-BIT 224 96 224 [0m
+  [38;2;224;96;255mecho_pretty --24-bit 224 96 255 [0m [48;2;224;96;255mecho_pretty --24-BIT 224 96 255 [0m
+  [38;2;224;128;32mecho_pretty --24-bit 224 128 32 [0m [48;2;224;128;32mecho_pretty --24-BIT 224 128 32 [0m
+  [38;2;224;128;64mecho_pretty --24-bit 224 128 64 [0m [48;2;224;128;64mecho_pretty --24-BIT 224 128 64 [0m
+  [38;2;224;128;96mecho_pretty --24-bit 224 128 96 [0m [48;2;224;128;96mecho_pretty --24-BIT 224 128 96 [0m
+  [38;2;224;128;128mecho_pretty --24-bit 224 128 128[0m [48;2;224;128;128mecho_pretty --24-BIT 224 128 128[0m
+  [38;2;224;128;160mecho_pretty --24-bit 224 128 160[0m [48;2;224;128;160mecho_pretty --24-BIT 224 128 160[0m
+  [38;2;224;128;192mecho_pretty --24-bit 224 128 192[0m [48;2;224;128;192mecho_pretty --24-BIT 224 128 192[0m
+  [38;2;224;128;224mecho_pretty --24-bit 224 128 224[0m [48;2;224;128;224mecho_pretty --24-BIT 224 128 224[0m
+  [38;2;224;128;255mecho_pretty --24-bit 224 128 255[0m [48;2;224;128;255mecho_pretty --24-BIT 224 128 255[0m
+  [38;2;224;160;32mecho_pretty --24-bit 224 160 32 [0m [48;2;224;160;32mecho_pretty --24-BIT 224 160 32 [0m
+  [38;2;224;160;64mecho_pretty --24-bit 224 160 64 [0m [48;2;224;160;64mecho_pretty --24-BIT 224 160 64 [0m
+  [38;2;224;160;96mecho_pretty --24-bit 224 160 96 [0m [48;2;224;160;96mecho_pretty --24-BIT 224 160 96 [0m
+  [38;2;224;160;128mecho_pretty --24-bit 224 160 128[0m [48;2;224;160;128mecho_pretty --24-BIT 224 160 128[0m
+  [38;2;224;160;160mecho_pretty --24-bit 224 160 160[0m [48;2;224;160;160mecho_pretty --24-BIT 224 160 160[0m
+  [38;2;224;160;192mecho_pretty --24-bit 224 160 192[0m [48;2;224;160;192mecho_pretty --24-BIT 224 160 192[0m
+  [38;2;224;160;224mecho_pretty --24-bit 224 160 224[0m [48;2;224;160;224mecho_pretty --24-BIT 224 160 224[0m
+  [38;2;224;160;255mecho_pretty --24-bit 224 160 255[0m [48;2;224;160;255mecho_pretty --24-BIT 224 160 255[0m
+  [38;2;224;192;32mecho_pretty --24-bit 224 192 32 [0m [48;2;224;192;32mecho_pretty --24-BIT 224 192 32 [0m
+  [38;2;224;192;64mecho_pretty --24-bit 224 192 64 [0m [48;2;224;192;64mecho_pretty --24-BIT 224 192 64 [0m
+  [38;2;224;192;96mecho_pretty --24-bit 224 192 96 [0m [48;2;224;192;96mecho_pretty --24-BIT 224 192 96 [0m
+  [38;2;224;192;128mecho_pretty --24-bit 224 192 128[0m [48;2;224;192;128mecho_pretty --24-BIT 224 192 128[0m
+  [38;2;224;192;160mecho_pretty --24-bit 224 192 160[0m [48;2;224;192;160mecho_pretty --24-BIT 224 192 160[0m
+  [38;2;224;192;192mecho_pretty --24-bit 224 192 192[0m [48;2;224;192;192mecho_pretty --24-BIT 224 192 192[0m
+  [38;2;224;192;224mecho_pretty --24-bit 224 192 224[0m [48;2;224;192;224mecho_pretty --24-BIT 224 192 224[0m
+  [38;2;224;192;255mecho_pretty --24-bit 224 192 255[0m [48;2;224;192;255mecho_pretty --24-BIT 224 192 255[0m
+  [38;2;224;224;32mecho_pretty --24-bit 224 224 32 [0m [48;2;224;224;32mecho_pretty --24-BIT 224 224 32 [0m
+  [38;2;224;224;64mecho_pretty --24-bit 224 224 64 [0m [48;2;224;224;64mecho_pretty --24-BIT 224 224 64 [0m
+  [38;2;224;224;96mecho_pretty --24-bit 224 224 96 [0m [48;2;224;224;96mecho_pretty --24-BIT 224 224 96 [0m
+  [38;2;224;224;128mecho_pretty --24-bit 224 224 128[0m [48;2;224;224;128mecho_pretty --24-BIT 224 224 128[0m
+  [38;2;224;224;160mecho_pretty --24-bit 224 224 160[0m [48;2;224;224;160mecho_pretty --24-BIT 224 224 160[0m
+  [38;2;224;224;192mecho_pretty --24-bit 224 224 192[0m [48;2;224;224;192mecho_pretty --24-BIT 224 224 192[0m
+  [38;2;224;224;224mecho_pretty --24-bit 224 224 224[0m [48;2;224;224;224mecho_pretty --24-BIT 224 224 224[0m
+  [38;2;224;224;255mecho_pretty --24-bit 224 224 255[0m [48;2;224;224;255mecho_pretty --24-BIT 224 224 255[0m
+  [38;2;224;255;32mecho_pretty --24-bit 224 255 32 [0m [48;2;224;255;32mecho_pretty --24-BIT 224 255 32 [0m
+  [38;2;224;255;64mecho_pretty --24-bit 224 255 64 [0m [48;2;224;255;64mecho_pretty --24-BIT 224 255 64 [0m
+  [38;2;224;255;96mecho_pretty --24-bit 224 255 96 [0m [48;2;224;255;96mecho_pretty --24-BIT 224 255 96 [0m
+  [38;2;224;255;128mecho_pretty --24-bit 224 255 128[0m [48;2;224;255;128mecho_pretty --24-BIT 224 255 128[0m
+  [38;2;224;255;160mecho_pretty --24-bit 224 255 160[0m [48;2;224;255;160mecho_pretty --24-BIT 224 255 160[0m
+  [38;2;224;255;192mecho_pretty --24-bit 224 255 192[0m [48;2;224;255;192mecho_pretty --24-BIT 224 255 192[0m
+  [38;2;224;255;224mecho_pretty --24-bit 224 255 224[0m [48;2;224;255;224mecho_pretty --24-BIT 224 255 224[0m
+  [38;2;224;255;255mecho_pretty --24-bit 224 255 255[0m [48;2;224;255;255mecho_pretty --24-BIT 224 255 255[0m
+  [38;2;255;32;32mecho_pretty --24-bit 255 32 32  [0m [48;2;255;32;32mecho_pretty --24-BIT 255 32 32  [0m
+  [38;2;255;32;64mecho_pretty --24-bit 255 32 64  [0m [48;2;255;32;64mecho_pretty --24-BIT 255 32 64  [0m
+  [38;2;255;32;96mecho_pretty --24-bit 255 32 96  [0m [48;2;255;32;96mecho_pretty --24-BIT 255 32 96  [0m
+  [38;2;255;32;128mecho_pretty --24-bit 255 32 128 [0m [48;2;255;32;128mecho_pretty --24-BIT 255 32 128 [0m
+  [38;2;255;32;160mecho_pretty --24-bit 255 32 160 [0m [48;2;255;32;160mecho_pretty --24-BIT 255 32 160 [0m
+  [38;2;255;32;192mecho_pretty --24-bit 255 32 192 [0m [48;2;255;32;192mecho_pretty --24-BIT 255 32 192 [0m
+  [38;2;255;32;224mecho_pretty --24-bit 255 32 224 [0m [48;2;255;32;224mecho_pretty --24-BIT 255 32 224 [0m
+  [38;2;255;32;255mecho_pretty --24-bit 255 32 255 [0m [48;2;255;32;255mecho_pretty --24-BIT 255 32 255 [0m
+  [38;2;255;64;32mecho_pretty --24-bit 255 64 32  [0m [48;2;255;64;32mecho_pretty --24-BIT 255 64 32  [0m
+  [38;2;255;64;64mecho_pretty --24-bit 255 64 64  [0m [48;2;255;64;64mecho_pretty --24-BIT 255 64 64  [0m
+  [38;2;255;64;96mecho_pretty --24-bit 255 64 96  [0m [48;2;255;64;96mecho_pretty --24-BIT 255 64 96  [0m
+  [38;2;255;64;128mecho_pretty --24-bit 255 64 128 [0m [48;2;255;64;128mecho_pretty --24-BIT 255 64 128 [0m
+  [38;2;255;64;160mecho_pretty --24-bit 255 64 160 [0m [48;2;255;64;160mecho_pretty --24-BIT 255 64 160 [0m
+  [38;2;255;64;192mecho_pretty --24-bit 255 64 192 [0m [48;2;255;64;192mecho_pretty --24-BIT 255 64 192 [0m
+  [38;2;255;64;224mecho_pretty --24-bit 255 64 224 [0m [48;2;255;64;224mecho_pretty --24-BIT 255 64 224 [0m
+  [38;2;255;64;255mecho_pretty --24-bit 255 64 255 [0m [48;2;255;64;255mecho_pretty --24-BIT 255 64 255 [0m
+  [38;2;255;96;32mecho_pretty --24-bit 255 96 32  [0m [48;2;255;96;32mecho_pretty --24-BIT 255 96 32  [0m
+  [38;2;255;96;64mecho_pretty --24-bit 255 96 64  [0m [48;2;255;96;64mecho_pretty --24-BIT 255 96 64  [0m
+  [38;2;255;96;96mecho_pretty --24-bit 255 96 96  [0m [48;2;255;96;96mecho_pretty --24-BIT 255 96 96  [0m
+  [38;2;255;96;128mecho_pretty --24-bit 255 96 128 [0m [48;2;255;96;128mecho_pretty --24-BIT 255 96 128 [0m
+  [38;2;255;96;160mecho_pretty --24-bit 255 96 160 [0m [48;2;255;96;160mecho_pretty --24-BIT 255 96 160 [0m
+  [38;2;255;96;192mecho_pretty --24-bit 255 96 192 [0m [48;2;255;96;192mecho_pretty --24-BIT 255 96 192 [0m
+  [38;2;255;96;224mecho_pretty --24-bit 255 96 224 [0m [48;2;255;96;224mecho_pretty --24-BIT 255 96 224 [0m
+  [38;2;255;96;255mecho_pretty --24-bit 255 96 255 [0m [48;2;255;96;255mecho_pretty --24-BIT 255 96 255 [0m
+  [38;2;255;128;32mecho_pretty --24-bit 255 128 32 [0m [48;2;255;128;32mecho_pretty --24-BIT 255 128 32 [0m
+  [38;2;255;128;64mecho_pretty --24-bit 255 128 64 [0m [48;2;255;128;64mecho_pretty --24-BIT 255 128 64 [0m
+  [38;2;255;128;96mecho_pretty --24-bit 255 128 96 [0m [48;2;255;128;96mecho_pretty --24-BIT 255 128 96 [0m
+  [38;2;255;128;128mecho_pretty --24-bit 255 128 128[0m [48;2;255;128;128mecho_pretty --24-BIT 255 128 128[0m
+  [38;2;255;128;160mecho_pretty --24-bit 255 128 160[0m [48;2;255;128;160mecho_pretty --24-BIT 255 128 160[0m
+  [38;2;255;128;192mecho_pretty --24-bit 255 128 192[0m [48;2;255;128;192mecho_pretty --24-BIT 255 128 192[0m
+  [38;2;255;128;224mecho_pretty --24-bit 255 128 224[0m [48;2;255;128;224mecho_pretty --24-BIT 255 128 224[0m
+  [38;2;255;128;255mecho_pretty --24-bit 255 128 255[0m [48;2;255;128;255mecho_pretty --24-BIT 255 128 255[0m
+  [38;2;255;160;32mecho_pretty --24-bit 255 160 32 [0m [48;2;255;160;32mecho_pretty --24-BIT 255 160 32 [0m
+  [38;2;255;160;64mecho_pretty --24-bit 255 160 64 [0m [48;2;255;160;64mecho_pretty --24-BIT 255 160 64 [0m
+  [38;2;255;160;96mecho_pretty --24-bit 255 160 96 [0m [48;2;255;160;96mecho_pretty --24-BIT 255 160 96 [0m
+  [38;2;255;160;128mecho_pretty --24-bit 255 160 128[0m [48;2;255;160;128mecho_pretty --24-BIT 255 160 128[0m
+  [38;2;255;160;160mecho_pretty --24-bit 255 160 160[0m [48;2;255;160;160mecho_pretty --24-BIT 255 160 160[0m
+  [38;2;255;160;192mecho_pretty --24-bit 255 160 192[0m [48;2;255;160;192mecho_pretty --24-BIT 255 160 192[0m
+  [38;2;255;160;224mecho_pretty --24-bit 255 160 224[0m [48;2;255;160;224mecho_pretty --24-BIT 255 160 224[0m
+  [38;2;255;160;255mecho_pretty --24-bit 255 160 255[0m [48;2;255;160;255mecho_pretty --24-BIT 255 160 255[0m
+  [38;2;255;192;32mecho_pretty --24-bit 255 192 32 [0m [48;2;255;192;32mecho_pretty --24-BIT 255 192 32 [0m
+  [38;2;255;192;64mecho_pretty --24-bit 255 192 64 [0m [48;2;255;192;64mecho_pretty --24-BIT 255 192 64 [0m
+  [38;2;255;192;96mecho_pretty --24-bit 255 192 96 [0m [48;2;255;192;96mecho_pretty --24-BIT 255 192 96 [0m
+  [38;2;255;192;128mecho_pretty --24-bit 255 192 128[0m [48;2;255;192;128mecho_pretty --24-BIT 255 192 128[0m
+  [38;2;255;192;160mecho_pretty --24-bit 255 192 160[0m [48;2;255;192;160mecho_pretty --24-BIT 255 192 160[0m
+  [38;2;255;192;192mecho_pretty --24-bit 255 192 192[0m [48;2;255;192;192mecho_pretty --24-BIT 255 192 192[0m
+  [38;2;255;192;224mecho_pretty --24-bit 255 192 224[0m [48;2;255;192;224mecho_pretty --24-BIT 255 192 224[0m
+  [38;2;255;192;255mecho_pretty --24-bit 255 192 255[0m [48;2;255;192;255mecho_pretty --24-BIT 255 192 255[0m
+  [38;2;255;224;32mecho_pretty --24-bit 255 224 32 [0m [48;2;255;224;32mecho_pretty --24-BIT 255 224 32 [0m
+  [38;2;255;224;64mecho_pretty --24-bit 255 224 64 [0m [48;2;255;224;64mecho_pretty --24-BIT 255 224 64 [0m
+  [38;2;255;224;96mecho_pretty --24-bit 255 224 96 [0m [48;2;255;224;96mecho_pretty --24-BIT 255 224 96 [0m
+  [38;2;255;224;128mecho_pretty --24-bit 255 224 128[0m [48;2;255;224;128mecho_pretty --24-BIT 255 224 128[0m
+  [38;2;255;224;160mecho_pretty --24-bit 255 224 160[0m [48;2;255;224;160mecho_pretty --24-BIT 255 224 160[0m
+  [38;2;255;224;192mecho_pretty --24-bit 255 224 192[0m [48;2;255;224;192mecho_pretty --24-BIT 255 224 192[0m
+  [38;2;255;224;224mecho_pretty --24-bit 255 224 224[0m [48;2;255;224;224mecho_pretty --24-BIT 255 224 224[0m
+  [38;2;255;224;255mecho_pretty --24-bit 255 224 255[0m [48;2;255;224;255mecho_pretty --24-BIT 255 224 255[0m
+  [38;2;255;255;32mecho_pretty --24-bit 255 255 32 [0m [48;2;255;255;32mecho_pretty --24-BIT 255 255 32 [0m
+  [38;2;255;255;64mecho_pretty --24-bit 255 255 64 [0m [48;2;255;255;64mecho_pretty --24-BIT 255 255 64 [0m
+  [38;2;255;255;96mecho_pretty --24-bit 255 255 96 [0m [48;2;255;255;96mecho_pretty --24-BIT 255 255 96 [0m
+  [38;2;255;255;128mecho_pretty --24-bit 255 255 128[0m [48;2;255;255;128mecho_pretty --24-BIT 255 255 128[0m
+  [38;2;255;255;160mecho_pretty --24-bit 255 255 160[0m [48;2;255;255;160mecho_pretty --24-BIT 255 255 160[0m
+  [38;2;255;255;192mecho_pretty --24-bit 255 255 192[0m [48;2;255;255;192mecho_pretty --24-BIT 255 255 192[0m
+  [38;2;255;255;224mecho_pretty --24-bit 255 255 224[0m [48;2;255;255;224mecho_pretty --24-BIT 255 255 224[0m
+  [38;2;255;255;255mecho_pretty --24-bit 255 255 255[0m [48;2;255;255;255mecho_pretty --24-BIT 255 255 255[0m
+
+Randomized (r g b). Also using hex values
+
+  [38;2;84;19;166mecho_pretty --24-bit 0x54 0x13 0xA6[0m [48;2;84;19;166mecho_pretty --24-BIT 0x54 0x13 0xA6[0m
+  [38;2;125;72;247mecho_pretty --24-bit 0x7D 0x48 0xF7[0m [48;2;125;72;247mecho_pretty --24-BIT 0x7D 0x48 0xF7[0m
+  [38;2;186;1;124mecho_pretty --24-bit 0xBA 0x01 0x7C[0m [48;2;186;1;124mecho_pretty --24-BIT 0xBA 0x01 0x7C[0m
+  [38;2;27;14;197mecho_pretty --24-bit 0x1B 0x0E 0xC5[0m [48;2;27;14;197mecho_pretty --24-BIT 0x1B 0x0E 0xC5[0m
+  [38;2;240;127;162mecho_pretty --24-bit 0xF0 0x7F 0xA2[0m [48;2;240;127;162mecho_pretty --24-BIT 0xF0 0x7F 0xA2[0m
+  [38;2;201;164;35mecho_pretty --24-bit 0xC9 0xA4 0x23[0m [48;2;201;164;35mecho_pretty --24-BIT 0xC9 0xA4 0x23[0m
+  [38;2;118;13;152mecho_pretty --24-bit 0x76 0x0D 0x98[0m [48;2;118;13;152mecho_pretty --24-BIT 0x76 0x0D 0x98[0m
+  [38;2;7;138;145mecho_pretty --24-bit 0x07 0x8A 0x91[0m [48;2;7;138;145mecho_pretty --24-BIT 0x07 0x8A 0x91[0m
+  [38;2;204;43;222mecho_pretty --24-bit 0xCC 0x2B 0xDE[0m [48;2;204;43;222mecho_pretty --24-BIT 0xCC 0x2B 0xDE[0m
+  [38;2;85;64;143mecho_pretty --24-bit 0x55 0x40 0x8F[0m [48;2;85;64;143mecho_pretty --24-BIT 0x55 0x40 0x8F[0m
+  [38;2;114;89;244mecho_pretty --24-bit 0x72 0x59 0xF4[0m [48;2;114;89;244mecho_pretty --24-BIT 0x72 0x59 0xF4[0m
+  [38;2;51;70;157mecho_pretty --24-bit 0x33 0x46 0x9D[0m [48;2;51;70;157mecho_pretty --24-BIT 0x33 0x46 0x9D[0m
+  [38;2;232;23;90mecho_pretty --24-bit 0xE8 0x17 0x5A[0m [48;2;232;23;90mecho_pretty --24-BIT 0xE8 0x17 0x5A[0m
+  [38;2;33;28;59mecho_pretty --24-bit 0x21 0x1C 0x3B[0m [48;2;33;28;59mecho_pretty --24-BIT 0x21 0x1C 0x3B[0m
+  [38;2;174;229;144mecho_pretty --24-bit 0xAE 0xE5 0x90[0m [48;2;174;229;144mecho_pretty --24-BIT 0xAE 0xE5 0x90[0m
+  [38;2;159;66;233mecho_pretty --24-bit 0x9F 0x42 0xE9[0m [48;2;159;66;233mecho_pretty --24-BIT 0x9F 0x42 0xE9[0m
+

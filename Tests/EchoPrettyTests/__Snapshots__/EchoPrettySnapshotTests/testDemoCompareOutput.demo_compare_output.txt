@@ -1,0 +1,346 @@
+distilledArguments -> processedArguments
+[1mOVERVIEW[0m
+
+  [33m[1m[3mecho_pretty[0m can be considered to be an extension of [33m[1m[3mecho[0m that supports [33m[1m[3mANSI[0m escape codes via command line arguments.
+  This demonstration compares usage of [33m[1m[3mecho[0m vs [33m[1m[3mecho_pretty[0m for several common formats.
+  
+    All [33m[1m[3mecho[0m examples below are expressed in terms of [33m[1m[3mzshell[0m.
+    All [33m[1m[3mecho[0m examples below are expressed in terms of [33m[1m[3mzshell[0m.
+    If using [33m[1m[3mbash[0m it is necessary to use the [33m[1m[3m-e[0m argument (which is the default in [33m[1m[3mzshell[0m)
+
+  [1mRESET TO DEFAULTS (FOREGROUND, BACKGROUND, FONT, ETC...)[0m
+
+    echo_pretty "An " --default "EXAMPLE" --default " usage."
+      An [0mEXAMPLE[0m usage.
+    echo "An \x1B[0mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [0mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mDEFAULT FOREGROUND COLOR[0m
+
+    echo_pretty "An " -d | --d | --defaultForeground "EXAMPLE" --default " usage."
+      An [39mEXAMPLE[0m usage.
+    echo "An \x1B[39mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [39mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBLACK FOREGROUND COLOR[0m
+
+    echo_pretty "An " -black "EXAMPLE" --default " usage."
+      An [30mEXAMPLE[0m usage.
+    echo "An \x1B[30mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [30mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mRED FOREGROUND COLOR[0m
+
+    echo_pretty "An " -red "EXAMPLE" --default " usage."
+      An [31mEXAMPLE[0m usage.
+    echo "An \x1B[31mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [31mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mGREEN FOREGROUND COLOR[0m
+
+    echo_pretty "An " -green "EXAMPLE" --default " usage."
+      An [32mEXAMPLE[0m usage.
+    echo "An \x1B[32mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [32mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mYELLOW FOREGROUND COLOR[0m
+
+    echo_pretty "An " -yellow "EXAMPLE" --default " usage."
+      An [33mEXAMPLE[0m usage.
+    echo "An \x1B[33mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [33mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBLUE FOREGROUND COLOR[0m
+
+    echo_pretty "An " -blue "EXAMPLE" --default " usage."
+      An [34mEXAMPLE[0m usage.
+    echo "An \x1B[34mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [34mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mMAGENTA FOREGROUND COLOR[0m
+
+    echo_pretty "An " -magenta "EXAMPLE" --default " usage."
+      An [35mEXAMPLE[0m usage.
+    echo "An \x1B[35mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [35mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mCYAN FOREGROUND COLOR[0m
+
+    echo_pretty "An " -cyan "EXAMPLE" --default " usage."
+      An [36mEXAMPLE[0m usage.
+    echo "An \x1B[36mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [36mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mWHITE FOREGROUND COLOR[0m
+
+    echo_pretty "An " -white "EXAMPLE" --default " usage."
+      An [37mEXAMPLE[0m usage.
+    echo "An \x1B[37mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [37mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT BLACK FOREGROUND COLOR[0m
+
+    echo_pretty "An " --black "EXAMPLE" --default " usage."
+      An [90mEXAMPLE[0m usage.
+    echo "An \x1B[90mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [90mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT RED FOREGROUND COLOR[0m
+
+    echo_pretty "An " --red "EXAMPLE" --default " usage."
+      An [91mEXAMPLE[0m usage.
+    echo "An \x1B[91mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [91mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT GREEN FOREGROUND COLOR[0m
+
+    echo_pretty "An " --green "EXAMPLE" --default " usage."
+      An [92mEXAMPLE[0m usage.
+    echo "An \x1B[92mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [92mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT YELLOW FOREGROUND COLOR[0m
+
+    echo_pretty "An " --yellow "EXAMPLE" --default " usage."
+      An [93mEXAMPLE[0m usage.
+    echo "An \x1B[93mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [93mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT BLUE FOREGROUND COLOR[0m
+
+    echo_pretty "An " --blue "EXAMPLE" --default " usage."
+      An [94mEXAMPLE[0m usage.
+    echo "An \x1B[94mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [94mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT MAGENTA FOREGROUND COLOR[0m
+
+    echo_pretty "An " --magenta "EXAMPLE" --default " usage."
+      An [95mEXAMPLE[0m usage.
+    echo "An \x1B[95mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [95mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT CYAN FOREGROUND COLOR[0m
+
+    echo_pretty "An " --cyan "EXAMPLE" --default " usage."
+      An [96mEXAMPLE[0m usage.
+    echo "An \x1B[96mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [96mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT WHITE FOREGROUND COLOR[0m
+
+    echo_pretty "An " --white "EXAMPLE" --default " usage."
+      An [97mEXAMPLE[0m usage.
+    echo "An \x1B[97mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [97mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mORANGE FOREGROUND COLOR.[0m
+
+    echo_pretty "An " --orange "EXAMPLE" --default " usage."
+      An [38;5;208mEXAMPLE[0m usage.
+    echo "An \x1B[38;5;208mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [38;5;208mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mDEFAULT BACKGROUND COLOR[0m
+
+    echo_pretty "An " -D | --D | --defaultBackground "EXAMPLE" --default " usage."
+      An [49mEXAMPLE[0m usage.
+    echo "An \x1B[49mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [49mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBLACK BACKGROUND COLOR[0m
+
+    echo_pretty "An " -BLACK "EXAMPLE" --default " usage."
+      An [40mEXAMPLE[0m usage.
+    echo "An \x1B[40mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [40mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mRED BACKGROUND COLOR[0m
+
+    echo_pretty "An " -RED "EXAMPLE" --default " usage."
+      An [41mEXAMPLE[0m usage.
+    echo "An \x1B[41mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [41mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mGREEN BACKGROUND COLOR[0m
+
+    echo_pretty "An " -GREEN "EXAMPLE" --default " usage."
+      An [42mEXAMPLE[0m usage.
+    echo "An \x1B[42mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [42mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mYELLOW BACKGROUND COLOR[0m
+
+    echo_pretty "An " -YELLOW "EXAMPLE" --default " usage."
+      An [43mEXAMPLE[0m usage.
+    echo "An \x1B[43mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [43mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBLUE BACKGROUND COLOR[0m
+
+    echo_pretty "An " -BLUE "EXAMPLE" --default " usage."
+      An [44mEXAMPLE[0m usage.
+    echo "An \x1B[44mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [44mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mMAGENTA BACKGROUND COLOR[0m
+
+    echo_pretty "An " -MAGENTA "EXAMPLE" --default " usage."
+      An [45mEXAMPLE[0m usage.
+    echo "An \x1B[45mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [45mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mCYAN BACKGROUND COLOR[0m
+
+    echo_pretty "An " -CYAN "EXAMPLE" --default " usage."
+      An [46mEXAMPLE[0m usage.
+    echo "An \x1B[46mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [46mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mWHITE BACKGROUND COLOR[0m
+
+    echo_pretty "An " -WHITE "EXAMPLE" --default " usage."
+      An [47mEXAMPLE[0m usage.
+    echo "An \x1B[47mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [47mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT BLACK BACKGROUND COLOR[0m
+
+    echo_pretty "An " --BLACK "EXAMPLE" --default " usage."
+      An [100mEXAMPLE[0m usage.
+    echo "An \x1B[100mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [100mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT RED BACKGROUND COLOR[0m
+
+    echo_pretty "An " --RED "EXAMPLE" --default " usage."
+      An [101mEXAMPLE[0m usage.
+    echo "An \x1B[101mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [101mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT GREEN BACKGROUND COLOR[0m
+
+    echo_pretty "An " --GREEN "EXAMPLE" --default " usage."
+      An [102mEXAMPLE[0m usage.
+    echo "An \x1B[102mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [102mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT YELLOW BACKGROUND COLOR[0m
+
+    echo_pretty "An " --YELLOW "EXAMPLE" --default " usage."
+      An [103mEXAMPLE[0m usage.
+    echo "An \x1B[103mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [103mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT BLUE BACKGROUND COLOR[0m
+
+    echo_pretty "An " --BLUE "EXAMPLE" --default " usage."
+      An [104mEXAMPLE[0m usage.
+    echo "An \x1B[104mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [104mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT MAGENTA BACKGROUND COLOR[0m
+
+    echo_pretty "An " --MAGENTA "EXAMPLE" --default " usage."
+      An [105mEXAMPLE[0m usage.
+    echo "An \x1B[105mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [105mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT CYAN BACKGROUND COLOR[0m
+
+    echo_pretty "An " --CYAN "EXAMPLE" --default " usage."
+      An [106mEXAMPLE[0m usage.
+    echo "An \x1B[106mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [106mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBRIGHT WHITE BACKGROUND COLOR[0m
+
+    echo_pretty "An " --WHITE "EXAMPLE" --default " usage."
+      An [107mEXAMPLE[0m usage.
+    echo "An \x1B[107mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [107mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mORANGE BACKGROUND COLOR[0m
+
+    echo_pretty "An " --ORANGE "EXAMPLE" --default " usage."
+      An [48;5;208mEXAMPLE[0m usage.
+    echo "An \x1B[48;5;208mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [48;5;208mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBOLD FONT[0m
+
+    echo_pretty "An " --bold "EXAMPLE" --default " usage."
+      An [1mEXAMPLE[0m usage.
+    echo "An \x1B[1mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [1mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mFAINT FONT[0m
+
+    echo_pretty "An " --faint "EXAMPLE" --default " usage."
+      An [2mEXAMPLE[0m usage.
+    echo "An \x1B[2mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [2mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mITALIC FONT[0m
+
+    echo_pretty "An " --italic "EXAMPLE" --default " usage."
+      An [3mEXAMPLE[0m usage.
+    echo "An \x1B[3mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [3mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mUNDERLINE[0m
+
+    echo_pretty "An " --underline "EXAMPLE" --default " usage."
+      An [4mEXAMPLE[0m usage.
+    echo "An \x1B[4mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [4mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mDOUBLE UNDERLINE[0m
+
+    echo_pretty "An " --double-underline "EXAMPLE" --default " usage."
+      An [21mEXAMPLE[0m usage.
+    echo "An \x1B[21mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [21mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBLINK <= 150 HZ[0m
+
+    echo_pretty "An " --blink "EXAMPLE" --default " usage."
+      An [5mEXAMPLE[0m usage.
+    echo "An \x1B[5mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [5mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mBLINK > 150 HZ. RARELY SUPPORTED[0m
+
+    echo_pretty "An " --blinkFast "EXAMPLE" --default " usage."
+      An [6mEXAMPLE[0m usage.
+    echo "An \x1B[6mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [6mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mINVERT FONT[0m
+
+    echo_pretty "An " --invert | --swap "EXAMPLE" --default " usage."
+      An [7mEXAMPLE[0m usage.
+    echo "An \x1B[7mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [7mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mHIDE FONT[0m
+
+    echo_pretty "An " --hide "EXAMPLE" --default " usage."
+      An [8mEXAMPLE[0m usage.
+    echo "An \x1B[8mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [8mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mSTRIKEOUT[0m
+
+    echo_pretty "An " --strikeout "EXAMPLE" --default " usage."
+      An [9mEXAMPLE[0m usage.
+    echo "An \x1B[9mEXAMPLE_FOR_ZSH\x1B[0m usage." 1>&2
+      An [9mEXAMPLE_FOR_ZSH[0m usage.
+
+  [1mHYPERLINK (OSC 8)[0m
+
+    echo_pretty "See " --link "[the docs](https://example.com)" " here."
+      See ]8;;https://example.com\[94m[4mthe docs[0m]8;;\ here.
+    echo "See \x1B]8;;https://example.com\x1B\\x1B[94m\x1B[4mthe docs\x1B[0m\x1B]8;;\x1B\ here." 1>&2
+      See ]8;;https://example.com\[94m[4mthe docs[0m]8;;\ here.
+

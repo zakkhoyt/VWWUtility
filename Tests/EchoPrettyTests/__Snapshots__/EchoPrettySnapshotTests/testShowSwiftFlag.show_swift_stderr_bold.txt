@@ -1,0 +1,44 @@
+distilledArguments -> processedArguments
+processingEscapeChars
+  distilledArguments[0]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[1]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[2]
+    input: arg
+    output: processedArg
+      changed: true
+Will inspect 3 processedArguments
+  Inspecting arguments[0]: '[37m--bold[0m'
+    Argument '[37m--bold[0m' requires 0 value(s). Peeking...
+    Refined: arguments[0...0]: '[37m--bold [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mBold font[0m
+      Code: [38;5;208m\x1B[1m[0m
+    Appended to outputs: '[96m\x1B[1m[0m'
+
+    Converted to text: '[33mBOLD[0m'
+  Inspecting arguments[2]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[2...2]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[1mBOLD\x1B[0m[0m'
+
+Did inspect 3 arguments
+
+Final outputs: \x1B[1mBOLD\x1B[0m[0m
+
+ANSI Escape Code Syntax for 0x001B:
+  Shell: \x1B    (hex)
+  Shell: \033    (oct)
+  Swift: \u{1B}  (hex)
+Formatted for Swift (copied to pasteboard)
+  [35mstdout.write("\u{1B}[1mBOLD\u{1B}[0m")[0m
