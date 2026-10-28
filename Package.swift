@@ -152,6 +152,10 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
+            name: "ANSIUtilities",
+            targets: ["ANSIUtilities"]
+        ),
+        .library(
             name: "BaseUtility",
             targets: ["BaseUtility"]
         ),
@@ -198,6 +202,12 @@ let package = Package(
         .library(
             name: "VWWUtility",
             targets: ["VWWUtility"]
+        ),
+        // Gives the executableTarget (EchoPretty) a different name (echo_pretty) on the command line
+        // See scripts/build-echo-pretty.zsh
+        .executable(
+            name: "echo_pretty",
+            targets: ["EchoPretty"]
         )
     ],
     dependencies: [
@@ -216,10 +226,94 @@ let package = Package(
             url: "https://github.com/swiftlang/swift-docc-plugin",
             from: Version(1, 4, 6)
         ),
+        .package(
+            // Used by EchoPrettyTests (and available to ANSIUtilitiesTests)
+            // https://github.com/pointfreeco/swift-snapshot-testing#recording-snapshots
+            url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+            from: Version(1, 18, 7)
+        ),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+        // ANSIUtilities, ANSIUtilitiesTests, EchoPretty, EchoPrettyTests relocated from HatchTerminal on 2026-10-28.
+        // Their swiftSettings are carried over verbatim from HatchTerminal (not this package's `swiftSettings`).
+        .target(
+            name: "ANSIUtilities",
+            dependencies: [
+                "BaseUtility",
+                "RadixUtilities"
+            ],
+            exclude: [],
+            resources: [],
+            swiftSettings: [
+                .enableUpcomingFeature("BareSlashRegexLiterals"), // SE-0354
+                .unsafeFlags(
+                    [
+                        "-enable-actor-data-race-checks",
+                        "-warn-concurrency"
+                    ]
+                )
+            ]
+        ),
+        .testTarget(
+            name: "ANSIUtilitiesTests",
+            dependencies: [
+                "ANSIUtilities",
+                .product(
+                    name: "SnapshotTesting",
+                    package: "swift-snapshot-testing"
+                )
+            ],
+            exclude: [],
+            resources: [],
+            swiftSettings: [
+                .enableUpcomingFeature("BareSlashRegexLiterals"), // SE-0354
+                .unsafeFlags(
+                    [
+                        "-enable-actor-data-race-checks",
+                        "-warn-concurrency"
+                    ]
+                )
+            ]
+        ),
+        .executableTarget(
+            name: "EchoPretty",
+            dependencies: [
+                "ANSIUtilities",
+                "DrawingUI"
+            ],
+            exclude: [
+                "docs",
+                "html_previews.swift.disabled",
+                "README.md",
+                "TODO.md",
+                "TODO_GROUP_ARGS.md",
+                "TODO_SUBCOMMANDS.md"
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny")
+            ]
+        ),
+        .testTarget(
+            name: "EchoPrettyTests",
+            dependencies: [
+                "EchoPretty",
+                .product(
+                    name: "SnapshotTesting",
+                    package: "swift-snapshot-testing"
+                )
+            ],
+            exclude: [
+                "__Snapshots__",
+                "EchoPrettyTests.xctestplan",
+                "README.md"
+            ],
+            resources: [],
+            swiftSettings: [
+                .enableUpcomingFeature("ExistentialAny")
+            ]
+        ),
         .target(
             name: "CameraToolbox",
             dependencies: [

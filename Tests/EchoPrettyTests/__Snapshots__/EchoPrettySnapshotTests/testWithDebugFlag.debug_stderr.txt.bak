@@ -1,0 +1,95 @@
+distilledArguments -> processedArguments
+processingEscapeChars
+  distilledArguments[0]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[1]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[2]
+    input: arg
+    output: processedArg
+      changed: true
+Will distill (5) arguments
+  allArgs[0]: /Users/zakkhoyt/Library/Developer/Xcode/DerivedData/HatchTerminal-cjeenqfyvaitvxemximkxngrznzt/Build/Products/Debug/echo_pretty
+  allArgs[1]: -red
+  allArgs[2]: text
+  allArgs[3]: --default
+  allArgs[4]: --debug
+  Inspecting args for binary path
+    Arguments contains binary path. Did remove /Users/zakkhoyt/Library/Developer/Xcode/DerivedData/HatchTerminal-cjeenqfyvaitvxemximkxngrznzt/Build/Products/Debug/echo_pretty
+      ansiEchoArguments.count before: 4
+      ansiEchoArguments.count after: 4
+Distilling [MetaMode] from [ArgumentFlag] via allArgs (5)...
+  Looking for --help (0 of 15)
+    --help was not found
+  Looking for --demo (1 of 15)
+    --demo was not found
+  Looking for --demo-basics (2 of 15)
+    --demo-basics was not found
+  Looking for --demo-8-bit (3 of 15)
+    --demo-8-bit was not found
+  Looking for --demo-24-bit (4 of 15)
+    --demo-24-bit was not found
+  Looking for --demo-web-colors (5 of 15)
+    --demo-web-colors was not found
+  Looking for --show (6 of 15)
+    --show was not found
+  Looking for --show-bash (7 of 15)
+    --show-bash was not found
+  Looking for --show-swift (8 of 15)
+    --show-swift was not found
+  Looking for --show-zsh (9 of 15)
+    --show-zsh was not found
+  Looking for -E (10 of 15)
+    -E was not found
+  Looking for -n (11 of 15)
+    -n was not found
+  Looking for --version (12 of 15)
+    --version was not found
+  Looking for --dump (13 of 15)
+    --dump was not found
+  Looking for --debug (14 of 15)
+    --debug was found at index 3
+      ansiEchoArguments[3]: --debug == --debug
+    debugMode:               0b1000000000000000000000000000000000000000000000000000000000000000
+      metaModes before:        0b1000000000000000000000000000000000000000000000000000000000000000
+      metaModes after:         0b1000000000000000000000000000000000000000000000000000000000000000
+    Arguments contains ArgumentFlag. Removed debugFlag
+      ansiEchoArguments.count before: 3
+      ansiEchoArguments.count after: 3
+Distilling [MetaMode] from [EnvironmentalVariable] via ProcessInfo.processInfo.environment (40)...
+  Looking for EnvironmentalVariable ECHO_PRETTY_ENABLE_TRAILING_DEFAULT (0 of 1)
+    ECHO_PRETTY_ENABLE_TRAILING_DEFAULT was not found
+Did distill 5 arguments down to 3
+
+Will inspect 3 processedArguments
+  Inspecting arguments[0]: '[37m-red[0m'
+    Argument '[37m-red[0m' requires 0 value(s). Peeking...
+    Refined: arguments[0...0]: '[37m-red [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mRed foreground color[0m
+      Code: [38;5;208m\x1B[31m[0m
+    Appended to outputs: '[96m\x1B[31m[0m'
+
+    Converted to text: '[33mtext[0m'
+  Inspecting arguments[2]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[2...2]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[31mtext\x1B[0m[0m'
+
+Did inspect 3 arguments
+
+Final outputs: \x1B[31mtext\x1B[0m[0m
+
+ANSI Escape Code Syntax for 0x001B:
+  Shell: \x1B    (hex)
+  Shell: \033    (oct)
+  Swift: \u{1B}  (hex)

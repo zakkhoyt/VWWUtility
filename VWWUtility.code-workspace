@@ -176,6 +176,28 @@
       {
         "type": "swift",
         "request": "launch",
+        "args": [
+          "--demo-basics"
+        ],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Debug echo_pretty (VWWUtility)",
+        "target": "echo_pretty",
+        "configuration": "debug",
+        "preLaunchTask": "swift: Build Debug echo_pretty (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
+        "args": [],
+        "cwd": "${workspaceFolder:VWWUtility}",
+        "name": "Release echo_pretty (VWWUtility)",
+        "target": "echo_pretty",
+        "configuration": "release",
+        "preLaunchTask": "swift: Build Release echo_pretty (VWWUtility)"
+      },
+      {
+        "type": "swift",
+        "request": "launch",
         "args": [],
         "cwd": "${workspaceFolder:VWWUtility}",
         "name": "Debug NodesTerminalApp (VWWUtility)",

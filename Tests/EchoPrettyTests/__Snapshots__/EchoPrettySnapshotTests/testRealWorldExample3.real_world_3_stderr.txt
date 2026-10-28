@@ -1,0 +1,88 @@
+distilledArguments -> processedArguments
+processingEscapeChars
+  distilledArguments[0]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[1]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[2]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[3]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[4]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[5]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[6]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[7]
+    input: arg
+    output: processedArg
+      changed: true
+Will inspect 8 processedArguments
+  Inspecting arguments[0]: '[37m-red[0m'
+    Argument '[37m-red[0m' requires 0 value(s). Peeking...
+    Refined: arguments[0...0]: '[37m-red [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mRed foreground color[0m
+      Code: [38;5;208m\x1B[31m[0m
+    Appended to outputs: '[96m\x1B[31m[0m'
+
+    Converted to text: '[33mred text[0m'
+  Inspecting arguments[2]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[2...2]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[31mred text\x1B[0m[0m'
+
+    Converted to text: '[33m [0m'
+  Inspecting arguments[4]: '[37m-green[0m'
+    Argument '[37m-green[0m' requires 0 value(s). Peeking...
+    Refined: arguments[4...4]: '[37m-green [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mGreen foreground color[0m
+      Code: [38;5;208m\x1B[32m[0m
+    Appended to outputs: '[96m\x1B[31mred text\x1B[0m \x1B[32m[0m'
+
+    Converted to text: '[33mgreen text[0m'
+  Inspecting arguments[6]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[6...6]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[31mred text\x1B[0m \x1B[32mgreen text\x1B[0m[0m'
+
+    Converted to text: '[33m default text[0m'
+Did inspect 8 arguments
+
+Final outputs: \x1B[31mred text\x1B[0m \x1B[32mgreen text\x1B[0m default text[0m
+
+ANSI Escape Code Syntax for 0x001B:
+  Shell: \x1B    (hex)
+  Shell: \033    (oct)
+  Swift: \u{1B}  (hex)
+ (copied to pasteboard)
+  [35mecho "\x1B[31mred text\x1B[0m \x1B[32mgreen text\x1B[0m default text" 1>&2[0m
