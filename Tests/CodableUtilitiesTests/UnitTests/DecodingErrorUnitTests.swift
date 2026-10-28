@@ -127,10 +127,10 @@ final class DecodingErrorTests: XCTestCase {
     }
     
     /// Decodes jsonString expecting that a DecodingError will be thrown.
-    /// Then expects to find `errorSnippet` in the `error.debugDescription`
+    /// Then expects to find `errorSnippet` in the `error.decodingFailureReasons`
     /// - Parameters:
     ///   - jsonString: The jsonString to decode
-    ///   - errorSnippet: A substring expected to be found in `error.debugDescription`
+    ///   - errorSnippet: A substring expected to be found in `error.decodingFailureReasons`
     private func expectDecodingError(
         jsonString: String,
         errorSnippet: String,
@@ -144,8 +144,12 @@ final class DecodingErrorTests: XCTestCase {
             XCTFail("Expected EecodingError to be thrown")
             XCTAssertEqual(decodedInstance, instance, file: file, line: line)
         } catch let error as DecodingError {
-            print(error.debugDescription)
-            XCTAssertTrue(error.debugDescription.contains(errorSnippet), file: file, line: line)
+            print(error.decodingFailureReasons)
+            XCTAssertTrue(error.decodingFailureReasons.contains(errorSnippet), file: file, line: line)
+
+            // The same description is reachable via the `CodingFailureReasonsConvertible` protocol
+            let convertible: any CodingFailureReasonsConvertible = error
+            XCTAssertEqual(convertible.codingFailureReasons, error.decodingFailureReasons, file: file, line: line)
         } catch {
             XCTFail(
                 "Expected DecodingError, got other type of error: \(error.localizedDescription)",

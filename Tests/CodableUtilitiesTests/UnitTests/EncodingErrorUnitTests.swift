@@ -57,7 +57,7 @@ final class EncodingErrorUnitTests: XCTestCase {
                 #"{"age":44,"name":"My Name"}"#
             )
         } catch let error as EncodingError {
-            XCTFail(error.debugDescription)
+            XCTFail(error.encodingFailureReasons)
         } catch {
             XCTFail(error.localizedDescription)
         }
@@ -65,7 +65,7 @@ final class EncodingErrorUnitTests: XCTestCase {
 
     private static let encodingErrorSnippet = "Expected to encode String, found Int."
     
-    /// Expects to encounter EncodingError and expects `error.debugDescription` to contain a certian substring.
+    /// Expects to encounter EncodingError and expects `error.encodingFailureReasons` to contain a certian substring.
     func testEncodingError() throws {
         class MyClass: BaseClass {
             override func encode(to encoder: any Encoder) throws {
@@ -90,12 +90,16 @@ final class EncodingErrorUnitTests: XCTestCase {
             _ = try encoder.encode(instance)
             XCTFail("Expectd EncodingError")
         } catch let error as EncodingError {
-            print(error.debugDescription)
+            print(error.encodingFailureReasons)
             // EncodingError
             // error: The data couldn’t be written because it isn’t in the correct format.
             // subject: invalidValue: SomeValue
             // context: Expected to encode String, found Int.
-            XCTAssertTrue(error.debugDescription.contains(EncodingErrorUnitTests.encodingErrorSnippet))
+            XCTAssertTrue(error.encodingFailureReasons.contains(EncodingErrorUnitTests.encodingErrorSnippet))
+
+            // The same description is reachable via the `CodingFailureReasonsConvertible` protocol
+            let convertible: any CodingFailureReasonsConvertible = error
+            XCTAssertEqual(convertible.codingFailureReasons, error.encodingFailureReasons)
         } catch {
             XCTFail(error.localizedDescription)
         }
