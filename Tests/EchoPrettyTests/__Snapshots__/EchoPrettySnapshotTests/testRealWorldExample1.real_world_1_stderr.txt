@@ -1,0 +1,138 @@
+distilledArguments -> processedArguments
+processingEscapeChars
+  distilledArguments[0]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[1]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[2]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[3]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[4]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[5]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[6]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[7]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[8]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[9]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[10]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[11]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[12]
+    input: arg
+    output: processedArg
+      changed: true
+Will inspect 13 processedArguments
+  Inspecting arguments[0]: '[37m-red[0m'
+    Argument '[37m-red[0m' requires 0 value(s). Peeking...
+    Refined: arguments[0...0]: '[37m-red [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mRed foreground color[0m
+      Code: [38;5;208m\x1B[31m[0m
+    Appended to outputs: '[96m\x1B[31m[0m'
+
+    Converted to text: '[33mR[0m'
+  Inspecting arguments[2]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[2...2]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[31mR\x1B[0m[0m'
+
+  Inspecting arguments[3]: '[37m-green[0m'
+    Argument '[37m-green[0m' requires 0 value(s). Peeking...
+    Refined: arguments[3...3]: '[37m-green [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mGreen foreground color[0m
+      Code: [38;5;208m\x1B[32m[0m
+    Appended to outputs: '[96m\x1B[31mR\x1B[0m\x1B[32m[0m'
+
+    Converted to text: '[33mG[0m'
+  Inspecting arguments[5]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[5...5]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[31mR\x1B[0m\x1B[32mG\x1B[0m[0m'
+
+  Inspecting arguments[6]: '[37m-blue[0m'
+    Argument '[37m-blue[0m' requires 0 value(s). Peeking...
+    Refined: arguments[6...6]: '[37m-blue [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mBlue foreground color[0m
+      Code: [38;5;208m\x1B[34m[0m
+    Appended to outputs: '[96m\x1B[31mR\x1B[0m\x1B[32mG\x1B[0m\x1B[34m[0m'
+
+    Converted to text: '[33mB[0m'
+  Inspecting arguments[8]: '[37m--default[0m'
+    Argument '[37m--default[0m' requires 0 value(s). Peeking...
+    Refined: arguments[8...8]: '[37m--default [][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mReset to defaults (foreground, background, font, etc...)[0m
+      Code: [38;5;208m\x1B[0m[0m
+    Appended to outputs: '[96m\x1B[31mR\x1B[0m\x1B[32mG\x1B[0m\x1B[34mB\x1B[0m[0m'
+
+    Converted to text: '[33mcape[0m'
+  Inspecting arguments[10]: '[37m--left[0m'
+    Argument '[37m--left[0m' requires 1 value(s). Peeking...
+    Refined: arguments[10...11]: '[37m--left [4][0m'
+    Converted to ANSI code
+      Summary: [38;5;208mMove cursor left[0m
+      Code: [38;5;208m\x1B[4D[0m
+    Appended to outputs: '[96m\x1B[31mR\x1B[0m\x1B[32mG\x1B[0m\x1B[34mB\x1B[0mcape\x1B[4D[0m'
+
+    Converted to text: '[33mhead[0m'
+Did inspect 13 arguments
+
+Final outputs: \x1B[31mR\x1B[0m\x1B[32mG\x1B[0m\x1B[34mB\x1B[0mcape\x1B[4Dhead[0m
+
+ANSI Escape Code Syntax for 0x001B:
+  Shell: \x1B    (hex)
+  Shell: \033    (oct)
+  Swift: \u{1B}  (hex)
+ (copied to pasteboard)
+  [35mecho "\x1B[31mR\x1B[0m\x1B[32mG\x1B[0m\x1B[34mB\x1B[0mcape\x1B[4Dhead" 1>&2[0m

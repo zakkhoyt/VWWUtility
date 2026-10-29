@@ -1,0 +1,1 @@
+[31mred text[0m [32mgreen text[0m default text

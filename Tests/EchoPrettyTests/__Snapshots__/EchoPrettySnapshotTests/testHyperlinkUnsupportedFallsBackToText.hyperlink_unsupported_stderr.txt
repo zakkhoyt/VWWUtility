@@ -1,0 +1,21 @@
+distilledArguments -> processedArguments
+processingEscapeChars
+  distilledArguments[0]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[1]
+    input: arg
+    output: processedArg
+      changed: true
+Will inspect 2 processedArguments
+[WARN] --link value 'not a link' is not a recognized Markdown link, HTML anchor, or URL. Printing it as plain text.
+Did inspect 2 arguments
+
+Final outputs: not a link[0m
+
+ANSI Escape Code Syntax for 0x001B:
+  Shell: \x1B    (hex)
+  Shell: \033    (oct)
+  Swift: \u{1B}  (hex)

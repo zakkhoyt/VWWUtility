@@ -10,14 +10,14 @@ import Foundation
 extension Encodable {
     /// Converts any `Encodable` into `[AnyHashable: Any]?` equivalent.
     /// If `EncodingError` is encountered, check under key `"EncodingError"`
-    /// for `encodingError.debugDescription`
+    /// for `encodingError.encodingFailureReasons`
     public func jsonDictionary() -> [AnyHashable: Any]? {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(self)
             return try JSONSerialization.jsonObject(with: data) as? [AnyHashable: Any]
         } catch let encodingError as EncodingError {
-            return ["EncodingError": encodingError.debugDescription]
+            return ["EncodingError": encodingError.encodingFailureReasons]
         } catch {
             return nil
         }
@@ -33,7 +33,7 @@ extension Encodable {
             let data = try encoder.encode(self)
             return String(data: data, encoding: .utf8)
         } catch let encodingError as EncodingError {
-            return encodingError.debugDescription
+            return encodingError.encodingFailureReasons
         } catch {
             return nil
         }

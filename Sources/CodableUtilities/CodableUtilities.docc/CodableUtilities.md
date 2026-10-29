@@ -18,7 +18,7 @@ Get human readable descriptions for `DecodingError` including line numbers, arra
 do {
     let content = try JSONDecoder().decode(MyStruct.self, from: data)
 } catch let decodingError as DecodingError {
-    logger.fault("Fail to decode data as MyStruct with decodingError: \(decodingError.debugDescription)")
+    logger.fault("Fail to decode data as MyStruct with decodingError: \(decodingError.decodingFailureReasons)")
 } catch {
     logger.fault("An error occurred while decoding: \(error.localizedDescription)")
 }
@@ -33,7 +33,7 @@ do {
     let data = try JSONEncoder().encode(myStruct)
     logger.debug("Did encode myStruct: \(data.jsonDescription)")
 } catch let encodingError as EncodingError {
-    logger.fault("Fail to encode myStruct (to JSON Data) with encodingError: \(encodingError.debugDescription)")
+    logger.fault("Fail to encode myStruct (to JSON Data) with encodingError: \(encodingError.encodingFailureReasons)")
 } catch {
     logger.fault("An error occurred while encoding myStruct: \(error.localizedDescription)")
 }

@@ -104,6 +104,28 @@
       "target": "SwiftyShellExample",
       "configuration": "release",
       "preLaunchTask": "swift: Build Release SwiftyShellExample"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [
+        "--demo-basics"
+      ],
+      "cwd": "${workspaceFolder}",
+      "name": "Debug echo_pretty",
+      "target": "echo_pretty",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug echo_pretty"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "name": "Release echo_pretty",
+      "target": "echo_pretty",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release echo_pretty"
     }
   ]
 }

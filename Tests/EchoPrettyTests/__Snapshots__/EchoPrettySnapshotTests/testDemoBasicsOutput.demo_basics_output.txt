@@ -1,0 +1,14 @@
+distilledArguments -> processedArguments
+# ---- ---- ---- ---- Example usage ---- ---- ---- ----
+# First, Copy/paste the literals above into your shell script.
+#
+# # Example usage in zsh:
+# echo "${ANSI_URL}http://some.url${ANSI_DEFAULT}"
+# printf "${ANSI_URL}http://some.url${ANSI_DEFAULT}\ndefault text"
+#
+# # Example compound usage in zsh:
+# echo "${ANSI_BRIGHT_RED_FG}${ANSI_FONT_BLINK}[ERROR]${ANSI_DEFAULT}: Exiting with code 7!"
+#
+# Example usage in bash:
+# echo -e # use the -e argument
+#

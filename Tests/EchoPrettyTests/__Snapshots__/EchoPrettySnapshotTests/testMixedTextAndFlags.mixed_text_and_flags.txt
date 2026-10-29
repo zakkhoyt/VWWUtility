@@ -1,0 +1,1 @@
+plain text[31mred text[0mmore plain[1mbold text[0m
