@@ -1,0 +1,949 @@
+//
+//  8bit_colors.swift
+//  HatchTerminal
+//
+//  Created by Zakk Hoyt on 9/5/25.
+//
+
+// Taken from https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+
+let html3BitColors = #"""
+<!-- taken from https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit -->
+<table class="wikitable">
+<tbody><tr>
+<th><abbr title="Foreground">FG</abbr>
+</th>
+<th><abbr title="Background">BG</abbr>
+</th>
+<th>Name
+</th>
+<th><a href="/wiki/Color_Graphics_Adapter#With_an_RGBI_monitor" title="Color Graphics Adapter">CGA/EGA/VGA</a>
+</th>
+<th><a href="/wiki/Windows_Console" title="Windows Console">Windows Console</a><sup id="cite_ref-35" class="reference"><a href="#cite_note-35"><span class="cite-bracket">[</span>b<span class="cite-bracket">]</span></a></sup>
+</th>
+<th><a href="/wiki/Windows_PowerShell" class="mw-redirect" title="Windows PowerShell">Windows<br>PowerShell&amp;<br>1.0–6.0</a><sup id="cite_ref-37" class="reference"><a href="#cite_note-37"><span class="cite-bracket">[</span>c<span class="cite-bracket">]</span></a></sup>
+</th>
+<th><a href="/wiki/Visual_Studio_Code" title="Visual Studio Code">Visual Studio Code</a><sup id="cite_ref-38" class="reference"><a href="#cite_note-38"><span class="cite-bracket">[</span>d<span class="cite-bracket">]</span></a></sup>
+</th>
+<th><a href="/wiki/Windows_Console" title="Windows Console">Windows&nbsp;10<br>Console</a><sup id="cite_ref-39" class="reference"><a href="#cite_note-39"><span class="cite-bracket">[</span>e<span class="cite-bracket">]</span></a></sup>
+</th>
+<th><a href="/wiki/Terminal_(macOS)" title="Terminal (macOS)">Terminal.app</a>
+</th>
+<th><a href="/wiki/PuTTY" title="PuTTY">PuTTY</a>
+</th>
+<th><a href="/wiki/MIRC" title="MIRC">mIRC</a>
+</th>
+<th><a href="/wiki/Xterm" title="Xterm">xterm</a>
+</th>
+<th><a href="/wiki/Ubuntu_(operating_system)" class="mw-redirect" title="Ubuntu (operating system)">Ubuntu</a><sup id="cite_ref-40" class="reference"><a href="#cite_note-40"><span class="cite-bracket">[</span>f<span class="cite-bracket">]</span></a></sup>
+</th>
+<th>Eclipse Terminal
+</th></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">30</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">40</span></td>
+<td>Black
+</td>
+<td colspan="4" style="background: rgb(0, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-000000, #1f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 0
+</td>
+<td style="background: rgb(12, 12, 12); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0c0c0c, #262626); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">12, 12, 12
+</td>
+<td colspan="4" style="background: rgb(0, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-000000, #1f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 0
+</td>
+<td style="background: rgb(1, 1, 1); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-010101, #1f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">1, 1, 1
+</td>
+<td style="background: rgb(0, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-000000, #1f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">31</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">41</span></td>
+<td>Red
+</td>
+<td style="background: rgb(170, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-aa0000, #891f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">170, 0, 0
+</td>
+<td colspan="2" style="background: rgb(128, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-800000, #6e1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">128, 0, 0
+</td>
+<td style="background: rgb(205, 49, 49); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-cd3131, #9f3d3d); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 49, 49
+</td>
+<td style="background: rgb(197, 15, 31); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-c50f1f, #9a2832); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">197, 15, 31
+</td>
+<td style="background: rgb(153, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-990000, #7e1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">153, 0, 0
+</td>
+<td style="background: rgb(187, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-bb0000, #941f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">187, 0, 0
+</td>
+<td style="background: rgb(127, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-7f0000, #6e1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">127, 0, 0
+</td>
+<td style="background: rgb(205, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-cd0000, #9f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 0, 0
+</td>
+<td style="background: rgb(222, 56, 43); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-de382b, #a43c34); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">222, 56, 43
+</td>
+<td style="background: rgb(205, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-cd0000, #9f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 0, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">32</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">42</span></td>
+<td>Green
+</td>
+<td style="background: rgb(0, 170, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00aa00, #1f891f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 170, 0
+</td>
+<td colspan="2" style="background: rgb(0, 128, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-008000, #1f6e1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 128, 0
+</td>
+<td style="background: rgb(13, 188, 121); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0dbc79, #26946b); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">13, 188, 121
+</td>
+<td style="background: rgb(19, 161, 14); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-13a10e, #2a8427); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">19, 161, 14
+</td>
+<td style="background: rgb(0, 166, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00a600, #1f871f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 166, 0
+</td>
+<td style="background: rgb(0, 187, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00bb00, #1f941f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 187, 0
+</td>
+<td style="background: rgb(0, 147, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-009300, #1f7b1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 147, 0
+</td>
+<td style="background: rgb(0, 205, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00cd00, #1f9f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 205, 0
+</td>
+<td style="background: rgb(57, 181, 74); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-39b54a, #43904d); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">57, 181, 74
+</td>
+<td style="background: rgb(0, 205, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00cd00, #1f9f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 205, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">33</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">43</span></td>
+<td>Yellow
+</td>
+<td style="background: rgb(170, 85, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-aa5500, #89541f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">170, 85, 0
+</td>
+<td style="background: rgb(128, 128, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-808000, #6e6e1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">128, 128, 0
+</td>
+<td style="background: rgb(238, 237, 240); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-eeedf0, #383b3c); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">238, 237, 240
+</td>
+<td style="background: rgb(229, 229, 16); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e5e510, #aeae29); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">229, 229, 16
+</td>
+<td style="background: rgb(193, 156, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-c19c00, #97801f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">193, 156, 0
+</td>
+<td style="background: rgb(153, 153, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-999900, #7e7e1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">153, 153, 0
+</td>
+<td style="background: rgb(187, 187, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-bbbb00, #94941f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">187, 187, 0
+</td>
+<td style="background: rgb(252, 127, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-fc7f00, #bd6e1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">252, 127, 0
+</td>
+<td style="background: rgb(205, 205, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-cdcd00, #9f9f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 205, 0
+</td>
+<td style="background: rgb(255, 199, 6); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffc706, #94791f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 199, 6
+</td>
+<td style="background: rgb(205, 205, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-cdcd00, #9f9f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 205, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">34</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">44</span></td>
+<td>Blue
+</td>
+<td style="background: rgb(0, 0, 170); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000aa, #1f1f89); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 170
+</td>
+<td colspan="2" style="background: rgb(0, 0, 128); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-000080, #1f1f6e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 128
+</td>
+<td style="background: rgb(36, 114, 200); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-2472c8, #35669c); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">36, 114, 200
+</td>
+<td style="background: rgb(0, 55, 218); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0037da, #1f41a7); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 55, 218
+</td>
+<td style="background: rgb(0, 0, 178); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000b2, #1f1f8e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 178
+</td>
+<td style="background: rgb(0, 0, 187); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000bb, #1f1f94); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 187
+</td>
+<td style="background: rgb(0, 0, 127); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00007f, #1f1f6e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 127
+</td>
+<td style="background: rgb(0, 0, 238); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000ee, #1f1fb3); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 238<sup id="cite_ref-41" class="reference"><a href="#cite_note-41"><span class="cite-bracket">[</span>35<span class="cite-bracket">]</span></a></sup>
+</td>
+<td style="background: rgb(0, 111, 184); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-006fb8, #1f6492); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 111, 184
+</td>
+<td style="background: rgb(0, 0, 238); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000ee, #1f1fb3); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 238
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">35</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">45</span></td>
+<td>Magenta
+</td>
+<td style="background: rgb(170, 0, 170); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-aa00aa, #891f89); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">170, 0, 170
+</td>
+<td style="background: rgb(128, 0, 128); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-800080, #6e1f6e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">128, 0, 128
+</td>
+<td style="background: rgb(1, 36, 86); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-012456, #1f3555); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">1, 36, 86
+</td>
+<td style="background: rgb(188, 63, 188); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-bc3fbc, #944694); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">188, 63, 188
+</td>
+<td style="background: rgb(136, 23, 152); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-881798, #742d7e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">136, 23, 152
+</td>
+<td style="background: rgb(178, 0, 178); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-b200b2, #8e1f8e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">178, 0, 178
+</td>
+<td style="background: rgb(187, 0, 187); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-bb00bb, #941f94); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">187, 0, 187
+</td>
+<td style="background: rgb(156, 0, 156); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-9c009c, #801f80); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">156, 0, 156
+</td>
+<td style="background: rgb(205, 0, 205); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-cd00cd, #9f1f9f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 0, 205
+</td>
+<td style="background: rgb(118, 38, 113); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-762671, #683665); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">118, 38, 113
+</td>
+<td style="background: rgb(205, 0, 205); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-cd00cd, #9f1f9f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">205, 0, 205
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">36</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">46</span></td>
+<td>Cyan
+</td>
+<td style="background: rgb(0, 170, 170); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00aaaa, #1f8989); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 170, 170
+</td>
+<td colspan="2" style="background: rgb(0, 128, 128); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-008080, #1f6e6e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 128, 128
+</td>
+<td style="background: rgb(17, 168, 205); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-11a8cd, #2a879f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">17, 168, 205
+</td>
+<td style="background: rgb(58, 150, 221); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-3a96dd, #356f9d); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">58, 150, 221
+</td>
+<td style="background: rgb(0, 166, 178); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-00a6b2, #1f878e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 166, 178
+</td>
+<td style="background: rgb(0, 187, 187); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00bbbb, #1f9494); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 187, 187
+</td>
+<td style="background: rgb(0, 147, 147); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-009393, #1f7b7b); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 147, 147
+</td>
+<td style="background: rgb(0, 205, 205); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00cdcd, #1f9f9f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 205, 205
+</td>
+<td style="background: rgb(44, 181, 233); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-2cb5e9, #2d84a6); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">44, 181, 233
+</td>
+<td style="background: rgb(0, 205, 205); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00cdcd, #1f9f9f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 205, 205
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">37</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">47</span></td>
+<td>White
+</td>
+<td style="background: rgb(170, 170, 170); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-aaaaaa, #575c5e); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">170, 170, 170
+</td>
+<td colspan="2" style="background: rgb(192, 192, 192); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-c0c0c0, #4e5153); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">192, 192, 192
+</td>
+<td style="background: rgb(229, 229, 229); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e5e5e5, #3d3f41); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">229, 229, 229
+</td>
+<td style="background: rgb(204, 204, 204); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-cccccc, #484b4d); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">204, 204, 204
+</td>
+<td style="background: rgb(191, 191, 191); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-bfbfbf, #4e5154); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">191, 191, 191
+</td>
+<td style="background: rgb(187, 187, 187); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-bbbbbb, #4f5455); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">187, 187, 187
+</td>
+<td style="background: rgb(210, 210, 210); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-d2d2d2, #45494a); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">210, 210, 210
+</td>
+<td style="background: rgb(229, 229, 229); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e5e5e5, #3d3f41); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">229, 229, 229
+</td>
+<td style="background: rgb(204, 204, 204); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-cccccc, #484b4d); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">204, 204, 204
+</td>
+<td style="background: rgb(229, 229, 229); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e5e5e5, #3d3f41); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">229, 229, 229
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">90</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">100</span></td>
+<td><span class="nowrap">Bright Black (Gray)</span>
+</td>
+<td style="background: rgb(85, 85, 85); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-555555, #515557); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 85, 85
+</td>
+<td colspan="2" style="background: rgb(128, 128, 128); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-808080, #6a7073); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">128, 128, 128
+</td>
+<td style="background: rgb(102, 102, 102); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-666666, #5b6062); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">102, 102, 102
+</td>
+<td style="background: rgb(118, 118, 118); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-767676, #646a6d); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">118, 118, 118
+</td>
+<td style="background: rgb(102, 102, 102); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-666666, #5b6062); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">102, 102, 102
+</td>
+<td style="background: rgb(85, 85, 85); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-555555, #515557); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 85, 85
+</td>
+<td style="background: rgb(127, 127, 127); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-7f7f7f, #6a7073); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">127, 127, 127
+</td>
+<td style="background: rgb(127, 127, 127); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-7f7f7f, #6a7073); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">127, 127, 127
+</td>
+<td style="background: rgb(128, 128, 128); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-808080, #6a7073); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">128, 128, 128
+</td>
+<td style="background: rgb(0, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-000000, #1f1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">91</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">101</span></td>
+<td>Bright Red
+</td>
+<td style="background: rgb(255, 85, 85); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff5555, #961f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 85, 85
+</td>
+<td colspan="2" style="background: rgb(255, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff0000, #be1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 0, 0
+</td>
+<td style="background: rgb(241, 76, 76); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-f14c4c, #982828); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">241, 76, 76
+</td>
+<td style="background: rgb(231, 72, 86); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-e74856, #982e38); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">231, 72, 86
+</td>
+<td style="background: rgb(230, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-e60000, #af1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">230, 0, 0
+</td>
+<td style="background: rgb(255, 85, 85); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff5555, #961f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 85, 85
+</td>
+<td colspan="4" style="background: rgb(255, 0, 0); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff0000, #be1f1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 0, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">92</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">102</span></td>
+<td>Bright Green
+</td>
+<td style="background: rgb(85, 255, 85); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-55ff55, #3c961f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 255, 85
+</td>
+<td colspan="2" style="background: rgb(0, 255, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00ff00, #47be1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 255, 0
+</td>
+<td style="background: rgb(35, 209, 139); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-23d18b, #35a175); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">35, 209, 139
+</td>
+<td style="background: rgb(22, 198, 12); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-16c60c, #2d9a26); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">22, 198, 12
+</td>
+<td style="background: rgb(0, 217, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00d900, #1fa71f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 217, 0
+</td>
+<td style="background: rgb(85, 255, 85); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-55ff55, #3c961f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 255, 85
+</td>
+<td style="background: rgb(0, 252, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00fc00, #1fbd1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 252, 0
+</td>
+<td colspan="3" style="background: rgb(0, 255, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00ff00, #47be1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 255, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">93</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">103</span></td>
+<td>Bright Yellow
+</td>
+<td style="background: rgb(255, 255, 85); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffff55, #79791f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 255, 85
+</td>
+<td colspan="2" style="background: rgb(255, 255, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffff00, #96961f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 255, 0
+</td>
+<td style="background: rgb(245, 245, 67); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-f5f543, #7d7d23); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">245, 245, 67
+</td>
+<td style="background: rgb(249, 241, 165); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-f9f1a5, #5a5523); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">249, 241, 165
+</td>
+<td style="background: rgb(229, 229, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e5e500, #aeae1f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">230, 230, 0
+</td>
+<td style="background: rgb(255, 255, 85); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffff55, #79791f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 255, 85
+</td>
+<td colspan="4" style="background: rgb(255, 255, 0); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffff00, #96961f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 255, 0
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">94</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">104</span></td>
+<td>Bright Blue
+</td>
+<td style="background: rgb(85, 85, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-5555ff, #1f1f96); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 85, 255
+</td>
+<td colspan="2" style="background: rgb(0, 0, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000ff, #1f1fbe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 255
+</td>
+<td style="background: rgb(59, 142, 234); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-3b8eea, #2d639f); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">59, 142, 234
+</td>
+<td style="background: rgb(59, 120, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-3b78ff, #1f47a3); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">59, 120, 255
+</td>
+<td style="background: rgb(0, 0, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000ff, #1f1fbe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 255
+</td>
+<td style="background: rgb(85, 85, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-5555ff, #1f1f96); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 85, 255
+</td>
+<td style="background: rgb(0, 0, 252); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000fc, #1f1fbd); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 252
+</td>
+<td style="background: rgb(92, 92, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-5c5cff, #1f1f93); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">92, 92, 255<sup id="cite_ref-42" class="reference"><a href="#cite_note-42"><span class="cite-bracket">[</span>36<span class="cite-bracket">]</span></a></sup>
+</td>
+<td style="background: rgb(0, 0, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-0000ff, #1f1fbe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 0, 255
+</td>
+<td style="background: rgb(92, 92, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-5c5cff, #1f1f93); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">92, 92, 255
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">95</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">105</span></td>
+<td>Bright Magenta
+</td>
+<td style="background: rgb(255, 85, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ff55ff, #961f96); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 85, 255
+</td>
+<td colspan="2" style="background: rgb(255, 0, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff00ff, #be1fbe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 0, 255
+</td>
+<td style="background: rgb(214, 112, 214); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-d670d6, #803b80); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">214, 112, 214
+</td>
+<td style="background: rgb(180, 0, 158); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-b4009e, #8f1f81); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">180, 0, 158
+</td>
+<td style="background: rgb(230, 0, 230); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-e600e6, #af1faf); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">230, 0, 230
+</td>
+<td style="background: rgb(255, 85, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff55ff, #961f96); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 85, 255
+</td>
+<td colspan="4" style="background: rgb(255, 0, 255); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-ff00ff, #be1fbe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 0, 255
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">96</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">106</span></td>
+<td>Bright Cyan
+</td>
+<td style="background: rgb(85, 255, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-55ffff, #1f9696); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 255, 255
+</td>
+<td colspan="2" style="background: rgb(0, 255, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00ffff, #1fbebe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 255, 255
+</td>
+<td style="background: rgb(41, 184, 219); color: white; --darkreader-inline-bgcolor: var(--darkreader-background-29b8db, #358fa5); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">41, 184, 219
+</td>
+<td style="background: rgb(97, 214, 214); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-61d6d6, #3a8888); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">97, 214, 214
+</td>
+<td style="background: rgb(0, 230, 230); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00e6e6, #1fafaf); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 230, 230
+</td>
+<td style="background: rgb(85, 255, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-55ffff, #1f9696); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">85, 255, 255
+</td>
+<td colspan="4" style="background: rgb(0, 255, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-00ffff, #1fbebe); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">0, 255, 255
+</td></tr>
+<tr>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">97</span></td>
+<td><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886049734"><span class="monospaced">107</span></td>
+<td>Bright White
+</td>
+<td colspan="3" style="background: rgb(255, 255, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffffff, #313334); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 255, 255
+</td>
+<td style="background: rgb(229, 229, 229); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e5e5e5, #3d3f41); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color=""><span class="nowrap">229, 229, 229</span>
+</td>
+<td style="background: rgb(242, 242, 242); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-f2f2f2, #37393a); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">242, 242, 242
+</td>
+<td style="background: rgb(230, 230, 230); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-e6e6e6, #3c3f40); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">230, 230, 230
+</td>
+<td colspan="5" style="background: rgb(255, 255, 255); color: black; --darkreader-inline-bgcolor: var(--darkreader-background-ffffff, #313334); --darkreader-inline-bgimage: none; --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0);" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="" data-darkreader-inline-color="">255, 255, 255
+</td></tr></tbody></table>
+"""#
+
+let html8BitColors = #"""
+<table class="collapsible mw-collapsible mw-made-collapsible" style="text-align: center; font-size: 80%; width: 100%; background: rgba(61, 60, 60, 1); cursor: default; --darkreader-inline-bgcolor: var(--darkreader-background-f6f6f6, #353838); --darkreader-inline-bgimage: none;" cellpadding="0" cellspacing="1" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">
+<tbody>
+<tr>
+<td colspan="18">Standard colors
+</td>
+<td colspan="18">High-intensity colors
+</td></tr>
+<tr>
+<td colspan="36">
+<table style="width:100%;text-align:center;font-weight:bold;">
+<tbody><tr>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-000000, #1f1f1f); --darkreader-inline-bgimage: none;" title="#000000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;0&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(128, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-800000, #6e1f1f); --darkreader-inline-bgimage: none;" title="#800000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;1&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 128, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-008000, #1f6e1f); --darkreader-inline-bgimage: none;" title="#008000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;2&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(128, 128, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-808000, #6e6e1f); --darkreader-inline-bgimage: none;" title="#808000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;3&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 128); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-000080, #1f1f6e); --darkreader-inline-bgimage: none;" title="#000080" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;4&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(128, 0, 128); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-800080, #6e1f6e); --darkreader-inline-bgimage: none;" title="#800080" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;5&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 128, 128); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-008080, #1f6e6e); --darkreader-inline-bgimage: none;" title="#008080" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;6&nbsp;
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(192, 192, 192); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-c0c0c0, #4e5153); --darkreader-inline-bgimage: none;" title="#c0c0c0" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;7&nbsp;
+</td>
+<td style="width:1em;">
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(128, 128, 128); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-808080, #6a7073); --darkreader-inline-bgimage: none;" title="#808080" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;8&nbsp;
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 0, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff0000, #be1f1f); --darkreader-inline-bgimage: none;" title="#ff0000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">&nbsp;9&nbsp;
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ff00, #47be1f); --darkreader-inline-bgimage: none;" title="#00ff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">10
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffff00, #96961f); --darkreader-inline-bgimage: none;" title="#ffff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">11
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 0, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0000ff, #1f1fbe); --darkreader-inline-bgimage: none;" title="#0000ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">12
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 0, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff00ff, #be1fbe); --darkreader-inline-bgimage: none;" title="#ff00ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">13
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ffff, #1fbebe); --darkreader-inline-bgimage: none;" title="#00ffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">14
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffffff, #313334); --darkreader-inline-bgimage: none;" title="#ffffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">15
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td colspan="36">216 colors
+</td></tr>
+<tr>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-000000, #1f1f1f); --darkreader-inline-bgimage: none;" title="#000000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">16
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00005f, #1f1f5a); --darkreader-inline-bgimage: none;" title="#00005f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">17
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-000087, #1f1f73); --darkreader-inline-bgimage: none;" title="#000087" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">18
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0000af, #1f1f8c); --darkreader-inline-bgimage: none;" title="#0000af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">19
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0000d7, #1f1fa5); --darkreader-inline-bgimage: none;" title="#0000d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">20
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 0, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0000ff, #1f1fbe); --darkreader-inline-bgimage: none;" title="#0000ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">21
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 95, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-005f00, #1f5a1f); --darkreader-inline-bgimage: none;" title="#005f00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">22
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 95, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-005f5f, #1f5a5a); --darkreader-inline-bgimage: none;" title="#005f5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">23
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 95, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-005f87, #1f5a73); --darkreader-inline-bgimage: none;" title="#005f87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">24
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 95, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-005faf, #1f5a8c); --darkreader-inline-bgimage: none;" title="#005faf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">25
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 95, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-005fd7, #1f5aa5); --darkreader-inline-bgimage: none;" title="#005fd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">26
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 95, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-005fff, #1f5abe); --darkreader-inline-bgimage: none;" title="#005fff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">27
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 135, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-008700, #1f731f); --darkreader-inline-bgimage: none;" title="#008700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">28
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 135, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00875f, #1f735a); --darkreader-inline-bgimage: none;" title="#00875f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">29
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 135, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-008787, #1f7373); --darkreader-inline-bgimage: none;" title="#008787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">30
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 135, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0087af, #1f738c); --darkreader-inline-bgimage: none;" title="#0087af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">31
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 135, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0087d7, #1f73a5); --darkreader-inline-bgimage: none;" title="#0087d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">32
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(0, 135, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-0087ff, #1f73be); --darkreader-inline-bgimage: none;" title="#0087ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">33
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 175, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00af00, #1f8c1f); --darkreader-inline-bgimage: none;" title="#00af00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">34
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 175, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00af5f, #1f8c5a); --darkreader-inline-bgimage: none;" title="#00af5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">35
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 175, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00af87, #1f8c73); --darkreader-inline-bgimage: none;" title="#00af87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">36
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 175, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00afaf, #1f8c8c); --darkreader-inline-bgimage: none;" title="#00afaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">37
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 175, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00afd7, #1f8ca5); --darkreader-inline-bgimage: none;" title="#00afd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">38
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 175, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00afff, #1f8cbe); --darkreader-inline-bgimage: none;" title="#00afff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">39
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 215, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00d700, #1fa51f); --darkreader-inline-bgimage: none;" title="#00d700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">40
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 215, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00d75f, #1fa55a); --darkreader-inline-bgimage: none;" title="#00d75f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">41
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 215, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00d787, #1fa573); --darkreader-inline-bgimage: none;" title="#00d787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">42
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 215, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00d7af, #1fa58c); --darkreader-inline-bgimage: none;" title="#00d7af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">43
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 215, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00d7d7, #1fa5a5); --darkreader-inline-bgimage: none;" title="#00d7d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">44
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 215, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00d7ff, #1fa5be); --darkreader-inline-bgimage: none;" title="#00d7ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">45
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ff00, #47be1f); --darkreader-inline-bgimage: none;" title="#00ff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">46
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ff5f, #1fbe73); --darkreader-inline-bgimage: none;" title="#00ff5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">47
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ff87, #1fbe86); --darkreader-inline-bgimage: none;" title="#00ff87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">48
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ffaf, #1fbe99); --darkreader-inline-bgimage: none;" title="#00ffaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">49
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ffd7, #1fbeac); --darkreader-inline-bgimage: none;" title="#00ffd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">50
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(0, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-00ffff, #1fbebe); --darkreader-inline-bgimage: none;" title="#00ffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">51
+</td></tr>
+<tr>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f0000, #5a1f1f); --darkreader-inline-bgimage: none;" title="#5f0000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">52
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 0, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f005f, #5a1f5a); --darkreader-inline-bgimage: none;" title="#5f005f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">53
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 0, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f0087, #5a1f73); --darkreader-inline-bgimage: none;" title="#5f0087" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">54
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 0, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f00af, #5a1f8c); --darkreader-inline-bgimage: none;" title="#5f00af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">55
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 0, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f00d7, #5a1fa5); --darkreader-inline-bgimage: none;" title="#5f00d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">56
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 0, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f00ff, #5a1fbe); --darkreader-inline-bgimage: none;" title="#5f00ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">57
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 95, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f5f00, #5a5a1f); --darkreader-inline-bgimage: none;" title="#5f5f00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">58
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 95, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f5f5f, #575b5d); --darkreader-inline-bgimage: none;" title="#5f5f5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">59
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 95, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f5f87, #5a5a73); --darkreader-inline-bgimage: none;" title="#5f5f87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">60
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 95, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f5faf, #515184); --darkreader-inline-bgimage: none;" title="#5f5faf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">61
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 95, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f5fd7, #39398a); --darkreader-inline-bgimage: none;" title="#5f5fd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">62
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 95, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f5fff, #1f1f92); --darkreader-inline-bgimage: none;" title="#5f5fff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">63
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 135, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f8700, #5a731f); --darkreader-inline-bgimage: none;" title="#5f8700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">64
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 135, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f875f, #5a735a); --darkreader-inline-bgimage: none;" title="#5f875f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">65
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 135, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f8787, #5a7373); --darkreader-inline-bgimage: none;" title="#5f8787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">66
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 135, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f87af, #516b84); --darkreader-inline-bgimage: none;" title="#5f87af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">67
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 135, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f87d7, #39548a); --darkreader-inline-bgimage: none;" title="#5f87d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">68
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(95, 135, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5f87ff, #1f3c92); --darkreader-inline-bgimage: none;" title="#5f87ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">69
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 175, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5faf00, #5a8c1f); --darkreader-inline-bgimage: none;" title="#5faf00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">70
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 175, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5faf5f, #5e8451); --darkreader-inline-bgimage: none;" title="#5faf5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">71
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 175, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5faf87, #518472); --darkreader-inline-bgimage: none;" title="#5faf87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">72
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 175, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fafaf, #518484); --darkreader-inline-bgimage: none;" title="#5fafaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">73
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 175, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fafd7, #396f8a); --darkreader-inline-bgimage: none;" title="#5fafd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">74
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 175, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fafff, #1f5992); --darkreader-inline-bgimage: none;" title="#5fafff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">75
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 215, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fd700, #5aa51f); --darkreader-inline-bgimage: none;" title="#5fd700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">76
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 215, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fd75f, #4e8a39); --darkreader-inline-bgimage: none;" title="#5fd75f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">77
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 215, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fd787, #398a62); --darkreader-inline-bgimage: none;" title="#5fd787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">78
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 215, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fd7af, #398a75); --darkreader-inline-bgimage: none;" title="#5fd7af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">79
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 215, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fd7d7, #398a8a); --darkreader-inline-bgimage: none;" title="#5fd7d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">80
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 215, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fd7ff, #1f7592); --darkreader-inline-bgimage: none;" title="#5fd7ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">81
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fff00, #73be1f); --darkreader-inline-bgimage: none;" title="#5fff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">82
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 255, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fff5f, #3c921f); --darkreader-inline-bgimage: none;" title="#5fff5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">83
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 255, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fff87, #1f9251); --darkreader-inline-bgimage: none;" title="#5fff87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">84
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 255, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fffaf, #1f9267); --darkreader-inline-bgimage: none;" title="#5fffaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">85
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 255, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fffd7, #1f927c); --darkreader-inline-bgimage: none;" title="#5fffd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">86
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(95, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-5fffff, #1f9292); --darkreader-inline-bgimage: none;" title="#5fffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">87
+</td></tr>
+<tr>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-870000, #731f1f); --darkreader-inline-bgimage: none;" title="#870000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">88
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 0, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87005f, #731f5a); --darkreader-inline-bgimage: none;" title="#87005f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">89
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 0, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-870087, #731f73); --darkreader-inline-bgimage: none;" title="#870087" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">90
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 0, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8700af, #731f8c); --darkreader-inline-bgimage: none;" title="#8700af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">91
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 0, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8700d7, #731fa5); --darkreader-inline-bgimage: none;" title="#8700d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">92
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 0, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8700ff, #731fbe); --darkreader-inline-bgimage: none;" title="#8700ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">93
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 95, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-875f00, #735a1f); --darkreader-inline-bgimage: none;" title="#875f00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">94
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 95, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-875f5f, #735a5a); --darkreader-inline-bgimage: none;" title="#875f5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">95
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 95, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-875f87, #735a73); --darkreader-inline-bgimage: none;" title="#875f87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">96
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 95, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-875faf, #6b5184); --darkreader-inline-bgimage: none;" title="#875faf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">97
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 95, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-875fd7, #54398a); --darkreader-inline-bgimage: none;" title="#875fd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">98
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 95, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-875fff, #3c1f92); --darkreader-inline-bgimage: none;" title="#875fff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">99
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 135, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-878700, #73731f); --darkreader-inline-bgimage: none;" title="#878700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">100
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 135, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87875f, #73735a); --darkreader-inline-bgimage: none;" title="#87875f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">101
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 135, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-878787, #676c6f); --darkreader-inline-bgimage: none;" title="#878787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">102
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 135, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8787af, #54546f); --darkreader-inline-bgimage: none;" title="#8787af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">103
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 135, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8787d7, #3c3c75); --darkreader-inline-bgimage: none;" title="#8787d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">104
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(135, 135, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8787ff, #1f1f7f); --darkreader-inline-bgimage: none;" title="#8787ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">105
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 175, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87af00, #738c1f); --darkreader-inline-bgimage: none;" title="#87af00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">106
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 175, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87af5f, #728451); --darkreader-inline-bgimage: none;" title="#87af5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">107
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 175, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87af87, #5b6f54); --darkreader-inline-bgimage: none;" title="#87af87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">108
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 175, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87afaf, #546f6f); --darkreader-inline-bgimage: none;" title="#87afaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">109
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 175, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87afd7, #3c5975); --darkreader-inline-bgimage: none;" title="#87afd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">110
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 175, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87afff, #1f3f7f); --darkreader-inline-bgimage: none;" title="#87afff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">111
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 215, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87d700, #73a51f); --darkreader-inline-bgimage: none;" title="#87d700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">112
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 215, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87d75f, #628a39); --darkreader-inline-bgimage: none;" title="#87d75f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">113
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 215, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87d787, #4a753c); --darkreader-inline-bgimage: none;" title="#87d787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">114
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 215, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87d7af, #3c7560); --darkreader-inline-bgimage: none;" title="#87d7af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">115
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 215, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87d7d7, #3c7575); --darkreader-inline-bgimage: none;" title="#87d7d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">116
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 215, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87d7ff, #1f5f7f); --darkreader-inline-bgimage: none;" title="#87d7ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">117
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87ff00, #86be1f); --darkreader-inline-bgimage: none;" title="#87ff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">118
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 255, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87ff5f, #51921f); --darkreader-inline-bgimage: none;" title="#87ff5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">119
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 255, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87ff87, #377f1f); --darkreader-inline-bgimage: none;" title="#87ff87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">120
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 255, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87ffaf, #1f7f4f); --darkreader-inline-bgimage: none;" title="#87ffaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">121
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 255, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87ffd7, #1f7f67); --darkreader-inline-bgimage: none;" title="#87ffd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">122
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(135, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-87ffff, #1f7f7f); --darkreader-inline-bgimage: none;" title="#87ffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">123
+</td></tr>
+<tr>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af0000, #8c1f1f); --darkreader-inline-bgimage: none;" title="#af0000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">124
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 0, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af005f, #8c1f5a); --darkreader-inline-bgimage: none;" title="#af005f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">125
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 0, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af0087, #8c1f73); --darkreader-inline-bgimage: none;" title="#af0087" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">126
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 0, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af00af, #8c1f8c); --darkreader-inline-bgimage: none;" title="#af00af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">127
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 0, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af00d7, #8c1fa5); --darkreader-inline-bgimage: none;" title="#af00d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">128
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 0, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af00ff, #8c1fbe); --darkreader-inline-bgimage: none;" title="#af00ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">129
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 95, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af5f00, #8c5a1f); --darkreader-inline-bgimage: none;" title="#af5f00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">130
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 95, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af5f5f, #845151); --darkreader-inline-bgimage: none;" title="#af5f5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">131
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 95, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af5f87, #84516b); --darkreader-inline-bgimage: none;" title="#af5f87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">132
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 95, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af5faf, #845184); --darkreader-inline-bgimage: none;" title="#af5faf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">133
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 95, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af5fd7, #6f398a); --darkreader-inline-bgimage: none;" title="#af5fd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">134
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 95, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af5fff, #591f92); --darkreader-inline-bgimage: none;" title="#af5fff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">135
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 135, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af8700, #8c731f); --darkreader-inline-bgimage: none;" title="#af8700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">136
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 135, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af875f, #846b51); --darkreader-inline-bgimage: none;" title="#af875f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">137
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 135, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af8787, #6f5454); --darkreader-inline-bgimage: none;" title="#af8787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">138
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 135, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af87af, #6f546f); --darkreader-inline-bgimage: none;" title="#af87af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">139
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 135, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af87d7, #593c75); --darkreader-inline-bgimage: none;" title="#af87d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">140
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(175, 135, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-af87ff, #3f1f7f); --darkreader-inline-bgimage: none;" title="#af87ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">141
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 175, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afaf00, #8c8c1f); --darkreader-inline-bgimage: none;" title="#afaf00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">142
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 175, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afaf5f, #6b6b45); --darkreader-inline-bgimage: none;" title="#afaf5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">143
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 175, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afaf87, #5b5b47); --darkreader-inline-bgimage: none;" title="#afaf87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">144
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 175, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afafaf, #55595c); --darkreader-inline-bgimage: none;" title="#afafaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">145
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 175, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afafd7, #3f3f5f); --darkreader-inline-bgimage: none;" title="#afafd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">146
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 175, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afafff, #434647); --darkreader-inline-bgimage: none;" title="#afafff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">147
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 215, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afd700, #8ca51f); --darkreader-inline-bgimage: none;" title="#afd700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">148
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 215, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afd75f, #606f33); --darkreader-inline-bgimage: none;" title="#afd75f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">149
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 215, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afd787, #60753c); --darkreader-inline-bgimage: none;" title="#afd787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">150
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 215, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afd7af, #475f3f); --darkreader-inline-bgimage: none;" title="#afd7af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">151
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 215, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afd7d7, #3f5f5f); --darkreader-inline-bgimage: none;" title="#afd7d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">152
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 215, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afd7ff, #434647); --darkreader-inline-bgimage: none;" title="#afd7ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">153
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afff00, #7a961f); --darkreader-inline-bgimage: none;" title="#afff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">154
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 255, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afff5f, #67921f); --darkreader-inline-bgimage: none;" title="#afff5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">155
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 255, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afff87, #4f7f1f); --darkreader-inline-bgimage: none;" title="#afff87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">156
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 255, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afffaf, #326c1f); --darkreader-inline-bgimage: none;" title="#afffaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">157
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 255, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afffd7, #1f6c4f); --darkreader-inline-bgimage: none;" title="#afffd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">158
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(175, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-afffff, #1f6c6c); --darkreader-inline-bgimage: none;" title="#afffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">159
+</td></tr>
+<tr>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d70000, #a51f1f); --darkreader-inline-bgimage: none;" title="#d70000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">160
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 0, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7005f, #a51f5a); --darkreader-inline-bgimage: none;" title="#d7005f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">161
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 0, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d70087, #a51f73); --darkreader-inline-bgimage: none;" title="#d70087" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">162
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 0, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d700af, #a51f8c); --darkreader-inline-bgimage: none;" title="#d700af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">163
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 0, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d700d7, #a51fa5); --darkreader-inline-bgimage: none;" title="#d700d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">164
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 0, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d700ff, #a51fbe); --darkreader-inline-bgimage: none;" title="#d700ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">165
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 95, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d75f00, #a55a1f); --darkreader-inline-bgimage: none;" title="#d75f00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">166
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 95, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d75f5f, #8a3939); --darkreader-inline-bgimage: none;" title="#d75f5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">167
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 95, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d75f87, #8a3954); --darkreader-inline-bgimage: none;" title="#d75f87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">168
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 95, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d75faf, #8a396f); --darkreader-inline-bgimage: none;" title="#d75faf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">169
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 95, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d75fd7, #8a398a); --darkreader-inline-bgimage: none;" title="#d75fd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">170
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 95, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d75fff, #751f92); --darkreader-inline-bgimage: none;" title="#d75fff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">171
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 135, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d78700, #a5731f); --darkreader-inline-bgimage: none;" title="#d78700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">172
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 135, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7875f, #8a5439); --darkreader-inline-bgimage: none;" title="#d7875f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">173
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 135, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d78787, #753c3c); --darkreader-inline-bgimage: none;" title="#d78787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">174
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 135, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d787af, #753c59); --darkreader-inline-bgimage: none;" title="#d787af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">175
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 135, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d787d7, #753c75); --darkreader-inline-bgimage: none;" title="#d787d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">176
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(215, 135, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d787ff, #5f1f7f); --darkreader-inline-bgimage: none;" title="#d787ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">177
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 175, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7af00, #a58c1f); --darkreader-inline-bgimage: none;" title="#d7af00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">178
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 175, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7af5f, #8a6f39); --darkreader-inline-bgimage: none;" title="#d7af5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">179
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 175, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7af87, #75593c); --darkreader-inline-bgimage: none;" title="#d7af87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">180
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 175, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7afaf, #5f3f3f); --darkreader-inline-bgimage: none;" title="#d7afaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">181
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 175, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7afd7, #5f3f5f); --darkreader-inline-bgimage: none;" title="#d7afd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">182
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 175, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7afff, #434647); --darkreader-inline-bgimage: none;" title="#d7afff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">183
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 215, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7d700, #a5a51f); --darkreader-inline-bgimage: none;" title="#d7d700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">184
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 215, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7d75f, #6f6f33); --darkreader-inline-bgimage: none;" title="#d7d75f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">185
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 215, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7d787, #606035); --darkreader-inline-bgimage: none;" title="#d7d787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">186
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 215, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7d7af, #4f4f37); --darkreader-inline-bgimage: none;" title="#d7d7af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">187
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 215, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7d7d7, #434647); --darkreader-inline-bgimage: none;" title="#d7d7d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">188
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 215, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7d7ff, #3a3c3e); --darkreader-inline-bgimage: none;" title="#d7d7ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">189
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7ff00, #88961f); --darkreader-inline-bgimage: none;" title="#d7ff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">190
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 255, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7ff5f, #65751f); --darkreader-inline-bgimage: none;" title="#d7ff5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">191
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 255, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7ff87, #55671f); --darkreader-inline-bgimage: none;" title="#d7ff87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">192
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 255, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7ffaf, #4f6c1f); --darkreader-inline-bgimage: none;" title="#d7ffaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">193
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 255, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7ffd7, #2d591f); --darkreader-inline-bgimage: none;" title="#d7ffd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">194
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(215, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d7ffff, #1f5959); --darkreader-inline-bgimage: none;" title="#d7ffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">195
+</td></tr>
+<tr>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 0, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff0000, #be1f1f); --darkreader-inline-bgimage: none;" title="#ff0000" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">196
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 0, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff005f, #be1f5a); --darkreader-inline-bgimage: none;" title="#ff005f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">197
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 0, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff0087, #be1f73); --darkreader-inline-bgimage: none;" title="#ff0087" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">198
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 0, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff00af, #be1f8c); --darkreader-inline-bgimage: none;" title="#ff00af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">199
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 0, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff00d7, #be1fa5); --darkreader-inline-bgimage: none;" title="#ff00d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">200
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 0, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff00ff, #be1fbe); --darkreader-inline-bgimage: none;" title="#ff00ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">201
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 95, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff5f00, #be5a1f); --darkreader-inline-bgimage: none;" title="#ff5f00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">202
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 95, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff5f5f, #921f1f); --darkreader-inline-bgimage: none;" title="#ff5f5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">203
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 95, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff5f87, #921f3c); --darkreader-inline-bgimage: none;" title="#ff5f87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">204
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 95, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff5faf, #921f59); --darkreader-inline-bgimage: none;" title="#ff5faf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">205
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 95, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff5fd7, #921f75); --darkreader-inline-bgimage: none;" title="#ff5fd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">206
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 95, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff5fff, #921f92); --darkreader-inline-bgimage: none;" title="#ff5fff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">207
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 135, 0); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff8700, #be731f); --darkreader-inline-bgimage: none;" title="#ff8700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">208
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 135, 95); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff875f, #923c1f); --darkreader-inline-bgimage: none;" title="#ff875f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">209
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 135, 135); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff8787, #7f1f1f); --darkreader-inline-bgimage: none;" title="#ff8787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">210
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 135, 175); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff87af, #7f1f3f); --darkreader-inline-bgimage: none;" title="#ff87af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">211
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 135, 215); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff87d7, #7f1f5f); --darkreader-inline-bgimage: none;" title="#ff87d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">212
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(255, 135, 255); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ff87ff, #7f1f7f); --darkreader-inline-bgimage: none;" title="#ff87ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">213
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 175, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffaf00, #96711f); --darkreader-inline-bgimage: none;" title="#ffaf00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">214
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 175, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffaf5f, #92591f); --darkreader-inline-bgimage: none;" title="#ffaf5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">215
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 175, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffaf87, #7f3f1f); --darkreader-inline-bgimage: none;" title="#ffaf87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">216
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 175, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffafaf, #6c1f1f); --darkreader-inline-bgimage: none;" title="#ffafaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">217
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 175, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffafd7, #6c1f46); --darkreader-inline-bgimage: none;" title="#ffafd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">218
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 175, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffafff, #6c1f6c); --darkreader-inline-bgimage: none;" title="#ffafff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">219
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 215, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffd700, #96841f); --darkreader-inline-bgimage: none;" title="#ffd700" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">220
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 215, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffd75f, #75601f); --darkreader-inline-bgimage: none;" title="#ffd75f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">221
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 215, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffd787, #7f5f1f); --darkreader-inline-bgimage: none;" title="#ffd787" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">222
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 215, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffd7af, #6c461f); --darkreader-inline-bgimage: none;" title="#ffd7af" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">223
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 215, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffd7d7, #591f1f); --darkreader-inline-bgimage: none;" title="#ffd7d7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">224
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 215, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffd7ff, #591f59); --darkreader-inline-bgimage: none;" title="#ffd7ff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">225
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 0); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffff00, #96961f); --darkreader-inline-bgimage: none;" title="#ffff00" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">226
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 95); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffff5f, #75751f); --darkreader-inline-bgimage: none;" title="#ffff5f" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">227
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 135); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffff87, #67671f); --darkreader-inline-bgimage: none;" title="#ffff87" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">228
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 175); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffffaf, #59591f); --darkreader-inline-bgimage: none;" title="#ffffaf" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">229
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 215); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffffd7, #4a4a1f); --darkreader-inline-bgimage: none;" title="#ffffd7" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">230
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(255, 255, 255); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-ffffff, #313334); --darkreader-inline-bgimage: none;" title="#ffffff" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">231
+</td></tr>
+
+
+<tr>
+<td colspan="36">Grayscale colors
+</td></tr>
+<tr>
+<td colspan="36">
+<table style="width:100%;text-align:center;font-weight:bold;">
+
+<tbody><tr>
+<td style="color: rgb(255, 255, 255); background: rgb(8, 8, 8); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-080808, #232424); --darkreader-inline-bgimage: none;" title="#080808" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">232
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(18, 18, 18); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-121212, #2a2a2a); --darkreader-inline-bgimage: none;" title="#121212" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">233
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(28, 28, 28); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-1c1c1c, #2f3131); --darkreader-inline-bgimage: none;" title="#1c1c1c" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">234
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(38, 38, 38); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-262626, #353738); --darkreader-inline-bgimage: none;" title="#262626" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">235
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(48, 48, 48); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-303030, #3b3d3f); --darkreader-inline-bgimage: none;" title="#303030" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">236
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(58, 58, 58); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-3a3a3a, #414345); --darkreader-inline-bgimage: none;" title="#3a3a3a" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">237
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(68, 68, 68); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-444444, #474a4c); --darkreader-inline-bgimage: none;" title="#444444" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">238
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(78, 78, 78); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-4e4e4e, #4d5152); --darkreader-inline-bgimage: none;" title="#4e4e4e" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">239
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(88, 88, 88); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-585858, #525759); --darkreader-inline-bgimage: none;" title="#585858" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">240
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(98, 98, 98); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-626262, #595d60); --darkreader-inline-bgimage: none;" title="#626262" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">241
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(108, 108, 108); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-6c6c6c, #5e6366); --darkreader-inline-bgimage: none;" title="#6c6c6c" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">242
+</td>
+<td style="color: rgb(255, 255, 255); background: rgb(118, 118, 118); --darkreader-inline-color: var(--darkreader-text-ffffff, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-767676, #646a6d); --darkreader-inline-bgimage: none;" title="#767676" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">243
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(128, 128, 128); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-808080, #6a7073); --darkreader-inline-bgimage: none;" title="#808080" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">244
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(138, 138, 138); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-8a8a8a, #656b6e); --darkreader-inline-bgimage: none;" title="#8a8a8a" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">245
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(148, 148, 148); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-949494, #606669); --darkreader-inline-bgimage: none;" title="#949494" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">246
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(158, 158, 158); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-9e9e9e, #5c6164); --darkreader-inline-bgimage: none;" title="#9e9e9e" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">247
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(168, 168, 168); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-a8a8a8, #585c5f); --darkreader-inline-bgimage: none;" title="#a8a8a8" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">248
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(178, 178, 178); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-b2b2b2, #53585a); --darkreader-inline-bgimage: none;" title="#b2b2b2" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">249
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(188, 188, 188); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-bcbcbc, #4f5355); --darkreader-inline-bgimage: none;" title="#bcbcbc" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">250
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(198, 198, 198); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-c6c6c6, #4a4e50); --darkreader-inline-bgimage: none;" title="#c6c6c6" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">251
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(208, 208, 208); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-d0d0d0, #474a4b); --darkreader-inline-bgimage: none;" title="#d0d0d0" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">252
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(218, 218, 218); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-dadada, #424547); --darkreader-inline-bgimage: none;" title="#dadada" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">253
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(228, 228, 228); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-e4e4e4, #3d4041); --darkreader-inline-bgimage: none;" title="#e4e4e4" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">254
+</td>
+<td style="color: rgb(0, 0, 0); background: rgb(238, 238, 238); --darkreader-inline-color: var(--darkreader-text-000000, #d4d3d0); --darkreader-inline-bgcolor: var(--darkreader-background-eeeeee, #393b3c); --darkreader-inline-bgimage: none;" title="#eeeeee" data-darkreader-inline-color="" data-darkreader-inline-bgcolor="" data-darkreader-inline-bgimage="">255
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+"""#
+
+

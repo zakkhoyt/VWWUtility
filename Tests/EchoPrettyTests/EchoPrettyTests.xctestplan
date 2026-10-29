@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "47695157-3DA0-4292-A192-8EDFEEAB26C1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "EchoPrettyTests",
+        "name" : "EchoPrettyTests"
+      }
+    }
+  ],
+  "version" : 1
+}

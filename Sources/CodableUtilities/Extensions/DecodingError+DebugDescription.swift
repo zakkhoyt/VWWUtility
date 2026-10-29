@@ -8,16 +8,16 @@
 
 import Foundation
 
-extension DecodingError: @retroactive CustomDebugStringConvertible {
-    public func debugDescription<Key : CodingKey>(
+extension DecodingError: DecodingFailureReasonsConvertible {
+    public func decodingFailureReasons<Key : CodingKey>(
         decoder: any Decoder,
         container: KeyedDecodingContainer<Key>
     ) -> String {
         guard let jsonSourceURL = decoder.jsonSourceURL else {
-            return debugDescription
+            return decodingFailureReasons
         }
         return """
-        \(debugDescription)
+        \(decodingFailureReasons)
         jsonSourceURL: \(jsonSourceURL.path())
         \(decoder.inspectJsonSourceFileShellCommand(container: container))
         """
@@ -26,12 +26,13 @@ extension DecodingError: @retroactive CustomDebugStringConvertible {
     
 #warning("""
 FIXME: zakkhoyt - after porting `func inspectJsonSourceFile` into this package from HatchSwiftPackageGrapher
-* add support for CodingUserInfoKey.jsonSourceURLKey to debugDescription
-* add support for func inspectJsonSourceFile to debugDescription
+* add support for CodingUserInfoKey.jsonSourceURLKey to decodingFailureReasons
+* add support for func inspectJsonSourceFile to decodingFailureReasons
 """)
     /// Returns a `String` describing why the `DecodingError` arose,
-    /// where it occurred, any underlying errors, and context clues.
-    public var debugDescription: String {
+    /// where it occurred while parsing the payload, any underlying errors, contexts, subjects,
+    /// and other clues.
+    public var decodingFailureReasons: String {
         [
             "DecodingError",
             "error: \(localizedDescription)",

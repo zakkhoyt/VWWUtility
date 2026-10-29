@@ -1,0 +1,2 @@
+Text with 
+ newline and 	 tab

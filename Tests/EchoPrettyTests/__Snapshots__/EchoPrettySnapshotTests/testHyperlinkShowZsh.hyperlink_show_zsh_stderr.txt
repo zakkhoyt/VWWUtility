@@ -1,0 +1,23 @@
+distilledArguments -> processedArguments
+processingEscapeChars
+  distilledArguments[0]
+    input: arg
+    output: processedArg
+      changed: true
+processingEscapeChars
+  distilledArguments[1]
+    input: arg
+    output: processedArg
+      changed: true
+Will inspect 2 processedArguments
+    Converted --link to OSC 8 hyperlink: title='the docs' uri='https://example.com'
+Did inspect 2 arguments
+
+Final outputs: \x1B]8;;https://example.com\x1B\\x1B[94m\x1B[4mthe docs\x1B[0m\x1B]8;;\x1B\[0m
+
+ANSI Escape Code Syntax for 0x001B:
+  Shell: \x1B    (hex)
+  Shell: \033    (oct)
+  Swift: \u{1B}  (hex)
+ (copied to pasteboard)
+  [35mecho "\x1B]8;;https://example.com\x1B\\x1B[94m\x1B[4mthe docs\x1B[0m\x1B]8;;\x1B\" 1>&2[0m
