@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension DecodingError {
+extension DecodingError: DecodingFailureReasonsConvertible {
     public func decodingFailureReasons<Key : CodingKey>(
         decoder: any Decoder,
         container: KeyedDecodingContainer<Key>
