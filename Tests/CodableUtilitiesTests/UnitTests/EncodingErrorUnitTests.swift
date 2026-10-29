@@ -97,9 +97,9 @@ final class EncodingErrorUnitTests: XCTestCase {
             // context: Expected to encode String, found Int.
             XCTAssertTrue(error.encodingFailureReasons.contains(EncodingErrorUnitTests.encodingErrorSnippet))
 
-            // The same description is reachable via the `CodingFailureReasonsConvertible` protocol
-            let convertible: any CodingFailureReasonsConvertible = error
-            XCTAssertEqual(convertible.codingFailureReasons, error.encodingFailureReasons)
+            // The same description is reachable via the `EncodingFailureReasonsConvertible` protocol
+            let convertible: any EncodingFailureReasonsConvertible = error
+            XCTAssertEqual(convertible.encodingFailureReasons, error.encodingFailureReasons)
         } catch {
             XCTFail(error.localizedDescription)
         }

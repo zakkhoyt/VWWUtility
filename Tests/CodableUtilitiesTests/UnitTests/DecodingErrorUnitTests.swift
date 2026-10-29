@@ -147,9 +147,9 @@ final class DecodingErrorTests: XCTestCase {
             print(error.decodingFailureReasons)
             XCTAssertTrue(error.decodingFailureReasons.contains(errorSnippet), file: file, line: line)
 
-            // The same description is reachable via the `CodingFailureReasonsConvertible` protocol
-            let convertible: any CodingFailureReasonsConvertible = error
-            XCTAssertEqual(convertible.codingFailureReasons, error.decodingFailureReasons, file: file, line: line)
+            // The same description is reachable via the `DecodingFailureReasonsConvertible` protocol
+            let convertible: any DecodingFailureReasonsConvertible = error
+            XCTAssertEqual(convertible.decodingFailureReasons, error.decodingFailureReasons, file: file, line: line)
         } catch {
             XCTFail(
                 "Expected DecodingError, got other type of error: \(error.localizedDescription)",

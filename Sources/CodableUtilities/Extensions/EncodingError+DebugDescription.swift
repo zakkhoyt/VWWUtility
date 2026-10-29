@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension EncodingError {
+extension EncodingError: EncodingFailureReasonsConvertible {
     /// Returns a `String` describing why the `EncodingError` arose,
     /// where it occurred, any underlying errors, and context clues.
     public var encodingFailureReasons: String {
