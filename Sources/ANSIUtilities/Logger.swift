@@ -10,7 +10,7 @@ import os.log
 
 // swiftlint:disable prefixed_toplevel_constant
 let logger = os.Logger(
-    subsystem: "co.hatch",
+    subsystem: "com.vaporwarewolf",
     category: "ANSIUtilities"
 )
 // swiftlint:enable prefixed_toplevel_constant

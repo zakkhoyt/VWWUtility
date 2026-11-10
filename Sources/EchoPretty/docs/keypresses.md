@@ -11,7 +11,7 @@ echo_pretty --picker \
 
 
 ```
-I'd like to add keyboardkeypress detection somwhere under `Sources/HatchTerminalTools/ANSI` 
+I'd like to add keyboardkeypress detection somwhere under `Sources/ANSIUtilities` 
 
 
 [This article]( https://www.polpiella.dev/how-to-make-an-interactive-picker-for-a-swift-command-line-tool) has an example for monitoring the arrow keys in a command line app

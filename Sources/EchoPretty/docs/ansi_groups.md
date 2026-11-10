@@ -1,4 +1,4 @@
-The goal of this issue is to update `echo_pretty` and `Sources/HatchTerminalTools/ANSI/*` (probably `Sources/HatchTerminalTools/ANSI/Ansi+Style.swift`) so that it supports several more "composed" styles\x1B[1m
+The goal of this issue is to update `echo_pretty` and `Sources/ANSIUtilities/*` (probably `Sources/ANSIUtilities/Ansi+Style.swift`) so that it supports several more "composed" styles\x1B[1m
 
 For example (you won't see this in `echo_pretty --help` at this time) but it supports a few already:
 
@@ -8,7 +8,7 @@ echo_pretty --code 'let x = Int(34)' --default
 ```
 
 
-The `--url` and `--code` args are parsed in `Sources/EchoPretty/main.swift` and then mapped to compose simpler styles in `Sources/HatchTerminalTools/ANSI/Ansi+Style.swift`\x1B[1m
+The `--url` and `--code` args are parsed in `Sources/EchoPretty/main.swift` and then mapped to compose simpler styles in `Sources/ANSIUtilities/Ansi+Style.swift`\x1B[1m
 
 
 Here is a script taht expresses the new composed styles  I'd like added. 

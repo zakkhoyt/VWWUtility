@@ -25,9 +25,9 @@ extension Shellable {
     /// * `stderr`
     /// * `ANSI` escape codes:
     ///
-    /// - SeeAlso: ``HatchTerminalTools/FileDescriptor.swift``
-    /// - SeeAlso: ``HatchTerminalTools/ANSI.swift``
-    /// - SeeAlso: ``HatchTerminalTools/ANSI+Item.swift``
+    /// - SeeAlso: `ANSIUtilities/FileDescriptor.swift`
+    /// - SeeAlso: `ANSIUtilities/Ansi.swift`
+    /// - SeeAlso: `ANSIUtilities/Ansi+Item.swift`
     /// - SeeAlso: `NSTask` renamed to `Process`
     /// - See: [Streams, Sockets, and Ports](https://developer.apple.com/documentation/foundation/streams_sockets_and_ports)
     /// Use low-level Unix features to manage input and output among files, processes, and the network. https://developer.apple.com/documentation/foundation/streams_sockets_and_ports

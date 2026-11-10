@@ -1,269 +1,201 @@
 #!/usr/bin/env -S zsh -euo pipefail
 # shellcheck shell=bash # trick shellcheck into working with zsh
 # shellcheck disable=SC2296 # Falsely identifies zsh expansions
-# shellcheck disable=SC1091 # Complains about sourcing without literal path
 #
 # ---- ---- ----  About this Script  ---- ---- ----
 #
 # Purpose: Build a release echo_pretty binary (arm64 by default). Optionally also
 #          build x86_64 + a lipo-merged universal binary, and optionally install it.
-# Author:  zakkhoyt
 # Usage:   ./scripts/build-echo-pretty.zsh [--universal] [--output-dir <dir>] [--install] [--install-dir <dir>]
+#          ./scripts/build-echo-pretty.zsh --help
 #
-# echo_pretty was relocated here from HatchTerminal on 2026-10-28
-# (branch zakk/echo_pretty/relocate_to_vwwutility).
+# Needs only zsh, the Swift toolchain (`swift`) and `lipo` (Xcode command line tools).
 #
 
-# ---- ---- ----     Source Utilities     ---- ---- ----
+# ---- ---- ----     Logging     ---- ---- ----
 
-# Sourced without "$0" "$@" on purpose: boilerplate must strip common flags (--help, --debug, ...)
-# from this script's $@ so the script-specific `zparseopts -F` below doesn't reject them.
-source "$HOME/.zsh_home/utilities/.zsh_boilerplate"
+# Colors only when stderr is a terminal and NO_COLOR isn't set (https://no-color.org).
+if [[ -t 2 && -z "${NO_COLOR:-}" && "${TERM:-}" != dumb ]]; then
+  typeset -r c_bold=$'\e[1m' c_code=$'\e[96m' c_faint=$'\e[2m' c_ok=$'\e[32m' c_err=$'\e[31m' c_warn=$'\e[33m' c_reset=$'\e[0m'
+else
+  typeset -r c_bold="" c_code="" c_faint="" c_ok="" c_err="" c_warn="" c_reset=""
+fi
+
+typeset is_debug=""
+
+# Status lines go to stderr; stdout stays free for the binary paths.
+function log_step    { print -u2 -r -- "${c_bold}==>${c_reset} $*" }
+function log_success { print -u2 -r -- "${c_ok}[OK]${c_reset} $*" }
+function log_warning { print -u2 -r -- "${c_warn}[WARNING]${c_reset} $*" }
+function log_error   { print -u2 -r -- "${c_err}[ERROR]${c_reset} $*" }
+function log_debug   { [[ -n "$is_debug" ]] && print -u2 -r -- "${c_faint}[DEBUG] $*${c_reset}"; return 0 }
 
 # ---- ---- ----     Usage     ---- ---- ----
 
 # Captured at root scope: inside a function, $0 is the function name.
 typeset -r script_name="${0:A:t}"
-slog_var1_se_d "script_name"
+typeset -r default_install_dir="$HOME/.local/bin"
 
 function print_usage {
-  local -r i2="${INDENT_2:-  }"
-  local -r i4="${INDENT_4:-    }"
-  local -r i6="${i2}${i4}"
+  print -r -- "${c_bold}SYNOPSIS${c_reset}
+  ${c_code}${script_name} [--universal] [--output-dir <dir>] [--install] [--install-dir <dir>] [-d|--debug]${c_reset}
 
-  slog_se --bold "SYNOPSIS" --default
-  slog_se
-  slog_se "${i2}" --code "${script_name} [--universal] [--output-dir <dir>] [--install] [--install-dir <dir>] [DEVELOPMENT OPTIONS]" --default
-  slog_se
+${c_bold}DESCRIPTION${c_reset}
+  Build a release echo_pretty binary. arm64 only by default; --universal also builds x86_64 and
+  merges both into a universal binary.
 
-  slog_se --bold "OPTIONS" --default
-  slog_se
-  # Option names are embedded in an indented string on purpose: echo_pretty treats separate args that
-  # begin with `--` (EX: --code '--help') as its own flags and drops them.
-  slog_se "${i2}" --bold --italic "SCRIPT OPTIONS" --default
-  slog_se --bold "${i4}--universal" --default
-  slog_se "${i6}Also build x86_64 and lipo-merge a universal binary (optional, default: arm64 only)"
-  slog_se --bold "${i4}--output-dir <dir>" --default
-  slog_se "${i6}Root dir for build output (optional, default: <repo>/.gitignored/release)"
-  slog_se --bold "${i4}--install" --default
-  slog_se "${i6}Copy the built binary (universal if --universal, else arm64) into the install dir (optional)"
-  slog_se --bold "${i4}--install-dir <dir>" --default
-  slog_se "${i6}Install dir, implies --install (optional, default: \$HOME/.zsh_home/bin)"
-  slog_se
-  slog_se "${i2}" --bold --italic "META-OPTIONS" --default
-  slog_se --bold "${i4}--help" --default
-  slog_se "${i6}Display this help message and exit"
-  slog_se
+${c_bold}OPTIONS${c_reset}
+  ${c_code}--universal${c_reset}
+      Also build x86_64 and lipo-merge a universal binary (default: arm64 only)
+  ${c_code}--output-dir <dir>${c_reset}
+      Root dir for build output (default: <repo>/.gitignored/release)
+  ${c_code}--install${c_reset}
+      Copy the built binary (universal if --universal, else arm64) into the install dir
+  ${c_code}--install-dir <dir>${c_reset}
+      Install dir; implies --install (default: ${default_install_dir})
+  ${c_code}--help${c_reset}
+      Show this help message and exit
 
-  slog_se --bold "DEVELOPMENT OPTIONS" --default
-  slog_se
-  slog_se --bold "${i4}-d, --debug" --default
-  slog_se "${i6}Enable debug output"
-  slog_se
+${c_bold}DEVELOPMENT OPTIONS${c_reset}
+  ${c_code}-d, --debug${c_reset}
+      Print debug output
 
-  slog_se --bold "OUTPUT" --default
-  slog_se
-  slog_se "${i2}Binaries are written to " --url "<output-dir>/{arm64,x86_64,universal}/echo_pretty" --default
-  slog_se
+${c_bold}OUTPUT${c_reset}
+  Binaries are written to ${c_code}<output-dir>/{arm64,x86_64,universal}/echo_pretty${c_reset}
 
-  slog_se --bold "EXAMPLES" --default
-  slog_se
-  slog_se "${i2}${SYMBOL_BULLET:-•} Build arm64 only"
-  slog_se "${i4}" --code "./scripts/${script_name}" --default
-  slog_se
-  slog_se "${i2}${SYMBOL_BULLET:-•} Build universal and install to \$HOME/.zsh_home/bin"
-  slog_se "${i4}" --code "./scripts/${script_name} --universal --install" --default
-  slog_se
-
-  return 1
+${c_bold}EXAMPLES${c_reset}
+  Build arm64 only:
+    ${c_code}./scripts/${script_name}${c_reset}
+  Build universal and install to ${default_install_dir}:
+    ${c_code}./scripts/${script_name} --universal --install${c_reset}"
 }
-
-if [[ -n "${flag_help:-}" ]]; then
-  print_usage || true
-  exit 0
-fi
 
 # ---- ---- ----   Argument Parsing   ---- ---- ----
 
+# -D: remove parsed options from $@
+# -F: fail on unknown options
+# See: `man zshmodules` (zparseopts)
 zparseopts -D -F -- \
   -output-dir:=opt_output_dir \
   -universal=flag_universal \
   -install=flag_install \
-  -install-dir:=opt_install_dir
+  -install-dir:=opt_install_dir \
+  d=flag_debug -debug=flag_debug \
+  -help=flag_help || {
+    print_usage >&2
+    exit 2
+  }
+
+if (( ${#flag_help} )); then
+  print_usage
+  exit 0
+fi
+
+is_debug="${flag_debug:+true}"
 
 typeset -r product="echo_pretty"
-slog_var1_se_d "product"
-
 typeset -r repo_dir="${0:A:h:h}"
-slog_var1_se_d "repo_dir"
-
 typeset -r output_dir="${opt_output_dir[-1]:-${repo_dir}/.gitignored/release}"
-slog_var1_se_d "output_dir"
-
 typeset -r is_universal="${flag_universal:+true}"
-slog_var1_se_d "is_universal"
-
 # --install-dir implies --install
 typeset -r is_install="${${flag_install:-${opt_install_dir:-}}:+true}"
-slog_var1_se_d "is_install"
-
-typeset -r install_dir="${opt_install_dir[-1]:-$HOME/.zsh_home/bin}"
-slog_var1_se_d "install_dir"
-
+typeset -r install_dir="${opt_install_dir[-1]:-$default_install_dir}"
 typeset -r arm_dir="${output_dir}/arm64"
-slog_var1_se_d "arm_dir"
-
 typeset -r x86_dir="${output_dir}/x86_64"
-slog_var1_se_d "x86_dir"
-
 typeset -r universal_dir="${output_dir}/universal"
-slog_var1_se_d "universal_dir"
+
+log_debug "repo_dir=${repo_dir}"
+log_debug "output_dir=${output_dir}"
+log_debug "is_universal=${is_universal} is_install=${is_install} install_dir=${install_dir}"
 
 # ---- ---- ----     Functions     ---- ---- ----
 
 # Builds `$product` in release for one architecture and copies the binary to `$output_dir/<arch>/`.
-# # SYNOPSIS
-# ```zsh
-# build_for_arch --arch <arch>
-# ```
-# # ARGS
-# * `--arch <arch>` - Architecture to build. EX: `arm64`, `x86_64`
-# # EXIT STATUS
-# * `0` - Success
-# * non-zero - `swift build` or `cp` failed (exit code is passed through)
-# # STDOUT
-# None
-# # STDERR
-# * Build output when the build fails
-# * Debug logs when `--debug` is set
+#   build_for_arch <arch>    # arm64 or x86_64
+# Exit status: 0 on success, else the failing command's.
 function build_for_arch {
-  zparseopts -D -F -- \
-    -arch:=opt_arch
-
-  local -r arch="${opt_arch[-1]}"
-  slog_var1_se_d "arch"
-
+  local -r arch="$1"
   local -r arch_dir="${output_dir}/${arch}"
-  slog_var1_se_d "arch_dir"
+  local -r -a build_cmd=(swift build --package-path "$repo_dir" --product "$product" --configuration release --arch "$arch")
 
-  local -r build_cmd="swift build --package-path ${(qqq)repo_dir} --product ${product} --configuration release --arch ${arch}"
-  slog_var1_se_d "build_cmd"
-
-  local -r bin_path_cmd="${build_cmd} --show-bin-path"
-  slog_var1_se_d "bin_path_cmd"
-
-  # [step] Build release binary
-  slog_step_se_d --context will "build ${product} release for ${arch}: " --code "$build_cmd" --default
-
+  log_step "build ${product} release for ${arch}: ${c_code}${(j: :)${(@q-)build_cmd}}${c_reset}"
   local build_output=""
-  build_output="$(eval "$build_cmd" 2>&1)" || {
+  build_output="$("${build_cmd[@]}" 2>&1)" || {
     local -i exit_code=$?
-    slog_se "$build_output"
-    slog_step_se --context fatal --exit-code "$exit_code" "build ${product} release for ${arch}: " --code "$build_cmd" --default
+    print -u2 -r -- "$build_output"
+    log_error "build ${product} release for ${arch} failed (exit ${exit_code})"
     return $exit_code
   }
-  slog_var1_se_d "build_output"
-  slog_step_se_d --context success "built ${product} release for ${arch}"
+  log_debug "$build_output"
 
-  # [step] Locate the built binary. Ask SwiftPM rather than hard-coding `.build/<arch>-apple-macosx/release`:
-  # the Swift Build backend (Swift 6.4+) writes every arch to the same `.build/out/Products/Release` dir,
-  # which is why each arch's binary is copied out right after it is built.
-  slog_step_se_d --context will "locate ${arch} binary: " --code "$bin_path_cmd" --default
-
+  # Ask SwiftPM for the bin path rather than hard-coding `.build/<arch>-apple-macosx/release`: the
+  # Swift Build backend (Swift 6.4+) writes every arch to the same `.build/out/Products/Release`
+  # dir, which is why each arch's binary is copied out right after it is built.
   local bin_path=""
-  bin_path="$(eval "$bin_path_cmd" 2>/dev/null | tail -n 1)" || {
+  bin_path="$("${build_cmd[@]}" --show-bin-path 2>/dev/null | tail -n 1)" || {
     local -i exit_code=$?
-    slog_step_se --context fatal --exit-code "$exit_code" "locate ${arch} binary: " --code "$bin_path_cmd" --default
+    log_error "locate the ${arch} binary failed (exit ${exit_code})"
     return $exit_code
   }
   local -r built_binary="${bin_path}/${product}"
-  slog_var1_se_d "built_binary"
-  slog_step_se_d --context success "located ${arch} binary: " --url "$built_binary" --default
-
-  # [step] Copy binary to output dir
-  slog_step_se_d --context will "copy ${arch} binary to " --url "$arch_dir" --default
+  log_debug "built_binary=${built_binary}"
 
   mkdir -p "$arch_dir"
   cp "$built_binary" "${arch_dir}/${product}" || {
     local -i exit_code=$?
-    slog_step_se --context fatal --exit-code "$exit_code" "copy ${arch} binary to " --url "$arch_dir" --default
+    log_error "copy the ${arch} binary to ${arch_dir} failed (exit ${exit_code})"
     return $exit_code
   }
-
-  slog_step_se_d --context success "copied ${arch} binary to " --url "$arch_dir" --default
-  return 0
+  log_success "built ${arch_dir}/${product}"
 }
 
 # ---- ---- ----     Script Work     ---- ---- ----
 
-build_for_arch --arch "arm64" || exit $?
+build_for_arch arm64 || exit $?
 
 if [[ -n "$is_universal" ]]; then
-  build_for_arch --arch "x86_64" || exit $?
+  build_for_arch x86_64 || exit $?
 
-  # [step] lipo universal binary
-  typeset -r lipo_cmd="lipo -create -output ${(qqq)universal_dir}/${product} ${(qqq)x86_dir}/${product} ${(qqq)arm_dir}/${product}"
-  slog_var1_se_d "lipo_cmd"
-  slog_step_se_d --context will "create universal binary: " --code "$lipo_cmd" --default
-
+  log_step "create universal binary"
   mkdir -p "$universal_dir"
-  eval "$lipo_cmd" || {
+  lipo -create -output "${universal_dir}/${product}" "${x86_dir}/${product}" "${arm_dir}/${product}" || {
     typeset -i exit_code=$?
-    slog_step_se --context fatal --exit-code "$exit_code" "create universal binary: " --code "$lipo_cmd" --default
+    log_error "lipo failed (exit ${exit_code})"
     exit $exit_code
   }
-
-  slog_step_se_d --context success "created universal binary"
+  log_success "built ${universal_dir}/${product}"
 else
-  slog_step_se_d --context info "skipping x86_64 and universal binaries (pass " --code "--universal" --default " to opt in)"
+  log_debug "skipping x86_64 and universal binaries (pass --universal to opt in)"
 fi
 
-# [step] Report output
-slog_step_se --context finished "${product} release binaries written to " --url "$output_dir" --default
-
+# Report: one binary path per line on stdout, its architectures on stderr
 typeset -a report_dirs=("$arm_dir")
 [[ -n "$is_universal" ]] && report_dirs+=("$x86_dir" "$universal_dir")
-slog_var1_se_d "report_dirs"
-
-for ((i=1; i<=${#report_dirs[@]}; i++)); do
-  typeset binary="${report_dirs[$i]}/${product}"
+typeset dir binary file_info
+for dir in "${report_dirs[@]}"; do
+  binary="${dir}/${product}"
   [[ -f "$binary" ]] || continue
-  typeset file_info="$(lipo -info "$binary" 2>/dev/null)"
-  slog_se "  " --url "$binary" --default "
-    ${file_info##*: }"
+  file_info="$(lipo -info "$binary" 2>/dev/null)"
+  print -r -- "$binary"
+  print -u2 -r -- "    ${c_faint}${file_info##*: }${c_reset}"
 done
 
-# [step] Install (opt-in)
+# Install (opt-in)
 if [[ -n "$is_install" ]]; then
   typeset install_source="${arm_dir}/${product}"
   [[ -n "$is_universal" ]] && install_source="${universal_dir}/${product}"
-  slog_var1_se_d "install_source"
 
-  if [[ ! -d "$install_dir" ]]; then
-    slog_step_se_d --context will "create install dir " --url "$install_dir" --default
-    mkdir -p "$install_dir" || {
-      typeset -i exit_code=$?
-      slog_step_se --context fatal --exit-code "$exit_code" "create install dir " --url "$install_dir" --default
-      exit $exit_code
-    }
-    slog_step_se --context did "create install dir " --url "$install_dir" --default
-  fi
-
-  slog_step_se_d --context will "install ${product} to " --url "$install_dir" --default
-
-  cp "$install_source" "${install_dir}/${product}" || {
+  log_step "install ${product} to ${install_dir}"
+  mkdir -p "$install_dir" && cp "$install_source" "${install_dir}/${product}" && chmod +x "${install_dir}/${product}" || {
     typeset -i exit_code=$?
-    slog_step_se --context fatal --exit-code "$exit_code" "install ${product} to " --url "$install_dir" --default
+    log_error "install to ${install_dir} failed (exit ${exit_code})"
     exit $exit_code
   }
-  chmod +x "${install_dir}/${product}"
+  log_success "installed ${install_dir}/${product}"
 
-  slog_step_se --context success "installed ${product} to " --url "${install_dir}/${product}" --default
-
-  # Warn if install_dir is not on PATH (compare absolute paths so `~`, symlinks, and trailing slashes don't matter)
+  # Compare absolute paths so `~`, symlinks and trailing slashes don't matter.
   typeset -r -a abs_path_dirs=("${(@)path:A}")
   if (( ! ${abs_path_dirs[(Ie)${install_dir:A}]} )); then
-    # slog_warning_se (deprecated in favor of `slog_step_se --context warning`) used on purpose: explicitly requested.
-    slog_warning_se --url "$install_dir" --default " is not in PATH. Add it to your shell config: " --code "export PATH=\"${install_dir}:\$PATH\"" --default
+    log_warning "${install_dir} is not on PATH. Add it to your shell config: ${c_code}export PATH=\"${install_dir}:\$PATH\"${c_reset}"
   fi
 fi
