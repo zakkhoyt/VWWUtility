@@ -73,7 +73,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "--name=&quot;zakkbookmax&quot;"
+            argument = "--name=&quot;my-mac&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

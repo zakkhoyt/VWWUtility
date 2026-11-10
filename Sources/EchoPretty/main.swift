@@ -29,7 +29,7 @@
 /// # Compiled output from VSCode
 /// .build/debug/echo_pretty "write to stdout"
 /// # Compiled output from Xcode
-/// /Users/zakkhoyt/Library/Developer/Xcode/DerivedData/HatchTerminal-cjeenqfyvaitvxemximkxngrznzt/Build/Products/Debug/echo_pretty "write to stdout"
+/// ~/Library/Developer/Xcode/DerivedData/<project>-<hash>/Build/Products/Debug/echo_pretty "write to stdout"
 /// # After compiling, renaming, installing in PATH
 /// echo_pretty "write to stdout"
 /// ```
@@ -83,7 +83,7 @@ onetwothree
 
 #warning("""
 TODO: zakkhoyt (os.log support) - Support for logging like os.logger does?
-* echo_pretty could either call hatch_log (if installed) or write directly to os.logger
+* echo_pretty could either call an external logging tool (if installed) or write directly to os.logger
 * if direct, how to handle log level?
 * ENV var support: ECHO_PRETTY_NO_TRAILING_DEFAULT_FLAG
 """)
@@ -109,7 +109,7 @@ private let version = "2.6.0"
 
 // swiftlint:disable:next prefixed_toplevel_constant
 private let logger = os.Logger(
-    subsystem: "co.hatch",
+    subsystem: "com.vaporwarewolf",
     category: "echo_pretty"
 )
 
@@ -180,7 +180,6 @@ func printDump() {
 func printUsage() {
 #warning("""
 FIXME: zakkhoyt - Use result builder to combine strings
-* See HatchModuleMaker/FileBuilder
 """)
     
     FileDescriptor.stderr.writeLines(

@@ -611,12 +611,12 @@ public enum ANSI: String, ANSIDescriber, CaseIterable {
     #warning("""
     TODO: zakkhoyt - DRY: Centralize escape codes (be the single source)
     ```log
-    2024-08-23 16:29:47.308 Db echo_pretty[86895:f2786e] [co.hatch:echo_pretty] Showing ANSI Decorated Strings:
+    2024-08-23 16:29:47.308 Db echo_pretty[86895:f2786e] [com.vaporwarewolf:echo_pretty] Showing ANSI Decorated Strings:
     ```
     """)
-//    2024-08-23 16:29:47.309 Db echo_pretty[86895:f2786e] [co.hatch:echo_pretty]   \134^[[35mstdout.write("\134u{1B}[96m\134u{1B}[4mURL\134u{1B}[0m")\134^[[0m
-//    2024-08-23 16:29:47.309 Db echo_pretty[86895:f2786e] [co.hatch:echo_pretty]   \134^[[35mecho -e "\134x1B[96m\134x1B[4mURL\134x1B[0m"\134^[[0m
-//    2024-08-23 16:29:47.309 Db echo_pretty[86895:f2786e] [co.hatch:echo_pretty]   \134^[[35mprintf "\134x1B[96m\134x1B[4mURL\134x1B[0m"\134^[[0m
+//    2024-08-23 16:29:47.309 Db echo_pretty[86895:f2786e] [com.vaporwarewolf:echo_pretty]   \134^[[35mstdout.write("\134u{1B}[96m\134u{1B}[4mURL\134u{1B}[0m")\134^[[0m
+//    2024-08-23 16:29:47.309 Db echo_pretty[86895:f2786e] [com.vaporwarewolf:echo_pretty]   \134^[[35mecho -e "\134x1B[96m\134x1B[4mURL\134x1B[0m"\134^[[0m
+//    2024-08-23 16:29:47.309 Db echo_pretty[86895:f2786e] [com.vaporwarewolf:echo_pretty]   \134^[[35mprintf "\134x1B[96m\134x1B[4mURL\134x1B[0m"\134^[[0m
 
     public enum EscapeCode {
         case shell(isPrintable: Bool)

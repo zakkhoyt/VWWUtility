@@ -34,20 +34,20 @@ import Foundation
 ///
 /// ```log
 /// "ignoreSwiftPackageURLs": "[
-///     file:///Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/HatchDependencyGrapher/Package.swift
+///     file:///path/to/project/DependencyGrapher/Package.swift
 /// ]"
 /// "isDebug": "false"
 /// "isDryRun": "false"
-/// "outputDirectoryURL": "/Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/SwiftDependencyGraph"
+/// "outputDirectoryURL": "/path/to/project/SwiftDependencyGraph"
 /// "renderEngine": "plantUML"
 /// "renderFormat": "svg"
-/// "rootDirectoryURL": "/Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2"
+/// "rootDirectoryURL": "/path/to/project"
 /// "skipJsonConversion": "true"
 /// "packageSwiftURLs": "
 /// [
-///     file:///Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/HatchLogger/Package.swift
-///     file:///Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/HatchModels/Package.swift
-///     file:///Users/zakkhoyt/code/repositories/hatch/hatch_sleep/2/ArgumentKit/Package.swift
+///     file:///path/to/project/Logging/Package.swift
+///     file:///path/to/project/Models/Package.swift
+///     file:///path/to/project/ArgumentKit/Package.swift
 /// ]"
 /// ```
 ///
