@@ -4,8 +4,7 @@
 
 # `echo_pretty`
 
-`echo_pretty` is `echo` with ANSI color, font, and cursor support, built on the `ANSIUtilities` library. Both were
-relocated here from `HatchTerminal` on `2026-10-28` (branch `zakk/echo_pretty/relocate_to_vwwutility`).
+`echo_pretty` is `echo` with ANSI color, font, and cursor support, built on the `ANSIUtilities` library.
 
 Build a release binary with [`scripts/build-echo-pretty.zsh`](scripts/build-echo-pretty.zsh):
 
@@ -13,7 +12,7 @@ Build a release binary with [`scripts/build-echo-pretty.zsh`](scripts/build-echo
 # arm64 only -> .gitignored/release/arm64/echo_pretty
 ./scripts/build-echo-pretty.zsh
 
-# Also build x86_64 + a universal binary, then install to ~/.zsh_home/bin
+# Also build x86_64 + a universal binary, then install to ~/.local/bin (or pass --install-dir <dir>)
 ./scripts/build-echo-pretty.zsh --universal --install
 
 # All options

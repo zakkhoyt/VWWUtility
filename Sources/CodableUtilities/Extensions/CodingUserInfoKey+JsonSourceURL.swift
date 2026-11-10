@@ -94,7 +94,7 @@ extension Decoder {
     /// Returns a shell script command to look at the portion of the JSON file
     /// ```sh
     /// # To view json value from the source file, run this command in a shell:
-    /// cat /Users/username/code/repositories/hatch/hatch_sleep/0/HatchAssets/.gitignored/SwiftPackageGrapher/Package.json | jq '.dependencies[1].sourceControl[0].requirement'
+    /// cat /path/to/Package.json | jq '.dependencies[1].sourceControl[0].requirement'
     /// ```
     public func inspectJsonSourceFileShellCommand<Key : CodingKey> (
         container: KeyedDecodingContainer<Key>
@@ -107,7 +107,7 @@ extension Decoder {
 //    /// Returns a shell script command to look at the portion of the JSON file
 //    /// ```sh
 //    /// # To view json value from the source file, run this command in a shell:
-//    /// cat /Users/username/code/repositories/hatch/hatch_sleep/0/HatchAssets/.gitignored/SwiftPackageGrapher/Package.json | jq '.dependencies[1].sourceControl[0].requirement'
+//    /// cat /path/to/Package.json | jq '.dependencies[1].sourceControl[0].requirement'
 //    /// ```
 //    public func inspectJsonSourceFile<Key : CodingKey> (
 //        container: KeyedDecodingContainer<Key>
